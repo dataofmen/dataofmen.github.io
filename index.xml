@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+    <channel>
+      <title>dataofmen</title>
+      <link>https://dataofmen.github.io</link>
+      <description>최근 10 건 on dataofmen</description>
+      <generator>Quartz -- quartz.jzhao.xyz</generator>
+      <item>
+    <title>고객 한 명당 월 5,000달러를 받는 1인 AI 에이전트 사업가</title>
+    <link>https://dataofmen.github.io/clippings/20260521-5000-1-ai</link>
+    <guid>https://dataofmen.github.io/clippings/20260521-5000-1-ai</guid>
+    <description><![CDATA[  닉 바실레스쿠는 고객 한 곳당 월 5,000달러를 받고 AI 에이전트를 만들어 운영해 주는 1인 사업을 굴리고 있어요. 고객은 토큰도, 모델도, 인프라도 만질 일이 없어요. 그저 자기 회사를 잘 아는 디지털 직원이 매주 더 똑똑해지는 걸 지켜보면 끝이에요. ]]></description>
+    <pubDate>Thu, 21 May 2026 02:42:09 GMT</pubDate>
+  </item><item>
+    <title>x.com</title>
+    <link>https://dataofmen.github.io/clippings/20260521-thread-2056924424838815824</link>
+    <guid>https://dataofmen.github.io/clippings/20260521-thread-2056924424838815824</guid>
+    <description><![CDATA[ Something went wrong, but don’t fret — let’s give it another shot. Some privacy related extensions may cause issues on x.com. ]]></description>
+    <pubDate>Thu, 21 May 2026 02:42:09 GMT</pubDate>
+  </item><item>
+    <title>x.com</title>
+    <link>https://dataofmen.github.io/clippings/20260521-thread-2057017304144298383</link>
+    <guid>https://dataofmen.github.io/clippings/20260521-thread-2057017304144298383</guid>
+    <description><![CDATA[ Something went wrong, but don’t fret — let’s give it another shot. Some privacy related extensions may cause issues on x.com. ]]></description>
+    <pubDate>Thu, 21 May 2026 02:42:09 GMT</pubDate>
+  </item><item>
+    <title>에이전트로 에이전트를 셋업하라 — 모든 문제의 답은 에이전트를 더 쓰는 것이다</title>
+    <link>https://dataofmen.github.io/garden/20260521-agent-bootstrap-agents</link>
+    <guid>https://dataofmen.github.io/garden/20260521-agent-bootstrap-agents</guid>
+    <description><![CDATA[ 에이전트 셋업이 무섭다는 사람에게 닉의 답은 단순하다: “셋업 방법을 모르겠으면 에이전트한테 시키세요.” Hermes Agent가 Hermes Agent를 설치한다. Claude Code가 Hermes를 자연어 명령으로 셋업한다. ]]></description>
+    <pubDate>Thu, 21 May 2026 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>기술 격차가 비즈니스 기회다 — 세상의 99%는 AI에서 한참 뒤처져 있다</title>
+    <link>https://dataofmen.github.io/garden/20260521-ai-skill-gap-is-business-opportunity</link>
+    <guid>https://dataofmen.github.io/garden/20260521-ai-skill-gap-is-business-opportunity</guid>
+    <description><![CDATA[ 클로드 코드를 셋업할 줄 안다는 사실을 당연하게 여기면 안 된다. 대부분의 기업은 이 작업을 할 시간도, 사람도, 의지도 없다. ]]></description>
+    <pubDate>Thu, 21 May 2026 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>&#039;AI 직원&#039;을 팔아야 한다 — &#039;AI 에이전트&#039;라는 말은 고객의 마법을 깨뜨린다</title>
+    <link>https://dataofmen.github.io/garden/20260521-sell-ai-employee-not-ai-agent</link>
+    <guid>https://dataofmen.github.io/garden/20260521-sell-ai-employee-not-ai-agent</guid>
+    <description><![CDATA[ 단어 하나가 고객의 뇌를 완전히 다른 모드로 전환시킨다. “AI 에이전트”라고 말하는 순간, 고객은 토큰·크레딧·사용량을 걱정하기 시작한다. “AI 직원”이라고 말하면, 고객은 그냥 결과를 기대한다. ]]></description>
+    <pubDate>Thu, 21 May 2026 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>1인 AI 에이전트 솔로프리너 비즈니스 모델</title>
+    <link>https://dataofmen.github.io/wiki/concepts/20260521-solo-ai-agent-solopreneur-model</link>
+    <guid>https://dataofmen.github.io/wiki/concepts/20260521-solo-ai-agent-solopreneur-model</guid>
+    <description><![CDATA[ 정의 AI 에이전트를 직접 구축·운영해 고객사에 월정액으로 제공하는 1인 서비스 사업. 기술 격차를 활용해 레거시 산업 고객에게 “AI 직원”을 풀서비스로 납품한다. ]]></description>
+    <pubDate>Thu, 21 May 2026 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>Forward Algorithm</title>
+    <link>https://dataofmen.github.io/wiki/concepts/20260515-forward-algorithm</link>
+    <guid>https://dataofmen.github.io/wiki/concepts/20260515-forward-algorithm</guid>
+    <description><![CDATA[ 정의 HMM의 세 가지 근본 문제 중 Likelihood 문제를 풀기 위한 동적 프로그래밍 알고리즘. 관측 시퀀스 O와 HMM λ=(A,B)가 주어졌을 때 P(O|λ)를 효율적으로 계산한다. ]]></description>
+    <pubDate>Sat, 16 May 2026 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>LLM Wiki — Karpathy</title>
+    <link>https://dataofmen.github.io/clippings/20260508-karpathy-llm-wiki</link>
+    <guid>https://dataofmen.github.io/clippings/20260508-karpathy-llm-wiki</guid>
+    <description><![CDATA[ A pattern for building personal knowledge bases using LLMs. This is an idea file, it is designed to be copy pasted to your own LLM Agent (e.g. ]]></description>
+    <pubDate>Fri, 15 May 2026 08:01:56 GMT</pubDate>
+  </item><item>
+    <title>Resumen rápido — 10 hacks para reducir el cortisol:</title>
+    <link>https://dataofmen.github.io/clippings/20260510-title-carlos-crear-y-crecer</link>
+    <guid>https://dataofmen.github.io/clippings/20260510-title-carlos-crear-y-crecer</guid>
+    <description><![CDATA[  Paseos silenciosos (20 min) Cerrar bucles de estrés Recuperar el control Honestidad brutal Calibrar tu alarma Identificar tu bucle primal Auditar tus entradas Programar tiempo no programado Pausar y t.co/58NtxE4kSU” / X Carlos · Crear y Crecer on X: “Resumen rápido — 10 hacks para reducir el cortis... ]]></description>
+    <pubDate>Fri, 15 May 2026 08:01:56 GMT</pubDate>
+  </item>
+    </channel>
+  </rss>
