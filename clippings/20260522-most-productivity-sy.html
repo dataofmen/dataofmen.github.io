@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr"><head><title>Most productivity systems fail because they are too complex to maintain and too scattered to navi...</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto Sans KR:wght@400;700&amp;family=Noto Sans KR:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="dataofmen"/><meta property="og:title" content="Most productivity systems fail because they are too complex to maintain and too scattered to navi..."/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="Most productivity systems fail because they are too complex to maintain and too scattered to navi..."/><meta name="twitter:description" content="CyrilXBT — Most productivity systems fail because they are too complex to maintain and too scattered to navigat… Most productivity systems fail because they are too complex to maintain and too scattered to navigate."/><meta property="og:description" content="CyrilXBT — Most productivity systems fail because they are too complex to maintain and too scattered to navigat… Most productivity systems fail because they are too complex to maintain and too scattered to navigate."/><meta property="og:image:alt" content="CyrilXBT — Most productivity systems fail because they are too complex to maintain and too scattered to navigat… Most productivity systems fail because they are too complex to maintain and too scattered to navigate."/><meta property="og:image" content="https://dataofmen.github.io/static/og-image.png"/><meta property="og:image:url" content="https://dataofmen.github.io/static/og-image.png"/><meta name="twitter:image" content="https://dataofmen.github.io/static/og-image.png"/><meta property="og:image:type" content="image/.png"/><meta property="twitter:domain" content="dataofmen.github.io"/><meta property="og:url" content="https://dataofmen.github.io/clippings/20260522-most-productivity-sy"/><meta property="twitter:url" content="https://dataofmen.github.io/clippings/20260522-most-productivity-sy"/><link rel="icon" href="../static/icon.png"/><meta name="description" content="CyrilXBT — Most productivity systems fail because they are too complex to maintain and too scattered to navigat… Most productivity systems fail because they are too complex to maintain and too scattered to navigate."/><meta name="generator" content="Quartz"/><link href="../index.css" rel="stylesheet" type="text/css" data-persist="true"/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiL2hvbWUvcnVubmVyL3dvcmsvcXVhcnR6LXdpa2kvcXVhcnR6LXdpa2kvcXVhcnR6L2NvbXBvbmVudHMvc3R5bGVzIiwic291cmNlcyI6WyJtZXJtYWlkLmlubGluZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFHRjtFQUNFOzs7QUFLRjtFQUNFO0VBQ0E7OztBQUlKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFOztBQUdGO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFJSjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTs7QUFJRjtFQUNFO0VBQ0E7RUFDQSIsInNvdXJjZXNDb250ZW50IjpbIi5leHBhbmQtYnV0dG9uIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbG9hdDogcmlnaHQ7XG4gIHBhZGRpbmc6IDAuNHJlbTtcbiAgbWFyZ2luOiAwLjNyZW07XG4gIHJpZ2h0OiAwOyAvLyBOT1RFOiByaWdodCB3aWxsIGJlIHNldCBpbiBtZXJtYWlkLmlubGluZS50c1xuICBjb2xvcjogdmFyKC0tZ3JheSk7XG4gIGJvcmRlci1jb2xvcjogdmFyKC0tZGFyayk7XG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWxpZ2h0KTtcbiAgYm9yZGVyOiAxcHggc29saWQ7XG4gIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgb3BhY2l0eTogMDtcbiAgdHJhbnNpdGlvbjogMC4ycztcblxuICAmID4gc3ZnIHtcbiAgICBmaWxsOiB2YXIoLS1saWdodCk7XG4gICAgZmlsdGVyOiBjb250cmFzdCgwLjMpO1xuICB9XG5cbiAgJjpob3ZlciB7XG4gICAgY3Vyc29yOiBwb2ludGVyO1xuICAgIGJvcmRlci1jb2xvcjogdmFyKC0tc2Vjb25kYXJ5KTtcbiAgfVxuXG4gICY6Zm9jdXMge1xuICAgIG91dGxpbmU6IDA7XG4gIH1cbn1cblxucHJlIHtcbiAgJjpob3ZlciA+IC5leHBhbmQtYnV0dG9uIHtcbiAgICBvcGFjaXR5OiAxO1xuICAgIHRyYW5zaXRpb246IDAuMnM7XG4gIH1cbn1cblxuI21lcm1haWQtY29udGFpbmVyIHtcbiAgcG9zaXRpb246IGZpeGVkO1xuICBjb250YWluOiBsYXlvdXQ7XG4gIHotaW5kZXg6IDk5OTtcbiAgbGVmdDogMDtcbiAgdG9wOiAwO1xuICB3aWR0aDogMTAwdnc7XG4gIGhlaWdodDogMTAwdmg7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIGRpc3BsYXk6IG5vbmU7XG4gIGJhY2tkcm9wLWZpbHRlcjogYmx1cig0cHgpO1xuICBiYWNrZ3JvdW5kOiByZ2JhKDAsIDAsIDAsIDAuNSk7XG5cbiAgJi5hY3RpdmUge1xuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgfVxuXG4gICYgPiAjbWVybWFpZC1zcGFjZSB7XG4gICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1saWdodCk7XG4gICAgYm9yZGVyLXJhZGl1czogNXB4O1xuICAgIHBvc2l0aW9uOiBmaXhlZDtcbiAgICB0b3A6IDUwJTtcbiAgICBsZWZ0OiA1MCU7XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGUoLTUwJSwgLTUwJSk7XG4gICAgaGVpZ2h0OiA4MHZoO1xuICAgIHdpZHRoOiA4MHZ3O1xuICAgIG92ZXJmbG93OiBoaWRkZW47XG5cbiAgICAmID4gLm1lcm1haWQtY29udGVudCB7XG4gICAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgICB0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7XG4gICAgICB0cmFuc2l0aW9uOiB0cmFuc2Zvcm0gMC4xcyBlYXNlO1xuICAgICAgb3ZlcmZsb3c6IHZpc2libGU7XG4gICAgICBtaW4taGVpZ2h0OiAyMDBweDtcbiAgICAgIG1pbi13aWR0aDogMjAwcHg7XG5cbiAgICAgIHByZSB7XG4gICAgICAgIG1hcmdpbjogMDtcbiAgICAgICAgYm9yZGVyOiBub25lO1xuICAgICAgfVxuXG4gICAgICBzdmcge1xuICAgICAgICBtYXgtd2lkdGg6IG5vbmU7XG4gICAgICAgIGhlaWdodDogYXV0bztcbiAgICAgIH1cbiAgICB9XG5cbiAgICAmID4gLm1lcm1haWQtY29udHJvbHMge1xuICAgICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgICAgYm90dG9tOiAyMHB4O1xuICAgICAgcmlnaHQ6IDIwcHg7XG4gICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgZ2FwOiA4cHg7XG4gICAgICBwYWRkaW5nOiA4cHg7XG4gICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1saWdodCk7XG4gICAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgICAgYm9yZGVyLXJhZGl1czogNnB4O1xuICAgICAgYm94LXNoYWRvdzogMCAycHggNHB4IHJnYmEoMCwgMCwgMCwgMC4xKTtcbiAgICAgIHotaW5kZXg6IDI7XG5cbiAgICAgIC5tZXJtYWlkLWNvbnRyb2wtYnV0dG9uIHtcbiAgICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICAgICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gICAgICAgIHdpZHRoOiAzMnB4O1xuICAgICAgICBoZWlnaHQ6IDMycHg7XG4gICAgICAgIHBhZGRpbmc6IDA7XG4gICAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0KTtcbiAgICAgICAgY29sb3I6IHZhcigtLWRhcmspO1xuICAgICAgICBib3JkZXItcmFkaXVzOiA0cHg7XG4gICAgICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICAgICAgZm9udC1zaXplOiAxNnB4O1xuICAgICAgICBmb250LWZhbWlseTogdmFyKC0tYm9keUZvbnQpO1xuICAgICAgICB0cmFuc2l0aW9uOiBhbGwgMC4ycyBlYXNlO1xuXG4gICAgICAgICY6aG92ZXIge1xuICAgICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIH1cblxuICAgICAgICAmOmFjdGl2ZSB7XG4gICAgICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKDFweCk7XG4gICAgICAgIH1cblxuICAgICAgICAvLyBTdHlsZSB0aGUgcmVzZXQgYnV0dG9uIGRpZmZlcmVudGx5XG4gICAgICAgICY6bnRoLWNoaWxkKDIpIHtcbiAgICAgICAgICB3aWR0aDogYXV0bztcbiAgICAgICAgICBwYWRkaW5nOiAwIDEycHg7XG4gICAgICAgICAgZm9udC1zaXplOiAxNHB4O1xuICAgICAgICB9XG4gICAgICB9XG4gICAgfVxuICB9XG59XG4iXX0= */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../prescript.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://dataofmen.github.io/index.xml"/></head><body data-slug="clippings/20260522-most-productivity-sy"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"></div><div class="center"><div class="page-header"><header><h2 class="page-title"><a href="..">dataofmen</a></h2><nav class="nav-links"><a href="/wiki" class="nav-link">wiki</a><a href="/garden" class="nav-link">garden</a><a href="/clippings" class="nav-link">clippings</a></nav><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 1rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>검색</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="검색어를 입력하세요" placeholder="검색어를 입력하세요"/><div class="search-layout" data-preview="true"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="다크 모드"><title>다크 모드</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="라이트 모드"><title>라이트 모드</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div></div></header><div class="popover-hint"><h1 class="article-title">Most productivity systems fail because they are too complex to maintain and too scattered to navi...</h1><p show-comma="true" class="content-meta"><time datetime="2026-05-22T00:00:00.000Z">2026년 5월 22일</time><span>12 min read</span></p><div class="toc"><button type="button" class="toc-header" aria-controls="toc-23" aria-expanded="true"><h3>목차</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-0" class="toc-content overflow"><li class="depth-0"><a href="#cyrilxbt--most-productivity-systems-fail-because-they-are-too-complex-to-maintain-and-too-scattered-to-navigat" data-for="cyrilxbt--most-productivity-systems-fail-because-they-are-too-complex-to-maintain-and-too-scattered-to-navigat">CyrilXBT — Most productivity systems fail because they are too complex to maintain and too scattered to navigat…</a></li><li class="depth-1"><a href="#the-philosophy-behind-one-folder" data-for="the-philosophy-behind-one-folder">The Philosophy Behind One Folder</a></li><li class="depth-1"><a href="#what-one-folder-actually-means" data-for="what-one-folder-actually-means">What One Folder Actually Means</a></li><li class="depth-1"><a href="#the-file-naming-convention" data-for="the-file-naming-convention">The File Naming Convention</a></li><li class="depth-1"><a href="#the-properties-structure" data-for="the-properties-structure">The Properties Structure</a></li><li class="depth-1"><a href="#the-claudemd-that-powers-everything" data-for="the-claudemd-that-powers-everything">The CLAUDE.md That Powers Everything</a></li><li class="depth-0"><a href="#one-folder-life-system--claudemd" data-for="one-folder-life-system--claudemd">One-Folder Life System — CLAUDE.md</a></li><li class="depth-1"><a href="#who-i-am" data-for="who-i-am">Who I Am</a></li><li class="depth-1"><a href="#my-life-areas" data-for="my-life-areas">My Life Areas</a></li><li class="depth-1"><a href="#active-projects" data-for="active-projects">Active Projects</a></li><li class="depth-1"><a href="#current-top-3-priorities" data-for="current-top-3-priorities">Current Top 3 Priorities</a></li><li class="depth-1"><a href="#my-file-system" data-for="my-file-system">My File System</a></li><li class="depth-1"><a href="#how-to-navigate-my-system" data-for="how-to-navigate-my-system">How to Navigate My System</a></li><li class="depth-1"><a href="#quality-standards" data-for="quality-standards">Quality Standards</a></li><li class="depth-1"><a href="#operating-rules" data-for="operating-rules">Operating Rules</a></li><li class="depth-1"><a href="#this-weeks-focus" data-for="this-weeks-focus">This Week’s Focus</a></li><li class="depth-1"><a href="#the-five-commands-that-run-your-life" data-for="the-five-commands-that-run-your-life">The Five Commands That Run Your Life</a></li><li class="depth-0"><a href="#morning" data-for="morning">/morning</a></li><li class="depth-1"><a href="#what-this-does" data-for="what-this-does">What this does</a></li><li class="depth-1"><a href="#process" data-for="process">Process</a></li><li class="depth-1"><a href="#output-format" data-for="output-format">Output Format</a></li><li class="depth-1"><a href="#save-to" data-for="save-to">Save to</a></li><li class="depth-0"><a href="#capture" data-for="capture">/capture</a></li><li class="depth-1"><a href="#what-this-does-1" data-for="what-this-does-1">What this does</a></li><li class="depth-1"><a href="#process-1" data-for="process-1">Process</a></li><li class="depth-1"><a href="#output" data-for="output">Output</a></li><li class="depth-0"><a href="#review" data-for="review">/review</a></li><li class="depth-1"><a href="#what-this-does-2" data-for="what-this-does-2">What this does</a></li><li class="depth-1"><a href="#process-2" data-for="process-2">Process</a></li><li class="depth-1"><a href="#output-format-1" data-for="output-format-1">Output Format</a></li><li class="depth-1"><a href="#after-generating" data-for="after-generating">After generating</a></li><li class="depth-0"><a href="#find" data-for="find">/find</a></li><li class="depth-1"><a href="#what-this-does-3" data-for="what-this-does-3">What this does</a></li><li class="depth-1"><a href="#process-3" data-for="process-3">Process</a></li><li class="depth-1"><a href="#examples" data-for="examples">Examples</a></li><li class="depth-1"><a href="#output-1" data-for="output-1">Output</a></li><li class="depth-0"><a href="#plan" data-for="plan">/plan</a></li><li class="depth-1"><a href="#what-this-does-4" data-for="what-this-does-4">What this does</a></li><li class="depth-1"><a href="#process-4" data-for="process-4">Process</a></li><li class="depth-1"><a href="#project-file-output" data-for="project-file-output">Project File Output</a></li><li class="depth-1"><a href="#task-files" data-for="task-files">Task Files</a></li><li class="depth-1"><a href="#the-automation-layer" data-for="the-automation-layer">The Automation Layer</a></li><li class="depth-1"><a href="#living-in-the-system-day-to-day" data-for="living-in-the-system-day-to-day">Living in the System Day to Day</a></li><li class="depth-1"><a href="#why-one-folder-does-not-become-chaos" data-for="why-one-folder-does-not-become-chaos">Why One Folder Does Not Become Chaos</a></li><li class="overflow-end"></li></ul></div></div></div><article class="popover-hint"><h1 id="cyrilxbt--most-productivity-systems-fail-because-they-are-too-complex-to-maintain-and-too-scattered-to-navigat">CyrilXBT — Most productivity systems fail because they are too complex to maintain and too scattered to navigat…<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#cyrilxbt--most-productivity-systems-fail-because-they-are-too-complex-to-maintain-and-too-scattered-to-navigat" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>Most productivity systems fail because they are too complex to maintain and too scattered to navigate.</p>
+<p>You have tasks in one app. Projects in another. Notes in a third. Calendar in a fourth. Reference material in a fifth.</p>
+<p>You are not managing your life. You are managing the infrastructure that is supposed to manage your life.</p>
+<p>The one-folder Obsidian system solves this at the root level.</p>
+<p>Not by simplifying what you track.</p>
+<p>By unifying where everything lives.</p>
+<p>One folder. One system. Everything that runs your life accessible from a single place with a single tool connected to a single intelligence layer.</p>
+<p>This guide is the complete build.</p>
+<h2 id="the-philosophy-behind-one-folder">The Philosophy Behind One Folder<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#the-philosophy-behind-one-folder" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Before the architecture understand the principle.</p>
+<p>The one-folder system is not about minimalism for its own sake.</p>
+<p>It is about cognitive load.</p>
+<p>Every folder hierarchy you create is a decision you have to make every time you capture something. Where does this go? Which subfolder? Which level of nesting?</p>
+<p>That decision costs attention. Attention is the scarcest resource in knowledge work.</p>
+<p>The one-folder system eliminates the filing decision entirely.</p>
+<p>Everything goes in one folder. Claude Code connected via MCP handles the organization automatically. You capture at the speed of thought and the system files at the speed of automation.</p>
+<p>The apparent chaos of one folder becomes invisible because the intelligence layer makes everything findable, organized, and actionable without you manually maintaining the structure.</p>
+<h2 id="what-one-folder-actually-means">What One Folder Actually Means<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#what-one-folder-actually-means" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>The one-folder system does not mean one note.</p>
+<p>It means one root location that contains everything. No hierarchy you have to navigate. No nested folders you have to remember. No taxonomy you have to maintain.</p>
+<p>Your vault has one folder called LIFE.</p>
+<p>Inside LIFE everything is a flat file with a consistent naming convention and a consistent properties structure.</p>
+<p>Claude Code reads every file in LIFE when you ask it anything. It understands what is a project, what is a task, what is a reference, and what is a daily note by reading the type property in each file’s frontmatter.</p>
+<p>You never navigate folders.</p>
+<p>You ask Claude what you need.</p>
+<p>Claude reads the flat file structure and gives you exactly what you asked for.</p>
+<h2 id="the-file-naming-convention">The File Naming Convention<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#the-file-naming-convention" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>When everything lives in one folder, naming becomes the organizational system.</p>
+<p>Every file follows this exact convention:</p>
+<p>YYYY-MM-DD-[TYPE]-[TOPIC].md</p>
+<p>Examples:</p>
+<p>2026-05-20-daily-wednesday.md
+2026-05-18-project-website-rebrand.md
+2026-05-15-task-client-proposal.md
+2026-05-10-reference-claude-prompting.md
+2026-05-01-meeting-q2-planning.md
+2026-04-28-idea-newsletter-series.md
+2026-04-20-decision-hire-contractor.md</p>
+<p>The date prefix means every file sorts chronologically automatically. The type identifier means Claude can filter by type instantly. The topic identifier means you can search by keyword and find files without navigating.</p>
+<p>This convention handles everything a folder hierarchy used to handle without requiring you to make any filing decisions.</p>
+<h2 id="the-properties-structure">The Properties Structure<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#the-properties-structure" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Every file regardless of type has a properties block at the top.</p>
+<p>The properties block is what the system reads to understand each file. It is what makes Claude’s organization intelligent rather than generic.</p>
+<p>The Universal Properties Block:</p>
+<p>type: [daily/project/task/reference/meeting/idea/decision]
+date: 2026-05-20
+status: [active/complete/archived/pending]
+tags: [topic1, topic2]
+priority: [high/medium/low]</p>
+<p>Additional Properties by Type:</p>
+<p>For projects:</p>
+<p>client: [CLIENT NAME]
+deadline: 2026-06-15
+completion: 40
+next_action: Write the campaign brief</p>
+<p>For tasks:</p>
+<p>project: [PROJECT NAME]
+due: 2026-05-22
+energy: [deep/shallow/admin]</p>
+<p>For meetings:</p>
+<p>attendees: [names]
+decisions: [key decisions made]
+actions: [specific follow-ups]</p>
+<p>For decisions:</p>
+<p>chosen: [what you decided]
+reasoning: [why]
+review_date: 2026-08-20</p>
+<p>The properties block takes 30 seconds to fill when you create a file. It is what makes the entire intelligence layer work.</p>
+<h2 id="the-claudemd-that-powers-everything">The CLAUDE.md That Powers Everything<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#the-claudemd-that-powers-everything" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>The CLAUDE.md lives in the root of your vault alongside the LIFE folder.</p>
+<p>It is the constitution of your entire system. Every automated workflow reads it first.</p>
+<h1 id="one-folder-life-system--claudemd">One-Folder Life System — CLAUDE.md<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#one-folder-life-system--claudemd" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="who-i-am">Who I Am<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#who-i-am" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Name: [YOUR NAME]
+Primary focus: [YOUR MAIN PROFESSIONAL FOCUS]
+Location: [YOUR CITY AND TIMEZONE]</p>
+<h2 id="my-life-areas">My Life Areas<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#my-life-areas" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Work: [BRIEF DESCRIPTION OF YOUR WORK SITUATION]
+Health: [CURRENT HEALTH FOCUS AND STATUS]
+Finances: [CURRENT FINANCIAL SITUATION AND GOALS]
+Relationships: [KEY RELATIONSHIPS TO MAINTAIN]
+Learning: [WHAT YOU ARE CURRENTLY STUDYING]
+Personal: [PERSONAL GOALS AND PROJECTS]</p>
+<h2 id="active-projects">Active Projects<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#active-projects" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>[PROJECT NAME]: [ONE-SENTENCE STATUS] |
+Deadline: [DATE] | Next: [SPECIFIC ACTION]
+[Repeat for each active project]</p>
+<h2 id="current-top-3-priorities">Current Top 3 Priorities<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#current-top-3-priorities" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ol>
+<li>[MOST IMPORTANT RIGHT NOW]</li>
+<li>[SECOND MOST IMPORTANT]</li>
+<li>[THIRD MOST IMPORTANT]</li>
+</ol>
+<h2 id="my-file-system">My File System<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#my-file-system" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Everything lives in the LIFE folder as flat files.
+Naming convention: YYYY-MM-DD-[TYPE]-[TOPIC].md
+Type values: daily, project, task, reference,
+meeting, idea, decision</p>
+<h2 id="how-to-navigate-my-system">How to Navigate My System<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#how-to-navigate-my-system" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>To find active projects: filter type=project AND status=active
+To find today’s tasks: filter type=task AND due=today
+To find open decisions: filter type=decision AND status=pending
+To find recent ideas: filter type=idea, sort by date DESC</p>
+<h2 id="quality-standards">Quality Standards<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#quality-standards" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>[WHAT GOOD WORK LOOKS LIKE FOR YOU]</p>
+<h2 id="operating-rules">Operating Rules<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#operating-rules" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>All outputs save to LIFE folder with correct naming convention</li>
+<li>Never delete files, add status=archived to outdated ones</li>
+<li>Always read this CLAUDE.md before any task</li>
+<li>Log significant actions in LIFE/YYYY-MM-DD-log-operations.md</li>
+<li>Update Current Top 3 Priorities every Monday</li>
+</ul>
+<h2 id="this-weeks-focus">This Week’s Focus<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#this-weeks-focus" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>[UPDATE EVERY MONDAY]</p>
+<h2 id="the-five-commands-that-run-your-life">The Five Commands That Run Your Life<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#the-five-commands-that-run-your-life" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>With the one-folder system in place five commands handle everything your life requires.</p>
+<p>You do not need complex workflows. You do not need to navigate any structure. You type one command and the system executes.</p>
+<p>Command 1: Morning</p>
+<p>/morning</p>
+<p>This is your daily briefing command.</p>
+<p>Claude reads your CLAUDE.md, scans every file in LIFE created or modified in the last 48 hours, reads your current week’s daily notes, and generates a morning briefing.</p>
+<p>The skill file that powers it:</p>
+<h1 id="morning">/morning<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#morning" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="what-this-does">What this does<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#what-this-does" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Generates a complete morning briefing from the LIFE folder.</p>
+<h2 id="process">Process<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#process" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ol>
+<li>Read CLAUDE.md for full life context</li>
+<li>Read today’s date</li>
+<li>Find all task files with due=today or due&lt;today
+and status=active</li>
+<li>Find all project files with status=active,
+read their next_action property</li>
+<li>Find yesterday’s daily note, extract any OPEN: items</li>
+<li>Check for any meeting files dated today</li>
+</ol>
+<h2 id="output-format">Output Format<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#output-format" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>MOST IMPORTANT TODAY: [single highest-leverage action]
+DUE TODAY: [task list with priorities]
+PROJECT PULSE: [one line per active project with next action]
+MEETINGS: [any meetings today with prep note]
+OPEN LOOPS: [unfinished items from yesterday]
+ONE DECISION: [most important pending decision]</p>
+<h2 id="save-to">Save to<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#save-to" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>LIFE/[DATE]-briefing-morning.md</p>
+<p>You open your laptop. You type /morning. You read the output. You know what matters before you see a single notification.</p>
+<p>Command 2: Capture</p>
+<p>/capture [anything]</p>
+<p>This is your universal input command.</p>
+<p>You type /capture followed by whatever you want to record. Idea. Task. Note. Decision. Reference. Anything.</p>
+<p>The skill file:</p>
+<h1 id="capture">/capture<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#capture" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="what-this-does-1">What this does<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#what-this-does-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Takes any input and creates the correct file type
+in the LIFE folder.</p>
+<h2 id="process-1">Process<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#process-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ol>
+<li>Read the capture input</li>
+<li>Identify the type:
+<ul>
+<li>Action required → task</li>
+<li>Something to develop → idea</li>
+<li>Time-bound → meeting</li>
+<li>Needs a choice → decision</li>
+<li>For later reference → reference</li>
+<li>Context about active work → note in project file</li>
+</ul>
+</li>
+<li>Generate the correct filename</li>
+<li>Create the file with appropriate properties</li>
+<li>If it is a task: extract due date if mentioned,
+assign priority based on context</li>
+<li>If it is an idea: tag with relevant areas from CLAUDE.md</li>
+</ol>
+<h2 id="output">Output<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#output" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Confirm: “Captured as [TYPE]: [FILENAME]”</p>
+<p>You capture at the speed of thought. The system handles the rest. Nothing gets lost because you did not know where to file it.</p>
+<p>Command 3: Review</p>
+<p>/review</p>
+<p>This is your weekly review command. Run it every Sunday evening.</p>
+<p>The skill file:</p>
+<h1 id="review">/review<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#review" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="what-this-does-2">What this does<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#what-this-does-2" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Generates the weekly review from everything in LIFE.</p>
+<h2 id="process-2">Process<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#process-2" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ol>
+<li>Read all daily notes from the past 7 days</li>
+<li>Read all project files modified this week</li>
+<li>Read all task files completed this week</li>
+<li>Read all decision files created this week</li>
+<li>Read CLAUDE.md for context</li>
+</ol>
+<h2 id="output-format-1">Output Format<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#output-format-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>WINS THIS WEEK: [specific achievements with evidence]
+WHAT STALLED: [honest assessment with reasons]
+PATTERN: [one theme from the week]
+NEXT WEEK’S TOP 3: [priorities ranked by leverage]
+OPEN DECISIONS: [any pending decisions older than 7 days]
+ONE INSIGHT: [something the week revealed worth recording]</p>
+<h2 id="after-generating">After generating<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#after-generating" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Update CLAUDE.md Current Top 3 Priorities
+with next week’s priorities
+Save to LIFE/[DATE]-review-weekly.md</p>
+<p>The weekly review used to take 45 minutes of manually reading notes and trying to remember what happened.</p>
+<p>Now it takes 10 minutes to read what the system generated and 3 minutes to add anything it missed.</p>
+<p>Command 4: Find</p>
+<p>/find [what you need]</p>
+<p>This is your search command. But not a keyword search. An intelligent search.</p>
+<p>The skill file:</p>
+<h1 id="find">/find<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#find" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="what-this-does-3">What this does<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#what-this-does-3" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Finds anything in your LIFE folder using
+natural language and reasoning.</p>
+<h2 id="process-3">Process<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#process-3" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ol>
+<li>Read the search request</li>
+<li>Identify what type of information is being sought</li>
+<li>Search LIFE folder using relevant filters:
+<ul>
+<li>By type property</li>
+<li>By date range if mentioned</li>
+<li>By tags if relevant</li>
+<li>By status if mentioned</li>
+<li>By keyword in content</li>
+</ul>
+</li>
+<li>Return results with context, not just filenames</li>
+</ol>
+<h2 id="examples">Examples<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#examples" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>“find all open decisions from this quarter” →
+filter type=decision, status=pending,
+date >= 2026-04-01</p>
+<p>“what did I decide about the contractor hire” →
+search type=decision, topic contains “contractor”</p>
+<p>“all ideas tagged learning” →
+filter type=idea, tags contains “learning”</p>
+<h2 id="output-1">Output<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#output-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>List of relevant files with:</p>
+<ul>
+<li>Filename</li>
+<li>Key content summary</li>
+<li>Relevant properties</li>
+<li>Direct link</li>
+</ul>
+<p>You never navigate your vault looking for something. You ask Claude where it is and Claude finds it.</p>
+<p>Command 5: Plan</p>
+<p>/plan [project or goal]</p>
+<p>This is your planning command. Give it any project or goal and it creates a complete plan in your LIFE folder.</p>
+<p>The skill file:</p>
+<h1 id="plan">/plan<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#plan" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="what-this-does-4">What this does<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#what-this-does-4" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Creates a complete project plan in the LIFE folder
+for any project or goal.</p>
+<h2 id="process-4">Process<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#process-4" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ol>
+<li>Read the project or goal description</li>
+<li>Read CLAUDE.md for current context and commitments</li>
+<li>Break the project into phases</li>
+<li>For each phase: identify specific tasks with
+realistic deadlines</li>
+<li>Create one project file with full overview</li>
+<li>Create individual task files for each task</li>
+<li>Identify dependencies between tasks</li>
+<li>Flag any conflicts with existing commitments</li>
+</ol>
+<h2 id="project-file-output">Project File Output<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#project-file-output" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Complete overview with:</p>
+<ul>
+<li>Project description and goal</li>
+<li>Success criteria</li>
+<li>Phase breakdown</li>
+<li>Timeline</li>
+<li>Next action</li>
+</ul>
+<h2 id="task-files">Task Files<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#task-files" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>One file per task with:</p>
+<ul>
+<li>Clear deliverable</li>
+<li>Realistic due date based on current commitments</li>
+<li>Energy requirement</li>
+<li>Dependencies</li>
+</ul>
+<p>You describe what you want to accomplish. The system creates the project file, the task files, and a realistic timeline based on your current commitments.</p>
+<h2 id="the-automation-layer">The Automation Layer<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#the-automation-layer" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>The five commands handle everything you initiate.</p>
+<p>The automation layer handles everything that should happen without you initiating it.</p>
+<p>Three automated workflows make the one-folder system self-maintaining.</p>
+<p>The Daily Capture Processor</p>
+<p>Every evening at 8PM N8N triggers a Claude workflow that processes the day’s captures.</p>
+<p>It reads every file created in LIFE today. For any file with incomplete properties it fills in the gaps based on the content. For any task without a due date it assigns one based on context and your current workload. For any file that needs to be linked to an existing project it adds the project property.</p>
+<p>The daily captures process themselves. You never have to clean up after a day of fast captures.</p>
+<p>The Stale File Monitor</p>
+<p>Every Monday at 7AM N8N triggers a workflow that scans LIFE for stale files.</p>
+<p>Projects with no activity in 14 days get flagged. Tasks overdue by more than 7 days get surfaced. Decisions pending for more than 30 days get escalated. Ideas older than 90 days get reviewed for archiving.</p>
+<p>The Monday stale file report appears in your LIFE folder as a briefing file. You read it alongside your morning briefing.</p>
+<p>The Monthly Life Review</p>
+<p>On the first day of every month N8N triggers a comprehensive life review workflow.</p>
+<p>It reads all activity from the previous month across every file type. It generates a monthly summary covering wins, patterns, decisions made, projects advanced, and goals progressed. It identifies any life areas that received no attention in the previous month.</p>
+<p>The monthly review compounds into your weekly reviews. Over 12 months you have a documented record of exactly how your life and work evolved.</p>
+<h2 id="living-in-the-system-day-to-day">Living in the System Day to Day<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#living-in-the-system-day-to-day" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>The daily experience of the one-folder system is radically simpler than any multi-folder alternative.</p>
+<p>Morning: Type /morning. Read the briefing. Know what matters before anything else competes for your attention.</p>
+<p>During the day: Type /capture [anything] for every thought, task, idea, or piece of information. Never make a filing decision. Never interrupt your flow to organize.</p>
+<p>As things come up: Type /find [what you need] when you need to retrieve anything. Never navigate folders.</p>
+<p>When starting new work: Type /plan [project or goal] and receive a complete plan in your vault.</p>
+<p>Sunday evening: Type /review. Read the weekly summary. Update your Monday priorities.</p>
+<p>Five commands. One folder. Everything runs.</p>
+<h2 id="why-one-folder-does-not-become-chaos">Why One Folder Does Not Become Chaos<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#why-one-folder-does-not-become-chaos" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>The objection most people raise: without folders, how do you find anything?</p>
+<p>The answer reveals the core insight of the entire system.</p>
+<p>Folders are a human navigation aid for systems without intelligence.</p>
+<p>When you have to browse to find things, folders tell you where to browse.</p>
+<p>When you have Claude reading every file and responding to natural language queries, folders are unnecessary overhead.</p>
+<p>You do not browse.</p>
+<p>You ask.</p>
+<p>The system answers.</p>
+<p>The intelligence layer makes the flat structure more navigable than any folder hierarchy because it understands what you are looking for rather than requiring you to remember where you put it.</p>
+<p>After 30 days the LIFE folder will contain 100 to 200 files.</p>
+<p>After 6 months it will contain 1,000 to 2,000 files.</p>
+<p>After 2 years it will contain 5,000 to 10,000 files.</p>
+<p>At every stage Claude can find anything in under 10 seconds because it reads properties and content rather than navigating a structure.</p>
+<p>The flat folder does not become chaos.</p>
+<p>It becomes a searchable, queryable, intelligent database of your entire life.</p>
+<p>One folder. One system. Everything that matters.</p>
+<p>Build it this weekend.</p>
+<p>The commands run from the first day.</p>
+<p>The intelligence compounds from the first week.</p>
+<p>The life clarity compounds from the first month.</p>
+<p>Follow @cyrilXBT for the exact CLAUDE.md templates, skill files, and N8N workflows that make this entire system run.</p>
+<p><em>원문: <a href="https://x.com/cyrilxbt/status/2057272405525938685?s=52" class="external">https://x.com/cyrilxbt/status/2057272405525938685?s=52<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></em></p></article><hr/><div class="page-footer"><div class="backlinks"><h3>백링크</h3><ul id="list-1" class="overflow"><li><a href="../garden/20260522-ai-intelligence-layer-obsoletes-folders" class="internal">지능형 레이어의 등장은 물리적 분류 체계로서의 폴더를 무의미하게 만든다</a></li><li><a href="../garden/20260522-reducing-cognitive-load-through-flat-capture" class="internal">생각의 속도로 기록하기 위해서는 분류의 문턱(Filing Friction)을 제거해야 한다</a></li><li><a href="../wiki/concepts/20260522-one-folder-system" class="internal">단일 폴더 시스템 (One-Folder System)</a></li><li class="overflow-end"></li></ul></div><div class="giscus" data-repo="dataofmen/quartz-wiki" data-repo-id="R_kgDOSOxrZA" data-category="General" data-category-id="DIC_kwDOSOxrZM4C-Edy" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-input-position="bottom" data-light-theme="light" data-dark-theme="dark" data-theme-url="https://dataofmen.github.io/static/giscus" data-lang="ko"></div></div></div><div class="right sidebar"><div class="graph desktop-only"><h3>그래프 뷰</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                  s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                  c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                  C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                  c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                  v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                  s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                  C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                  S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                  s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                  s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.5.2</a> © 2026</p><ul></ul></footer></div></div></body><script type="application/javascript" data-persist="true">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module" data-persist="true">function E(a,e){if(!a)return;function t(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function n(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}a?.addEventListener("click",t),window.addCleanup(()=>a?.removeEventListener("click",t)),document.addEventListener("keydown",n),window.addCleanup(()=>document.removeEventListener("keydown",n))}function f(a){for(;a.firstChild;)a.removeChild(a.firstChild)}var m=class{constructor(e,t){this.container=e;this.content=t;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),t=this.onMouseMove.bind(this),n=this.onMouseUp.bind(this),o=this.onTouchStart.bind(this),r=this.onTouchMove.bind(this),i=this.onTouchEnd.bind(this),s=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",t),document.addEventListener("mouseup",n),this.container.addEventListener("touchstart",o,{passive:!1}),document.addEventListener("touchmove",r,{passive:!1}),document.addEventListener("touchend",i),window.addEventListener("resize",s),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",t),()=>document.removeEventListener("mouseup",n),()=>this.container.removeEventListener("touchstart",o),()=>document.removeEventListener("touchmove",r),()=>document.removeEventListener("touchend",i),()=>window.removeEventListener("resize",s))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let t=this.createButton("+",()=>this.zoom(.1)),n=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(n),e.appendChild(o),e.appendChild(t),this.container.appendChild(e)}createButton(e,t){let n=document.createElement("button");return n.textContent=e,n.className="mermaid-control-button",n.addEventListener("click",t),window.addCleanup(()=>n.removeEventListener("click",t)),n}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}onTouchStart(e){if(e.touches.length!==1)return;this.isDragging=!0;let t=e.touches[0];this.startPan={x:t.clientX-this.currentPan.x,y:t.clientY-this.currentPan.y}}onTouchMove(e){if(!this.isDragging||e.touches.length!==1)return;e.preventDefault();let t=e.touches[0];this.currentPan={x:t.clientX-this.startPan.x,y:t.clientY-this.startPan.y},this.updateTransform()}onTouchEnd(){this.isDragging=!1}zoom(e){let t=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),n=this.content.getBoundingClientRect(),o=n.width/2,r=n.height/2,i=t-this.scale;this.currentPan.x-=o*i,this.currentPan.y-=r*i,this.scale=t,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){let t=this.content.querySelector("svg").getBoundingClientRect(),n=t.width/this.scale,o=t.height/this.scale;this.scale=1,this.currentPan={x:(this.container.clientWidth-n)/2,y:(this.container.clientHeight-o)/2},this.updateTransform()}},T=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],y;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;y||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let t=y.default,n=new WeakMap;for(let r of e)n.set(r,r.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let c=n.get(s);c&&(s.innerHTML=c)}let r=T.reduce((s,c)=>(s[c]=window.getComputedStyle(document.documentElement).getPropertyValue(c),s),{}),i=document.documentElement.getAttribute("saved-theme")==="dark";t.initialize({startOnLoad:!1,securityLevel:"loose",theme:i?"dark":"base",themeVariables:{fontFamily:r["--codeFont"],primaryColor:r["--light"],primaryTextColor:r["--darkgray"],primaryBorderColor:r["--tertiary"],lineColor:r["--darkgray"],secondaryColor:r["--secondary"],tertiaryColor:r["--tertiary"],clusterBkg:r["--light"],edgeLabelBackground:r["--highlight"]}}),await t.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let r=0;r<e.length;r++){let v=function(){let g=l.querySelector("#mermaid-space"),h=l.querySelector(".mermaid-content");if(!h)return;f(h);let w=i.querySelector("svg").cloneNode(!0);h.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new m(g,h)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},i=e[r],s=i.parentElement,c=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(c),L=c.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),E(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../postscript.js" type="module" data-persist="true"></script></html>
