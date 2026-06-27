@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr"><head><title># My Reversal Trading Strategy</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto Sans KR:wght@400;700&amp;family=Noto Sans KR:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="dataofmen"/><meta property="og:title" content="# My Reversal Trading Strategy"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="# My Reversal Trading Strategy"/><meta name="twitter:description" content="My Reversal Trading Strategy My Reversal Trading Strategy took me 9 years to master."/><meta property="og:description" content="My Reversal Trading Strategy My Reversal Trading Strategy took me 9 years to master."/><meta property="og:image:alt" content="My Reversal Trading Strategy My Reversal Trading Strategy took me 9 years to master."/><meta property="og:image" content="https://dataofmen.github.io/static/og-image.png"/><meta property="og:image:url" content="https://dataofmen.github.io/static/og-image.png"/><meta name="twitter:image" content="https://dataofmen.github.io/static/og-image.png"/><meta property="og:image:type" content="image/.png"/><meta property="twitter:domain" content="dataofmen.github.io"/><meta property="og:url" content="https://dataofmen.github.io/clippings/20260624-my-reversal-trading"/><meta property="twitter:url" content="https://dataofmen.github.io/clippings/20260624-my-reversal-trading"/><link rel="icon" href="../static/icon.png"/><meta name="description" content="My Reversal Trading Strategy My Reversal Trading Strategy took me 9 years to master."/><meta name="generator" content="Quartz"/><link href="../index.css" rel="stylesheet" type="text/css" data-persist="true"/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiL2hvbWUvcnVubmVyL3dvcmsvcXVhcnR6LXdpa2kvcXVhcnR6LXdpa2kvcXVhcnR6L2NvbXBvbmVudHMvc3R5bGVzIiwic291cmNlcyI6WyJtZXJtYWlkLmlubGluZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFHRjtFQUNFOzs7QUFLRjtFQUNFO0VBQ0E7OztBQUlKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFOztBQUdGO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFJSjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTs7QUFJRjtFQUNFO0VBQ0E7RUFDQSIsInNvdXJjZXNDb250ZW50IjpbIi5leHBhbmQtYnV0dG9uIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbG9hdDogcmlnaHQ7XG4gIHBhZGRpbmc6IDAuNHJlbTtcbiAgbWFyZ2luOiAwLjNyZW07XG4gIHJpZ2h0OiAwOyAvLyBOT1RFOiByaWdodCB3aWxsIGJlIHNldCBpbiBtZXJtYWlkLmlubGluZS50c1xuICBjb2xvcjogdmFyKC0tZ3JheSk7XG4gIGJvcmRlci1jb2xvcjogdmFyKC0tZGFyayk7XG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWxpZ2h0KTtcbiAgYm9yZGVyOiAxcHggc29saWQ7XG4gIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgb3BhY2l0eTogMDtcbiAgdHJhbnNpdGlvbjogMC4ycztcblxuICAmID4gc3ZnIHtcbiAgICBmaWxsOiB2YXIoLS1saWdodCk7XG4gICAgZmlsdGVyOiBjb250cmFzdCgwLjMpO1xuICB9XG5cbiAgJjpob3ZlciB7XG4gICAgY3Vyc29yOiBwb2ludGVyO1xuICAgIGJvcmRlci1jb2xvcjogdmFyKC0tc2Vjb25kYXJ5KTtcbiAgfVxuXG4gICY6Zm9jdXMge1xuICAgIG91dGxpbmU6IDA7XG4gIH1cbn1cblxucHJlIHtcbiAgJjpob3ZlciA+IC5leHBhbmQtYnV0dG9uIHtcbiAgICBvcGFjaXR5OiAxO1xuICAgIHRyYW5zaXRpb246IDAuMnM7XG4gIH1cbn1cblxuI21lcm1haWQtY29udGFpbmVyIHtcbiAgcG9zaXRpb246IGZpeGVkO1xuICBjb250YWluOiBsYXlvdXQ7XG4gIHotaW5kZXg6IDk5OTtcbiAgbGVmdDogMDtcbiAgdG9wOiAwO1xuICB3aWR0aDogMTAwdnc7XG4gIGhlaWdodDogMTAwdmg7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIGRpc3BsYXk6IG5vbmU7XG4gIGJhY2tkcm9wLWZpbHRlcjogYmx1cig0cHgpO1xuICBiYWNrZ3JvdW5kOiByZ2JhKDAsIDAsIDAsIDAuNSk7XG5cbiAgJi5hY3RpdmUge1xuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgfVxuXG4gICYgPiAjbWVybWFpZC1zcGFjZSB7XG4gICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1saWdodCk7XG4gICAgYm9yZGVyLXJhZGl1czogNXB4O1xuICAgIHBvc2l0aW9uOiBmaXhlZDtcbiAgICB0b3A6IDUwJTtcbiAgICBsZWZ0OiA1MCU7XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGUoLTUwJSwgLTUwJSk7XG4gICAgaGVpZ2h0OiA4MHZoO1xuICAgIHdpZHRoOiA4MHZ3O1xuICAgIG92ZXJmbG93OiBoaWRkZW47XG5cbiAgICAmID4gLm1lcm1haWQtY29udGVudCB7XG4gICAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgICB0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7XG4gICAgICB0cmFuc2l0aW9uOiB0cmFuc2Zvcm0gMC4xcyBlYXNlO1xuICAgICAgb3ZlcmZsb3c6IHZpc2libGU7XG4gICAgICBtaW4taGVpZ2h0OiAyMDBweDtcbiAgICAgIG1pbi13aWR0aDogMjAwcHg7XG5cbiAgICAgIHByZSB7XG4gICAgICAgIG1hcmdpbjogMDtcbiAgICAgICAgYm9yZGVyOiBub25lO1xuICAgICAgfVxuXG4gICAgICBzdmcge1xuICAgICAgICBtYXgtd2lkdGg6IG5vbmU7XG4gICAgICAgIGhlaWdodDogYXV0bztcbiAgICAgIH1cbiAgICB9XG5cbiAgICAmID4gLm1lcm1haWQtY29udHJvbHMge1xuICAgICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgICAgYm90dG9tOiAyMHB4O1xuICAgICAgcmlnaHQ6IDIwcHg7XG4gICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgZ2FwOiA4cHg7XG4gICAgICBwYWRkaW5nOiA4cHg7XG4gICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1saWdodCk7XG4gICAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgICAgYm9yZGVyLXJhZGl1czogNnB4O1xuICAgICAgYm94LXNoYWRvdzogMCAycHggNHB4IHJnYmEoMCwgMCwgMCwgMC4xKTtcbiAgICAgIHotaW5kZXg6IDI7XG5cbiAgICAgIC5tZXJtYWlkLWNvbnRyb2wtYnV0dG9uIHtcbiAgICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICAgICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gICAgICAgIHdpZHRoOiAzMnB4O1xuICAgICAgICBoZWlnaHQ6IDMycHg7XG4gICAgICAgIHBhZGRpbmc6IDA7XG4gICAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0KTtcbiAgICAgICAgY29sb3I6IHZhcigtLWRhcmspO1xuICAgICAgICBib3JkZXItcmFkaXVzOiA0cHg7XG4gICAgICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICAgICAgZm9udC1zaXplOiAxNnB4O1xuICAgICAgICBmb250LWZhbWlseTogdmFyKC0tYm9keUZvbnQpO1xuICAgICAgICB0cmFuc2l0aW9uOiBhbGwgMC4ycyBlYXNlO1xuXG4gICAgICAgICY6aG92ZXIge1xuICAgICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIH1cblxuICAgICAgICAmOmFjdGl2ZSB7XG4gICAgICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKDFweCk7XG4gICAgICAgIH1cblxuICAgICAgICAvLyBTdHlsZSB0aGUgcmVzZXQgYnV0dG9uIGRpZmZlcmVudGx5XG4gICAgICAgICY6bnRoLWNoaWxkKDIpIHtcbiAgICAgICAgICB3aWR0aDogYXV0bztcbiAgICAgICAgICBwYWRkaW5nOiAwIDEycHg7XG4gICAgICAgICAgZm9udC1zaXplOiAxNHB4O1xuICAgICAgICB9XG4gICAgICB9XG4gICAgfVxuICB9XG59XG4iXX0= */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../prescript.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://dataofmen.github.io/index.xml"/></head><body data-slug="clippings/20260624-my-reversal-trading"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"></div><div class="center"><div class="page-header"><header><h2 class="page-title"><a href="..">dataofmen</a></h2><nav class="nav-links"><a href="/wiki" class="nav-link">wiki</a><a href="/garden" class="nav-link">garden</a><a href="/clippings" class="nav-link">clippings</a></nav><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 1rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>검색</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="검색어를 입력하세요" placeholder="검색어를 입력하세요"/><div class="search-layout" data-preview="true"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="다크 모드"><title>다크 모드</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="라이트 모드"><title>라이트 모드</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div></div></header><div class="popover-hint"><h1 class="article-title"># My Reversal Trading Strategy</h1><p show-comma="true" class="content-meta"><time datetime="2026-06-24T00:00:00.000Z">2026년 6월 24일</time><span>16 min read</span></p><ul class="tags"><li><a href="../tags/thread" class="internal tag-link">thread</a></li><li><a href="../tags/x.com" class="internal tag-link">x.com</a></li></ul></div></div><article class="popover-hint"><h1 id="my-reversal-trading-strategy">My Reversal Trading Strategy<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#my-reversal-trading-strategy" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>My Reversal Trading Strategy took me 9 years to master.</p>
+<p>In this article, I will share my entire strategy so you can skip years of testing and losses.</p>
+<p>It will include:</p>
+<p>Lesson 1: What Mean Reversion Actually Is</p>
+<p>Lesson 2: The 4-Filter Checklist for Optimal Trade Environments</p>
+<p>Lesson 3: Drawing Levels &amp; Identifying Setups</p>
+<p>Lesson 4: Stop Loss &amp; Take Profit Logic</p>
+<p>Lesson 5: Risk Management &amp; Position Sizing</p>
+<p>Let’s begin:</p>
+<p>Lesson 1: What Is Mean Reversion?</p>
+<p>Before learning the strategy, you need to understand what mean reversion trading actually is and how it differs from the other main trading style.</p>
+<p>Remember this:</p>
+<p>Every filter, entry trigger, and risk rule in this article is built on one core idea:</p>
+<p>You are betting against momentum traders when they’re in a weak position.</p>
+<p>But what is a momentum trader?</p>
+<p>The Two Main Trading Styles</p>
+<p>There are two fundamental ways to trade:</p>
+<ol>
+<li>Momentum Trading</li>
+</ol>
+<p>Momentum traders bet that the price will keep moving in the same direction.</p>
+<p>They’re also known as breakout traders.</p>
+<p>If price breaks through a support level (a price zone where buying pressure previously stopped the decline), momentum traders short the breakdown, expecting the price to keep running lower.</p>
+<ol start="2">
+<li>Mean Reversion Trading</li>
+</ol>
+<p>Mean reversion traders bet that the price will reverse direction.</p>
+<p>For example:</p>
+<p>If the price spikes up quickly, they sell, expecting it to fall back down.</p>
+<p>If the price approaches a support level, mean reversion traders go long at the level, expecting the price to bounce back up.</p>
+<p>A momentum trader sees price approaching support and thinks:</p>
+<p>“This level is about to break. I’ll short the breakdown.”</p>
+<p>But a mean reversion trader sees the same chart and thinks:</p>
+<p>“This level is about to hold. I’ll long the reversal.”</p>
+<p>Only one of them can be right, and this isn’t decided by the chart.</p>
+<p>It’s decided by the assumption about what the level will do…</p>
+<p>Mean Reversion = Counter-Trading Momentum Traders</p>
+<p>Here’s the key insight that changes how you think about mean reversion:</p>
+<p>Every mean reversion trade is a bet against someone else.</p>
+<p>When you short a spike into resistance, you’re betting against the traders who just bought that spike and expecting a breakout above.</p>
+<p>When you go long after a dump into support, you’re betting against the traders who just shorted and expecting continuation down.</p>
+<p>You are counter-trading momentum traders.</p>
+<p>This reframe is important.</p>
+<p>Instead of asking “will this level hold? ”, you can finally visualise who you’re trading against and ask:</p>
+<p>“Are the momentum traders in a weak position? ”🤔</p>
+<p>When you take mean reversion trades:</p>
+<p>If momentum traders are weak, your mean reversion trade is more likely to work.</p>
+<p>If momentum traders are strong, your mean reversion trade will probably fail.</p>
+<p>I’ll teach you exactly how to identify when momentum traders are weak in the next lesson (I use a simple 4-filter checklist)</p>
+<p>Lesson 1 Summary🎓</p>
+<p>There are two main trading styles: momentum (betting price continues) and mean reversion (betting price reverses)</p>
+<p>Mean reversion trading is about counter-trading momentum traders</p>
+<p>You profit when momentum traders are in a weak position</p>
+<p>Lesson 2: Optimal Trade Environment</p>
+<p>Understanding that you’re counter-trading momentum traders is now your foundation.</p>
+<p>But you also need to know when they’re actually vulnerable.</p>
+<p>To answer this, use this framework:</p>
+<p>4-Filter Checklist for Mean Reversion Trades</p>
+<p>Filter 1: How Did Price Approach the Level?</p>
+<p>Of all the variables, this is the most important one.</p>
+<p>I’ve analysed 600+ trades where fast spikes yield a 70% win rate for mean reversion trades vs only 30% for momentum trades.</p>
+<p>This is the most skewed variable in the entire dataset.</p>
+<p>What you WANT to see:✅</p>
+<p>A fast vertical spike into resistance</p>
+<p>Price shoots up in one or two large candles</p>
+<p>This shows exhaustion (not sustainable momentum)</p>
+<p>After a spike, buyers’ strength is depleted, and price typically reverses</p>
+<p>What you DON’T want to see:❌</p>
+<p>A slow, grinding staircase pattern approaching resistance</p>
+<p>Each candle makes incremental progress</p>
+<p>Higher lows are stacking up</p>
+<p>This is a controlled, deliberate movement (bad for mean reversion)</p>
+<p>Real Trade Example:</p>
+<p>Here we have a fast spike into the level and also a big volume spike (more on this later).</p>
+<p>The fast spike pattern shows sellers have exhausted themselves in a rush to get out.</p>
+<p>When this hits support, there’s no one left to push lower and price reverses.</p>
+<p>Think of it this way🤔:</p>
+<p>A fast spike is like a sprinter who goes all-out in the first 50 meters of a 100-meter race.</p>
+<p>By the time they hit the finish line (support), they’re gasping for air.</p>
+<p>But a slow staircase is like a marathon runner pacing themselves. They still have energy when they reach the level.</p>
+<p>These fast spikes can be broken down into two components:</p>
+<p>Slope (how steep the move is)</p>
+<p>Size (how large the move is relative to recent price action)</p>
+<p>Common mistake: Traders see a strong candle hit resistance and assume momentum is strong, but these fast moves often signal exhaustion, not strength.</p>
+<p>Do this instead: Take mean reversion trades when price SPIKES into resistance in one or two candles, not when it grinds slowly.</p>
+<p>Filter 1: fast vertical spike ✅</p>
+<p>If you are unclear on reading price action and don’t understand what I mean by the ‘staircase’ pattern, check out my price action masterclass at the end of this article.</p>
+<p>Filter 2: What Did Volume Look Like?</p>
+<p>Volume tells you whether the move into the level has real participation behind it, or whether market participants are exhausted.</p>
+<p>This matters because mean reversion also works when the move is exhausted.</p>
+<p>If fresh buyers keep arriving (increasing volume), the move has fuel left, and the level is more likely to break.</p>
+<p>If volume is flat or declining, the move is losing steam.</p>
+<p>What you WANT to see:✅</p>
+<p>Flat or decreasing volume as price approaches resistance</p>
+<p>This pattern shows the move lacks sustained participation</p>
+<p>What you DON’T want to see:❌</p>
+<p>Gradual increase in volume (this is good for momentum, bad for mean reversion)</p>
+<p>Increasing volume means fresh buyers keep arriving</p>
+<p>Remember: Mean reversion traders are counter-trading momentum traders. Every variable that hurts momentum helps you.</p>
+<p>Real Trade Example:</p>
+<p>How to tell if volume is flat or increasing:</p>
+<p>Draw an imaginary line through the average volume. If the slope looks flat, it’s flat volume (good for MR).</p>
+<p>If the slope clearly angles upward, it’s increasing volume (bad for MR).</p>
+<p>Common mistake: Volume that increases DURING the spike creation can be misleading. This is “spike-induced volume” caused by one participant (or a small group) spamming market buys.</p>
+<p>Do this instead: Look at the volume BEFORE the spike began. If it was flat before and only increased during the spike itself, you can dismiss that increase.</p>
+<p>Filter 1: fast vertical spike ✅</p>
+<p>Filter 2: flat or decreasing volume ✅</p>
+<p>If you want to learn more about volume, use my volume masterclass at the end of this article under Bonus Materials.</p>
+<p>Filter 3: Moving Average Crossovers</p>
+<p>The first two filters tell you about the spike itself.</p>
+<p>But this filter zooms out and asks: What kind of market are you in?</p>
+<p>Mean reversion thrives in choppy, indecisive markets where price keeps changing direction and levels hold (instead of trending).</p>
+<p>But the problem is that “choppy” and “trending” are subjective:</p>
+<p>Two traders can look at the same chart and disagree, so you need a way to measure it.</p>
+<p>A moving average solves this</p>
+<p>This filter helps distinguish choppy markets (good for mean reversion) from trending markets (bad for mean reversion).</p>
+<p>BTW, I’ll cover them briefly now, but I have an in-depth guide on moving averages that I released recently.</p>
+<p>👉Linked at the end of the article under bonus resources.</p>
+<p>How Many Moving Average Crossovers should you look for?</p>
+<p>The noise classification combines two measurements:</p>
+<p>How many times price crosses the 30MA</p>
+<p>Whether the moving average direction is trending or sideways</p>
+<p>For mean reversion, here’s what you WANT to see✅:</p>
+<p>Frequent crossovers (price keeps changing direction)</p>
+<p>Sideways moving average direction</p>
+<p>👉This indicates chop and indecision, and mean reversion thrives in choppy conditions because levels hold</p>
+<p>What you DON’T want to see❌:</p>
+<p>Minimal crossovers (price stays on one side of the MA)</p>
+<p>Trending moving average direction</p>
+<p>👉This signals a directional trend, and mean reversion trades fail in trending conditions because levels break.</p>
+<p>Remember: More crossovers with a sideways MA = choppier market = better mean reversion conditions.</p>
+<p>Real Trade Example:</p>
+<p>Think of it this way🤔: Frequent MA crossovers mean price keeps changing direction. It’s like a tennis ball bouncing between the floor and the ceiling. That’s exactly what mean reversion bets on.</p>
+<p>Tips to identify choppy price action:</p>
+<p>Price rejecting nearby levels 3+ times</p>
+<p>Price slicing through the MAs frequently (many crossovers)</p>
+<p>Support and resistance levels being respected, not broken</p>
+<p>Filter 1: fast vertical spike ✅</p>
+<p>Filter 2: flat or decreasing volume ✅</p>
+<p>Filter 3: frequent MA crossovers ✅</p>
+<p>Filter 4: What Does the Left-Hand Side Price Action Look Like?</p>
+<p>This filter examines the previous 4-8 hours of price action before your entry.</p>
+<p>When you take a trade, you’re betting that the conditions on the left (before entry) will continue on the right (after entry):</p>
+<p>If the left side was choppy with levels holding, you expect the same after entry.</p>
+<p>If the left side was trending with levels breaking, you should expect more of the same.</p>
+<p>What you WANT to see✅:</p>
+<p>Choppy, sideways price action</p>
+<p>Price rejecting nearby levels multiple times</p>
+<p>Support and resistance levels are being respected, not broken</p>
+<p>Moving averages criss-crossing frequently (not fanned out)</p>
+<p>What you DON’T want to see❌:</p>
+<p>A clean trending staircase (good for momentum, bad for mean reversion)</p>
+<p>Price consistently breaking through levels without rejection</p>
+<p>Moving averages fanned out in one direction for an extended period</p>
+<p>Think of it this way🤔:</p>
+<p>If you imagine taking momentum trades on the left-hand side, would they have worked?</p>
+<p>If momentum trades had been “in sync” (winning consistently), it’s a trending environment and bad for mean reversion.</p>
+<p>If momentum trades had been “out of sync” (losing consistently), it’s a choppy environment and good for mean reversion.</p>
+<p>Real Trade Example:</p>
+<p>The nuance: Sometimes price action can “look like” a grindy staircase, but it’s actually a “choppy range that’s slanted.”</p>
+<p>The key difference:</p>
+<p>Choppy range (slanted): Nearby levels are being rejected 3+ times, MAs are criss-crossing, and breakouts keep failing</p>
+<p>True staircase: Levels break cleanly, MAs are fanned out, momentum trades would have been “in sync.”</p>
+<p>Common mistake: Traders see price moving generally upward and assume it’s a trend. A slanted choppy range looks similar but yields very different results.</p>
+<p>Do this instead: Check if nearby support/resistance levels are being respected or broken. If they’re being respected (multiple rejections), it’s choppy. If they’re breaking cleanly, it’s trending.</p>
+<p>Filter 1: fast vertical spike ✅</p>
+<p>Filter 2: flat or decreasing volume ✅</p>
+<p>Filter 3: frequent MA crossovers ✅</p>
+<p>Filter 4: choppy/sideways left-hand side ✅</p>
+<p>The Four-Filter Checklist📋</p>
+<p>Before entering any mean reversion trade, check:</p>
+<p>Common mistake: Traders take mean reversion trades without checking conditions, then wonder why the level breaks immediately.</p>
+<p>Do this instead: Use the four-filter checklist as a mandatory pre-entry requirement. No exceptions.</p>
+<p>Lesson 2 Summary🎓</p>
+<p>Fast vertical spikes have better reversal probability than slow grinds</p>
+<p>Volume should be flat or decreasing, not gradually increasing</p>
+<p>More MA crossovers with a sideways direction indicate choppier conditions where mean reversion thrives</p>
+<p>Choppy left-hand side price action confirms the environment favours mean reversion over momentum</p>
+<p>Are you with me so far?</p>
+<p>Let’s use a negative proof below. The exact opposite of what you want to see:</p>
+<p>Real Trade Example: Negative Proof</p>
+<p>This example is the exact opposite of what we want to see for mean reversion. And that makes it the perfect momentum trade (which rewards the opposite conditions to reversal).</p>
+<p>Lesson 3: Strategy Logic: Drawing Levels and Identifying Setup</p>
+<p>Now that know what mean reversion is and when conditions favor it,</p>
+<p>You need to know where to look for trades and how to execute them mechanically.</p>
+<p>Mean reversion trades happen at key price levels, so you need a consistent method for identifying those levels.</p>
+<p>By the end of this lesson, you will be able to draw support and resistance levels consistently, identify your entry trigger on the 1-minute chart, and confirm whether a setup aligns with optimal mean reversion conditions.</p>
+<p>Step 1: Draw Support and Resistance Levels</p>
+<p>Support and resistance are price zones where buyers or sellers previously showed interest.</p>
+<p>These levels represent points where significant order flow caused price to reverse. When price returns to these zones, the same dynamic can repeat.</p>
+<p>Mean reversion trades happen at these key levels. You need to identify them consistently.</p>
+<p>Common mistake: Traders draw levels randomly or inconsistently, leading to missed setups or unreliable data.</p>
+<p>Do this instead: Use the same four-level process every single time.</p>
+<p>For a deeper dive into level selection, including structural methods and level quality assessment, check out the support and resistance masterclass linked at the end of this article.</p>
+<p>Step 2: Await Your Entry Trigger on the 1-Minute Chart</p>
+<p>Once you’ve identified your levels, switch to the 1-minute chart for precise entry timing.</p>
+<p>The 1-minute chart allows you to spot your entry trigger:</p>
+<p>👉1 candle close back below (or above) the level after the spike.</p>
+<p>Here’s the sequence for a mean reversion short at resistance:</p>
+<p>Price spikes up into your resistance level</p>
+<p>Price trades above the level briefly</p>
+<p>You wait for one complete 1-minute candle to close back below the resistance level</p>
+<p>That candle close is your entry trigger</p>
+<p>For a mean reversion long at support, the sequence is reversed:</p>
+<p>Price spikes down through support, then you wait for one candle to close back above the support level.</p>
+<p>Real Trade Example: Mean Reversion Entry Trigger</p>
+<p>Step 3: Aligning Setups with Optimal Mean Reversion Conditions</p>
+<p>Before entering a trade, check the four filters from Lesson 2:</p>
+<p>Did price SPIKE into the level (not grind)?</p>
+<p>Is volume flat or decreasing (not gradually increasing)?</p>
+<p>Are there frequent MA crossovers (choppy, not trending)?</p>
+<p>Is the left-hand side choppy/sideways (not clean trending)?</p>
+<p>If any filter fails, reduce your risk on the trade.</p>
+<p>Only take full risk on A-grade setups, not forcing trades in poor conditions.</p>
+<p>Lesson 3 Summary🎓</p>
+<p>Draw levels using the ZCT masterclass approach at the end of this article.</p>
+<p>Use your entry trigger on the 1-minute timeframe: candle close back below (or above) the level after a fast spike</p>
+<p>Check all four filters before entering and allocate risk according to the quality of your setup</p>
+<p>Lesson 4: Strategy Logic- Stop Loss and Take Profit</p>
+<p>You’ve drawn your levels, spotted your entry trigger, and confirmed the setup aligns with optimal mean reversion conditions.</p>
+<p>Now you need to know exactly where to place your stop loss and take profit so that each trade has defined risk.</p>
+<p>Without precise placement rules, you’ll either set stops too tight (getting chopped out by normal volatility) or too wide (losing too much on a single trade).</p>
+<p>Step 4: Stop Loss at the Previous Swing High (Minimum 1%)</p>
+<p>A swing high is the highest wick in a local push up, followed by price moving away (it failed to make higher highs).</p>
+<p>Every “inverted V” shape on the chart represents a swing high.</p>
+<p>For mean reversion longs, the equivalent is a swing low:</p>
+<p>The lowest wick in a local push down, followed by price moving away.</p>
+<p>Real Trade Example:</p>
+<p>Minimum 1% rule: If the swing high is less than 1% away from your entry, skip it and use the next swing high up. Stops that are too tight get hit by normal price noise. You need at least 1% breathing room for the trade to work.</p>
+<p>Example: You enter at <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord">100.</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord mathnormal">h</span><span class="mord mathnormal">e</span><span class="mord mathnormal">n</span><span class="mord mathnormal">e</span><span class="mord mathnormal">a</span><span class="mord mathnormal">res</span><span class="mord mathnormal">t</span><span class="mord mathnormal">s</span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mord mathnormal">in</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">hi</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">hi</span><span class="mord mathnormal">s</span></span></span></span>100.50 (0.5% away). Skip it. Use the next swing high at $101.50 (1.5% away).</p>
+<p>This becomes your stop.</p>
+<p>Avoid this common mistake: Traders place stops at the nearest swing high even if it’s only 0.3% away, leading to frequent stop-outs from normal volatility.</p>
+<p>Do this instead: Always measure the distance. If it’s less than 1%, use the next swing high up.</p>
+<p>Step 5: Take Profit at 1R (Equal Distance to Stop)</p>
+<p>Your take profit target is 1R: the same distance as your stop loss, but in the profit direction.</p>
+<p>1R means your risk-to-reward ratio is 1:1. If you’re risking <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.854em;vertical-align:-0.1944em;"></span><span class="mord">1.50</span><span class="mord mathnormal">t</span><span class="mord mathnormal">oyo</span><span class="mord mathnormal">u</span><span class="mord mathnormal">rs</span><span class="mord mathnormal">t</span><span class="mord mathnormal">o</span><span class="mord mathnormal">p</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">yo</span><span class="mord mathnormal">u</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">t</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">e</span><span class="mord mathnormal">t</span><span class="mord mathnormal">i</span><span class="mord mathnormal">s</span></span></span></span>1.50 of profit.</p>
+<p>Here’s how to set it:</p>
+<p>Select the ‘Long tool’ on TradingView</p>
+<p>Drag your stop loss level to your entry</p>
+<p>Drag your Take Profit to ‘1R’. It will clearly say “Risk/Reward Ratio: 1”</p>
+<p>Why 1R?</p>
+<p>It’s conservative and achievable. Mean reversion trades often hit 1R quickly because exhausted moves reverse fast.</p>
+<p>You’re not trying to catch the entire reversal. You’re simply capturing a high-probability piece of it.</p>
+<p>Remember, this foundational mean reversion framework is designed to build consistency, not maximise edge.</p>
+<p>Real Trade Example:</p>
+<p>Lesson 4 Summary🎓</p>
+<p>Place your stop loss at the most recent swing high (for shorts) or swing low (for longs), minimum 1% away from entry</p>
+<p>Set your take profit at 1R: equal distance to your stop loss, in the profit direction</p>
+<p>If the nearest swing point is less than 1% away, skip it and use the next one</p>
+<p>Immediate Next Steps✍️</p>
+<p>Now that you’ve reached the end of this article, you’re ready to test mean reversion trading:</p>
+<p>Read the Support and Resistance Masterclass to deepen your understanding of level selection</p>
+<p>Look at 3 charts using the 4-filter checklist to identify a mean reversion trade environment</p>
+<p>Use the strategy steps to enter your trade</p>
+<p>Gather 30 trades using this method, journal, and review against the criteria</p>
+<p>👉Bookmark this article so you can revisit it until these concepts are second nature to you.</p>
+<p>Final Summary🎓</p>
+<p>Lesson 1:</p>
+<p>Mean reversion trades bet against momentum traders, not just price levels</p>
+<p>Momentum = continuation, Mean Reversion = reversal</p>
+<p>Your edge appears when momentum traders enter from weak positions</p>
+<p>Lesson 2:</p>
+<p>A-grade setups require all 4 filters: fast spike, volume, MA context, and left-hand-side structure</p>
+<p>Fast spikes + flat/decreasing volume signal exhaustion- these are great for mean reversion</p>
+<p>Choppy environments with frequent MA crossovers favor mean reversion</p>
+<p>Lesson 3:</p>
+<p>Trades occur at key support and resistance levels</p>
+<p>Entry trigger = candle close back inside the level after a spike</p>
+<p>Always confirm filter alignment before committing risk</p>
+<p>Lesson 4:</p>
+<p>Stop loss goes at the prior swing high/low with a minimum 1% distance</p>
+<p>Take profit is set at 1R for consistent execution</p>
+<p>Proper stop loss placement prevents the stop loss from getting triggered by random noise</p>
+<p>Bonus Resource Section</p>
+<ol>
+<li>
+<p>Support and Resistance Masterclass</p>
+</li>
+<li>
+<p>Moving Averages Strategy</p>
+</li>
+<li>
+<p>Price Action Masterclass</p>
+</li>
+</ol>
+<hr/>
+<p><em>원문: <a href="https://x.com/koroushak/status/2031718081945358497?s=52" class="external">https://x.com/koroushak/status/2031718081945358497?s=52<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></em></p></article><hr/><div class="page-footer"><div class="giscus" data-repo="dataofmen/quartz-wiki" data-repo-id="R_kgDOSOxrZA" data-category="General" data-category-id="DIC_kwDOSOxrZM4C-Edy" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-input-position="bottom" data-light-theme="light" data-dark-theme="dark" data-theme-url="https://dataofmen.github.io/static/giscus" data-lang="ko"></div></div></div><div class="right sidebar"><div class="graph desktop-only"><h3>그래프 뷰</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                  s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                  c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                  C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                  c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                  v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                  s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                  C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                  S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                  s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                  s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.5.2</a> © 2026</p><ul></ul></footer></div></div></body><script type="application/javascript" data-persist="true">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module" data-persist="true">function E(a,e){if(!a)return;function t(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function n(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}a?.addEventListener("click",t),window.addCleanup(()=>a?.removeEventListener("click",t)),document.addEventListener("keydown",n),window.addCleanup(()=>document.removeEventListener("keydown",n))}function f(a){for(;a.firstChild;)a.removeChild(a.firstChild)}var m=class{constructor(e,t){this.container=e;this.content=t;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),t=this.onMouseMove.bind(this),n=this.onMouseUp.bind(this),o=this.onTouchStart.bind(this),r=this.onTouchMove.bind(this),i=this.onTouchEnd.bind(this),s=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",t),document.addEventListener("mouseup",n),this.container.addEventListener("touchstart",o,{passive:!1}),document.addEventListener("touchmove",r,{passive:!1}),document.addEventListener("touchend",i),window.addEventListener("resize",s),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",t),()=>document.removeEventListener("mouseup",n),()=>this.container.removeEventListener("touchstart",o),()=>document.removeEventListener("touchmove",r),()=>document.removeEventListener("touchend",i),()=>window.removeEventListener("resize",s))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let t=this.createButton("+",()=>this.zoom(.1)),n=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(n),e.appendChild(o),e.appendChild(t),this.container.appendChild(e)}createButton(e,t){let n=document.createElement("button");return n.textContent=e,n.className="mermaid-control-button",n.addEventListener("click",t),window.addCleanup(()=>n.removeEventListener("click",t)),n}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}onTouchStart(e){if(e.touches.length!==1)return;this.isDragging=!0;let t=e.touches[0];this.startPan={x:t.clientX-this.currentPan.x,y:t.clientY-this.currentPan.y}}onTouchMove(e){if(!this.isDragging||e.touches.length!==1)return;e.preventDefault();let t=e.touches[0];this.currentPan={x:t.clientX-this.startPan.x,y:t.clientY-this.startPan.y},this.updateTransform()}onTouchEnd(){this.isDragging=!1}zoom(e){let t=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),n=this.content.getBoundingClientRect(),o=n.width/2,r=n.height/2,i=t-this.scale;this.currentPan.x-=o*i,this.currentPan.y-=r*i,this.scale=t,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){let t=this.content.querySelector("svg").getBoundingClientRect(),n=t.width/this.scale,o=t.height/this.scale;this.scale=1,this.currentPan={x:(this.container.clientWidth-n)/2,y:(this.container.clientHeight-o)/2},this.updateTransform()}},T=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],y;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;y||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let t=y.default,n=new WeakMap;for(let r of e)n.set(r,r.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let c=n.get(s);c&&(s.innerHTML=c)}let r=T.reduce((s,c)=>(s[c]=window.getComputedStyle(document.documentElement).getPropertyValue(c),s),{}),i=document.documentElement.getAttribute("saved-theme")==="dark";t.initialize({startOnLoad:!1,securityLevel:"loose",theme:i?"dark":"base",themeVariables:{fontFamily:r["--codeFont"],primaryColor:r["--light"],primaryTextColor:r["--darkgray"],primaryBorderColor:r["--tertiary"],lineColor:r["--darkgray"],secondaryColor:r["--secondary"],tertiaryColor:r["--tertiary"],clusterBkg:r["--light"],edgeLabelBackground:r["--highlight"]}}),await t.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let r=0;r<e.length;r++){let v=function(){let g=l.querySelector("#mermaid-space"),h=l.querySelector(".mermaid-content");if(!h)return;f(h);let w=i.querySelector("svg").cloneNode(!0);h.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new m(g,h)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},i=e[r],s=i.parentElement,c=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(c),L=c.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),E(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../postscript.js" type="module" data-persist="true"></script></html>

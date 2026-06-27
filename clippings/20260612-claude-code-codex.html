@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr"><head><title>비개발자를 위한 Claude Code / Codex 코드: 제대로 작동하게 테스트하고 견고하게 만드는 법</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto Sans KR:wght@400;700&amp;family=Noto Sans KR:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="dataofmen"/><meta property="og:title" content="비개발자를 위한 Claude Code / Codex 코드: 제대로 작동하게 테스트하고 견고하게 만드는 법"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="비개발자를 위한 Claude Code / Codex 코드: 제대로 작동하게 테스트하고 견고하게 만드는 법"/><meta name="twitter:description" content="Title: 비개발자를 위한 Claude Code / Codex 코드: 제대로 작동하게 테스트하고 견고하게 만드는 법 *이 글은 AB180 CEO 남성필 대표님이 Claude Code와 Codex를 사용하며 느낀 인사이트를 직접 정리한 수기입니다."/><meta property="og:description" content="Title: 비개발자를 위한 Claude Code / Codex 코드: 제대로 작동하게 테스트하고 견고하게 만드는 법 *이 글은 AB180 CEO 남성필 대표님이 Claude Code와 Codex를 사용하며 느낀 인사이트를 직접 정리한 수기입니다."/><meta property="og:image:alt" content="Title: 비개발자를 위한 Claude Code / Codex 코드: 제대로 작동하게 테스트하고 견고하게 만드는 법 *이 글은 AB180 CEO 남성필 대표님이 Claude Code와 Codex를 사용하며 느낀 인사이트를 직접 정리한 수기입니다."/><meta property="og:image" content="https://dataofmen.github.io/static/og-image.png"/><meta property="og:image:url" content="https://dataofmen.github.io/static/og-image.png"/><meta name="twitter:image" content="https://dataofmen.github.io/static/og-image.png"/><meta property="og:image:type" content="image/.png"/><meta property="twitter:domain" content="dataofmen.github.io"/><meta property="og:url" content="https://dataofmen.github.io/clippings/20260612-claude-code-codex"/><meta property="twitter:url" content="https://dataofmen.github.io/clippings/20260612-claude-code-codex"/><link rel="icon" href="../static/icon.png"/><meta name="description" content="Title: 비개발자를 위한 Claude Code / Codex 코드: 제대로 작동하게 테스트하고 견고하게 만드는 법 *이 글은 AB180 CEO 남성필 대표님이 Claude Code와 Codex를 사용하며 느낀 인사이트를 직접 정리한 수기입니다."/><meta name="generator" content="Quartz"/><link href="../index.css" rel="stylesheet" type="text/css" data-persist="true"/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiL2hvbWUvcnVubmVyL3dvcmsvcXVhcnR6LXdpa2kvcXVhcnR6LXdpa2kvcXVhcnR6L2NvbXBvbmVudHMvc3R5bGVzIiwic291cmNlcyI6WyJtZXJtYWlkLmlubGluZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFHRjtFQUNFOzs7QUFLRjtFQUNFO0VBQ0E7OztBQUlKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFOztBQUdGO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFJSjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTs7QUFJRjtFQUNFO0VBQ0E7RUFDQSIsInNvdXJjZXNDb250ZW50IjpbIi5leHBhbmQtYnV0dG9uIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbG9hdDogcmlnaHQ7XG4gIHBhZGRpbmc6IDAuNHJlbTtcbiAgbWFyZ2luOiAwLjNyZW07XG4gIHJpZ2h0OiAwOyAvLyBOT1RFOiByaWdodCB3aWxsIGJlIHNldCBpbiBtZXJtYWlkLmlubGluZS50c1xuICBjb2xvcjogdmFyKC0tZ3JheSk7XG4gIGJvcmRlci1jb2xvcjogdmFyKC0tZGFyayk7XG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWxpZ2h0KTtcbiAgYm9yZGVyOiAxcHggc29saWQ7XG4gIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgb3BhY2l0eTogMDtcbiAgdHJhbnNpdGlvbjogMC4ycztcblxuICAmID4gc3ZnIHtcbiAgICBmaWxsOiB2YXIoLS1saWdodCk7XG4gICAgZmlsdGVyOiBjb250cmFzdCgwLjMpO1xuICB9XG5cbiAgJjpob3ZlciB7XG4gICAgY3Vyc29yOiBwb2ludGVyO1xuICAgIGJvcmRlci1jb2xvcjogdmFyKC0tc2Vjb25kYXJ5KTtcbiAgfVxuXG4gICY6Zm9jdXMge1xuICAgIG91dGxpbmU6IDA7XG4gIH1cbn1cblxucHJlIHtcbiAgJjpob3ZlciA+IC5leHBhbmQtYnV0dG9uIHtcbiAgICBvcGFjaXR5OiAxO1xuICAgIHRyYW5zaXRpb246IDAuMnM7XG4gIH1cbn1cblxuI21lcm1haWQtY29udGFpbmVyIHtcbiAgcG9zaXRpb246IGZpeGVkO1xuICBjb250YWluOiBsYXlvdXQ7XG4gIHotaW5kZXg6IDk5OTtcbiAgbGVmdDogMDtcbiAgdG9wOiAwO1xuICB3aWR0aDogMTAwdnc7XG4gIGhlaWdodDogMTAwdmg7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIGRpc3BsYXk6IG5vbmU7XG4gIGJhY2tkcm9wLWZpbHRlcjogYmx1cig0cHgpO1xuICBiYWNrZ3JvdW5kOiByZ2JhKDAsIDAsIDAsIDAuNSk7XG5cbiAgJi5hY3RpdmUge1xuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgfVxuXG4gICYgPiAjbWVybWFpZC1zcGFjZSB7XG4gICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1saWdodCk7XG4gICAgYm9yZGVyLXJhZGl1czogNXB4O1xuICAgIHBvc2l0aW9uOiBmaXhlZDtcbiAgICB0b3A6IDUwJTtcbiAgICBsZWZ0OiA1MCU7XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGUoLTUwJSwgLTUwJSk7XG4gICAgaGVpZ2h0OiA4MHZoO1xuICAgIHdpZHRoOiA4MHZ3O1xuICAgIG92ZXJmbG93OiBoaWRkZW47XG5cbiAgICAmID4gLm1lcm1haWQtY29udGVudCB7XG4gICAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgICB0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7XG4gICAgICB0cmFuc2l0aW9uOiB0cmFuc2Zvcm0gMC4xcyBlYXNlO1xuICAgICAgb3ZlcmZsb3c6IHZpc2libGU7XG4gICAgICBtaW4taGVpZ2h0OiAyMDBweDtcbiAgICAgIG1pbi13aWR0aDogMjAwcHg7XG5cbiAgICAgIHByZSB7XG4gICAgICAgIG1hcmdpbjogMDtcbiAgICAgICAgYm9yZGVyOiBub25lO1xuICAgICAgfVxuXG4gICAgICBzdmcge1xuICAgICAgICBtYXgtd2lkdGg6IG5vbmU7XG4gICAgICAgIGhlaWdodDogYXV0bztcbiAgICAgIH1cbiAgICB9XG5cbiAgICAmID4gLm1lcm1haWQtY29udHJvbHMge1xuICAgICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgICAgYm90dG9tOiAyMHB4O1xuICAgICAgcmlnaHQ6IDIwcHg7XG4gICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgZ2FwOiA4cHg7XG4gICAgICBwYWRkaW5nOiA4cHg7XG4gICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1saWdodCk7XG4gICAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgICAgYm9yZGVyLXJhZGl1czogNnB4O1xuICAgICAgYm94LXNoYWRvdzogMCAycHggNHB4IHJnYmEoMCwgMCwgMCwgMC4xKTtcbiAgICAgIHotaW5kZXg6IDI7XG5cbiAgICAgIC5tZXJtYWlkLWNvbnRyb2wtYnV0dG9uIHtcbiAgICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICAgICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gICAgICAgIHdpZHRoOiAzMnB4O1xuICAgICAgICBoZWlnaHQ6IDMycHg7XG4gICAgICAgIHBhZGRpbmc6IDA7XG4gICAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0KTtcbiAgICAgICAgY29sb3I6IHZhcigtLWRhcmspO1xuICAgICAgICBib3JkZXItcmFkaXVzOiA0cHg7XG4gICAgICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICAgICAgZm9udC1zaXplOiAxNnB4O1xuICAgICAgICBmb250LWZhbWlseTogdmFyKC0tYm9keUZvbnQpO1xuICAgICAgICB0cmFuc2l0aW9uOiBhbGwgMC4ycyBlYXNlO1xuXG4gICAgICAgICY6aG92ZXIge1xuICAgICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIH1cblxuICAgICAgICAmOmFjdGl2ZSB7XG4gICAgICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKDFweCk7XG4gICAgICAgIH1cblxuICAgICAgICAvLyBTdHlsZSB0aGUgcmVzZXQgYnV0dG9uIGRpZmZlcmVudGx5XG4gICAgICAgICY6bnRoLWNoaWxkKDIpIHtcbiAgICAgICAgICB3aWR0aDogYXV0bztcbiAgICAgICAgICBwYWRkaW5nOiAwIDEycHg7XG4gICAgICAgICAgZm9udC1zaXplOiAxNHB4O1xuICAgICAgICB9XG4gICAgICB9XG4gICAgfVxuICB9XG59XG4iXX0= */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../prescript.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://dataofmen.github.io/index.xml"/></head><body data-slug="clippings/20260612-claude-code-codex"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"></div><div class="center"><div class="page-header"><header><h2 class="page-title"><a href="..">dataofmen</a></h2><nav class="nav-links"><a href="/wiki" class="nav-link">wiki</a><a href="/garden" class="nav-link">garden</a><a href="/clippings" class="nav-link">clippings</a></nav><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 1rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>검색</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="검색어를 입력하세요" placeholder="검색어를 입력하세요"/><div class="search-layout" data-preview="true"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="다크 모드"><title>다크 모드</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="라이트 모드"><title>라이트 모드</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div></div></header><div class="popover-hint"><h1 class="article-title">비개발자를 위한 Claude Code / Codex 코드: 제대로 작동하게 테스트하고 견고하게 만드는 법</h1><p show-comma="true" class="content-meta"><time datetime="2026-06-12T00:00:00.000Z">2026년 6월 12일</time><span>26 min read</span></p><div class="toc"><button type="button" class="toc-header" aria-controls="toc-42" aria-expanded="true"><h3>목차</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-0" class="toc-content overflow"><li class="depth-0"><a href="#claude-code-작업에서-좋은-계획은-시작일-뿐이다" data-for="claude-code-작업에서-좋은-계획은-시작일-뿐이다">Claude Code 작업에서 좋은 계획은 시작일 뿐이다</a></li><li class="depth-0"><a href="#코드-리뷰를-꼭-시켜라" data-for="코드-리뷰를-꼭-시켜라">코드 리뷰를 꼭 시켜라</a></li><li class="depth-0"><a href="#claude-code와-codex를-서로-교차-검증하라" data-for="claude-code와-codex를-서로-교차-검증하라">Claude Code와 Codex를 서로 교차 검증하라</a></li><li class="depth-0"><a href="#아예-프로세스-안에-guardrail-agent를-넣어라" data-for="아예-프로세스-안에-guardrail-agent를-넣어라">아예 프로세스 안에 Guardrail Agent를 넣어라</a></li><li class="depth-0"><a href="#tdd를-비개발자식으로-이해하라" data-for="tdd를-비개발자식으로-이해하라">TDD를 비개발자식으로 이해하라</a></li><li class="depth-0"><a href="#audit은-다시는-같은-실수를-하지-않게-하는-장치다" data-for="audit은-다시는-같은-실수를-하지-않게-하는-장치다">Audit은 “다시는 같은 실수를 하지 않게 하는 장치”다</a></li><li class="depth-0"><a href="#e2e-테스트는-진짜-사용자처럼-해보기다" data-for="e2e-테스트는-진짜-사용자처럼-해보기다">E2E 테스트는 “진짜 사용자처럼 해보기”다</a></li><li class="depth-0"><a href="#smoke-test는-큰-작업의-첫-번째-안전벨트다" data-for="smoke-test는-큰-작업의-첫-번째-안전벨트다">Smoke test는 큰 작업의 첫 번째 안전벨트다</a></li><li class="depth-0"><a href="#눈으로-보는-블랙박스-qa를-포기하지-마라" data-for="눈으로-보는-블랙박스-qa를-포기하지-마라">눈으로 보는 블랙박스 QA를 포기하지 마라</a></li><li class="depth-0"><a href="#배포-전에는-되돌릴-방법을-생각하라" data-for="배포-전에는-되돌릴-방법을-생각하라">배포 전에는 되돌릴 방법을 생각하라</a></li><li class="depth-0"><a href="#머지-후에도-실제-환경에서-확인하라" data-for="머지-후에도-실제-환경에서-확인하라">머지 후에도 실제 환경에서 확인하라</a></li><li class="depth-0"><a href="#sentry와-로그를-반드시-봐라" data-for="sentry와-로그를-반드시-봐라">Sentry와 로그를 반드시 봐라</a></li><li class="depth-0"><a href="#ai-에이전트-실수는-룰-테스트-감사로-남겨라" data-for="ai-에이전트-실수는-룰-테스트-감사로-남겨라">AI 에이전트 실수는 룰, 테스트, 감사로 남겨라</a></li><li class="depth-0"><a href="#비개발자가-바로-쓸-수-있는-요청-문장들" data-for="비개발자가-바로-쓸-수-있는-요청-문장들">비개발자가 바로 쓸 수 있는 요청 문장들</a></li><li class="depth-1"><a href="#1-코드-리뷰-요청" data-for="1-코드-리뷰-요청">1. 코드 리뷰 요청</a></li><li class="depth-1"><a href="#2-테스트-요청" data-for="2-테스트-요청">2. 테스트 요청</a></li><li class="depth-1"><a href="#3-e2e-요청" data-for="3-e2e-요청">3. E2E 요청</a></li><li class="depth-1"><a href="#4-audit-요청" data-for="4-audit-요청">4. Audit 요청</a></li><li class="depth-1"><a href="#5-배포-후-확인-요청" data-for="5-배포-후-확인-요청">5. 배포 후 확인 요청</a></li><li class="depth-1"><a href="#6-회고-요청" data-for="6-회고-요청">6. 회고 요청</a></li><li class="depth-0"><a href="#에이전트가-더-잘-일할-수밖에-없는-구조를-만들어라" data-for="에이전트가-더-잘-일할-수밖에-없는-구조를-만들어라">에이전트가 더 잘 일할 수밖에 없는 구조를 만들어라</a></li><li class="overflow-end"></li></ul></div></div></div><article class="popover-hint"><p>Title: 비개발자를 위한 Claude Code / Codex 코드: 제대로 작동하게 테스트하고 견고하게 만드는 법</p>
+<blockquote>
+<p>*이 글은 AB180 CEO 남성필 대표님이 Claude Code와 Codex를 사용하며 느낀 인사이트를 직접 정리한 수기입니다.</p>
+</blockquote>
+<p>Claude Code나 Codex로 무언가를 만들기 시작하면, 처음에는 속도에 놀란다. 문서가 생기고, 코드가 생기고, 웹페이지가 뜨고, 자동화가 돌아간다. 비개발자 입장에서는 특히 더 강력하다. 예전 같으면 개발자에게 부탁해야 했던 일을 직접 시도할 수 있기 때문이다.</p>
+<p>그런데 여기서 가장 위험한 착각이 생긴다.</p>
+<p><strong>“에이전트가 다 만들었다고 했으니, 이제 완성된 것 아닐까?”</strong></p>
+<p>대부분의 경우 그렇지 않다. 에이전트가 만든 것은 완성품이라기보다 초안에 가깝다. 잘 작동하는 것처럼 보이지만, 숨은 전제가 틀렸을 수 있고, 실제 환경에서는 깨질 수 있고, 내가 의도한 것과 다른 방식으로 문제를 해결했을 수도 있다.</p>
+<p>Claude Code나 Codex는 코드를 쓰는 능력도 뛰어나지만, 그럴듯하게 추론하고 넘어가는 능력도 뛰어나다. 그래서 비개발자가 에이전트를 잘 쓰려면 “만드는 법”만큼이나 <strong>테스트하고 강하게 만드는 법</strong>을 알아야 한다.</p>
+<p>이 글은 내가 Claude Code, Codex, 그리고 내부 마케팅 엔진을 쓰면서 배운 검증 방법을 정리한 것이다. 개발자가 아니어도 적용할 수 있는 방식으로 썼다.</p>
+<h2 id="claude-code-작업에서-좋은-계획은-시작일-뿐이다"><strong>Claude Code 작업에서 좋은 계획은 시작일 뿐이다</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#claude-code-작업에서-좋은-계획은-시작일-뿐이다" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>처음부터 Superpowers나 우로보로스 같은 도구로 implementation plan을 잘 짜는 것은 중요하다. 무엇을 만들지, 어떤 순서로 만들지, 어떤 파일을 건드릴지 미리 정하면 결과물의 품질이 크게 올라간다.</p>
+<p><strong>하지만 좋은 계획이 모든 문제를 막아 주지는 않는다. 명료해 보이는 기획 안에도 놓친 조건이 많다.</strong> 예를 들어 “리스트를 만들어 줘”라고 했을 때, 에이전트가 어떤 기준으로 매칭했는지, 어떤 데이터는 제외했는지, 비슷한 이름을 같은 회사로 봤는지까지는 자동으로 안전해지지 않는다.</p>
+<p>그래서 중요한 질문은 이것이다.</p>
+<p><strong>“이 작업이 끝났다는 것을 무엇으로 증명할 것인가?”</strong></p>
+<p>비개발자가 Claude Code를 쓸 때는 결과물을 받는 사람이 아니라, 검증 기준을 정하는 사람이 되어야 한다. 에이전트에게 “완성해 줘”라고 말하는 것보다 “이 조건을 통과해야 완성으로 보자”라고 말하는 편이 훨씬 강하다.</p>
+<h2 id="코드-리뷰를-꼭-시켜라"><strong>코드 리뷰를 꼭 시켜라</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#코드-리뷰를-꼭-시켜라" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>가장 먼저 할 일은 코드 리뷰다. <strong>Claude Code나 Codex가 어떤 작업을 끝냈다고 말해도, 그 작업이 실제로 좋은 품질이라는 뜻은 아니다.</strong> 기능은 돌아가지만 구조가 이상할 수 있고, 에러 처리가 빠졌을 수 있고, 테스트가 비어 있을 수 있다.</p>
+<p>작업이 끝나면 이렇게 말해 보자.</p>
+<ul>
+<li>지금부터 코드 리뷰어 입장에서 봐줘.</li>
+<li>칭찬이나 요약보다 버그, 회귀 가능성, 빠진 테스트, 보안 위험을 먼저 찾아줘.</li>
+<li>파일과 줄 단위로 근거를 들어주고, 정말 문제가 있는 것만 말해줘.</li>
+</ul>
+<p><strong>가능하면 작업한 에이전트가 아니라 다른 에이전트에게 리뷰를 맡기는 것이 좋다.</strong> 같은 에이전트는 자신이 만든 전제를 그대로 믿기 쉽다. 다른 에이전트는 조금 더 독립적으로 본다.</p>
+<p>큰 작업이라면 코드 리뷰를 한 번 더 돌릴 수도 있다. 실제로 같은 PR을 두 번째로 리뷰하면 첫 번째 리뷰에서 못 본 문제가 다시 나오는 경우가 있다. 다만 리뷰를 많이 돌린다고 무조건 좋아지는 것은 아니다. 리뷰 결과에도 할루시네이션이 섞일 수 있다. 중요한 것은 “많이 돌리기”가 아니라, 발견된 문제를 내가 읽고 판단하는 것이다.</p>
+<h2 id="claude-code와-codex를-서로-교차-검증하라"><strong>Claude Code와 Codex를 서로 교차 검증하라</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#claude-code와-codex를-서로-교차-검증하라" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Claude Code가 만든 것을 Codex에게 보여 주거나, Codex가 만든 것을 Claude에게 보여 주는 것도 좋은 방법이다. 서로 다른 모델은 같은 코드를 다른 방식으로 의심한다.</p>
+<p><strong>이때는 단순히 “괜찮아?”라고 묻지 말고, 역할을 좁혀 주는 편이 좋다.</strong></p>
+<ul>
+<li>이 코드는 이미 다른 에이전트가 작성했다.</li>
+<li>너는 구현자가 아니라 검증자다.</li>
+<li>사용자가 실제로 겪을 수 있는 실패, 잘못된 데이터 처리, 테스트 누락, 배포 후 위험만 찾아줘.</li>
+<li>근거 없는 추측은 하지 말고, 확인 가능한 것과 추정인 것을 구분해줘.</li>
+</ul>
+<p>이 방식은 특히 비개발자에게 유용하다. 내가 직접 코드를 완전히 이해하지 못해도, 독립된 두 에이전트가 서로 다른 관점으로 지적한 부분을 비교하면 위험한 부분이 더 선명해진다.</p>
+<h2 id="아예-프로세스-안에-guardrail-agent를-넣어라"><strong>아예 프로세스 안에 Guardrail Agent를 넣어라</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#아예-프로세스-안에-guardrail-agent를-넣어라" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>한 번 쓰고 버릴 작업이 아니라 반복적으로 쓰는 스킬이나 자동화라면, 처음부터 멀티 에이전트 구조로 설계하는 것이 좋다. 예를 들어 다음처럼 나눌 수 있다.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>역할</th><th>하는 일</th></tr></thead><tbody><tr><td>Planner</td><td>목표, 입력, 출력, 제약 조건을 정리한다.</td></tr><tr><td>Executor</td><td>실제 구현이나 산출물을 만든다.</td></tr><tr><td>Reviewer</td><td>버그, 빠진 조건, 테스트 누락을 찾는다.</td></tr><tr><td>Guardrail</td><td>반드시 지켜야 할 원칙을 검사한다.</td></tr><tr><td>Calibrator</td><td>결과물이 너무 길거나, 약하거나, 톤이 어긋났는지 조정한다.</td></tr></tbody></table></div>
+<p><strong>여기서 핵심은 Guardrail Agent다.</strong> “고객명을 추정하지 말 것”, “확정적 ID가 있으면 fuzzy matching을 쓰지 말 것”, “실제 발송 전에는 dry-run을 거칠 것” 같은 원칙을 미리 넣어 두면, 에이전트가 빠르게 만들다가 중요한 안전장치를 건너뛰는 일을 줄일 수 있다.</p>
+<p>다만 refinement loop를 너무 많이 돌린다고 결과물이 무조건 좋아지지는 않는다. 개인적으로는 두세 번이면 충분한 경우가 많다. 네 번, 다섯 번 돌리면 문장이 과하게 다듬어지거나, 처음 의도가 흐려질 때도 있다.</p>
+<h2 id="tdd를-비개발자식으로-이해하라"><strong>TDD를 비개발자식으로 이해하라</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#tdd를-비개발자식으로-이해하라" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>TDD는 Test-Driven Development의 약자다. 개발자들은 보통 코드를 짜기 전에 결과물의 성공 요건을 정의하고 이에 대한 여러 테스트를 먼저 만든다는 뜻으로 쓴다. 비개발자는 이것을 조금 더 넓게 이해하면 된다.</p>
+<p><strong>“완성 전에 통과해야 할 시험지를 먼저 만든다.”</strong></p>
+<p>예를 들어 이런 식이다.</p>
+<ul>
+<li>버튼을 누르면 실제로 저장되어야 한다.</li>
+<li>잘못된 이메일을 넣으면 에러가 떠야 한다.</li>
+<li>빈 값이면 제출이 막혀야 한다.</li>
+<li>같은 고객이 중복으로 들어가면 안 된다.</li>
+<li>테스트용 데이터는 실제 고객에게 발송되면 안 된다.</li>
+<li>결과 파일에는 반드시 CSV, JSON, HTML이 함께 생성되어야 한다.</li>
+</ul>
+<p>이런 조건을 먼저 적어 놓고, <strong>Claude Code에게 “이 조건을 자동 테스트로 만들어라”라고 시키면 된다.</strong></p>
+<p>우리 내부 파이프라인도 이런 식으로 검증한다. Salesforce, BigQuery, CMS 같은 외부 시스템을 매번 실제로 호출하지 않고, 가짜 데이터와 mock을 사용해 결과 파일, 제외 규칙, dry-run 동작을 먼저 확인한다. 비개발자 관점에서 중요한 포인트는 이것이다. <strong>진짜 시스템을 건드리지 않아도, 중요한 흐름은 가짜 데이터로 먼저 검증할 수 있다.</strong></p>
+<h2 id="audit은-다시는-같은-실수를-하지-않게-하는-장치다"><strong>Audit은 “다시는 같은 실수를 하지 않게 하는 장치”다</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#audit은-다시는-같은-실수를-하지-않게-하는-장치다" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>테스트는 보통 특정 기능을 확인한다. 반면 audit은 전체 시스템이 중요한 원칙을 계속 지키고 있는지 전수조사한다.</p>
+<p>예를 들어 “모든 페이지에 SEO 메타데이터가 있어야 한다”, “특정 route는 static rendering을 깨면 안 된다”, “고객 데이터가 들어간 파일은 generated 폴더 밖으로 나가면 안 된다” 같은 규칙은 개별 기능 테스트보다 audit에 가깝다.</p>
+<p><a href="https://www.airbridge.io/ko" class="external">Airbridge Website<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>에서도 비슷한 일이 있었다. 사람 브라우저에서는 페이지가 정상적으로 보였지만, AI crawler나 JavaScript를 실행하지 않는 크롤러가 보는 HTML에는 본문이 거의 비어 있었다. 원인은 layout 근처의 작은 구현 선택이 prerendered HTML을 비워 버린 것이었다. 일반적인 수동 QA로는 발견하기 어려운 종류의 문제였다.</p>
+<p>이 문제를 해결한 뒤에는 단순히 코드를 고치는 데서 끝내지 않았다. prerendered HTML에 같은 문제가 다시 생기는지 검사하는 audit을 추가했다. 즉, 한 번 겪은 실수를 다음 PR에서 반복하지 못하게 만든 것이다.</p>
+<p>비개발자도 Claude Code에게 이렇게 요청할 수 있다.</p>
+<ul>
+<li>이번에 발견한 문제가 다시 생기지 않도록 audit을 만들어줘.</li>
+<li>특정 파일 하나만 테스트하지 말고, 관련된 전체 경로를 훑어서 위반 사항을 잡아줘.</li>
+<li>이 audit이 실패하면 PR을 머지하지 못하게 하는 방식까지 제안해줘.</li>
+</ul>
+<h2 id="e2e-테스트는-진짜-사용자처럼-해보기다"><strong>E2E 테스트는 “진짜 사용자처럼 해보기”다</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#e2e-테스트는-진짜-사용자처럼-해보기다" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>E2E는 End-to-End의 약자다. Unit test가 작은 부품을 검사한다면, E2E 테스트는 실제 사용자가 하는 일을 처음부터 끝까지 해보는 것이다. <a href="https://playwright.dev/" class="external">Playwright<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> 같은 도구를 쓰면 브라우저를 열고, 버튼을 누르고, 폼을 작성하고, 제출 결과를 확인할 수 있다.</p>
+<p>Airbridge Website에도 production이나 preview URL을 대상으로 돌리는 smoke test가 있다. 핵심 페이지가 렌더링되는지, 주요 폼이 보이는지, 일부 경우에는 의도적으로 브라우저 에러를 발생시켜 <a href="https://sentry.io/" class="external">Sentry<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>에 실제로 잡히는지도 확인한다. 기능만 보는 것이 아니라 <strong>관측 시스템까지 살아 있는지</strong> 보는 것이다. 폼 테스트도 마찬가지다. 실제 리드 폼을 테스트하려면 DB에 값이 들어가는지 확인해야 한다.</p>
+<p>비개발자 입장에서 배울 점은 명확하다. E2E 테스트는 단순히 “화면이 뜬다”가 아니다.</p>
+<ul>
+<li>실제 사용자가 하는 행동을 따라 한다.</li>
+<li>DB나 외부 시스템에 원하는 결과가 생겼는지 본다.</li>
+<li>테스트 데이터가 실제 고객/영업/광고 시스템으로 새지 않게 한다.</li>
+<li>테스트가 끝나면 cleanup까지 한다.</li>
+</ul>
+<h2 id="smoke-test는-큰-작업의-첫-번째-안전벨트다"><strong>Smoke test는 큰 작업의 첫 번째 안전벨트다</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#smoke-test는-큰-작업의-첫-번째-안전벨트다" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p><strong>모든 것을 완벽하게 테스트하기 어렵다면 smoke test라도 만들어야 한다.</strong> Smoke test는 “일단 핵심 흐름이 연기라도 안 나는지” 확인하는 최소한의 테스트다.</p>
+<p>비개발자는 큰 자동화를 만들 때 이렇게 말하면 된다.</p>
+<ul>
+<li>전체 기능을 한 번에 완벽히 테스트하기 어렵다면 smoke test를 먼저 만들어줘.</li>
+<li>실제 입력에 가까운 샘플로 처음부터 끝까지 돌리고, 최소 성공 기준을 gate로 정의해줘.</li>
+<li>실패하면 어느 단계에서 왜 실패했는지 로그로 남겨줘.</li>
+</ul>
+<h2 id="눈으로-보는-블랙박스-qa를-포기하지-마라"><strong>눈으로 보는 블랙박스 QA를 포기하지 마라</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#눈으로-보는-블랙박스-qa를-포기하지-마라" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>AI가 만든 결과물은 화면으로 보면 바로 이상한 점이 보일 때가 많다. 줄 간격이 어색하고, 버튼 텍스트가 넘치고, 링크가 안 걸려 있고, 표가 깨져 있고, 데이터가 그럴듯하지만 이상한 기준으로 정렬되어 있을 수 있다.</p>
+<p>중요한 것은 “왜 이렇게 했는지”를 묻는 것이다.</p>
+<ul>
+<li>이 결과에서 가장 위험한 숨은 전제는 뭐야?</li>
+<li>어떤 데이터를 근거로 매칭했어?</li>
+<li>확정 ID를 썼어, 아니면 이름 유사도로 추정했어?</li>
+<li>실제 브라우저에서 스크린샷을 찍어 봤어?</li>
+<li>모바일에서도 같은가?</li>
+</ul>
+<p>우리도 Article Studio에서 <a href="https://docs.google.com/document/" class="external">Google Docs<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>로 글을 뽑을 때 비슷한 문제를 겪었다. Markdown을 그대로 밀어 넣으면 표나 링크 서식이 깨질 수 있다. 그래서 문서를 만든 뒤 다시 export해서 heading, table, link, bold가 살아 있는지 확인했다.</p>
+<h2 id="배포-전에는-되돌릴-방법을-생각하라"><strong>배포 전에는 되돌릴 방법을 생각하라</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#배포-전에는-되돌릴-방법을-생각하라" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>프로덕션에 올리는 기능이라면, 잘못되었을 때 바로 되돌릴 방법을 미리 생각해야 한다. Git revert도 방법이지만, 기능이 크거나 위험하다면 feature flag, 환경 변수, remote config, DB 설정으로 끄고 켤 수 있게 만드는 편이 낫다.</p>
+<p><strong>다만 비개발자가 환경 변수나 DB flag를 다룰 때는 더 조심해야 한다.</strong> true와 “true”가 다를 수 있고, trailing newline 하나 때문에 secret이 깨질 수 있고, 0과 1의 의미가 반대로 쓰일 수도 있다. 그래서 이런 작업을 할 때는 에이전트에게 반드시 검증까지 시켜야 한다.</p>
+<ul>
+<li>이 기능을 배포한 뒤 문제가 생기면 어떻게 끌 수 있는지 알려줘.</li>
+<li>revert, feature flag, env var, DB toggle 중 어떤 방식이 가장 안전한지 비교해줘.</li>
+<li>설정값이 잘못 들어갔을 때 생길 수 있는 실패도 같이 점검해줘.</li>
+</ul>
+<h2 id="머지-후에도-실제-환경에서-확인하라"><strong>머지 후에도 실제 환경에서 확인하라</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#머지-후에도-실제-환경에서-확인하라" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>테스트가 다 통과해도, merge 후 실제 환경에서 확인하지 않으면 반쪽짜리다. 로컬에서는 통과했지만 <a href="https://vercel.com/" class="external">Vercel<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> preview에서 깨질 수 있고, preview에서는 통과했지만 production에서만 외부 스크립트나 쿠키 정책 때문에 달라질 수 있다.</p>
+<p>비개발자는 배포 후 이렇게 요청하면 된다.</p>
+<ul>
+<li>머지된 뒤 실제 production 또는 preview URL에서 확인해줘.</li>
+<li>사용자가 보는 화면뿐 아니라 네트워크 요청, DB 저장, 외부 도구 연동까지 확인해줘.</li>
+<li>로컬 테스트와 실제 환경의 차이가 있다면 따로 정리해줘.</li>
+</ul>
+<h2 id="sentry와-로그를-반드시-봐라"><strong>Sentry와 로그를 반드시 봐라</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#sentry와-로그를-반드시-봐라" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>웹사이트나 내부 도구를 운영한다면 Sentry 같은 로깅 도구는 선택이 아니라 필수다. 코딩 에이전트가 아무리 잘 짠 코드라도 실제 환경은 다르다. 브라우저 버전, 확장 프로그램, 외부 스크립트, Vercel runtime, Node.js 버전, Next.js 빌드 정책이 모두 영향을 준다.</p>
+<p>배포 후 최소 2주 정도는 에러를 계속 봐야 한다. Slack alert, Sentry issue, user report, screenshot을 함께 확인해야 한다. 에러가 없다는 말도 검증되어야 한다.</p>
+<h2 id="ai-에이전트-실수는-룰-테스트-감사로-남겨라"><strong>AI 에이전트 실수는 룰, 테스트, 감사로 남겨라</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#ai-에이전트-실수는-룰-테스트-감사로-남겨라" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>마지막으로 가장 중요한 것은 학습이다. 한 번 틀린 것은 다시 틀리지 않게 만들어야 한다. 비개발자가 에이전트를 쓸 때 가장 큰 자산은 코드가 아니라, 점점 강해지는 작업 하네스다.</p>
+<p>어떤 문제가 생겼다면 이렇게 정리한다.</p>
+<ul>
+<li>왜 생겼는가?</li>
+<li>사람이 미리 볼 수 있었는가?</li>
+<li>테스트로 막을 수 있었는가?</li>
+<li>audit으로 더 잘 막을 수 있었는가?</li>
+<li>AGENTS.md나 Claude.md에 hard rule로 넣어야 하는가?</li>
+<li>knowledge 문서에 사례로 남기는 정도면 충분한가?</li>
+</ul>
+<p>모든 것을 AGENTS.md나 Claude.md에 넣으면 안 된다. 너무 무거워지면 에이전트가 중요한 규칙을 놓친다. 정말 어기면 안 되는 것은 hard rule로 넣고, 반복 참고용 지식은 knowledge 문서로 분리한 뒤 인덱싱하는 편이 좋다.</p>
+<p>예를 들어 “절대 main에 바로 force push하지 말 것” 같은 것은 hard rule에 가깝다. 반면 “고객 데이터 매칭에서 확정 ID가 있으면 fuzzy matching을 쓰지 말 것” 같은 것은 knowledge에 가깝다.</p>
+<h2 id="비개발자가-바로-쓸-수-있는-요청-문장들"><strong>비개발자가 바로 쓸 수 있는 요청 문장들</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#비개발자가-바로-쓸-수-있는-요청-문장들" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>아래 문장들은 거의 그대로 복사해서 써도 된다.</p>
+<h3 id="1-코드-리뷰-요청"><strong>1. 코드 리뷰 요청</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#1-코드-리뷰-요청" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>구현이 끝났다고 가정하지 말고, 코드 리뷰어 입장에서 봐줘.</li>
+<li>버그, 회귀 가능성, 보안 위험, 빠진 테스트를 우선순위순으로 찾아줘.</li>
+<li>근거 없는 추측은 하지 말고 파일/함수/동작 기준으로 설명해줘.</li>
+</ul>
+<h3 id="2-테스트-요청"><strong>2. 테스트 요청</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#2-테스트-요청" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>이 기능이 완성되었다는 것을 증명하는 테스트를 먼저 정의해줘.</li>
+<li>happy path, sad path, edge case를 나눠서 작성해줘.</li>
+<li>외부 API는 mock으로 처리하고, 중요한 데이터 shape은 fixture로 검증해줘.</li>
+</ul>
+<h3 id="3-e2e-요청"><strong>3. E2E 요청</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#3-e2e-요청" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>실제 사용자처럼 브라우저에서 처음부터 끝까지 실행하는 E2E 테스트를 만들어줘.</li>
+<li>화면 확인뿐 아니라 DB 저장, 외부 전송 skip 여부, cleanup까지 확인해줘.</li>
+<li>테스트 데이터가 실제 고객이나 영업 시스템으로 흘러가지 않게 안전장치를 넣어줘.</li>
+</ul>
+<h3 id="4-audit-요청"><strong>4. Audit 요청</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#4-audit-요청" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>이번에 발견한 문제가 다시 생기지 않도록 audit을 만들어줘.</li>
+<li>한 파일만 보지 말고 관련된 전체 경로를 검사해줘.</li>
+<li>위반하면 CI나 PR 단계에서 실패하게 만드는 방법까지 제안해줘.</li>
+</ul>
+<h3 id="5-배포-후-확인-요청"><strong>5. 배포 후 확인 요청</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#5-배포-후-확인-요청" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>머지 후 실제 preview 또는 production에서 검증해줘.</li>
+<li>로컬 테스트와 실제 환경에서 다른 점이 있는지 확인해줘.</li>
+<li>Sentry, 네트워크 요청, DB 저장, 외부 서비스 연동까지 확인해줘.</li>
+</ul>
+<h3 id="6-회고-요청"><strong>6. 회고 요청</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#6-회고-요청" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>이번 문제를 다시 막기 위해 rule, knowledge, test, audit 중 어디에 남겨야 하는지 판단해줘.</li>
+<li>너무 넓은 규칙이 아니라, 다음에 같은 실수를 막을 정도로 구체적으로 정리해줘.</li>
+</ul>
+<h2 id="에이전트가-더-잘-일할-수밖에-없는-구조를-만들어라"><strong>에이전트가 더 잘 일할 수밖에 없는 구조를 만들어라</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#에이전트가-더-잘-일할-수밖에-없는-구조를-만들어라" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Claude Code와 Codex는 비개발자에게 엄청난 레버리지를 준다. 하지만 레버리지가 커질수록 검증의 중요성도 커진다. 내가 만든 것이 내부에서만 쓰이는 작은 도구라면 조금의 오류를 견딜 수 있다. 하지만 웹사이트, 고객 데이터, 영업 자동화, 프로덕션 시스템으로 이어지는 순간부터는 다른 수준의 책임이 필요하다.</p>
+<p>결국 중요한 것은 에이전트를 믿지 않는 것이 아니다. <strong>에이전트가 더 잘 일할 수밖에 없는 구조를 만드는 것</strong>이다. 계획을 세우고, 리뷰를 시키고, 테스트를 만들고, E2E로 확인하고, audit으로 잠그고, 배포 후 모니터링하고, 실수를 룰로 남기는 것. 이 과정을 반복하면 비개발자도 꽤 강한 소프트웨어와 자동화를 만들 수 있다.</p>
+<p>우리는 이런 방식으로 10개 이상의 내부 프로젝트들을 계속 강하게 만들고 있다. 그리고 이런 일을 함께 해 보고 싶은 사람들을 찾고 있다. 비개발자이지만 Claude Code와 Codex로 더 많은 일을 만들고, 더 나은 하네스를 설계하고, 실제 비즈니스 결과까지 연결하고 싶은 분이라면 <a href="https://www.ab180.co/" class="external">AB180<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>의 열린 포지션을 한 번 확인해 보면 좋겠다.</p>
+<hr/>
+<p><em>원문: <a href="https://blog.ab180.co/posts/claudecode-codex-test-harden-non-developer" class="external">https://blog.ab180.co/posts/claudecode-codex-test-harden-non-developer<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></em></p></article><hr/><div class="page-footer"><div class="backlinks"><h3>백링크</h3><ul id="list-1" class="overflow"><li><a href="../garden/20260612-audit-for-failure-prevention" class="internal">반복되는 실수를 막는 것은 '주의'가 아니라 '시스템적 감사(Audit)'다</a></li><li><a href="../garden/20260612-tdd-as-intent-specification" class="internal">비개발자에게 TDD는 '시험지'를 먼저 만드는 의도의 명세다</a></li><li><a href="../garden/20260612-verification-is-the-new-coding" class="internal">AI 시대의 코딩은 '작성'이 아니라 '검증의 설계'다</a></li><li><a href="../wiki/concepts/20260612-ai-agent-work-harness" class="internal">AI 에이전트 작업 하네스 (AI Agent Work Harness)</a></li><li class="overflow-end"></li></ul></div><div class="giscus" data-repo="dataofmen/quartz-wiki" data-repo-id="R_kgDOSOxrZA" data-category="General" data-category-id="DIC_kwDOSOxrZM4C-Edy" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-input-position="bottom" data-light-theme="light" data-dark-theme="dark" data-theme-url="https://dataofmen.github.io/static/giscus" data-lang="ko"></div></div></div><div class="right sidebar"><div class="graph desktop-only"><h3>그래프 뷰</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                  s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                  c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                  C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                  c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                  v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                  s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                  C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                  S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                  s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                  s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.5.2</a> © 2026</p><ul></ul></footer></div></div></body><script type="application/javascript" data-persist="true">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module" data-persist="true">function E(a,e){if(!a)return;function t(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function n(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}a?.addEventListener("click",t),window.addCleanup(()=>a?.removeEventListener("click",t)),document.addEventListener("keydown",n),window.addCleanup(()=>document.removeEventListener("keydown",n))}function f(a){for(;a.firstChild;)a.removeChild(a.firstChild)}var m=class{constructor(e,t){this.container=e;this.content=t;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),t=this.onMouseMove.bind(this),n=this.onMouseUp.bind(this),o=this.onTouchStart.bind(this),r=this.onTouchMove.bind(this),i=this.onTouchEnd.bind(this),s=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",t),document.addEventListener("mouseup",n),this.container.addEventListener("touchstart",o,{passive:!1}),document.addEventListener("touchmove",r,{passive:!1}),document.addEventListener("touchend",i),window.addEventListener("resize",s),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",t),()=>document.removeEventListener("mouseup",n),()=>this.container.removeEventListener("touchstart",o),()=>document.removeEventListener("touchmove",r),()=>document.removeEventListener("touchend",i),()=>window.removeEventListener("resize",s))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let t=this.createButton("+",()=>this.zoom(.1)),n=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(n),e.appendChild(o),e.appendChild(t),this.container.appendChild(e)}createButton(e,t){let n=document.createElement("button");return n.textContent=e,n.className="mermaid-control-button",n.addEventListener("click",t),window.addCleanup(()=>n.removeEventListener("click",t)),n}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}onTouchStart(e){if(e.touches.length!==1)return;this.isDragging=!0;let t=e.touches[0];this.startPan={x:t.clientX-this.currentPan.x,y:t.clientY-this.currentPan.y}}onTouchMove(e){if(!this.isDragging||e.touches.length!==1)return;e.preventDefault();let t=e.touches[0];this.currentPan={x:t.clientX-this.startPan.x,y:t.clientY-this.startPan.y},this.updateTransform()}onTouchEnd(){this.isDragging=!1}zoom(e){let t=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),n=this.content.getBoundingClientRect(),o=n.width/2,r=n.height/2,i=t-this.scale;this.currentPan.x-=o*i,this.currentPan.y-=r*i,this.scale=t,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){let t=this.content.querySelector("svg").getBoundingClientRect(),n=t.width/this.scale,o=t.height/this.scale;this.scale=1,this.currentPan={x:(this.container.clientWidth-n)/2,y:(this.container.clientHeight-o)/2},this.updateTransform()}},T=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],y;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;y||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let t=y.default,n=new WeakMap;for(let r of e)n.set(r,r.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let c=n.get(s);c&&(s.innerHTML=c)}let r=T.reduce((s,c)=>(s[c]=window.getComputedStyle(document.documentElement).getPropertyValue(c),s),{}),i=document.documentElement.getAttribute("saved-theme")==="dark";t.initialize({startOnLoad:!1,securityLevel:"loose",theme:i?"dark":"base",themeVariables:{fontFamily:r["--codeFont"],primaryColor:r["--light"],primaryTextColor:r["--darkgray"],primaryBorderColor:r["--tertiary"],lineColor:r["--darkgray"],secondaryColor:r["--secondary"],tertiaryColor:r["--tertiary"],clusterBkg:r["--light"],edgeLabelBackground:r["--highlight"]}}),await t.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let r=0;r<e.length;r++){let v=function(){let g=l.querySelector("#mermaid-space"),h=l.querySelector(".mermaid-content");if(!h)return;f(h);let w=i.querySelector("svg").cloneNode(!0);h.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new m(g,h)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},i=e[r],s=i.parentElement,c=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(c),L=c.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),E(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../postscript.js" type="module" data-persist="true"></script></html>

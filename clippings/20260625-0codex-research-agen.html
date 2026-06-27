@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr"><head><title># 从0开始，十分钟搭建一个帮你筛选优质信息的Codex Research Agent工作流（小白友好版）</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto Sans KR:wght@400;700&amp;family=Noto Sans KR:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="dataofmen"/><meta property="og:title" content="# 从0开始，十分钟搭建一个帮你筛选优质信息的Codex Research Agent工作流（小白友好版）"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="# 从0开始，十分钟搭建一个帮你筛选优质信息的Codex Research Agent工作流（小白友好版）"/><meta name="twitter:description" content="从0开始，十分钟搭建一个帮你筛选优质信息的Codex Research Agent工作流（小白友好版） 相信大家是不是和我一样： 早上起来先刷 45 分钟推特，想看看有什么前沿资讯，结果淹没在一堆噪音中。 费尽心思，才找到两三篇可以细品的优质文章。 放进收藏里，再打开就不知道是什么时候了。 因此，我搭了一个每天早晨自动跑的 Research Agent。 Codex 驱动的。 跑了快两个月，分享一下详细的搭建过程和关键判断。 它的工作流程是： 在我碰任何信息源之前，Codex 已经替我把跟我工作相关的来源扫完， 过滤掉噪声，综合成一份结构化、五分钟能读完的 brief， 直接写进 Obsidi..."/><meta property="og:description" content="从0开始，十分钟搭建一个帮你筛选优质信息的Codex Research Agent工作流（小白友好版） 相信大家是不是和我一样： 早上起来先刷 45 分钟推特，想看看有什么前沿资讯，结果淹没在一堆噪音中。 费尽心思，才找到两三篇可以细品的优质文章。 放进收藏里，再打开就不知道是什么时候了。 因此，我搭了一个每天早晨自动跑的 Research Agent。 Codex 驱动的。 跑了快两个月，分享一下详细的搭建过程和关键判断。 它的工作流程是： 在我碰任何信息源之前，Codex 已经替我把跟我工作相关的来源扫完， 过滤掉噪声，综合成一份结构化、五分钟能读完的 brief， 直接写进 Obsidi..."/><meta property="og:image:alt" content="从0开始，十分钟搭建一个帮你筛选优质信息的Codex Research Agent工作流（小白友好版） 相信大家是不是和我一样： 早上起来先刷 45 分钟推特，想看看有什么前沿资讯，结果淹没在一堆噪音中。 费尽心思，才找到两三篇可以细品的优质文章。 放进收藏里，再打开就不知道是什么时候了。 因此，我搭了一个每天早晨自动跑的 Research Agent。 Codex 驱动的。 跑了快两个月，分享一下详细的搭建过程和关键判断。 它的工作流程是： 在我碰任何信息源之前，Codex 已经替我把跟我工作相关的来源扫完， 过滤掉噪声，综合成一份结构化、五分钟能读完的 brief， 直接写进 Obsidi..."/><meta property="og:image" content="https://dataofmen.github.io/static/og-image.png"/><meta property="og:image:url" content="https://dataofmen.github.io/static/og-image.png"/><meta name="twitter:image" content="https://dataofmen.github.io/static/og-image.png"/><meta property="og:image:type" content="image/.png"/><meta property="twitter:domain" content="dataofmen.github.io"/><meta property="og:url" content="https://dataofmen.github.io/clippings/20260625-0codex-research-agen"/><meta property="twitter:url" content="https://dataofmen.github.io/clippings/20260625-0codex-research-agen"/><link rel="icon" href="../static/icon.png"/><meta name="description" content="从0开始，十分钟搭建一个帮你筛选优质信息的Codex Research Agent工作流（小白友好版） 相信大家是不是和我一样： 早上起来先刷 45 分钟推特，想看看有什么前沿资讯，结果淹没在一堆噪音中。 费尽心思，才找到两三篇可以细品的优质文章。 放进收藏里，再打开就不知道是什么时候了。 因此，我搭了一个每天早晨自动跑的 Research Agent。 Codex 驱动的。 跑了快两个月，分享一下详细的搭建过程和关键判断。 它的工作流程是： 在我碰任何信息源之前，Codex 已经替我把跟我工作相关的来源扫完， 过滤掉噪声，综合成一份结构化、五分钟能读完的 brief， 直接写进 Obsidi..."/><meta name="generator" content="Quartz"/><link href="../index.css" rel="stylesheet" type="text/css" data-persist="true"/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiL2hvbWUvcnVubmVyL3dvcmsvcXVhcnR6LXdpa2kvcXVhcnR6LXdpa2kvcXVhcnR6L2NvbXBvbmVudHMvc3R5bGVzIiwic291cmNlcyI6WyJtZXJtYWlkLmlubGluZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFHRjtFQUNFOzs7QUFLRjtFQUNFO0VBQ0E7OztBQUlKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFOztBQUdGO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFJSjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTs7QUFJRjtFQUNFO0VBQ0E7RUFDQSIsInNvdXJjZXNDb250ZW50IjpbIi5leHBhbmQtYnV0dG9uIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbG9hdDogcmlnaHQ7XG4gIHBhZGRpbmc6IDAuNHJlbTtcbiAgbWFyZ2luOiAwLjNyZW07XG4gIHJpZ2h0OiAwOyAvLyBOT1RFOiByaWdodCB3aWxsIGJlIHNldCBpbiBtZXJtYWlkLmlubGluZS50c1xuICBjb2xvcjogdmFyKC0tZ3JheSk7XG4gIGJvcmRlci1jb2xvcjogdmFyKC0tZGFyayk7XG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWxpZ2h0KTtcbiAgYm9yZGVyOiAxcHggc29saWQ7XG4gIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgb3BhY2l0eTogMDtcbiAgdHJhbnNpdGlvbjogMC4ycztcblxuICAmID4gc3ZnIHtcbiAgICBmaWxsOiB2YXIoLS1saWdodCk7XG4gICAgZmlsdGVyOiBjb250cmFzdCgwLjMpO1xuICB9XG5cbiAgJjpob3ZlciB7XG4gICAgY3Vyc29yOiBwb2ludGVyO1xuICAgIGJvcmRlci1jb2xvcjogdmFyKC0tc2Vjb25kYXJ5KTtcbiAgfVxuXG4gICY6Zm9jdXMge1xuICAgIG91dGxpbmU6IDA7XG4gIH1cbn1cblxucHJlIHtcbiAgJjpob3ZlciA+IC5leHBhbmQtYnV0dG9uIHtcbiAgICBvcGFjaXR5OiAxO1xuICAgIHRyYW5zaXRpb246IDAuMnM7XG4gIH1cbn1cblxuI21lcm1haWQtY29udGFpbmVyIHtcbiAgcG9zaXRpb246IGZpeGVkO1xuICBjb250YWluOiBsYXlvdXQ7XG4gIHotaW5kZXg6IDk5OTtcbiAgbGVmdDogMDtcbiAgdG9wOiAwO1xuICB3aWR0aDogMTAwdnc7XG4gIGhlaWdodDogMTAwdmg7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIGRpc3BsYXk6IG5vbmU7XG4gIGJhY2tkcm9wLWZpbHRlcjogYmx1cig0cHgpO1xuICBiYWNrZ3JvdW5kOiByZ2JhKDAsIDAsIDAsIDAuNSk7XG5cbiAgJi5hY3RpdmUge1xuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgfVxuXG4gICYgPiAjbWVybWFpZC1zcGFjZSB7XG4gICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1saWdodCk7XG4gICAgYm9yZGVyLXJhZGl1czogNXB4O1xuICAgIHBvc2l0aW9uOiBmaXhlZDtcbiAgICB0b3A6IDUwJTtcbiAgICBsZWZ0OiA1MCU7XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGUoLTUwJSwgLTUwJSk7XG4gICAgaGVpZ2h0OiA4MHZoO1xuICAgIHdpZHRoOiA4MHZ3O1xuICAgIG92ZXJmbG93OiBoaWRkZW47XG5cbiAgICAmID4gLm1lcm1haWQtY29udGVudCB7XG4gICAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgICB0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7XG4gICAgICB0cmFuc2l0aW9uOiB0cmFuc2Zvcm0gMC4xcyBlYXNlO1xuICAgICAgb3ZlcmZsb3c6IHZpc2libGU7XG4gICAgICBtaW4taGVpZ2h0OiAyMDBweDtcbiAgICAgIG1pbi13aWR0aDogMjAwcHg7XG5cbiAgICAgIHByZSB7XG4gICAgICAgIG1hcmdpbjogMDtcbiAgICAgICAgYm9yZGVyOiBub25lO1xuICAgICAgfVxuXG4gICAgICBzdmcge1xuICAgICAgICBtYXgtd2lkdGg6IG5vbmU7XG4gICAgICAgIGhlaWdodDogYXV0bztcbiAgICAgIH1cbiAgICB9XG5cbiAgICAmID4gLm1lcm1haWQtY29udHJvbHMge1xuICAgICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgICAgYm90dG9tOiAyMHB4O1xuICAgICAgcmlnaHQ6IDIwcHg7XG4gICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgZ2FwOiA4cHg7XG4gICAgICBwYWRkaW5nOiA4cHg7XG4gICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1saWdodCk7XG4gICAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgICAgYm9yZGVyLXJhZGl1czogNnB4O1xuICAgICAgYm94LXNoYWRvdzogMCAycHggNHB4IHJnYmEoMCwgMCwgMCwgMC4xKTtcbiAgICAgIHotaW5kZXg6IDI7XG5cbiAgICAgIC5tZXJtYWlkLWNvbnRyb2wtYnV0dG9uIHtcbiAgICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICAgICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gICAgICAgIHdpZHRoOiAzMnB4O1xuICAgICAgICBoZWlnaHQ6IDMycHg7XG4gICAgICAgIHBhZGRpbmc6IDA7XG4gICAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0KTtcbiAgICAgICAgY29sb3I6IHZhcigtLWRhcmspO1xuICAgICAgICBib3JkZXItcmFkaXVzOiA0cHg7XG4gICAgICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICAgICAgZm9udC1zaXplOiAxNnB4O1xuICAgICAgICBmb250LWZhbWlseTogdmFyKC0tYm9keUZvbnQpO1xuICAgICAgICB0cmFuc2l0aW9uOiBhbGwgMC4ycyBlYXNlO1xuXG4gICAgICAgICY6aG92ZXIge1xuICAgICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIH1cblxuICAgICAgICAmOmFjdGl2ZSB7XG4gICAgICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKDFweCk7XG4gICAgICAgIH1cblxuICAgICAgICAvLyBTdHlsZSB0aGUgcmVzZXQgYnV0dG9uIGRpZmZlcmVudGx5XG4gICAgICAgICY6bnRoLWNoaWxkKDIpIHtcbiAgICAgICAgICB3aWR0aDogYXV0bztcbiAgICAgICAgICBwYWRkaW5nOiAwIDEycHg7XG4gICAgICAgICAgZm9udC1zaXplOiAxNHB4O1xuICAgICAgICB9XG4gICAgICB9XG4gICAgfVxuICB9XG59XG4iXX0= */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../prescript.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://dataofmen.github.io/index.xml"/></head><body data-slug="clippings/20260625-0codex-research-agen"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"></div><div class="center"><div class="page-header"><header><h2 class="page-title"><a href="..">dataofmen</a></h2><nav class="nav-links"><a href="/wiki" class="nav-link">wiki</a><a href="/garden" class="nav-link">garden</a><a href="/clippings" class="nav-link">clippings</a></nav><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 1rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>검색</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="검색어를 입력하세요" placeholder="검색어를 입력하세요"/><div class="search-layout" data-preview="true"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="다크 모드"><title>다크 모드</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="라이트 모드"><title>라이트 모드</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div></div></header><div class="popover-hint"><h1 class="article-title"># 从0开始，十分钟搭建一个帮你筛选优质信息的Codex Research Agent工作流（小白友好版）</h1><p show-comma="true" class="content-meta"><time datetime="2026-06-25T00:00:00.000Z">2026년 6월 25일</time><span>14 min read</span></p><ul class="tags"><li><a href="../tags/thread" class="internal tag-link">thread</a></li><li><a href="../tags/x.com" class="internal tag-link">x.com</a></li></ul></div></div><article class="popover-hint"><h1 id="从0开始十分钟搭建一个帮你筛选优质信息的codex-research-agent工作流小白友好版">从0开始，十分钟搭建一个帮你筛选优质信息的Codex Research Agent工作流（小白友好版）<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#从0开始十分钟搭建一个帮你筛选优质信息的codex-research-agent工作流小白友好版" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>相信大家是不是和我一样：</p>
+<p>早上起来先刷 45 分钟推特，想看看有什么前沿资讯，结果淹没在一堆噪音中。</p>
+<p>费尽心思，才找到两三篇可以细品的优质文章。</p>
+<p>放进收藏里，再打开就不知道是什么时候了。</p>
+<p>因此，我搭了一个每天早晨自动跑的 Research Agent。</p>
+<p>Codex 驱动的。</p>
+<p>跑了快两个月，分享一下详细的搭建过程和关键判断。</p>
+<p>它的工作流程是：</p>
+<p>在我碰任何信息源之前，Codex 已经替我把跟我工作相关的来源扫完，</p>
+<p>过滤掉噪声，综合成一份结构化、五分钟能读完的 brief，</p>
+<p>直接写进 Obsidian 库。</p>
+<p>我醒来坐下，就可以直接进入工作状态。</p>
+<p>Codex CLI + MCP + n8n。</p>
+<p>我们需要把这三者串起来，这个工作流才能跑下去。</p>
+<p>接下来是详细搭建流程。</p>
+<p>从零搭一遍。</p>
+<p>它实际做什么？</p>
+<ol>
+<li>来源监控</li>
+</ol>
+<p>按你配置的清单读每一个信息源：</p>
+<p>行业新闻、竞争对手网站、学术论文、newsletter、YouTube 频道研究内容、播客文字稿、GitHub 仓库、Reddit 子版块……</p>
+<ol start="2">
+<li>信号过滤</li>
+</ol>
+<p>按你定的标准分信号和噪声。</p>
+<p>竞争对手发了新产品——信号。</p>
+<p>一篇复述上周内容的博客——噪声。</p>
+<p>过滤层决定了 brief 是真正有用，还是所有信息的缩短版。</p>
+<ol start="3">
+<li>综合分析</li>
+</ol>
+<p>不列 bullet points 交差。</p>
+<p>写成结构化叙述：</p>
+<p>发生了什么、为什么值得关注、跟你已知的事有什么关联、你可以怎么应对。</p>
+<ol start="4">
+<li>自动投递</li>
+</ol>
+<p>每天定时把 brief 放到 Obsidian 库的指定位置。</p>
+<p>不靠手动触发。</p>
+<p>四项串起来，45 分钟信息搜集变成 5 分钟阅读。</p>
+<p>四个组件</p>
+<ol>
+<li>Codex CLI</li>
+</ol>
+<p>智能层兼执行层。</p>
+<p>读来源里的原始信息，用你给的标准过滤重要内容，综合成结构化 brief，通过 MCP 直接读写 Obsidian 库。</p>
+<p>不需要 Desktop 界面。</p>
+<p>终端里的一个命令就能跑。</p>
+<p>这是 Codex 做这件事最顺手的地方：</p>
+<p>它生来就是命令行工具，定时任务、文件读写、MCP 调用都是原生能力。</p>
+<ol start="2">
+<li>Brave Search MCP</li>
+</ol>
+<p>实时搜索能力。</p>
+<p>有了它，能搜索实时网页，获取指定主题的最新动态。</p>
+<p>免费层每月 2000 次查询，每天跑一次完全够用。</p>
+<p>API key 在这里获取：</p>
+<p><a href="https://brave.com/search/api" class="external">https://brave.com/search/api<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<ol start="3">
+<li>配置 Codex 的 MCP</li>
+</ol>
+<p>在 Codex 配置文件里加这两段：</p>
+<p>{</p>
+<p>“mcpServers”: {</p>
+<pre><code>&quot;filesystem&quot;: {
+
+  &quot;command&quot;: &quot;npx&quot;,
+
+  &quot;args&quot;: [
+
+    &quot;-y&quot;,
+
+    &quot;@modelcontextprotocol/server-filesystem&quot;,
+
+    &quot;/path/to/obsidian/vault&quot;
+
+  ]
+
+},
+
+&quot;brave-search&quot;: {
+
+  &quot;command&quot;: &quot;npx&quot;,
+
+  &quot;args&quot;: [
+
+    &quot;-y&quot;,
+
+    &quot;@modelcontextprotocol/server-brave-search&quot;
+
+  ],
+
+  &quot;env&quot;: {
+
+    &quot;BRAVE_API_KEY&quot;: &quot;your-key&quot;
+
+  }
+
+}
+</code></pre>
+<p>}</p>
+<p>}</p>
+<p>第一，能访问实时信息源。</p>
+<p>第二，能把结果写回你的本地知识库。</p>
+<p>搜索能力解决输入。</p>
+<p>Filesystem MCP 解决输出。</p>
+<p>二者接上，Research Agent 才不是聊天机器人，而是一个能持续工作的早报系统。</p>
+<ol start="4">
+<li>n8n</li>
+</ol>
+<p>整个系统的调度心脏。</p>
+<p>每天在你设定的时间触发 Research Agent，把 prompt 和背景信息一起传给 Codex，接收输出，保存到库。</p>
+<p>可以自托管在每月约 5 美元的小服务器上。</p>
+<p>DigitalOcean 开一个基础 Ubuntu droplet，SSH 进去，npm 装 n8n，配成 service。</p>
+<p>第一次搭大约半小时。</p>
+<p>之后所有自动化工作流都可以复用这套基础设施。</p>
+<ol start="5">
+<li>CODEX.md</li>
+</ol>
+<p>CODEX.md 是研究和决策背景。</p>
+<p>这个文件决定了 brief 是跟你个人相关，还是任何人都能读的泛泛总结。</p>
+<p>它告诉 Codex 四件事：</p>
+<p>你是谁。</p>
+<p>你关心什么。</p>
+<p>你已经知道什么。</p>
+<p>你现在正在做什么。</p>
+<p>第一步：写 CODEX.md</p>
+<p>这一步做对还是做废，直接决定产出质量。</p>
+<p>在 Obsidian 库里创建：</p>
+<p>Research Agent Context</p>
+<p>我是谁</p>
+<p>[名字、角色、所做的工作]</p>
+<p>我的主要关注领域</p>
+<p>[具体列出需要跟踪的主题、行业、领域]</p>
+<p>对我来说什么算重要新闻</p>
+<p>[具体。不是“AI 新闻”，而是“Codex CLI 更新、新 MCP server 发布、多 Agent 框架、AI Agent 安全进展”]</p>
+<p>我的竞争格局</p>
+<p>[你监控的具体公司、人物和产品]</p>
+<p>我已经非常熟悉的内容</p>
+<p>[有深厚经验的领域——只需要真正重要的新动态，不要入门覆盖]</p>
+<p>我目前正在做什么</p>
+<p>[活跃项目。相关新闻可以直接转化为行动。每周更新。]</p>
+<p>我信任的来源</p>
+<p>[值得优先处理的具体 publication、newsletter、researcher、YouTube 频道、subreddit]</p>
+<p>我明确不想看到的内容</p>
+<p>[你领域里常出现但浪费时间的主题。泛 AI 炒作文章、重复内容、不关心的公司公告。]</p>
+<p>Brief 格式偏好</p>
+<p>[你希望输出怎么组织]</p>
+<p>“我明确不想看到的内容”是大多数人会跳过的章节，也是最有用的一章。</p>
+<p>写清楚了，过滤更激进，brief 只留真正可能行动的信号。</p>
+<p>信息来源也要配。</p>
+<p>Brave Search 给覆盖面，但最有价值的信息源——特定研究员博客、竞品发布页——需要直接列出来。</p>
+<p>写进“我信任的来源”，加上具体指令。</p>
+<p>比如：</p>
+<p>“每日检查 HN 首页 AI 与开发者工具相关内容。”</p>
+<p>“每周扫 arxiv.org/cs.AI 本周重要论文。”</p>
+<p>第二步：写 research prompt</p>
+<p>这是每天早晨运行的核心 prompt，放在 n8n 工作流里发给 Codex：</p>
+<p>你是我的个人 research agent。请生成我的晨间简报。</p>
+<p>先读我库里 CODEX.md 的 research context。</p>
+<p>然后执行以下流程：</p>
+<p>步骤 1：主要主题搜索</p>
+<p>对 research context 中每个关注领域，搜索过去 24 小时重要动态。</p>
+<p>步骤 2：信号过滤</p>
+<p>纳入：</p>
+<p>我关注的公司或工具发的新产品 / 重大更新</p>
+<p>会改变我们对某领域理解的研究发现</p>
+<p>竞争对手的战略行动</p>
+<p>影响我所在领域的监管或政策变化</p>
+<p>值得了解的新工具、框架、技术</p>
+<p>排除：</p>
+<p>“明确不想看到”章节中注明的任何内容</p>
+<p>复述 48 小时前已发布信息的二次内容</p>
+<p>没有新增信息的观点文章</p>
+<p>不关注的公司的公告</p>
+<p>缺乏具体可行动细节的泛 AI 炒作</p>
+<p>某分类没有重要事发生，直接写“今天没有”，不填充</p>
+<p>步骤 3：竞争情报</p>
+<p>专门搜竞争格局中列出的公司和人物。</p>
+<p>突出战略转变、新品发布。</p>
+<p>步骤 4：综合输出</p>
+<p>严格按以下格式：</p>
+<p>晨间简报 - [DATE]</p>
+<p>生成时间：[TIME]</p>
+<p>今天最重要的一件事</p>
+<p>[今天最重要的单项动态。一段说明它为什么对你重要。]</p>
+<p>发生了什么</p>
+<p>[3-7 项。每项含来源 / 公司 / 主题、发生了什么、为什么跟你的工作有关。每项 1-3 句。]</p>
+<p>竞争动态观察</p>
+<p>[竞争格局中的重要行动。无则写“今天没有重要动态”。]</p>
+<p>可采取的行动</p>
+<p>[1-3 个具体行动。只有真正可行动时才写。]</p>
+<p>深入阅读</p>
+<p>[与今天首要事项相关的 2-3 篇完整文章链接]</p>
+<p>重要格式规则：</p>
+<p>整份 brief 五分钟能读完</p>
+<p>每一项必须直接对应 research context 中的某个内容</p>
+<p>不填充，不闪烁其辞</p>
+<p>重要就说清楚为什么重要</p>
+<p>今天新闻平淡，直接说明平淡</p>
+<p>保存到：BRIEFINGS/[YYYY-MM-DD]-morning-brief.md</p>
+<p>第三步：搭 n8n 工作流</p>
+<p>五个节点。</p>
+<p>节点 1：Schedule Trigger</p>
+<p>设为早上 6 点。</p>
+<p>在你打开电脑前，brief 已经生成好了。</p>
+<p>周一至周五：</p>
+<p>0 6 * * 1-5</p>
+<p>包含周末：</p>
+<p>0 6 * * *</p>
+<p>节点 2：Read File</p>
+<p>读取库里 CODEX.md 的完整内容。</p>
+<p>节点 3：Code</p>
+<p>把 prompt 和 CODEX.md 内容拼成 API 请求：</p>
+<p>const codexMd = $node[“Read CODEX.md”].json.content;</p>
+<p>const today = new Date().toISOString().split(‘T’)[0];</p>
+<p>const time = new Date().toLocaleTimeString();</p>
+<p>const systemPrompt = `你是个人 research agent。</p>
+<p>今天是 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">t</span><span class="mord mathnormal">o</span><span class="mord mathnormal">d</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span><span class="mord cjk_fallback">，当前时间</span></span></span></span>{time}。</p>
+<p>可通过 Brave Search MCP 访问实时搜索，请充分使用。</p>
+<p>用户的 CODEX.md research context：</p>
+<p>${codexMd}`;</p>
+<p>return {</p>
+<p>model: “gpt-5-codex”,</p>
+<p>max_tokens: 4096,</p>
+<p>messages: [</p>
+<pre><code>{
+
+  role: &quot;system&quot;,
+
+  content: systemPrompt
+
+},
+
+{
+
+  role: &quot;user&quot;,
+
+  content: &quot;请按 research context 中规定的格式和指令，生成我的晨间研究简报。&quot;
+
+}
+</code></pre>
+<p>]</p>
+<p>};</p>
+<p>节点 4：HTTP Request</p>
+<p>调用 OpenAI API：</p>
+<p>URL: <a href="https://api.openai.com/v1/chat/completions" class="external">https://api.openai.com/v1/chat/completions<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<p>Method: POST</p>
+<p>Headers:</p>
+<p>Authorization: Bearer [你的 OPENAI_API_KEY]</p>
+<p>Content-Type: application/json</p>
+<p>Body 使用节点 3 的输出。</p>
+<p>节点 5：Write File</p>
+<p>把结果写进 Obsidian 库：</p>
+<p>const response = $node[“Codex API Call”].json;</p>
+<p>const content = response.choices[0].message.content;</p>
+<p>const date = new Date().toISOString().split(‘T’)[0];</p>
+<p>return {</p>
+<p>filename: <code>${date}-morning-brief.md</code>,</p>
+<p>content: content</p>
+<p>};</p>
+<p>路径指向：</p>
+<p>/your/vault/path/BRIEFINGS/${date}-morning-brief.md</p>
+<p>可选节点 6：Telegram 通知</p>
+<p>brief 投递后，手机收到提醒。</p>
+<p>你甚至可以在起床前先看完。</p>
+<p>第四步：接上反馈回路</p>
+<p>这是整个系统里最容易被跳过、但决定 brief 是越跑越准还是越跑越烂的一步。</p>
+<p>每次读完 brief，花两分钟在文件底部写标注：</p>
+<p>我对这份 Brief 的笔记</p>
+<p>[哪些有用、哪些是噪声、缺了什么]</p>
+<p>每周日，让 Codex 读过去一周所有 brief 和你的标注，更新 CODEX.md。</p>
+<p>持续产出信号的来源，提权。</p>
+<p>持续产生噪声的主题，加进“不想看到”清单。</p>
+<p>反复缺失的信息类型，补充搜索关键词。</p>
+<p>被标记为“有用”的内容模式，记录为明确偏好。</p>
+<p>有了这个回路，到第三个月，brief 对你的信息需求会比第一周校准得准确得多。</p>
+<p>扩展方向</p>
+<ol>
+<li>主题深挖</li>
+</ol>
+<p>哪天 brief 里出现重大动态，扔进 deeper research 队列。</p>
+<p>队列处理器自动对该主题跑一次全面 research，生成详细分析笔记，不等到第二天。</p>
+<ol start="2">
+<li>竞争情报即时提醒</li>
+</ol>
+<p>配一条轻量工作流，每四小时查一次竞品新闻。</p>
+<p>发现重要动态，立刻 Telegram 通知，不等晨间 brief。</p>
+<ol start="3">
+<li>周报</li>
+</ol>
+<p>周日不跑标准日报。</p>
+<p>让 Codex 读过去七天的七份日报，生成周报：</p>
+<p>本周最大主题是什么。</p>
+<p>对你所在领域长期意味着什么。</p>
+<p>最重要的单条动态你要怎么应对。</p>
+<p>你预期发生但没发生的事意味着什么。</p>
+<p>但搭完只是第一步</p>
+<p>第一周你大概率会发现 brief 还不够准。</p>
+<p>有些内容你觉得有用但没出现。</p>
+<p>这不是系统有问题，是 CODEX.md 还没被真实反馈打磨过。</p>
+<p>接下来要做的事，比搭建更重要：</p>
+<p>持续调控。</p>
+<p>每次读完 brief，写两行标注。</p>
+<p>每个周日花十分钟扫一眼当周标注，改 CODEX.md。</p>
+<p>该提权的提权，该拉黑的拉黑。</p>
+<p>缺什么信息类型，就补一句搜索指令。</p>
+<p>第二周会比第一周准。</p>
+<p>第一个月会比第二周更准。</p>
+<p>你的关注方向会变，项目在推进，CODEX.md 也要跟着动。</p>
+<p>工作流是骨架。</p>
+<p>后期的打磨，才决定它能不能真的成为你的研究系统。</p>
+<p>这只是一条路，大家也可以搞一个云服务器来完成，也可以实现24小时在线的效果。</p>
+<hr/>
+<p><em>원문: <a href="https://x.com/knoyee_/status/2059546967429276052?s=52" class="external">https://x.com/knoyee_/status/2059546967429276052?s=52<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></em></p></article><hr/><div class="page-footer"><div class="giscus" data-repo="dataofmen/quartz-wiki" data-repo-id="R_kgDOSOxrZA" data-category="General" data-category-id="DIC_kwDOSOxrZM4C-Edy" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-input-position="bottom" data-light-theme="light" data-dark-theme="dark" data-theme-url="https://dataofmen.github.io/static/giscus" data-lang="ko"></div></div></div><div class="right sidebar"><div class="graph desktop-only"><h3>그래프 뷰</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                  s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                  c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                  C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                  c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                  v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                  s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                  C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                  S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                  s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                  s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.5.2</a> © 2026</p><ul></ul></footer></div></div></body><script type="application/javascript" data-persist="true">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module" data-persist="true">function E(a,e){if(!a)return;function t(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function n(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}a?.addEventListener("click",t),window.addCleanup(()=>a?.removeEventListener("click",t)),document.addEventListener("keydown",n),window.addCleanup(()=>document.removeEventListener("keydown",n))}function f(a){for(;a.firstChild;)a.removeChild(a.firstChild)}var m=class{constructor(e,t){this.container=e;this.content=t;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),t=this.onMouseMove.bind(this),n=this.onMouseUp.bind(this),o=this.onTouchStart.bind(this),r=this.onTouchMove.bind(this),i=this.onTouchEnd.bind(this),s=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",t),document.addEventListener("mouseup",n),this.container.addEventListener("touchstart",o,{passive:!1}),document.addEventListener("touchmove",r,{passive:!1}),document.addEventListener("touchend",i),window.addEventListener("resize",s),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",t),()=>document.removeEventListener("mouseup",n),()=>this.container.removeEventListener("touchstart",o),()=>document.removeEventListener("touchmove",r),()=>document.removeEventListener("touchend",i),()=>window.removeEventListener("resize",s))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let t=this.createButton("+",()=>this.zoom(.1)),n=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(n),e.appendChild(o),e.appendChild(t),this.container.appendChild(e)}createButton(e,t){let n=document.createElement("button");return n.textContent=e,n.className="mermaid-control-button",n.addEventListener("click",t),window.addCleanup(()=>n.removeEventListener("click",t)),n}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}onTouchStart(e){if(e.touches.length!==1)return;this.isDragging=!0;let t=e.touches[0];this.startPan={x:t.clientX-this.currentPan.x,y:t.clientY-this.currentPan.y}}onTouchMove(e){if(!this.isDragging||e.touches.length!==1)return;e.preventDefault();let t=e.touches[0];this.currentPan={x:t.clientX-this.startPan.x,y:t.clientY-this.startPan.y},this.updateTransform()}onTouchEnd(){this.isDragging=!1}zoom(e){let t=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),n=this.content.getBoundingClientRect(),o=n.width/2,r=n.height/2,i=t-this.scale;this.currentPan.x-=o*i,this.currentPan.y-=r*i,this.scale=t,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){let t=this.content.querySelector("svg").getBoundingClientRect(),n=t.width/this.scale,o=t.height/this.scale;this.scale=1,this.currentPan={x:(this.container.clientWidth-n)/2,y:(this.container.clientHeight-o)/2},this.updateTransform()}},T=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],y;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;y||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let t=y.default,n=new WeakMap;for(let r of e)n.set(r,r.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let c=n.get(s);c&&(s.innerHTML=c)}let r=T.reduce((s,c)=>(s[c]=window.getComputedStyle(document.documentElement).getPropertyValue(c),s),{}),i=document.documentElement.getAttribute("saved-theme")==="dark";t.initialize({startOnLoad:!1,securityLevel:"loose",theme:i?"dark":"base",themeVariables:{fontFamily:r["--codeFont"],primaryColor:r["--light"],primaryTextColor:r["--darkgray"],primaryBorderColor:r["--tertiary"],lineColor:r["--darkgray"],secondaryColor:r["--secondary"],tertiaryColor:r["--tertiary"],clusterBkg:r["--light"],edgeLabelBackground:r["--highlight"]}}),await t.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let r=0;r<e.length;r++){let v=function(){let g=l.querySelector("#mermaid-space"),h=l.querySelector(".mermaid-content");if(!h)return;f(h);let w=i.querySelector("svg").cloneNode(!0);h.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new m(g,h)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},i=e[r],s=i.parentElement,c=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(c),L=c.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),E(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../postscript.js" type="module" data-persist="true"></script></html>
