@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr"><head><title>dataofmen wiki</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto Sans KR:wght@400;700&amp;family=Noto Sans KR:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="dataofmen"/><meta property="og:title" content="dataofmen wiki"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="dataofmen wiki"/><meta name="twitter:description" content="🗺️ 지식 지형도 (Atlas) 지식은 분류함에 갇히는 대신, 서로 연결되며 거대한 네트워크를 형성합니다. 아래는 현재 수많은 노트 중에서도 가장 많은 인용을 주고받으며 생태계의 중심 역할을 하는 “빅 허브(Big Hubs)” 노트들입니다."/><meta property="og:description" content="🗺️ 지식 지형도 (Atlas) 지식은 분류함에 갇히는 대신, 서로 연결되며 거대한 네트워크를 형성합니다. 아래는 현재 수많은 노트 중에서도 가장 많은 인용을 주고받으며 생태계의 중심 역할을 하는 “빅 허브(Big Hubs)” 노트들입니다."/><meta property="og:image:alt" content="🗺️ 지식 지형도 (Atlas) 지식은 분류함에 갇히는 대신, 서로 연결되며 거대한 네트워크를 형성합니다. 아래는 현재 수많은 노트 중에서도 가장 많은 인용을 주고받으며 생태계의 중심 역할을 하는 “빅 허브(Big Hubs)” 노트들입니다."/><meta property="og:image" content="https://dataofmen.github.io/static/og-image.png"/><meta property="og:image:url" content="https://dataofmen.github.io/static/og-image.png"/><meta name="twitter:image" content="https://dataofmen.github.io/static/og-image.png"/><meta property="og:image:type" content="image/.png"/><meta property="twitter:domain" content="dataofmen.github.io"/><meta property="og:url" content="https://dataofmen.github.io/index"/><meta property="twitter:url" content="https://dataofmen.github.io/index"/><link rel="icon" href="./static/icon.png"/><meta name="description" content="🗺️ 지식 지형도 (Atlas) 지식은 분류함에 갇히는 대신, 서로 연결되며 거대한 네트워크를 형성합니다. 아래는 현재 수많은 노트 중에서도 가장 많은 인용을 주고받으며 생태계의 중심 역할을 하는 “빅 허브(Big Hubs)” 노트들입니다."/><meta name="generator" content="Quartz"/><link href="./index.css" rel="stylesheet" type="text/css" data-persist="true"/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiL2hvbWUvcnVubmVyL3dvcmsvcXVhcnR6LXdpa2kvcXVhcnR6LXdpa2kvcXVhcnR6L2NvbXBvbmVudHMvc3R5bGVzIiwic291cmNlcyI6WyJtZXJtYWlkLmlubGluZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFHRjtFQUNFOzs7QUFLRjtFQUNFO0VBQ0E7OztBQUlKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFOztBQUdGO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFJSjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTs7QUFJRjtFQUNFO0VBQ0E7RUFDQSIsInNvdXJjZXNDb250ZW50IjpbIi5leHBhbmQtYnV0dG9uIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbG9hdDogcmlnaHQ7XG4gIHBhZGRpbmc6IDAuNHJlbTtcbiAgbWFyZ2luOiAwLjNyZW07XG4gIHJpZ2h0OiAwOyAvLyBOT1RFOiByaWdodCB3aWxsIGJlIHNldCBpbiBtZXJtYWlkLmlubGluZS50c1xuICBjb2xvcjogdmFyKC0tZ3JheSk7XG4gIGJvcmRlci1jb2xvcjogdmFyKC0tZGFyayk7XG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWxpZ2h0KTtcbiAgYm9yZGVyOiAxcHggc29saWQ7XG4gIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgb3BhY2l0eTogMDtcbiAgdHJhbnNpdGlvbjogMC4ycztcblxuICAmID4gc3ZnIHtcbiAgICBmaWxsOiB2YXIoLS1saWdodCk7XG4gICAgZmlsdGVyOiBjb250cmFzdCgwLjMpO1xuICB9XG5cbiAgJjpob3ZlciB7XG4gICAgY3Vyc29yOiBwb2ludGVyO1xuICAgIGJvcmRlci1jb2xvcjogdmFyKC0tc2Vjb25kYXJ5KTtcbiAgfVxuXG4gICY6Zm9jdXMge1xuICAgIG91dGxpbmU6IDA7XG4gIH1cbn1cblxucHJlIHtcbiAgJjpob3ZlciA+IC5leHBhbmQtYnV0dG9uIHtcbiAgICBvcGFjaXR5OiAxO1xuICAgIHRyYW5zaXRpb246IDAuMnM7XG4gIH1cbn1cblxuI21lcm1haWQtY29udGFpbmVyIHtcbiAgcG9zaXRpb246IGZpeGVkO1xuICBjb250YWluOiBsYXlvdXQ7XG4gIHotaW5kZXg6IDk5OTtcbiAgbGVmdDogMDtcbiAgdG9wOiAwO1xuICB3aWR0aDogMTAwdnc7XG4gIGhlaWdodDogMTAwdmg7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIGRpc3BsYXk6IG5vbmU7XG4gIGJhY2tkcm9wLWZpbHRlcjogYmx1cig0cHgpO1xuICBiYWNrZ3JvdW5kOiByZ2JhKDAsIDAsIDAsIDAuNSk7XG5cbiAgJi5hY3RpdmUge1xuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgfVxuXG4gICYgPiAjbWVybWFpZC1zcGFjZSB7XG4gICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1saWdodCk7XG4gICAgYm9yZGVyLXJhZGl1czogNXB4O1xuICAgIHBvc2l0aW9uOiBmaXhlZDtcbiAgICB0b3A6IDUwJTtcbiAgICBsZWZ0OiA1MCU7XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGUoLTUwJSwgLTUwJSk7XG4gICAgaGVpZ2h0OiA4MHZoO1xuICAgIHdpZHRoOiA4MHZ3O1xuICAgIG92ZXJmbG93OiBoaWRkZW47XG5cbiAgICAmID4gLm1lcm1haWQtY29udGVudCB7XG4gICAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgICB0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7XG4gICAgICB0cmFuc2l0aW9uOiB0cmFuc2Zvcm0gMC4xcyBlYXNlO1xuICAgICAgb3ZlcmZsb3c6IHZpc2libGU7XG4gICAgICBtaW4taGVpZ2h0OiAyMDBweDtcbiAgICAgIG1pbi13aWR0aDogMjAwcHg7XG5cbiAgICAgIHByZSB7XG4gICAgICAgIG1hcmdpbjogMDtcbiAgICAgICAgYm9yZGVyOiBub25lO1xuICAgICAgfVxuXG4gICAgICBzdmcge1xuICAgICAgICBtYXgtd2lkdGg6IG5vbmU7XG4gICAgICAgIGhlaWdodDogYXV0bztcbiAgICAgIH1cbiAgICB9XG5cbiAgICAmID4gLm1lcm1haWQtY29udHJvbHMge1xuICAgICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgICAgYm90dG9tOiAyMHB4O1xuICAgICAgcmlnaHQ6IDIwcHg7XG4gICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgZ2FwOiA4cHg7XG4gICAgICBwYWRkaW5nOiA4cHg7XG4gICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1saWdodCk7XG4gICAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgICAgYm9yZGVyLXJhZGl1czogNnB4O1xuICAgICAgYm94LXNoYWRvdzogMCAycHggNHB4IHJnYmEoMCwgMCwgMCwgMC4xKTtcbiAgICAgIHotaW5kZXg6IDI7XG5cbiAgICAgIC5tZXJtYWlkLWNvbnRyb2wtYnV0dG9uIHtcbiAgICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICAgICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gICAgICAgIHdpZHRoOiAzMnB4O1xuICAgICAgICBoZWlnaHQ6IDMycHg7XG4gICAgICAgIHBhZGRpbmc6IDA7XG4gICAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0KTtcbiAgICAgICAgY29sb3I6IHZhcigtLWRhcmspO1xuICAgICAgICBib3JkZXItcmFkaXVzOiA0cHg7XG4gICAgICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICAgICAgZm9udC1zaXplOiAxNnB4O1xuICAgICAgICBmb250LWZhbWlseTogdmFyKC0tYm9keUZvbnQpO1xuICAgICAgICB0cmFuc2l0aW9uOiBhbGwgMC4ycyBlYXNlO1xuXG4gICAgICAgICY6aG92ZXIge1xuICAgICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIH1cblxuICAgICAgICAmOmFjdGl2ZSB7XG4gICAgICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKDFweCk7XG4gICAgICAgIH1cblxuICAgICAgICAvLyBTdHlsZSB0aGUgcmVzZXQgYnV0dG9uIGRpZmZlcmVudGx5XG4gICAgICAgICY6bnRoLWNoaWxkKDIpIHtcbiAgICAgICAgICB3aWR0aDogYXV0bztcbiAgICAgICAgICBwYWRkaW5nOiAwIDEycHg7XG4gICAgICAgICAgZm9udC1zaXplOiAxNHB4O1xuICAgICAgICB9XG4gICAgICB9XG4gICAgfVxuICB9XG59XG4iXX0= */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="./prescript.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("./static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://dataofmen.github.io/index.xml"/></head><body data-slug="index"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"></div><div class="center"><div class="page-header"><header><h2 class="page-title"><a href=".">dataofmen</a></h2><nav class="nav-links"><a href="/wiki" class="nav-link">wiki</a><a href="/garden" class="nav-link">garden</a><a href="/clippings" class="nav-link">clippings</a></nav><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 1rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>검색</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="검색어를 입력하세요" placeholder="검색어를 입력하세요"/><div class="search-layout" data-preview="true"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="다크 모드"><title>다크 모드</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="라이트 모드"><title>라이트 모드</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div></div></header><div class="popover-hint"></div></div><article class="popover-hint"><h2 id="️-지식-지형도-atlas">🗺️ 지식 지형도 (Atlas)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#️-지식-지형도-atlas" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>지식은 분류함에 갇히는 대신, 서로 연결되며 거대한 네트워크를 형성합니다. 아래는 현재 수많은 노트 중에서도 가장 많은 인용을 주고받으며 생태계의 중심 역할을 하는 “빅 허브(Big Hubs)” 노트들입니다.</p>
+
+<blockquote>
+<p><strong>오늘의 지식 지형도 요약</strong> (자동 생성됨 · 2026-07-24 13:02)</p>
+</blockquote>
+<p>이 위키의 중심 흐름은 <strong>프런티어 AI 모델</strong> 자체보다, 그 모델이 실제 지식·업무·투자 시스템 안에서 어떻게 배치되고 축적되는가로 이동하고 있다. Kimi K2, Claude Code, Nous Research, RTX Spark 같은 노트는 모델·에이전트·로컬 컴퓨트의 기술 전선을 보여주지만, 더 큰 축은 <strong>하네스 엔지니어링</strong>, <strong>에이전트 실행권</strong>, <strong>Forward Deployed Engineer 모델</strong>처럼 AI를 실행 가능한 조직적 인프라로 전환하는 주제에 있다. 즉 모델 성능 경쟁은 배경이 되고, 권한·도구·메모리·검증·도메인 통합을 누가 장악하는지가 새로운 해자로 부상하는 흐름이 형성되고 있다.</p>
+<p>동시에 위키 내부에서는 <strong>LLM 위키 패턴</strong>, <strong>원자적 노트</strong>, <strong>6Rs 파이프라인</strong>, <strong>PKM 자동화</strong>가 강하게 교차한다. 다수의 유튜브 트랜스크립트 허브는 단순 클리핑 저장소가 아니라, 반복적으로 입력되는 대화·자료를 LLM이 해석하고 재구성하면서 지식 그래프를 성장시키는 실험장 역할을 한다. 여기서 핵심 문제의식은 RAG처럼 매번 검색으로 재조립하는 방식이 아니라, 지식을 지속적으로 컴파일하고 갱신하는 <strong>누적형 지식 시스템</strong>을 만드는 데 있다.</p>
+<p>투자·산업 분석 축에서는 <strong>컴퓨팅 자산 클래스</strong>, <strong>AI 인프라 병목</strong>, <strong>산업 체인 Cascade 투자법</strong>이 AI 기술 담론과 결합한다. 모델, 에이전트, 로컬 AI, 전력, 메모리, GPU, 선물 시장이 하나의 공급망 지도로 묶이며, AI는 소프트웨어 패러다임을 넘어 자본·인프라·조직 운영을 재편하는 장기 사이클로 해석되고 있다. 따라서 현재 위키의 지식 생태계는 <strong>AI 에이전트 실행 인프라</strong>, <strong>LLM 기반 지식관리</strong>, <strong>AI 산업 체인 투자</strong>라는 세 축이 서로를 보강하는 방향으로 수렴하고 있다.</p>
+<h3 id="-현재-생태계의-중심-top-30-hubs">🔗 현재 생태계의 중심 (Top 30 Hubs)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-현재-생태계의-중심-top-30-hubs" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><a href="./wiki/entities/20260602-kimi-k2" class="internal alias" data-slug="wiki/entities/20260602-kimi-k2">Kimi K2 (Moonshot)</a> — (연결: 74) 중국 프런티어 랩 Moonshot이 2025년 11월 발표한 추론(thinking) LLM. 약 1조 파라미터급 MoE 모델로, GPT-5·Claude Sonnet 4.5 Thinking과 직접 비교되는 벤치마크 성능을 기록했다.</li>
+<li><a href="./wiki/concepts/20260613-ep76-ko-transcript" class="internal alias" data-slug="wiki/concepts/20260613-ep76-ko-transcript">유튜브 트랜스크립트 (ep76)</a> — (연결: 71) 이 트랜스크립트는 단순한 대화 기록을 넘어, 표면적 논의 이면에 존재하는 인식의 전환점(paradigm shift) 을 포착한다. 참가자들은 명시적으로 드러내지 않았지만, 대화의 리듬, 반복되는 어휘, 그리고 갑작스러운 주제 전환 속에서 개인의 내적 혁명이 일어나는 순간들이 암시된다.</li>
+<li><a href="./wiki/concepts/20260613-ep86-ko-transcript" class="internal alias" data-slug="wiki/concepts/20260613-ep86-ko-transcript">유튜브 트랜스크립트 (ep86)</a> — (연결: 56) 원본 파일의 핵심 구문과 키워드를 추출합니다. (실제 파일이 로드되지 않았으므로, 파일 제목에서 유추 가능한 정보만 기록)</li>
+<li><a href="./wiki/concepts/20260613-ep97-ko-transcript" class="internal alias" data-slug="wiki/concepts/20260613-ep97-ko-transcript">유튜브 트랜스크립트 (ep97)</a> — (연결: 53) 이 노트는 <code>/Users/hmkwon/Projects/0004_Wikis/clippings/20260613-ep97-ko-transcript.md</code> 파일을 6Rs 파이프라인으로 처리한 결과물입니다.</li>
+<li><a href="./wiki/concepts/20260613-ep77-ko-transcript" class="internal alias" data-slug="wiki/concepts/20260613-ep77-ko-transcript">유튜브 트랜스크립트 (ep77)</a> — (연결: 49) 이 노트는 <code>20260613-ep77-ko-transcript.md</code> 클리핑 파일의 본문을 6Rs 파이프라인(R1-R6)으로 처리한 결과를 기록한다. 단순한 텍스트 요약을 넘어, 표면적 발언 이면의 숨겨진 의도, 비약적 맥락 연결, 그리고 전문가 수준의 통찰을 도출하는 데 주력했다.</li>
+<li><a href="./wiki/concepts/20260613-ep96-ko-transcript" class="internal alias" data-slug="wiki/concepts/20260613-ep96-ko-transcript">유튜브 트랜스크립트 (ep96)</a> — (연결: 47) 이 클리핑은 EP96 팟캐스트의 한국어 트랜스크립트 파일이다. 표면적으로는 대화의 기록이지만, 화자 간의 발언 패턴, 강조된 키워드, 반복되는 주제를 분석하면 다음과 같은 핵심 레이어가 드러난다:</li>
+<li><a href="./wiki/concepts/20260613-ep95-ko-transcript" class="internal alias" data-slug="wiki/concepts/20260613-ep95-ko-transcript">유튜브 트랜스크립트 (ep95)</a> — (연결: 47) 이 문서는 에피소드 95의 한국어 트랜스크립트를 분석한 위키 노트입니다. 원본 클리핑의 주요 논점, 등장 개념, 그리고 화자 간의 논쟁 구조를 기록합니다.</li>
+<li><a href="./wiki/concepts/20260613-ep89-ko-transcript" class="internal alias" data-slug="wiki/concepts/20260613-ep89-ko-transcript">유튜브 트랜스크립트 (ep89)</a> — (연결: 47) 이 노트는 파일 <code>20260613-ep89-ko-transcript.md</code>의 클리핑을 6 Rs 파이프라인으로 처리하여 추출한 핵심 개념을 정리합니다. 원본은 팟캐스트 에피소드 89의 한국어 트랜스크립트입니다.</li>
+<li><a href="./wiki/concepts/20260613-ep80-ko-transcript" class="internal alias" data-slug="wiki/concepts/20260613-ep80-ko-transcript">유튜브 트랜스크립트 (ep80)</a> — (연결: 46) EP80은 지식 관리 워크플로우에서 6Rs(Reduce, Reflect, Reweave, Record, Verify) 파이프라인을 실제 클리핑 데이터에 적용하는 과정을 다룬 트랜스크립트이다. 단순한 요약을 넘어, 표면에 드러나지 않은 의도와 맥락을 추론하고, 비약적인 연결을 통해 통찰을 도출하는 것이 핵심이다.</li>
+<li><a href="./wiki/concepts/20260613-ep82-ko-transcript" class="internal alias" data-slug="wiki/concepts/20260613-ep82-ko-transcript">유튜브 트랜스크립트 (ep82)</a> — (연결: 44) 이 노트는 <code>/Users/hmkwon/Projects/0004_Wikis/clippings/20260613-ep82-ko-transcript.md</code> 파일의 클리핑 내용을 기반으로 합니다. 주요 주제, 인용문, 논점 및 숨겨진 통찰력을 구조화합니다.</li>
+<li><a href="./garden/20260508-llm-wiki-compounds-with-accumulation" class="internal alias" data-slug="garden/20260508-llm-wiki-compounds-with-accumulation">LLM 위키는 지식이 누적될수록 더 정확해진다</a> — (연결: 43) RAG는 매 쿼리마다 0에서 다시 시작한다. 5개 문서를 종합해야 답할 수 있는 미묘한 질문을 받으면, 매번 그 5개 조각을 새로 찾아 짜맞춰야 한다. 누적이 없다. Karpathy가 제안하는 LLM Wiki는 정반대다 — 지식을 한 번 컴파일해서 살아있는 위키로 유지한다. 새로운 소스가 들어오면 인덱싱만 하는 게 아니라, 기존 페이지를 갱신하고 모순을 표시하고 종합을 다시 쓴다. 결과적으로 위키는 매번 더 풍부해진다.</li>
+<li><a href="./wiki/concepts/20260613-ep85-ko-transcript" class="internal alias" data-slug="wiki/concepts/20260613-ep85-ko-transcript">유튜브 트랜스크립트 (ep85)</a> — (연결: 41) 주제: (클리핑의 핵심 주제 — 예: 개인의 지식 그래프 구축 방법)</li>
+<li><a href="./wiki/entities/20260606-claude-code" class="internal alias" data-slug="wiki/entities/20260606-claude-code">Claude Code</a> — (연결: 41) Anthropic이 개발한 AI 코딩 에이전트. 2026년 상반기 ‘AI 코딩’이라는 유행어와 동치될 정도로 시장을 선도했으나, OpenAI의 Codex에 추월당하며 경쟁 구도가 재편되고 있다.</li>
+<li><a href="./wiki/concepts/20260508-llm-wiki-pattern" class="internal alias" data-slug="wiki/concepts/20260508-llm-wiki-pattern">LLM 위키 패턴</a> — (연결: 35) LLM이 지속적으로 개인 위키를 구축하고 유지하는 지식 관리 패턴. RAG처럼 질의마다 원시 문서에서 지식을 재발견하는 대신, LLM이 위키 페이지를 생성·갱신·연결함으로써 지식이 축적(compound)되는 구조. 인간은 소스 큐레이션과 방향 설정에 집중하고, LLM은 요약·교차 참조·파일 유지보수 등 모든 반복 작업을 담당한다.</li>
+<li><a href="./wiki/concepts/20260508-compute-as-asset-class" class="internal alias" data-slug="wiki/concepts/20260508-compute-as-asset-class">컴퓨팅 자산 클래스 — Larry Fink가 정의한 새로운 투자 대상</a> — (연결: 34) 컴퓨팅(Compute)이 전통적인 클라우드 서비스를 넘어 원유·천연가수처럼 거래 가능한 상품(Commodity)이 되며, 선물 시장이 형성될 것이라는 Larry Fink의 전망. BlackRock($11.5T AUM) CEO가 Milken Institute에서 발표.</li>
+<li><a href="./wiki/concepts/20260621-jinho-yoos-post" class="internal alias" data-slug="wiki/concepts/20260621-jinho-yoos-post">진호 유씨의 포스트에서 드러난 인지적 재프레이밍의 역설</a> — (연결: 32) 진호 유씨의 포스트는 표면적으로는 일상적 관찰을 기록한 듯 보이지만, 그 이면에는 인지적 재프레이밍(cognitive reframing) 과정에서 발생하는 역설적 자기인식의 메커니즘이 숨겨져 있다. 작성자는 자신의 인식 틀을 의도적으로 변형하려는 시도와, 그 시도 자체가 원래의 인식 틀을 더 강화하는 순환적 모순을 경험하고 있다.</li>
+<li><a href="./garden/20260613-metacognition-tool" class="internal alias" data-slug="garden/20260613-metacognition-tool">메타인지 도구로서의 6Rs — 자신의 사고를 관찰하는 기술</a> — (연결: 29) EP80 트랜스크립트의 표면적 주제는 ‘클리핑 파일을 6Rs로 처리하는 방법’이지만, 더 깊은 층위의 질문이 숨어 있다: “우리는 왜 이렇게 정보를 처리하는가?”</li>
+<li><a href="./wiki/concepts/20260613-jeongmin-lee-post" class="internal alias" data-slug="wiki/concepts/20260613-jeongmin-lee-post">정민 이의 포스트</a> — (연결: 28) 이 클리핑은 사용자 <code>hmkwon</code>이 소유한 <code>/Users/hmkwon/Projects/0004_Wikis/clippings/</code> 디렉토리 내의 <code>20260613-jeongmin-lees-post.md</code> 파일을 가리킨다. 파일명과 디렉토리 구조로 미루어 보아, 이는 2026년 6월 13일자로 작성된 정민(Jeongmin) 또는 정민이라는 사람의 게시물(Post)을 클리핑한 것이다.</li>
+<li><a href="./wiki/concepts/20260605-harness-engineering" class="internal alias" data-slug="wiki/concepts/20260605-harness-engineering">하네스 엔지니어링 (Harness Engineering)</a> — (연결: 28) 하네스 엔지니어링(Harness Engineering)은 단일 AI 모델의 추론 능력을 극대화하기 위해 외부 스캐폴딩(scaffolding), 프롬프트 체이닝, 도구 통합, 다중 에이전트 조율 등을 설계하고 최적화하는 방법론을 말한다. 모델 자체의 성능보다 모델을 둘러싼 ‘하네스’ 시스템이 최종 결과의 품질을 결정한다는 인식에서 출발했다.</li>
+<li><a href="./garden/20260508-atomic-notes-enable-context-injection" class="internal alias" data-slug="garden/20260508-atomic-notes-enable-context-injection">위키는 독립적으로 이해 가능한 원자 단위로 쪼개야 LLM이 올바른 컨텍스트를 주입할 수 있다</a> — (연결: 28) 큰 노트 하나에 여러 주장을 묶어두면 LLM은 그 노트 전체를 끌어와야 한다. 결과적으로 컨텍스트 윈도우가 무관한 내용으로 오염된다. 반대로 하나의 노트 = 하나의 주장으로 쪼개면 LLM은 정확히 필요한 단위만 가져온다. Karpathy가 명시적으로 말하진 않지만 그의 아키텍처 — 엔티티 페이지, 컨셉 페이지, 비교 페이지를 따로 두는 — 가 본질적으로 Zettelkasten의 원자성 원칙이다.</li>
+<li><a href="./wiki/concepts/20260508-pkm-automated-pipeline" class="internal alias" data-slug="wiki/concepts/20260508-pkm-automated-pipeline">PKM 자동화 파이프라인 — 4-레이어 아키텍처</a> — (연결: 28) 개인 지식 관리(PKM) 시스템에서 모든 정보 수집을 자동화하고 Claude가 연결 지능 역할을 담당하는 4-레이어 아키텍처. 입력(capture)과 출력(retrieval)을 모두 설계하는 것이 핵심이다.</li>
+<li><a href="./wiki/concepts/20260615-dh-8-jp" class="internal alias" data-slug="wiki/concepts/20260615-dh-8-jp">DH-8 일본어 클리핑 분석: 숨겨진 권력 재편과 지식 생태계의 전환점</a> — (연결: 27) 이 노트는 2026년 6월 15일자 DH-8 관련 일본어 클리핑 파일을 분석하여, 표면적 뉴스 이면에 숨겨진 권력 재편의 징후와 지식 생태계의 구조적 전환점을 도출한다. 단순한 사건 요약을 넘어, 미시적 신호와 거시적 맥락의 연결을 통해 전문가 수준의 통찰을 제공한다.</li>
+<li><a href="./wiki/concepts/20260607-harness-engineering" class="internal alias" data-slug="wiki/concepts/20260607-harness-engineering">하네스 엔지니어링</a> — (연결: 26) 하네스 엔지니어링(Harness Engineering)은 AI 에이전트가 실수를 반복하지 않도록 검증·제어 도구를 설계하는 방법론이다. 에이전트의 행동을 ‘조이는’(harness) 동시에 안전한 실험을 가능하게 하는 구조를 의미한다.</li>
+<li><a href="./wiki/concepts/20260528-supply-chain-cascade-investing" class="internal alias" data-slug="wiki/concepts/20260528-supply-chain-cascade-investing">산업 체인 단계별 자금 전달(Cascade) 투자법</a> — (연결: 26) 큰 트렌드(예: AI)를 산업 체인 상하류로 분해해, 자금이 단계적으로 어디로 이동할지를 예측하고 다음 단계의 병목·맹점·핵심 노드에 선제적으로 포지셔닝하는 투자 방법론. Serenity가 사용하는 “산업 체인 측량” 알파 원천.</li>
+<li><a href="./wiki/concepts/20260510-agent-execution-right-is-new-moat" class="internal alias" data-slug="wiki/concepts/20260510-agent-execution-right-is-new-moat">에이전트 실행권이 새로운 해자다</a> — (연결: 26) AI 에이전트 시대의 경쟁 우위는 모델 성능이 아니라 실행권(권한, 메모리, 도구 연결, 작업 기록)에서 나온다는 프레임. 에이전트가 실제 업무를 수행할 권한을 가질수록 사용자 락인이 강화되고, 모델 교체 가능성보다 환경 이동 비용이 더 큰 해자가 된다.</li>
+<li><a href="./wiki/concepts/20260606-continual-learning" class="internal alias" data-slug="wiki/concepts/20260606-continual-learning">지속 학습(Continual Learning): 스케일링 이후의 새로운 연구 패러다임</a> — (연결: 25) 지속 학습(Continual Learning)은 모델이 새로운 작업이나 환경에 적응하면서도 이전에 학습한 지식을 잃지 않고(치명적 망각 방지) 지속적으로 학습할 수 있는 능력을 말한다. 현재 LLM의 pre-training 스케일링이 한계에 도달함에 따라, 다음 단계의 성능 향상을 위해 필요한 핵심 연구 분야로 주목받고 있다.</li>
+<li><a href="./wiki/concepts/20260621-ep94-ko-transcript" class="internal alias" data-slug="wiki/concepts/20260621-ep94-ko-transcript">유튜브 트랜스크립트 (ep94)</a> — (연결: 25) 이 노트는 주어진 클리핑 파일(<code>/Users/hmkwon/Projects/0004_Wikis/clippings/20260621-ep94-ko-transcript.md</code>)을 6Rs 파이프라인으로 처리하면서 드러난, 표면적 정보 처리 너머의 지식 재구성 원리를 분석한다. 단순한 요약이 아닌, 클리핑의 의도와 맥락을 재구성하는 과정에서 발견된 비약적 연결과 전문가적 통찰을 기록한다.</li>
+<li><a href="./wiki/concepts/20260530-forward-deployed-engineer-model" class="internal alias" data-slug="wiki/concepts/20260530-forward-deployed-engineer-model">Forward Deployed Engineer(FDE) 모델 — Palantir에서 시작된 AI 딜리버리 패러다임</a> — (연결: 25) AI·소프트웨어 엔지니어를 클라이언트 조직 내부에 직접 상주시켜 도메인 워크플로우를 재설계하고 AI 시스템을 통합하는 딜리버리 모델. Palantir가 자사 복잡한 소프트웨어의 도입 장벽을 극복하기 위해 창안했으며, 2026년 OpenAI·Anthropic·Google이 공통적으로 채택 중.</li>
+<li><a href="./wiki/entities/20260510-nous-research" class="internal alias" data-slug="wiki/entities/20260510-nous-research">Nous Research</a> — (연결: 25) 오픈소스 AI 모델·에이전트·분산 훈련 인프라를 함께 구축하는 연구 조직. 단순 모델 배포가 아니라 “모델 → API → 에이전트 → 분산 훈련”으로 이어지는 풀스택 실행 환경을 노리는 오픈소스 진영의 주력 행위자.</li>
+<li><a href="./wiki/concepts/20260602-rtx-spark-ai-layer-on-pc" class="internal alias" data-slug="wiki/concepts/20260602-rtx-spark-ai-layer-on-pc">RTX Spark — PC에 끼워진 AI 레이어와 엔비디아의 엣지 전략</a> — (연결: 24) 2026년 6월 1일 컴퓨텍스에서 발표된 엔비디아의 첫 윈도우용 AI 슈퍼칩 플랫폼. Arm 기반 CPU(Grace 20코어, MediaTek 협력) + Blackwell GPU(CUDA 코어 6,144개) + 최대 128GB 통합 메모리를 단일 칩에 집적. 부품 발표가 아니라 “PC라는 건물에 AI가 사는 층”을 새로 끼워 넣은 플랫폼 선언.</li>
+</ul>
+
+<h2 id="문서-영역">문서 영역<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#문서-영역" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><a href="./wiki/" class="internal alias" data-slug="wiki/index">wiki</a> — 구조화 지식 베이스 (AI 최적화)</li>
+<li><a href="./garden/" class="internal alias" data-slug="garden/index">garden</a> — 생각 정원 (인간 중심 서술)</li>
+<li><a href="./clippings/" class="internal alias" data-slug="clippings/index">clippings</a> — 원문 클리핑 및 아카이브</li>
+</ul></article><hr/><div class="page-footer"></div></div><div class="right sidebar"></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.5.2</a> © 2026</p><ul></ul></footer></div></div></body><script type="application/javascript" data-persist="true">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module" data-persist="true">function E(a,e){if(!a)return;function t(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function n(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}a?.addEventListener("click",t),window.addCleanup(()=>a?.removeEventListener("click",t)),document.addEventListener("keydown",n),window.addCleanup(()=>document.removeEventListener("keydown",n))}function f(a){for(;a.firstChild;)a.removeChild(a.firstChild)}var m=class{constructor(e,t){this.container=e;this.content=t;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),t=this.onMouseMove.bind(this),n=this.onMouseUp.bind(this),o=this.onTouchStart.bind(this),r=this.onTouchMove.bind(this),i=this.onTouchEnd.bind(this),s=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",t),document.addEventListener("mouseup",n),this.container.addEventListener("touchstart",o,{passive:!1}),document.addEventListener("touchmove",r,{passive:!1}),document.addEventListener("touchend",i),window.addEventListener("resize",s),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",t),()=>document.removeEventListener("mouseup",n),()=>this.container.removeEventListener("touchstart",o),()=>document.removeEventListener("touchmove",r),()=>document.removeEventListener("touchend",i),()=>window.removeEventListener("resize",s))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let t=this.createButton("+",()=>this.zoom(.1)),n=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(n),e.appendChild(o),e.appendChild(t),this.container.appendChild(e)}createButton(e,t){let n=document.createElement("button");return n.textContent=e,n.className="mermaid-control-button",n.addEventListener("click",t),window.addCleanup(()=>n.removeEventListener("click",t)),n}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}onTouchStart(e){if(e.touches.length!==1)return;this.isDragging=!0;let t=e.touches[0];this.startPan={x:t.clientX-this.currentPan.x,y:t.clientY-this.currentPan.y}}onTouchMove(e){if(!this.isDragging||e.touches.length!==1)return;e.preventDefault();let t=e.touches[0];this.currentPan={x:t.clientX-this.startPan.x,y:t.clientY-this.startPan.y},this.updateTransform()}onTouchEnd(){this.isDragging=!1}zoom(e){let t=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),n=this.content.getBoundingClientRect(),o=n.width/2,r=n.height/2,i=t-this.scale;this.currentPan.x-=o*i,this.currentPan.y-=r*i,this.scale=t,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){let t=this.content.querySelector("svg").getBoundingClientRect(),n=t.width/this.scale,o=t.height/this.scale;this.scale=1,this.currentPan={x:(this.container.clientWidth-n)/2,y:(this.container.clientHeight-o)/2},this.updateTransform()}},T=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],y;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;y||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let t=y.default,n=new WeakMap;for(let r of e)n.set(r,r.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let c=n.get(s);c&&(s.innerHTML=c)}let r=T.reduce((s,c)=>(s[c]=window.getComputedStyle(document.documentElement).getPropertyValue(c),s),{}),i=document.documentElement.getAttribute("saved-theme")==="dark";t.initialize({startOnLoad:!1,securityLevel:"loose",theme:i?"dark":"base",themeVariables:{fontFamily:r["--codeFont"],primaryColor:r["--light"],primaryTextColor:r["--darkgray"],primaryBorderColor:r["--tertiary"],lineColor:r["--darkgray"],secondaryColor:r["--secondary"],tertiaryColor:r["--tertiary"],clusterBkg:r["--light"],edgeLabelBackground:r["--highlight"]}}),await t.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let r=0;r<e.length;r++){let v=function(){let g=l.querySelector("#mermaid-space"),h=l.querySelector(".mermaid-content");if(!h)return;f(h);let w=i.querySelector("svg").cloneNode(!0);h.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new m(g,h)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},i=e[r],s=i.parentElement,c=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(c),L=c.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),E(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="./postscript.js" type="module" data-persist="true"></script></html>

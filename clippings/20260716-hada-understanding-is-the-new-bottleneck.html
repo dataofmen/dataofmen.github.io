@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr"><head><title>이해가 새로운 병목이다</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto Sans KR:wght@400;700&amp;family=Noto Sans KR:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="dataofmen"/><meta property="og:title" content="이해가 새로운 병목이다"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="이해가 새로운 병목이다"/><meta name="twitter:description" content="이해가 새로운 병목이다 Source: news.hada.io/topic Captured: 2026-07-16 10:15 KST Fetch method: ultimate-fetcher --json via Jina."/><meta property="og:description" content="이해가 새로운 병목이다 Source: news.hada.io/topic Captured: 2026-07-16 10:15 KST Fetch method: ultimate-fetcher --json via Jina."/><meta property="og:image:alt" content="이해가 새로운 병목이다 Source: news.hada.io/topic Captured: 2026-07-16 10:15 KST Fetch method: ultimate-fetcher --json via Jina."/><meta property="og:image" content="https://dataofmen.github.io/static/og-image.png"/><meta property="og:image:url" content="https://dataofmen.github.io/static/og-image.png"/><meta name="twitter:image" content="https://dataofmen.github.io/static/og-image.png"/><meta property="og:image:type" content="image/.png"/><meta property="twitter:domain" content="dataofmen.github.io"/><meta property="og:url" content="https://dataofmen.github.io/clippings/20260716-hada-understanding-is-the-new-bottleneck"/><meta property="twitter:url" content="https://dataofmen.github.io/clippings/20260716-hada-understanding-is-the-new-bottleneck"/><link rel="icon" href="../static/icon.png"/><meta name="description" content="이해가 새로운 병목이다 Source: news.hada.io/topic Captured: 2026-07-16 10:15 KST Fetch method: ultimate-fetcher --json via Jina."/><meta name="generator" content="Quartz"/><link href="../index.css" rel="stylesheet" type="text/css" data-persist="true"/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiL2hvbWUvcnVubmVyL3dvcmsvcXVhcnR6LXdpa2kvcXVhcnR6LXdpa2kvcXVhcnR6L2NvbXBvbmVudHMvc3R5bGVzIiwic291cmNlcyI6WyJtZXJtYWlkLmlubGluZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFHRjtFQUNFOzs7QUFLRjtFQUNFO0VBQ0E7OztBQUlKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFOztBQUdGO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFJSjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTs7QUFJRjtFQUNFO0VBQ0E7RUFDQSIsInNvdXJjZXNDb250ZW50IjpbIi5leHBhbmQtYnV0dG9uIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbG9hdDogcmlnaHQ7XG4gIHBhZGRpbmc6IDAuNHJlbTtcbiAgbWFyZ2luOiAwLjNyZW07XG4gIHJpZ2h0OiAwOyAvLyBOT1RFOiByaWdodCB3aWxsIGJlIHNldCBpbiBtZXJtYWlkLmlubGluZS50c1xuICBjb2xvcjogdmFyKC0tZ3JheSk7XG4gIGJvcmRlci1jb2xvcjogdmFyKC0tZGFyayk7XG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWxpZ2h0KTtcbiAgYm9yZGVyOiAxcHggc29saWQ7XG4gIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgb3BhY2l0eTogMDtcbiAgdHJhbnNpdGlvbjogMC4ycztcblxuICAmID4gc3ZnIHtcbiAgICBmaWxsOiB2YXIoLS1saWdodCk7XG4gICAgZmlsdGVyOiBjb250cmFzdCgwLjMpO1xuICB9XG5cbiAgJjpob3ZlciB7XG4gICAgY3Vyc29yOiBwb2ludGVyO1xuICAgIGJvcmRlci1jb2xvcjogdmFyKC0tc2Vjb25kYXJ5KTtcbiAgfVxuXG4gICY6Zm9jdXMge1xuICAgIG91dGxpbmU6IDA7XG4gIH1cbn1cblxucHJlIHtcbiAgJjpob3ZlciA+IC5leHBhbmQtYnV0dG9uIHtcbiAgICBvcGFjaXR5OiAxO1xuICAgIHRyYW5zaXRpb246IDAuMnM7XG4gIH1cbn1cblxuI21lcm1haWQtY29udGFpbmVyIHtcbiAgcG9zaXRpb246IGZpeGVkO1xuICBjb250YWluOiBsYXlvdXQ7XG4gIHotaW5kZXg6IDk5OTtcbiAgbGVmdDogMDtcbiAgdG9wOiAwO1xuICB3aWR0aDogMTAwdnc7XG4gIGhlaWdodDogMTAwdmg7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIGRpc3BsYXk6IG5vbmU7XG4gIGJhY2tkcm9wLWZpbHRlcjogYmx1cig0cHgpO1xuICBiYWNrZ3JvdW5kOiByZ2JhKDAsIDAsIDAsIDAuNSk7XG5cbiAgJi5hY3RpdmUge1xuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgfVxuXG4gICYgPiAjbWVybWFpZC1zcGFjZSB7XG4gICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1saWdodCk7XG4gICAgYm9yZGVyLXJhZGl1czogNXB4O1xuICAgIHBvc2l0aW9uOiBmaXhlZDtcbiAgICB0b3A6IDUwJTtcbiAgICBsZWZ0OiA1MCU7XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGUoLTUwJSwgLTUwJSk7XG4gICAgaGVpZ2h0OiA4MHZoO1xuICAgIHdpZHRoOiA4MHZ3O1xuICAgIG92ZXJmbG93OiBoaWRkZW47XG5cbiAgICAmID4gLm1lcm1haWQtY29udGVudCB7XG4gICAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgICB0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7XG4gICAgICB0cmFuc2l0aW9uOiB0cmFuc2Zvcm0gMC4xcyBlYXNlO1xuICAgICAgb3ZlcmZsb3c6IHZpc2libGU7XG4gICAgICBtaW4taGVpZ2h0OiAyMDBweDtcbiAgICAgIG1pbi13aWR0aDogMjAwcHg7XG5cbiAgICAgIHByZSB7XG4gICAgICAgIG1hcmdpbjogMDtcbiAgICAgICAgYm9yZGVyOiBub25lO1xuICAgICAgfVxuXG4gICAgICBzdmcge1xuICAgICAgICBtYXgtd2lkdGg6IG5vbmU7XG4gICAgICAgIGhlaWdodDogYXV0bztcbiAgICAgIH1cbiAgICB9XG5cbiAgICAmID4gLm1lcm1haWQtY29udHJvbHMge1xuICAgICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgICAgYm90dG9tOiAyMHB4O1xuICAgICAgcmlnaHQ6IDIwcHg7XG4gICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgZ2FwOiA4cHg7XG4gICAgICBwYWRkaW5nOiA4cHg7XG4gICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1saWdodCk7XG4gICAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgICAgYm9yZGVyLXJhZGl1czogNnB4O1xuICAgICAgYm94LXNoYWRvdzogMCAycHggNHB4IHJnYmEoMCwgMCwgMCwgMC4xKTtcbiAgICAgIHotaW5kZXg6IDI7XG5cbiAgICAgIC5tZXJtYWlkLWNvbnRyb2wtYnV0dG9uIHtcbiAgICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICAgICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gICAgICAgIHdpZHRoOiAzMnB4O1xuICAgICAgICBoZWlnaHQ6IDMycHg7XG4gICAgICAgIHBhZGRpbmc6IDA7XG4gICAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0KTtcbiAgICAgICAgY29sb3I6IHZhcigtLWRhcmspO1xuICAgICAgICBib3JkZXItcmFkaXVzOiA0cHg7XG4gICAgICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICAgICAgZm9udC1zaXplOiAxNnB4O1xuICAgICAgICBmb250LWZhbWlseTogdmFyKC0tYm9keUZvbnQpO1xuICAgICAgICB0cmFuc2l0aW9uOiBhbGwgMC4ycyBlYXNlO1xuXG4gICAgICAgICY6aG92ZXIge1xuICAgICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIH1cblxuICAgICAgICAmOmFjdGl2ZSB7XG4gICAgICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKDFweCk7XG4gICAgICAgIH1cblxuICAgICAgICAvLyBTdHlsZSB0aGUgcmVzZXQgYnV0dG9uIGRpZmZlcmVudGx5XG4gICAgICAgICY6bnRoLWNoaWxkKDIpIHtcbiAgICAgICAgICB3aWR0aDogYXV0bztcbiAgICAgICAgICBwYWRkaW5nOiAwIDEycHg7XG4gICAgICAgICAgZm9udC1zaXplOiAxNHB4O1xuICAgICAgICB9XG4gICAgICB9XG4gICAgfVxuICB9XG59XG4iXX0= */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../prescript.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://dataofmen.github.io/index.xml"/></head><body data-slug="clippings/20260716-hada-understanding-is-the-new-bottleneck"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"></div><div class="center"><div class="page-header"><header><h2 class="page-title"><a href="..">dataofmen</a></h2><nav class="nav-links"><a href="/wiki" class="nav-link">wiki</a><a href="/garden" class="nav-link">garden</a><a href="/clippings" class="nav-link">clippings</a></nav><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 1rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>검색</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="검색어를 입력하세요" placeholder="검색어를 입력하세요"/><div class="search-layout" data-preview="true"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="다크 모드"><title>다크 모드</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="라이트 모드"><title>라이트 모드</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div></div></header><div class="popover-hint"><h1 class="article-title">이해가 새로운 병목이다</h1><p show-comma="true" class="content-meta"><time datetime="2026-07-16T00:00:00.000Z">2026년 7월 16일</time><span>29 min read</span></p><ul class="tags"><li><a href="../tags/agentic-coding" class="internal tag-link">agentic-coding</a></li><li><a href="../tags/code-understanding" class="internal tag-link">code-understanding</a></li><li><a href="../tags/cognitive-debt" class="internal tag-link">cognitive-debt</a></li><li><a href="../tags/human-in-the-loop" class="internal tag-link">human-in-the-loop</a></li><li><a href="../tags/explainer-docs" class="internal tag-link">explainer-docs</a></li></ul><div class="toc"><button type="button" class="toc-header" aria-controls="toc-81" aria-expanded="true"><h3>목차</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-0" class="toc-content overflow"><li class="depth-0"><a href="#이해가-새로운-병목이다" data-for="이해가-새로운-병목이다">이해가 새로운 병목이다</a></li><li class="depth-1"><a href="#clipped-content" data-for="clipped-content">Clipped content</a></li><li class="depth-1"><a href="#코드-생성-속도를-따라가지-못하는-인간" data-for="코드-생성-속도를-따라가지-못하는-인간">코드 생성 속도를 따라가지 못하는 인간</a></li><li class="depth-1"><a href="#이해는-검증이-아니라-참여를-위한-것" data-for="이해는-검증이-아니라-참여를-위한-것">이해는 검증이 아니라 참여를 위한 것</a></li><li class="depth-1"><a href="#프로젝트는-하나의-루프가-아니라-수많은-루프임" data-for="프로젝트는-하나의-루프가-아니라-수많은-루프임">프로젝트는 하나의 루프가 아니라 수많은 루프임</a></li><li class="depth-1"><a href="#이해를-미루며-쌓이는-인지-부채" data-for="이해를-미루며-쌓이는-인지-부채">이해를 미루며 쌓이는 인지 부채</a></li><li class="depth-1"><a href="#교육-방법을-코드-이해에-적용하기" data-for="교육-방법을-코드-이해에-적용하기">교육 방법을 코드 이해에 적용하기</a></li><li class="depth-1"><a href="#변경-사항을-가르치는-explain-diff" data-for="변경-사항을-가르치는-explain-diff">변경 사항을 가르치는 /explain-diff</a></li><li class="depth-1"><a href="#배경지식부터-가르치기" data-for="배경지식부터-가르치기">배경지식부터 가르치기</a></li><li class="depth-1"><a href="#세부-구현보다-직관을-먼저-만들기" data-for="세부-구현보다-직관을-먼저-만들기">세부 구현보다 직관을 먼저 만들기</a></li><li class="depth-1"><a href="#상호작용형-도표로-좌표-변화를-체험하기" data-for="상호작용형-도표로-좌표-변화를-체험하기">상호작용형 도표로 좌표 변화를 체험하기</a></li><li class="depth-1"><a href="#원시-코드-차이를-서술식-코드-차이로-바꾸기" data-for="원시-코드-차이를-서술식-코드-차이로-바꾸기">원시 코드 차이를 서술식 코드 차이로 바꾸기</a></li><li class="depth-1"><a href="#ai가-만든-설명서를-종이로-읽기" data-for="ai가-만든-설명서를-종이로-읽기">AI가 만든 설명서를 종이로 읽기</a></li><li class="depth-1"><a href="#읽었다는-느낌과-실제-이해의-차이" data-for="읽었다는-느낌과-실제-이해의-차이">읽었다는 느낌과 실제 이해의 차이</a></li><li class="depth-1"><a href="#퀴즈는-ai-루프의-속도-조절-장치임" data-for="퀴즈는-ai-루프의-속도-조절-장치임">퀴즈는 AI 루프의 속도 조절 장치임</a></li><li class="depth-1"><a href="#seymour-papert의-mathland에서-가져온-마이크로월드" data-for="seymour-papert의-mathland에서-가져온-마이크로월드">Seymour Papert의 Mathland에서 가져온 마이크로월드</a></li><li class="depth-1"><a href="#prolog-인터프리터를-시간축으로-탐색하기" data-for="prolog-인터프리터를-시간축으로-탐색하기">Prolog 인터프리터를 시간축으로 탐색하기</a></li><li class="depth-1"><a href="#에이전트가-대신-디버깅하는-것과-이해-도구를-만드는-것의-차이" data-for="에이전트가-대신-디버깅하는-것과-이해-도구를-만드는-것의-차이">에이전트가 대신 디버깅하는 것과 이해 도구를 만드는 것의 차이</a></li><li class="depth-1"><a href="#웹사이트-마이그레이션을-게임처럼-수행하기" data-for="웹사이트-마이그레이션을-게임처럼-수행하기">웹사이트 마이그레이션을 게임처럼 수행하기</a></li><li class="depth-1"><a href="#코드를-이해하기-위한-코드를-생성하기" data-for="코드를-이해하기-위한-코드를-생성하기">코드를 이해하기 위한 코드를 생성하기</a></li><li class="depth-1"><a href="#팀에서는-함께-이해해야-함" data-for="팀에서는-함께-이해해야-함">팀에서는 함께 이해해야 함</a></li><li class="depth-1"><a href="#에이전트와-사람의-작업을-같은-공유-공간에-남기기" data-for="에이전트와-사람의-작업을-같은-공유-공간에-남기기">에이전트와 사람의 작업을 같은 공유 공간에 남기기</a></li><li class="depth-1"><a href="#컴퓨터의-목적은-처음부터-증강이었음" data-for="컴퓨터의-목적은-처음부터-증강이었음">컴퓨터의 목적은 처음부터 증강이었음</a></li><li class="depth-1"><a href="#자동화만이-아니라-더-깊은-참여로" data-for="자동화만이-아니라-더-깊은-참여로">자동화만이 아니라 더 깊은 참여로</a></li><li class="depth-1"><a href="#관련-글" data-for="관련-글">관련 글</a></li><li class="overflow-end"></li></ul></div></div></div><article class="popover-hint"><h1 id="이해가-새로운-병목이다">이해가 새로운 병목이다<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#이해가-새로운-병목이다" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p><strong>Source</strong>: <a href="https://news.hada.io/topic?id=31429" class="external">https://news.hada.io/topic?id=31429<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a><br/>
+<strong>Captured</strong>: 2026-07-16 10:15 KST<br/>
+<strong>Fetch method</strong>: <code>ultimate-fetcher --json</code> via Jina.<br/>
+<strong>Related existing note set</strong>: <a href="../clippings/20260704-ai-agent-code-understanding-bottleneck" class="internal" data-slug="clippings/20260704-ai-agent-code-understanding-bottleneck">20260704-ai-agent-code-understanding-bottleneck</a>, <a href="../wiki/concepts/20260704-understand-to-participate-in-agentic-coding" class="internal" data-slug="wiki/concepts/20260704-understand-to-participate-in-agentic-coding">20260704-understand-to-participate-in-agentic-coding</a>, <a href="../wiki/concepts/20260704-code-explainer-docs-as-understanding-harness" class="internal" data-slug="wiki/concepts/20260704-code-explainer-docs-as-understanding-harness">20260704-code-explainer-docs-as-understanding-harness</a></p>
+<h2 id="clipped-content">Clipped content<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#clipped-content" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>에이전트가 작성한 코드가 사람 주변에 계속 쌓이는 상황에서 개발 속도를 제한하는 요소는 코드 생성 능력이 아니라 시스템을 따라가며 다음 변화를 구상할 수 있는 <strong>인간의 이해 속도</strong>로 이동하고 있음</li>
+<li>코드를 이해하는 목적은 결과를 승인하거나 거부하는 <strong>검증</strong>에 그치지 않으며, 여러 차례 이어지는 에이전트 작업 루프에서 다음 아이디어를 제안하고 <strong>창작 과정에 참여</strong>하는 데 있음</li>
+<li>원시 코드 차이 대신 배경지식/변경 목표/상호작용형 도표/서술식 코드 차이를 묶은 <strong>코드 설명 문서</strong>를 먼저 읽으면 변경의 구조와 의도를 더 빠르게 파악할 수 있음</li>
+<li>설명 문서의 퀴즈와 실행 과정을 직접 조작하는 <strong>마이크로월드</strong>는 에이전트가 대신 판단하게 하지 않고 사람이 시스템의 상태 변화와 내부 작동을 체험하도록 만듦</li>
+<li>AI를 사람을 루프에서 제거하는 자동화 수단으로만 사용하지 않고 이해를 위한 도구와 시뮬레이션을 만드는 데 활용하면, 사람과 팀이 오히려 <strong>더 깊이 루프에 참여</strong>할 수 있음</li>
+</ul>
+<hr/>
+<h2 id="코드-생성-속도를-따라가지-못하는-인간">코드 생성 속도를 따라가지 못하는 인간<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#코드-생성-속도를-따라가지-못하는-인간" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>에이전트가 작성한 <strong>코드 더미</strong>가 한 사람 주변에 계속 높아지는 모습처럼, 생성되는 코드의 양은 늘어나지만 사람이 이를 이해하는 속도는 같은 비율로 증가하지 않음</li>
+<li>모든 코드 차이를 한 줄씩 읽는 방식만으로는 <strong>에이전트의 작업 속도</strong>를 따라가기 어려움</li>
+<li>코드 이해에는 원시 코드 차이 외에도 다음과 같은 다양한 방식이 있음
+<ul>
+<li>시스템과 변경 사항을 가르치는 <strong>코드 설명 문서</strong></li>
+<li>실제 이해 여부를 확인하는 <strong>퀴즈</strong></li>
+<li>내부 동작을 직접 조작하며 익히는 <strong>마이크로월드</strong></li>
+<li>팀 전체가 같은 정신 모형을 형성하는 <strong>공유 공간</strong></li>
+</ul>
+</li>
+</ul>
+<h2 id="이해는-검증이-아니라-참여를-위한-것">이해는 검증이 아니라 참여를 위한 것<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#이해는-검증이-아니라-참여를-위한-것" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>
+<p>사람이 코드를 이해해야 한다는 질문에 흔히 나오는 답은 에이전트의 작업을 <strong>검증</strong>하기 위해서라는 것임</p>
+<ul>
+<li><strong>명세</strong>에 맞는지 확인함</li>
+<li><strong>구조</strong>가 적절한지 판단함</li>
+<li>최종적으로 <strong>승인/거부</strong>를 결정함</li>
+</ul>
+</li>
+<li>
+<p>발표 자료에서는 이를 엄지를 올리거나 내리는 <strong>이분법적 판단</strong>으로 표현함</p>
+<ul>
+<li>검증만을 사람의 역할로 보면 이해는 결과에 대한 <strong>합격 여부</strong>를 판단하는 과정으로 축소됨</li>
+</ul>
+</li>
+<li>
+<p>하지만 에이전트는 자신이 만든 결과를 직접 실행하고 검사하며 오류를 찾는 <strong>자체 검증 능력</strong>도 계속 개선되고 있음</p>
+</li>
+<li>
+<p>검증을 에이전트가 더 잘 수행하게 될수록 <strong>인간은 어디에 남는가</strong>라는 문제가 생김</p>
+</li>
+<li>
+<p>대안은 <strong>이해를 통해 참여하는 것</strong>임</p>
+<ul>
+<li>에이전트가 무엇을 하고 있는지 알아야 사람이 <strong>창의적 과정의 능동적인 구성원</strong>으로 남을 수 있음</li>
+<li>시스템을 이해하면 현재 결과를 평가하는 데서 끝나지 않고 <strong>다음 단계에서 무엇을 바꿀지</strong> 생각할 수 있음</li>
+</ul>
+</li>
+</ul>
+<h2 id="프로젝트는-하나의-루프가-아니라-수많은-루프임">프로젝트는 하나의 루프가 아니라 수많은 루프임<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#프로젝트는-하나의-루프가-아니라-수많은-루프임" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>
+<p>실제 프로젝트는 에이전트에게 한 번 지시하고 결과를 받는 <strong>단일 루프</strong>가 아님</p>
+</li>
+<li>
+<p>목표 설정/구현/확인/수정/확장으로 이어지는 <strong>수많은 반복 루프</strong>가 서로 연결됨</p>
+</li>
+<li>
+<p>각 반복에서 사람이 가진 <strong>시스템 이해도</strong>가 다음 아이디어의 질과 범위를 결정함</p>
+</li>
+<li>
+<p>머릿속에 충분한 개념과 구조가 있어야 다음과 같은 질문을 유창하게 다룰 수 있음</p>
+<ul>
+<li>무엇을 <strong>추가하거나 제거</strong>해야 하는가</li>
+<li>어느 <strong>구조를 변경</strong>해야 하는가</li>
+<li>현재 구현에서 어떤 <strong>새로운 가능성</strong>이 생겼는가</li>
+</ul>
+</li>
+<li>
+<p>이해가 부족하면 에이전트가 만들어준 결과에 “대략 맞아 보인다”고 반응할 수는 있지만, 프로젝트가 어디로 가야 하는지 <strong>주도하기 어려움</strong></p>
+</li>
+</ul>
+<h2 id="이해를-미루며-쌓이는-인지-부채">이해를 미루며 쌓이는 인지 부채<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#이해를-미루며-쌓이는-인지-부채" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>
+<p>시스템을 이해하지 않은 채 에이전트의 결과를 계속 받아들이면 <strong>단기적으로는 빠르게 진행</strong>할 수 있음</p>
+</li>
+<li>
+<p>그러나 기술 부채가 나중의 변경 비용을 높이듯, 이해를 생략한 작업은 <strong>인지 부채(cognitive debt)</strong> 를 남김</p>
+</li>
+<li>
+<p>인지 부채가 쌓이면 프로젝트에 참여한 사람이 <strong>전체 흐름을 놓치게 됨</strong></p>
+<ul>
+<li>코드가 왜 현재 구조가 됐는지 <strong>파악하기 어려움</strong></li>
+<li>새로운 요구사항을 어디에 연결해야 할지 <strong>판단하기 어려움</strong></li>
+<li>에이전트가 제안한 다음 변경의 타당성을 <strong>논의하기 어려움</strong></li>
+</ul>
+</li>
+<li>
+<p>AI 시대의 문제는 코드가 생성되지 않는 것이 아니라, 생성된 시스템에 관해 사람이 <strong>충분한 개념을 갖지 못하는 것</strong>임</p>
+</li>
+</ul>
+<h2 id="교육-방법을-코드-이해에-적용하기">교육 방법을 코드 이해에 적용하기<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#교육-방법을-코드-이해에-적용하기" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>빠르게 변하는 AI 작업 환경에서 인간의 이해를 구축하는 문제는 <strong>교육이 오랫동안 다뤄온 문제</strong>와 닮아 있음</li>
+<li>새로운 사실을 단순히 전달하는 것보다 <strong>배경지식/직관/연습/피드백</strong>을 함께 제공해야 실제 이해가 형성됨</li>
+<li>코드 이해에도 교육에서 발전한 방법을 적용할 수 있음
+<ul>
+<li>세부 구현 전에 <strong>배경과 직관</strong>을 제공함</li>
+<li>내용을 읽은 뒤 <strong>회상하고 답하게 함</strong></li>
+<li>추상적인 규칙을 직접 조작할 수 있는 <strong>환경</strong>을 제공함</li>
+<li>다른 사람과 같은 <strong>개념과 어휘</strong>를 공유하게 함</li>
+</ul>
+</li>
+</ul>
+<h2 id="변경-사항을-가르치는-explain-diff">변경 사항을 가르치는 <code>/explain-diff</code><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#변경-사항을-가르치는-explain-diff" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><a href="https://gist.github.com/geoffreylitt/a29df1b5f9865506e8952488eac3d524" class="external">/explain-diff<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>는 에이전트가 수행한 변경을 <strong>구조화된 설명 문서</strong>로 만드는 스킬임</li>
+<li>HTML/Markdown/Notion 페이지 형태로 출력할 수 있으며, Notion 문서는 팀원이 댓글을 달고 함께 논의하는 <strong>협업 산출물</strong>로 사용할 수 있음</li>
+<li>단순한 코드 변경 목록이 아니라 사람이 변경 사항을 학습하도록 설계된 <strong>설명 자료</strong>를 생성함</li>
+<li>게임 화면의 원근감을 변경하는 사례에서는 코드를 바로 보여주지 않고 다음 순서로 접근함
+<ul>
+<li>기존 <strong>게임 엔진의 렌더링 방식</strong>을 먼저 설명함</li>
+<li>“2D 그리기 기법으로 정원을 입체적으로 보이게 만들기”라는 <strong>변경 목표</strong>를 제시함</li>
+<li><strong>등각 투영</strong>이 무엇인지 설명해 변경의 시각적 원리를 이해하게 함</li>
+<li>이후에 실제 <strong>구현 코드</strong>로 이동함</li>
+</ul>
+</li>
+</ul>
+<h2 id="배경지식부터-가르치기">배경지식부터 가르치기<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#배경지식부터-가르치기" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>좋은 설명은 “무엇이 바뀌었는가”보다 <strong>“바뀌기 전에는 무엇이 있었는가”</strong> 에서 시작함</li>
+<li>기존 게임 엔진의 좌표 체계와 렌더링 구조를 모르면 새 원근법 코드만 읽어도 <strong>변경의 이유</strong>를 이해하기 어려움</li>
+<li>설명 문서는 에이전트와 동일한 배경을 갖지 못한 사람이 대화에 참여할 수 있도록 <strong>기존 시스템의 구조</strong>를 먼저 보충함</li>
+<li>이는 단순한 요약이 아니라 사람을 <strong>현재 프로젝트 문맥</strong>으로 다시 데려오는 과정임</li>
+</ul>
+<h2 id="세부-구현보다-직관을-먼저-만들기">세부 구현보다 직관을 먼저 만들기<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#세부-구현보다-직관을-먼저-만들기" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>코드에 앞서 변경의 본질을 한 문장으로 설명하면 세부 구현이 어떤 <strong>목표를 향하는지</strong> 알 수 있음</li>
+<li>정원을 입체적으로 보이게 만드는 사례에서는 등각 투영의 수식부터 설명하지 않고, 평면의 그림을 3차원처럼 보이게 한다는 <strong>시각적 목표</strong>를 먼저 전달함</li>
+<li>배경과 목표를 이해한 뒤 코드 조각을 보면 각 계산과 변환이 전체 결과에서 맡는 <strong>역할을 연결</strong>하기 쉬움</li>
+<li>사람을 세부 코드의 수동적인 독자가 아니라 <strong>변경 의도를 이해하는 동등한 참여자</strong>로 만드는 것이 목적임</li>
+</ul>
+<h2 id="상호작용형-도표로-좌표-변화를-체험하기">상호작용형 도표로 좌표 변화를 체험하기<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#상호작용형-도표로-좌표-변화를-체험하기" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>정적인 그림만 보여주는 대신 정원 위의 바위를 직접 끌어 움직이는 <strong>상호작용형 도표</strong>를 사용함</li>
+<li>바위를 이동하면 화면상의 위치와 내부 좌표가 함께 변해 <strong>등각 투영의 좌표 변환</strong>을 확인할 수 있음</li>
+<li>수식이나 코드만 읽을 때보다 입력과 출력의 관계를 직접 조작하며 <strong>직관을 형성</strong>할 수 있음</li>
+<li>Notion 페이지 안에 상호작용형 HTML을 삽입해 코드 설명 문서 자체를 <strong>작은 실행 환경</strong>으로 만들 수 있음</li>
+<li>AI는 설명문을 쓰는 데서 그치지 않고 이해에 필요한 <strong>시각화와 조작 도구</strong>까지 생성할 수 있음</li>
+</ul>
+<h2 id="원시-코드-차이를-서술식-코드-차이로-바꾸기">원시 코드 차이를 서술식 코드 차이로 바꾸기<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#원시-코드-차이를-서술식-코드-차이로-바꾸기" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>
+<p>일반적인 코드 차이는 변경된 파일을 <strong>파일명 순서</strong>로 나열함</p>
+<ul>
+<li>파일 간 <strong>관계</strong>를 설명하지 않음</li>
+<li>변경 <strong>목적</strong>을 알려주지 않음</li>
+<li>어떤 순서로 읽어야 하는지 <strong>안내하지 않음</strong></li>
+</ul>
+</li>
+<li>
+<p><strong>서술식 코드 차이(literate diff)</strong> 는 변경 사항을 글의 흐름처럼 재구성함</p>
+<ul>
+<li>변경의 <strong>목적</strong>을 먼저 제시함</li>
+<li>이해하기 적절한 순서로 <strong>파일과 함수</strong>를 설명함</li>
+<li>설명 사이에 필요한 <strong>코드 조각</strong>만 삽입함</li>
+<li>주변 맥락과 구현 선택의 <strong>관계</strong>를 함께 보여줌</li>
+</ul>
+</li>
+<li>
+<p>원시 코드 차이가 재료를 그대로 쌓아둔 것이라면, 서술식 코드 차이는 변경 과정을 <strong>하나의 이야기로 편집</strong>한 것에 가까움</p>
+</li>
+<li>
+<p>설명을 먼저 읽은 뒤 원시 코드 차이를 검토하면 각 코드 조각이 왜 존재하는지 알고 읽을 수 있어 <strong>검토 속도가 빨라짐</strong></p>
+</li>
+</ul>
+<h2 id="ai가-만든-설명서를-종이로-읽기">AI가 만든 설명서를 종이로 읽기<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#ai가-만든-설명서를-종이로-읽기" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>완성된 설명 문서는 하나의 <strong>코드 설명 패킷</strong>처럼 사용할 수 있음</li>
+<li>원시 코드 차이도 계속 읽지만 항상 <strong>설명 문서를 먼저 읽음</strong></li>
+<li>집중이 필요할 때는 문서를 인쇄해 카페에서 <strong>종이로 읽기도 함</strong></li>
+<li>AI와의 프로그래밍이라는 상호작용적인 활동이 오히려 깊게 집중할 수 있는 <strong>정적인 종이 보고서</strong>로 바뀌는 역설이 생김</li>
+<li>핵심은 가장 최신의 인터페이스를 사용하는 것이 아니라 사람이 실제로 <strong>이해하기 좋은 형태로 정보를 변환</strong>하는 것임</li>
+</ul>
+<h2 id="읽었다는-느낌과-실제-이해의-차이">읽었다는 느낌과 실제 이해의 차이<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#읽었다는-느낌과-실제-이해의-차이" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>설명 문서를 잘 구성해도 <strong>읽는 행위 자체가 이해를 보장</strong>하지는 않음</li>
+<li>사람은 문장을 눈으로 따라간 것만으로 내용을 기억하거나 이해했다고 <strong>착각하기 쉬움</strong></li>
+<li>Andy Matuschak의 “<a href="https://andymatuschak.org/books/" class="external">books don’t work<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>”와 Andy Matuschak/Michael Nielsen의 <a href="https://quantum.country/" class="external">Quantum Country<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>에서 아이디어를 가져옴</li>
+<li>Quantum Country는 글 안에 <strong>간격 반복 퀴즈</strong>를 삽입해 독자가 내용을 직접 회상하게 함</li>
+<li>같은 방식을 코드 설명 문서에 적용해 마지막에 변경 사항에 관한 <strong>다섯 개의 대화형 질문</strong>을 배치함</li>
+</ul>
+<h2 id="퀴즈는-ai-루프의-속도-조절-장치임">퀴즈는 AI 루프의 속도 조절 장치임<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#퀴즈는-ai-루프의-속도-조절-장치임" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>
+<p>코드를 다른 사람에게 보내기 전에 설명 문서의 <strong>퀴즈를 통과해야 한다는 규칙</strong>을 사용함</p>
+</li>
+<li>
+<p>다른 사람이 작성한 코드를 검토할 때도 <strong>같은 기준</strong>을 적용함</p>
+</li>
+<li>
+<p>퀴즈는 지식을 평가하기 위한 부가 기능이 아니라 <strong>속도 조절 장치</strong>임</p>
+</li>
+<li>
+<p>AI와 작업하면 구현/수정/재생성 루프가 <strong>인간의 이해보다 빠르게 진행</strong>되기 쉬움</p>
+</li>
+<li>
+<p>퀴즈는 각 루프에서 기계적으로 다음 질문을 던지게 함</p>
+<ul>
+<li>실제로 <strong>무엇이 바뀌었는지</strong> 설명할 수 있는가</li>
+<li>왜 이런 <strong>구조를 사용했는지</strong> 이해하는가</li>
+<li>다음 변경에 영향을 주는 <strong>제약</strong>을 알고 있는가</li>
+</ul>
+</li>
+<li>
+<p>통과하지 못하면 작업 속도를 늦추고 이해를 보충해야 하므로, 사람이 <strong>창의적 참여자</strong>로 남을 수 있음</p>
+</li>
+</ul>
+<h2 id="seymour-papert의-mathland에서-가져온-마이크로월드">Seymour Papert의 Mathland에서 가져온 마이크로월드<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#seymour-papert의-mathland에서-가져온-마이크로월드" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>두 번째 방법인 <strong>마이크로월드</strong>는 교육자 Seymour Papert의 아이디어에서 출발함</li>
+<li>Papert는 프랑스어를 배우기 위해 프랑스에서 생활하듯, 수학을 배우려면 수학이 자연스럽게 작동하는 <strong>Mathland</strong>에서 살아야 한다고 봄</li>
+<li>아이가 설명을 수동적으로 듣는 대신 호기심에 따라 환경을 탐색하며 <strong>수학적 개념을 자연스럽게 익히는 방식</strong>임</li>
+<li>이를 코드에 적용하면 시스템을 설명하는 문서만 제공하는 것이 아니라, 사람이 그 안에 들어가 <strong>작동 방식을 직접 경험하는 환경</strong>을 만들 수 있음</li>
+<li>마이크로월드는 실제 프로덕션 시스템 전체를 그대로 노출하기보다 특정 원리와 상태 변화를 관찰하기 좋게 구성한 <strong>작은 세계</strong>임</li>
+</ul>
+<h2 id="prolog-인터프리터를-시간축으로-탐색하기">Prolog 인터프리터를 시간축으로 탐색하기<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#prolog-인터프리터를-시간축으로-탐색하기" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>
+<p>Prolog 인터프리터를 개발할 때 내부에서 어떤 일이 일어나는지 <strong>직관적으로 파악하기 어려웠음</strong></p>
+</li>
+<li>
+<p>에이전트와 함께 실행 과정을 단계별로 탐색하는 <strong>전용 디버거</strong>를 제작함</p>
+</li>
+<li>
+<p>이 디버거에서는 다음을 직접 확인할 수 있음</p>
+<ul>
+<li>실행 시간을 <strong>앞뒤로 이동</strong>함</li>
+<li>현재 스택에 어떤 값이 있는지 <strong>살펴봄</strong></li>
+<li>각 단계에서 어떤 규칙이 평가되는지 <strong>확인함</strong></li>
+<li>특정 규칙이 올바르게 적용된 순간에 <strong>메모를 남김</strong></li>
+</ul>
+</li>
+<li>
+<p>완성된 결과만 보는 대신 논리 언어의 실행이 시간에 따라 어떻게 전개되는지 <strong>직접 따라갈 수 있음</strong></p>
+</li>
+<li>
+<p>에이전트에게 디버깅을 맡기면 문제는 해결될 수 있지만, 사람이 디버거를 직접 조작해야 <strong>실행 구조에 관한 이해</strong>가 생김</p>
+</li>
+</ul>
+<h2 id="에이전트가-대신-디버깅하는-것과-이해-도구를-만드는-것의-차이">에이전트가 대신 디버깅하는 것과 이해 도구를 만드는 것의 차이<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#에이전트가-대신-디버깅하는-것과-이해-도구를-만드는-것의-차이" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>“에이전트가 문제를 찾아 수정함”과 “에이전트가 사람이 문제를 탐색할 도구를 만듦”은 <strong>서로 다른 결과</strong>를 만듦</li>
+<li>전자는 작업 결과를 빠르게 얻지만 내부 과정에 대한 <strong>인간의 이해는 거의 늘지 않을 수 있음</strong></li>
+<li>후자는 사람이 실행 상태를 살펴보고 가설을 세우고 결과를 확인하는 <strong>탐색 과정</strong>을 제공함</li>
+<li>코드 작성의 일부를 에이전트에게 맡기면서도 핵심적인 <strong>사고와 탐색은 사람이 직접 수행</strong>할 수 있음</li>
+<li>에이전트의 역할을 정답 제공자에서 <strong>이해 환경 제작자</strong>로 확장하는 접근임</li>
+</ul>
+<h2 id="웹사이트-마이그레이션을-게임처럼-수행하기">웹사이트 마이그레이션을 게임처럼 수행하기<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#웹사이트-마이그레이션을-게임처럼-수행하기" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>
+<p>개인 웹사이트를 한 프레임워크에서 다른 프레임워크로 이전할 때 Claude가 <strong>자동화 스크립트</strong>를 작성함</p>
+</li>
+<li>
+<p>새 프레임워크에 익숙하지 않아 스크립트를 읽어도 <strong>“대략 맞아 보인다” 이상으로 평가하기 어려웠음</strong></p>
+</li>
+<li>
+<p>이를 해결하기 위해 Claude에게 이전 작업을 직접 수행하는 <strong>비디오게임 형태의 명령 센터</strong>를 만들도록 요청함</p>
+</li>
+<li>
+<p>명령 센터에서는 다음 과정을 시각적으로 확인할 수 있음</p>
+<ul>
+<li>버튼을 눌러 <strong>마이그레이션 단계를 하나씩 실행</strong>함</li>
+<li>기존 사이트와 새 사이트를 화면 양쪽에 <strong>나란히 표시</strong>함</li>
+<li>각 단계에서 새 사이트의 모습이 어떻게 달라지는지 <strong>확인함</strong></li>
+<li>파일 트리가 어떤 순서로 변하는지 <strong>관찰함</strong></li>
+</ul>
+</li>
+<li>
+<p>전체 변환을 한 번에 실행하는 대신 새 사이트가 단계적으로 살아나는 과정을 <strong>직접 경험</strong>함</p>
+</li>
+<li>
+<p>손으로 모든 파일을 옮겼을 때와 비슷한 이해를 얻으면서도 필요한 작업과 관찰 환경이 미리 준비돼 있어 <strong>훨씬 빠르게 진행</strong>할 수 있음</p>
+</li>
+</ul>
+<h2 id="코드를-이해하기-위한-코드를-생성하기">코드를 이해하기 위한 코드를 생성하기<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#코드를-이해하기-위한-코드를-생성하기" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>
+<p>에이전트가 작성할 수 있는 코드는 제품 기능이나 자동화 스크립트에 <strong>한정되지 않음</strong></p>
+</li>
+<li>
+<p>사람이 다른 코드를 이해할 수 있도록 다음과 같은 <strong>임시 도구</strong>도 만들 수 있음</p>
+<ul>
+<li><strong>실행 시각화 도구</strong></li>
+<li><strong>단계별 디버거</strong></li>
+<li><strong>좌우 비교 화면</strong></li>
+<li><strong>파일 트리 변화 표시기</strong></li>
+<li><strong>상호작용형 개념 설명</strong></li>
+<li>작업을 작은 단계로 나눈 <strong>명령 센터</strong></li>
+</ul>
+</li>
+<li>
+<p>이런 도구는 장기적으로 유지되는 제품 코드가 아니어도 <strong>충분한 가치</strong>가 있음</p>
+</li>
+<li>
+<p>AI로 코드를 만드는 비용이 낮아지면서 특정 사람과 특정 작업을 위한 <strong>일회성 학습 환경</strong>도 현실적으로 만들 수 있음</p>
+</li>
+</ul>
+<h2 id="팀에서는-함께-이해해야-함">팀에서는 함께 이해해야 함<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#팀에서는-함께-이해해야-함" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>
+<p>개인이 시스템을 이해하는 것만으로는 <strong>팀 작업에 충분하지 않음</strong></p>
+</li>
+<li>
+<p>팀원들이 같은 <strong>정신 모형</strong>을 가지고 있어야 짧은 표현으로도 같은 구조와 동작을 떠올릴 수 있음</p>
+</li>
+<li>
+<p>공유된 어휘와 이미지가 있으면 아이디어를 즉흥적으로 주고받고 <strong>새로운 방향을 함께 발전</strong>시키기 쉬움</p>
+</li>
+<li>
+<p>반대로 각자가 별도의 에이전트와 고립된 상태로 작업하면 다음 문제가 생김</p>
+<ul>
+<li>같은 용어를 <strong>서로 다른 의미</strong>로 사용함</li>
+<li>기술적 계획의 <strong>전제를 공유하지 못함</strong></li>
+<li>결과물은 합쳐도 <strong>이해는 합쳐지지 않음</strong></li>
+</ul>
+</li>
+<li>
+<p>팀의 AI 활용은 각 개인의 생산성을 높이는 문제뿐 아니라 팀 전체의 <strong>공유 이해를 구축하는 문제</strong>임</p>
+</li>
+</ul>
+<h2 id="에이전트와-사람의-작업을-같은-공유-공간에-남기기">에이전트와 사람의 작업을 같은 공유 공간에 남기기<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#에이전트와-사람의-작업을-같은-공유-공간에-남기기" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>
+<p>Notion에서는 Claude와 Cursor 에이전트를 <strong>페이지 안에서 실행</strong>할 수 있음</p>
+</li>
+<li>
+<p>에이전트가 작성한 기술 계획은 기본적으로 <strong>협업 가능한 페이지</strong>에 만들어짐</p>
+</li>
+<li>
+<p>팀원은 에이전트가 만든 계획을 별도의 채널로 복사하지 않고 같은 자리에서 바로 검토할 수 있음</p>
+<ul>
+<li>특정 문장에 <strong>댓글을 남김</strong></li>
+<li>구현 선택을 <strong>질문함</strong></li>
+<li>계획을 함께 <strong>수정함</strong></li>
+<li>팀의 논의와 에이전트의 결과를 <strong>한 문맥에 남김</strong></li>
+</ul>
+</li>
+<li>
+<p>에이전트가 개인별 사일로 안에서 작업하는 대신, 사람과 에이전트가 <strong>공동 문서를 중심으로 사고</strong>하게 됨</p>
+</li>
+<li>
+<p>공유 공간은 결과를 저장하는 문서함이 아니라 팀이 함께 <strong>정신 모형을 만드는 장소</strong>임</p>
+</li>
+</ul>
+<h2 id="컴퓨터의-목적은-처음부터-증강이었음">컴퓨터의 목적은 처음부터 증강이었음<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#컴퓨터의-목적은-처음부터-증강이었음" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>
+<p>코드 이해를 위한 설명/퀴즈/마이크로월드의 문제는 <strong>프로그래밍에만 한정되지 않음</strong></p>
+</li>
+<li>
+<p>사람은 결과를 검증하기 위해서만이 아니라 세상이 어떻게 작동하는지 이해하고 변화에 참여하기 위해 <strong>지식을 필요로 함</strong></p>
+</li>
+<li>
+<p>Alan Kay는 약 50년 전 컴퓨터를 책보다 나은 <strong>새로운 교육 매체</strong>로 구상함</p>
+</li>
+<li>
+<p>당시의 그림에는 아이들이 태블릿 같은 장치를 바라보는 모습이 나오지만, 영상을 수동적으로 시청하는 것이 아님</p>
+<ul>
+<li><strong>상호작용형 물리 시뮬레이션</strong>을 조작함</li>
+<li>게임을 플레이하면서 <strong>코드를 직접 수정</strong>함</li>
+<li>수정한 코드가 물리적 움직임을 어떻게 바꾸는지 <strong>확인함</strong></li>
+</ul>
+</li>
+<li>
+<p>컴퓨터는 정적인 정보를 전달하는 기계가 아니라 복잡한 개념을 움직이고 바꾸며 이해하게 하는 <strong>동적 매체</strong>가 될 수 있음</p>
+</li>
+</ul>
+<h2 id="자동화만이-아니라-더-깊은-참여로">자동화만이 아니라 더 깊은 참여로<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#자동화만이-아니라-더-깊은-참여로" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>우주인이 지구를 바라보며 “컴퓨터의 목적은 복잡한 개념을 이해하기 위한 동적 시뮬레이션을 만드는 것이었나”라고 묻고, 뒤의 우주인이 “항상 그랬다”고 답하는 <strong>밈</strong>으로 핵심을 표현함</li>
+<li>컴퓨터와 AI의 목적을 사람의 작업 제거에만 두면 사람은 <strong>시스템의 바깥으로 밀려날 수 있음</strong></li>
+<li>반대로 AI를 설명/시뮬레이션/마이크로월드/공유 공간을 만드는 데 사용하면 사람이 <strong>더 많은 개념을 더 깊게 이해</strong>할 수 있음</li>
+<li>AI가 시뮬레이션 제작 비용을 낮추면서, 특정 개념을 배우기 위한 <strong>맞춤형 환경</strong>을 필요할 때마다 생성할 수 있게 됨</li>
+<li>목표는 사람을 루프에서 빼는 것만이 아니라 사람이 이전보다 <strong>더 깊이 루프 안으로 들어가도록 만드는 것</strong>임</li>
+</ul>
+<h2 id="관련-글">관련 글<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#관련-글" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><a href="https://www.geoffreylitt.com/2025/07/27/enough-ai-copilots-we-need-ai-huds" class="external">Enough AI copilots! We need AI HUDs<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> - 코파일럿을 넘어 인간의 정신을 더 직접적으로 확장하는 <strong>AI 인터페이스</strong></li>
+<li><a href="https://www.geoffreylitt.com/2024/12/22/making-programming-more-fun-with-an-ai-generated-debugger" class="external">AI-generated tools can make programming more fun<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> - AI로 맞춤형 디버거 UI를 만들어 사람이 직접 프로그래밍하는 <strong>과정을 개선한 사례</strong></li>
+<li><a href="https://www.geoffreylitt.com/2025/10/24/code-like-a-surgeon" class="external">Code like a surgeon<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> - 부수적인 반복 작업은 위임하고 사람이 <strong>핵심 작업에 집중하는 방식</strong></li>
+</ul></article><hr/><div class="page-footer"><div class="backlinks"><h3>백링크</h3><ul id="list-1" class="overflow"><li><a href="../garden/20260716-agentic-coding-needs-understanding-before-approval" class="internal">에이전트가 만든 코드를 승인하기 전에 먼저 이해해야 한다</a></li><li><a href="../wiki/concepts/20260716-cognitive-debt-in-agentic-coding" class="internal">Cognitive Debt in Agentic Coding</a></li><li class="overflow-end"></li></ul></div><div class="giscus" data-repo="dataofmen/quartz-wiki" data-repo-id="R_kgDOSOxrZA" data-category="General" data-category-id="DIC_kwDOSOxrZM4C-Edy" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-input-position="bottom" data-light-theme="light" data-dark-theme="dark" data-theme-url="https://dataofmen.github.io/static/giscus" data-lang="ko"></div></div></div><div class="right sidebar"><div class="graph desktop-only"><h3>그래프 뷰</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                  s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                  c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                  C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                  c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                  v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                  s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                  C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                  S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                  s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                  s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.5.2</a> © 2026</p><ul></ul></footer></div></div></body><script type="application/javascript" data-persist="true">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module" data-persist="true">function E(a,e){if(!a)return;function t(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function n(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}a?.addEventListener("click",t),window.addCleanup(()=>a?.removeEventListener("click",t)),document.addEventListener("keydown",n),window.addCleanup(()=>document.removeEventListener("keydown",n))}function f(a){for(;a.firstChild;)a.removeChild(a.firstChild)}var m=class{constructor(e,t){this.container=e;this.content=t;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),t=this.onMouseMove.bind(this),n=this.onMouseUp.bind(this),o=this.onTouchStart.bind(this),r=this.onTouchMove.bind(this),i=this.onTouchEnd.bind(this),s=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",t),document.addEventListener("mouseup",n),this.container.addEventListener("touchstart",o,{passive:!1}),document.addEventListener("touchmove",r,{passive:!1}),document.addEventListener("touchend",i),window.addEventListener("resize",s),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",t),()=>document.removeEventListener("mouseup",n),()=>this.container.removeEventListener("touchstart",o),()=>document.removeEventListener("touchmove",r),()=>document.removeEventListener("touchend",i),()=>window.removeEventListener("resize",s))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let t=this.createButton("+",()=>this.zoom(.1)),n=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(n),e.appendChild(o),e.appendChild(t),this.container.appendChild(e)}createButton(e,t){let n=document.createElement("button");return n.textContent=e,n.className="mermaid-control-button",n.addEventListener("click",t),window.addCleanup(()=>n.removeEventListener("click",t)),n}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}onTouchStart(e){if(e.touches.length!==1)return;this.isDragging=!0;let t=e.touches[0];this.startPan={x:t.clientX-this.currentPan.x,y:t.clientY-this.currentPan.y}}onTouchMove(e){if(!this.isDragging||e.touches.length!==1)return;e.preventDefault();let t=e.touches[0];this.currentPan={x:t.clientX-this.startPan.x,y:t.clientY-this.startPan.y},this.updateTransform()}onTouchEnd(){this.isDragging=!1}zoom(e){let t=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),n=this.content.getBoundingClientRect(),o=n.width/2,r=n.height/2,i=t-this.scale;this.currentPan.x-=o*i,this.currentPan.y-=r*i,this.scale=t,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){let t=this.content.querySelector("svg").getBoundingClientRect(),n=t.width/this.scale,o=t.height/this.scale;this.scale=1,this.currentPan={x:(this.container.clientWidth-n)/2,y:(this.container.clientHeight-o)/2},this.updateTransform()}},T=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],y;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;y||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let t=y.default,n=new WeakMap;for(let r of e)n.set(r,r.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let c=n.get(s);c&&(s.innerHTML=c)}let r=T.reduce((s,c)=>(s[c]=window.getComputedStyle(document.documentElement).getPropertyValue(c),s),{}),i=document.documentElement.getAttribute("saved-theme")==="dark";t.initialize({startOnLoad:!1,securityLevel:"loose",theme:i?"dark":"base",themeVariables:{fontFamily:r["--codeFont"],primaryColor:r["--light"],primaryTextColor:r["--darkgray"],primaryBorderColor:r["--tertiary"],lineColor:r["--darkgray"],secondaryColor:r["--secondary"],tertiaryColor:r["--tertiary"],clusterBkg:r["--light"],edgeLabelBackground:r["--highlight"]}}),await t.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let r=0;r<e.length;r++){let v=function(){let g=l.querySelector("#mermaid-space"),h=l.querySelector(".mermaid-content");if(!h)return;f(h);let w=i.querySelector("svg").cloneNode(!0);h.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new m(g,h)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},i=e[r],s=i.parentElement,c=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(c),L=c.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),E(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../postscript.js" type="module" data-persist="true"></script></html>
