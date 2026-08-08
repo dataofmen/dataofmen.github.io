@@ -1,0 +1,2075 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr"><head><title>THE SHIFT TO AGENTIC AI: EVIDENCE FROM CODEX</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto Sans KR:wght@400;700&amp;family=Noto Sans KR:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="dataofmen"/><meta property="og:title" content="THE SHIFT TO AGENTIC AI: EVIDENCE FROM CODEX"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="THE SHIFT TO AGENTIC AI: EVIDENCE FROM CODEX"/><meta name="twitter:description" content="Drew Johnston1,* David Holtz2,1 Alex Martin Richmond1 Christopher Ong1 Prasanna Tambe3,1 Aaron Chatterji1,4 1OpenAI 2Columbia Business School 3University of Pennsylvania, Wharton School 4Duke University Fuqua School of Business We analyze usage data from OpenAI’s Codex tool to present large-scale ev..."/><meta property="og:description" content="Drew Johnston1,* David Holtz2,1 Alex Martin Richmond1 Christopher Ong1 Prasanna Tambe3,1 Aaron Chatterji1,4 1OpenAI 2Columbia Business School 3University of Pennsylvania, Wharton School 4Duke University Fuqua School of Business We analyze usage data from OpenAI’s Codex tool to present large-scale ev..."/><meta property="og:image:alt" content="Drew Johnston1,* David Holtz2,1 Alex Martin Richmond1 Christopher Ong1 Prasanna Tambe3,1 Aaron Chatterji1,4 1OpenAI 2Columbia Business School 3University of Pennsylvania, Wharton School 4Duke University Fuqua School of Business We analyze usage data from OpenAI’s Codex tool to present large-scale ev..."/><meta property="og:image" content="https://dataofmen.github.io/static/og-image.png"/><meta property="og:image:url" content="https://dataofmen.github.io/static/og-image.png"/><meta name="twitter:image" content="https://dataofmen.github.io/static/og-image.png"/><meta property="og:image:type" content="image/.png"/><meta property="twitter:domain" content="dataofmen.github.io"/><meta property="og:url" content="https://dataofmen.github.io/clippings/20260806-the-shift-to-agentic"/><meta property="twitter:url" content="https://dataofmen.github.io/clippings/20260806-the-shift-to-agentic"/><link rel="icon" href="../static/icon.png"/><meta name="description" content="Drew Johnston1,* David Holtz2,1 Alex Martin Richmond1 Christopher Ong1 Prasanna Tambe3,1 Aaron Chatterji1,4 1OpenAI 2Columbia Business School 3University of Pennsylvania, Wharton School 4Duke University Fuqua School of Business We analyze usage data from OpenAI’s Codex tool to present large-scale ev..."/><meta name="generator" content="Quartz"/><link href="../index.css" rel="stylesheet" type="text/css" data-persist="true"/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiL2hvbWUvcnVubmVyL3dvcmsvcXVhcnR6LXdpa2kvcXVhcnR6LXdpa2kvcXVhcnR6L2NvbXBvbmVudHMvc3R5bGVzIiwic291cmNlcyI6WyJtZXJtYWlkLmlubGluZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFHRjtFQUNFOzs7QUFLRjtFQUNFO0VBQ0E7OztBQUlKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFOztBQUdGO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFJSjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTs7QUFJRjtFQUNFO0VBQ0E7RUFDQSIsInNvdXJjZXNDb250ZW50IjpbIi5leHBhbmQtYnV0dG9uIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbG9hdDogcmlnaHQ7XG4gIHBhZGRpbmc6IDAuNHJlbTtcbiAgbWFyZ2luOiAwLjNyZW07XG4gIHJpZ2h0OiAwOyAvLyBOT1RFOiByaWdodCB3aWxsIGJlIHNldCBpbiBtZXJtYWlkLmlubGluZS50c1xuICBjb2xvcjogdmFyKC0tZ3JheSk7XG4gIGJvcmRlci1jb2xvcjogdmFyKC0tZGFyayk7XG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWxpZ2h0KTtcbiAgYm9yZGVyOiAxcHggc29saWQ7XG4gIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgb3BhY2l0eTogMDtcbiAgdHJhbnNpdGlvbjogMC4ycztcblxuICAmID4gc3ZnIHtcbiAgICBmaWxsOiB2YXIoLS1saWdodCk7XG4gICAgZmlsdGVyOiBjb250cmFzdCgwLjMpO1xuICB9XG5cbiAgJjpob3ZlciB7XG4gICAgY3Vyc29yOiBwb2ludGVyO1xuICAgIGJvcmRlci1jb2xvcjogdmFyKC0tc2Vjb25kYXJ5KTtcbiAgfVxuXG4gICY6Zm9jdXMge1xuICAgIG91dGxpbmU6IDA7XG4gIH1cbn1cblxucHJlIHtcbiAgJjpob3ZlciA+IC5leHBhbmQtYnV0dG9uIHtcbiAgICBvcGFjaXR5OiAxO1xuICAgIHRyYW5zaXRpb246IDAuMnM7XG4gIH1cbn1cblxuI21lcm1haWQtY29udGFpbmVyIHtcbiAgcG9zaXRpb246IGZpeGVkO1xuICBjb250YWluOiBsYXlvdXQ7XG4gIHotaW5kZXg6IDk5OTtcbiAgbGVmdDogMDtcbiAgdG9wOiAwO1xuICB3aWR0aDogMTAwdnc7XG4gIGhlaWdodDogMTAwdmg7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIGRpc3BsYXk6IG5vbmU7XG4gIGJhY2tkcm9wLWZpbHRlcjogYmx1cig0cHgpO1xuICBiYWNrZ3JvdW5kOiByZ2JhKDAsIDAsIDAsIDAuNSk7XG5cbiAgJi5hY3RpdmUge1xuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgfVxuXG4gICYgPiAjbWVybWFpZC1zcGFjZSB7XG4gICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1saWdodCk7XG4gICAgYm9yZGVyLXJhZGl1czogNXB4O1xuICAgIHBvc2l0aW9uOiBmaXhlZDtcbiAgICB0b3A6IDUwJTtcbiAgICBsZWZ0OiA1MCU7XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGUoLTUwJSwgLTUwJSk7XG4gICAgaGVpZ2h0OiA4MHZoO1xuICAgIHdpZHRoOiA4MHZ3O1xuICAgIG92ZXJmbG93OiBoaWRkZW47XG5cbiAgICAmID4gLm1lcm1haWQtY29udGVudCB7XG4gICAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgICB0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7XG4gICAgICB0cmFuc2l0aW9uOiB0cmFuc2Zvcm0gMC4xcyBlYXNlO1xuICAgICAgb3ZlcmZsb3c6IHZpc2libGU7XG4gICAgICBtaW4taGVpZ2h0OiAyMDBweDtcbiAgICAgIG1pbi13aWR0aDogMjAwcHg7XG5cbiAgICAgIHByZSB7XG4gICAgICAgIG1hcmdpbjogMDtcbiAgICAgICAgYm9yZGVyOiBub25lO1xuICAgICAgfVxuXG4gICAgICBzdmcge1xuICAgICAgICBtYXgtd2lkdGg6IG5vbmU7XG4gICAgICAgIGhlaWdodDogYXV0bztcbiAgICAgIH1cbiAgICB9XG5cbiAgICAmID4gLm1lcm1haWQtY29udHJvbHMge1xuICAgICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgICAgYm90dG9tOiAyMHB4O1xuICAgICAgcmlnaHQ6IDIwcHg7XG4gICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgZ2FwOiA4cHg7XG4gICAgICBwYWRkaW5nOiA4cHg7XG4gICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1saWdodCk7XG4gICAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgICAgYm9yZGVyLXJhZGl1czogNnB4O1xuICAgICAgYm94LXNoYWRvdzogMCAycHggNHB4IHJnYmEoMCwgMCwgMCwgMC4xKTtcbiAgICAgIHotaW5kZXg6IDI7XG5cbiAgICAgIC5tZXJtYWlkLWNvbnRyb2wtYnV0dG9uIHtcbiAgICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICAgICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gICAgICAgIHdpZHRoOiAzMnB4O1xuICAgICAgICBoZWlnaHQ6IDMycHg7XG4gICAgICAgIHBhZGRpbmc6IDA7XG4gICAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0KTtcbiAgICAgICAgY29sb3I6IHZhcigtLWRhcmspO1xuICAgICAgICBib3JkZXItcmFkaXVzOiA0cHg7XG4gICAgICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICAgICAgZm9udC1zaXplOiAxNnB4O1xuICAgICAgICBmb250LWZhbWlseTogdmFyKC0tYm9keUZvbnQpO1xuICAgICAgICB0cmFuc2l0aW9uOiBhbGwgMC4ycyBlYXNlO1xuXG4gICAgICAgICY6aG92ZXIge1xuICAgICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIH1cblxuICAgICAgICAmOmFjdGl2ZSB7XG4gICAgICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKDFweCk7XG4gICAgICAgIH1cblxuICAgICAgICAvLyBTdHlsZSB0aGUgcmVzZXQgYnV0dG9uIGRpZmZlcmVudGx5XG4gICAgICAgICY6bnRoLWNoaWxkKDIpIHtcbiAgICAgICAgICB3aWR0aDogYXV0bztcbiAgICAgICAgICBwYWRkaW5nOiAwIDEycHg7XG4gICAgICAgICAgZm9udC1zaXplOiAxNHB4O1xuICAgICAgICB9XG4gICAgICB9XG4gICAgfVxuICB9XG59XG4iXX0= */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../prescript.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://dataofmen.github.io/index.xml"/></head><body data-slug="clippings/20260806-the-shift-to-agentic"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"></div><div class="center"><div class="page-header"><header><h2 class="page-title"><a href="..">dataofmen</a></h2><nav class="nav-links"><a href="/wiki" class="nav-link">wiki</a><a href="/garden" class="nav-link">garden</a><a href="/clippings" class="nav-link">clippings</a></nav><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 1rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>검색</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="검색어를 입력하세요" placeholder="검색어를 입력하세요"/><div class="search-layout" data-preview="true"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="다크 모드"><title>다크 모드</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="라이트 모드"><title>라이트 모드</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div></div></header><div class="popover-hint"><h1 class="article-title">THE SHIFT TO AGENTIC AI: EVIDENCE FROM CODEX</h1><p show-comma="true" class="content-meta"><time datetime="2026-08-06T00:00:00.000Z">2026년 8월 06일</time><span>71 min read</span></p><div class="toc"><button type="button" class="toc-header" aria-controls="toc-107" aria-expanded="true"><h3>목차</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-0" class="toc-content overflow"><li class="depth-0"><a href="#1-introduction" data-for="1-introduction">1 Introduction</a></li><li class="depth-2"><a href="#span-idpage-3-0span2-related-literature" data-for="span-idpage-3-0span2-related-literature">&lt;span id=&quot;page-3-0&quot;>&lt;/span>2 Related literature</a></li><li class="depth-2"><a href="#span-idpage-5-0span3-who-uses-agentic-ai" data-for="span-idpage-5-0span3-who-uses-agentic-ai">&lt;span id=&quot;page-5-0&quot;>&lt;/span>3 Who Uses Agentic AI?</a></li><li class="depth-2"><a href="#span-idpage-10-0span4-what-kinds-of-work-do-people-do-with-agentic-ai" data-for="span-idpage-10-0span4-what-kinds-of-work-do-people-do-with-agentic-ai">&lt;span id=&quot;page-10-0&quot;>&lt;/span>4 What kinds of work do people do with Agentic AI?</a></li><li class="depth-2"><a href="#41-task-shares-for-codex-usage" data-for="41-task-shares-for-codex-usage">4.1 Task shares for Codex usage</a></li><li class="depth-2"><a href="#42-task-complexity-on-codex" data-for="42-task-complexity-on-codex">4.2 Task complexity on Codex</a></li><li class="depth-2"><a href="#43-task-shares-by-worker-type" data-for="43-task-shares-by-worker-type">4.3 Task shares by worker type</a></li><li class="depth-0"><a href="#5-how-are-people-using-agentic-ai" data-for="5-how-are-people-using-agentic-ai">5 How Are People Using Agentic AI?</a></li><li class="depth-2"><a href="#51-turn-concurrency" data-for="51-turn-concurrency">5.1 Turn Concurrency</a></li><li class="depth-2"><a href="#52-long-running-agents" data-for="52-long-running-agents">5.2 Long-running agents</a></li><li class="depth-2"><a href="#6-conclusion" data-for="6-conclusion">6 Conclusion</a></li><li class="depth-2"><a href="#references" data-for="references">References</a></li><li class="depth-0"><a href="#a-additional-figures" data-for="a-additional-figures">A Additional Figures</a></li><li class="depth-2"><a href="#span-idpage-33-0spanb-additional-task-usage-measures-and-second-level-tasks" data-for="span-idpage-33-0spanb-additional-task-usage-measures-and-second-level-tasks">&lt;span id=&quot;page-33-0&quot;>&lt;/span>B Additional task-usage measures and second-level tasks</a></li><li class="depth-2"><a href="#span-idpage-34-0spanc-job-title-classification" data-for="span-idpage-34-0spanc-job-title-classification">&lt;span id=&quot;page-34-0&quot;>&lt;/span>C Job Title Classification</a></li><li class="depth-2"><a href="#c1-job-title-classification-prompt" data-for="c1-job-title-classification-prompt">C.1 Job Title Classification Prompt</a></li><li class="depth-2"><a href="#c2-job-title-classifier-validation" data-for="c2-job-title-classifier-validation">C.2 Job Title Classifier Validation</a></li><li class="depth-1"><a href="#d-persona-prompt" data-for="d-persona-prompt">D Persona Prompt</a></li><li class="depth-2"><a href="#span-idpage-45-0spane-task-classifier-prompt" data-for="span-idpage-45-0spane-task-classifier-prompt">&lt;span id=&quot;page-45-0&quot;>&lt;/span>E Task Classifier Prompt</a></li><li class="depth-0"><a href="#span-idpage-48-0spanf-query-complexity-prompt" data-for="span-idpage-48-0spanf-query-complexity-prompt">&lt;span id=&quot;page-48-0&quot;>&lt;/span>F Query Complexity Prompt</a></li><li class="overflow-end"></li></ul></div></div></div><article class="popover-hint"><p>Drew Johnston1,* David Holtz2,1 Alex Martin Richmond<sup>1</sup> Christopher Ong<sup>1</sup> Prasanna Tambe3,1 Aaron Chatterji1,4</p>
+<p><sup>1</sup>OpenAI <sup>2</sup>Columbia Business School <sup>3</sup>University of Pennsylvania, Wharton School <sup>4</sup>Duke University Fuqua School of Business</p>
+<p>We analyze usage data from OpenAI’s Codex tool to present large-scale evidence of how agentic AI technology, which can take actions on a user’s behalf, changes how people work. We use an automated, privacy-protecting pipeline to contrast usage across three populations: external personal-account users, external organizational-account users, and workers within OpenAI. We find that agentic AI usage is growing rapidly: the number of active users has grown more than fivefold in the first half of 2026, with the most rapid increase occurring outside the initial audience of software developers. Uptake is uneven across contexts: within OpenAI, Codex usage is nearly universal and has largely replaced business usage of ChatGPT. We document a similar shift to agentic tooling outside OpenAI, particularly within organizations, although external adoption remains lower and more uneven. In addition to headline usage figures, we observe measures of sophistication, and find that a growing number of users have used Codex to change their workflows substantially. We find that more than 10% of users manage three or more concurrent Codex agents at some point each week and that 26.6% use skills, which allow users to share instructions for complex workflows. Alongside these changes in usage practices, request complexity has increased: since the start of the year, the share of individual Codex users who submit at least one request for a task estimated to require more than eight hours for an experienced human to complete has increased nearly tenfold. Concurrently, output has grown rapidly—in June 2026, the median OpenAI employee in a legal role generated 13 times more monthly output tokens across Codex and ChatGPT than they did in November 2025, while the median researcher generated more than 50 times as many. We conclude by discussing the implications of these patterns for productivity, job reorganization, and workforce restructuring.</p>
+<p>The authors are grateful to Cassandra Duchan Solis for her substantial contributions to this paper, and to Tejal Patwardhan, Suproteem Sarkar, and Katy Shi for helpful early conversations and feedback. Andrew Hillis and Kevin Liu provided helpful insights about the data infrastructure underlying many of the analyses in this paper. Gawesha Weeratunga arranged the data access supporting our analyses of usage within organizations. Daniella Eguiguren and Kirsty Le produced the web visualization, which was developed by Matt Nichols, Shawn O’Mara, and Dion Peters. Charlene Tsang designed portions of the visualization. Rachel Brown, Laurance Fauconnet, Rob Friedlander, and Laurie Jones provided editorial feedback. Laura Bisesto, Sarah Friar, Zak Weiler, and Meng Jia Yang reviewed this paper. David Holtz and Prasanna Tambe contributed to this work in their capacity as paid contractors for OpenAI.</p>
+<p><sup>*</sup>Corresponding author: <a href="mailto:drewjohnston@openai.com" class="external">drewjohnston@openai.com<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<h1 id="1-introduction"><strong>1 Introduction</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#1-introduction" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>Generative AI systems increasingly differ in the extent to which they can act on a user’s behalf, or in other words, the extent to which they are <em>agentic</em>. Traditional chatbot interfaces are primarily conversational: users ask questions or provide instructions, and the model generates responses. Agentic AI tools extend this paradigm by enabling users to delegate multi-step tasks to AI systems that can autonomously use external tools, inspect files, execute commands, and create or modify artifacts.</p>
+<p>This paper studies this shift to agentic AI by analyzing data on the adoption and use of Codex, OpenAI’s agentic<a href="#page-1-0" class="internal alias">1</a> coding and work platform, which was initially released in April 2025.<a href="#page-1-1" class="internal alias">2</a> Codex was originally designed for software development, a domain where AI outputs are useful, economically important, and comparatively easy to verify. However, the usage we study extends beyond software: Codex is used for drafting documents, analyzing data, coordinating communication, and other knowledge-work tasks outside coding.</p>
+<p>To study how agentic AI use diffuses across settings and expands across task domains, we analyze Codex usage data. These data allow us to document adoption, task allocation, and depth of use, using automated classifiers to extract aggregated and anonymized insights about AI usage without researchers reading the underlying messages themselves.</p>
+<p>We conduct this analysis across three distinct populations: individual users, organizational users, and OpenAI workers.<a href="#page-1-2" class="internal alias">3</a> Individual users provide a broad-market view of early adoption, where use is heterogeneous and workflow integration is often limited. Organizational users show how Codex is used in business settings outside OpenAI, where adoption may depend on local workflows, permissions, security requirements, and user familiarity. OpenAI workers provide a unique view into what usage is at the frontier. OpenAI is an unusually favorable environment for agentic AI: workers are highly familiar with frontier models, usage is cheap at the margin, organizational buy-in is high, training and informal knowledge sharing are common, and many workflows are close to the systems being developed.<a href="#page-1-3" class="internal alias">4</a> OpenAI usage is therefore not representative of the typical organization today. However, it provides a view of what agentic AI use may look like in the future, when adoption frictions are minimal.</p>
+<p>We organize the evidence around four stylized facts.</p>
+<p>First, the shift to agentic AI is rapid but uneven. Over the first six months of 2026, weekly active Codex usage increased sharply, yet agentic tooling remains much less broadly used than ChatGPT. The shift is smallest among individual users, larger among organizational users, and largest among OpenAI</p>
+<p><span id="page-1-0"></span><sup>1</sup> In this paper, for brevity, we refer to ChatGPT as a conversational AI tool and Codex as an agentic AI tool. In practice, the distinction is not absolute. ChatGPT includes agentic capabilities, such as web browsing and code execution, while some Codex interactions are purely conversational. In the week preceding June 11, 2026, 60.3% of Codex turns and 21.9% of ChatGPT turns invoked at least one external tool. Tool use is an imperfect proxy for agency: some tool invocations are part of simple conversational interactions, while some agentic workflows involve limited tool use.</p>
+<p><span id="page-1-1"></span><sup>2</sup>This initial release was limited in scope and available only via a command line interface. Later releases broadened the scope of users eligible to use Codex and the variety of surfaces through which it could be accessed.</p>
+<p><span id="page-1-2"></span><sup>3</sup>We refer to users on personal plans, including Free, Go, Plus, and Pro, as Individual users. We refer to users on Business and Enterprise plans as Organizational users.</p>
+<p><span id="page-1-3"></span><sup>4</sup> Internally at OpenAI, there are no quantity restrictions on AI usage, and there is significant internal knowledge sharing about AI capabilities, skills, and usage patterns.</p>
+<p>workers. The contrast is sharpest when measured through the use of output tokens rather than numbers of active users.<a href="#page-2-0" class="internal alias">5</a> Among OpenAI workers, Codex largely replaced ChatGPT as the main interface for work-related AI use: as of June 11, 2026, Codex accounts for 99.8% of output tokens these workers generate across Codex and ChatGPT. Among organizational users, the corresponding share is 63.3%, while among individual users it is 16.5%. Adoption also varies by job role. Technical roles adopt earlier, but non-developer use has grown quickly, especially within OpenAI.</p>
+<p>Second, Codex use is strongly oriented toward delegated production. Users ask the model to carry out concrete work tasks like debugging, refactoring, validating changes, configuring applications, drafting documents, and analyzing data. These activities are better understood as production than as consultation: users are asking Codex to do work, not only to provide advice or information.<a href="#page-2-1" class="internal alias">6</a> This distinction is central to the shift we study. In an agentic interface, usage can correspond to a delegated workflow rather than a single conversational exchange. We find that the complexity of tasks users request has increased over time, with an increasing share of users delegating tasks that would take an experienced human more than a full day of work to complete.</p>
+<p>Third, Codex use is anchored in software production, but is broader in contexts in which adoption is deepest. Across user populations, the largest share of tasks is closely tied to software work, including code implementation, code understanding, code validation, engineering operations, and application management. But users delegate more than code generation, using Codex across the broader softwareproduction life cycle: they also use it to understand existing systems, configure environments, validate changes, manage repositories, and produce documentation. Among OpenAI workers, usage extends further into research, planning, communication, data analysis, product work, recruiting, sales, and other non-engineering activities.</p>
+<p>Fourth, intensive users organize Codex use around large, repeatable, and parallel workflows. We measure this in several ways. Output volume measures the amount of AI-mediated work users generate. Task-complexity measures the estimated time it would take an experienced human to complete the tasks that users delegate. Skill use measures whether users invoke reusable instructions, capabilities, or tool integrations. Runtime measures how much active agent work occurs on a user’s behalf. Concurrency measures whether users run multiple Codex turns at the same time. Across these measures, heavy users look qualitatively different from occasional users. They are more likely to use skills, run longer and more complex tasks, and operate multiple agents concurrently. OpenAI workers provide the clearest view of this pattern: among the most intensive users within OpenAI, Codex is less an assistant answering requests and more like a workflow system in which the user delegates, monitors, reviews, and coordinates multiple streams of work.</p>
+<p>The evidence illustrates why agentic AI is more than a more capable version of conversational AI: users can hand off larger pieces of work to systems that inspect context, use tools, and modify arti-</p>
+<p><span id="page-2-0"></span><sup>5</sup>Tokens are the basic unit of information read and generated by most AI models.</p>
+<p><span id="page-2-1"></span><sup>6</sup>This contrasts with conversational AI usage patterns documented in Chatterji et al. <a href="#page-23-0" class="internal alias">(2025)</a>. In that context, researchers found that a larger share of work focused on “asking” (which represented nearly half of all prompts), than on “doing”.</p>
+<p>facts. This distinction changes what adoption means. For agentic AI, the important margins are not only whether a person uses the tool, but what work they delegate, how much execution the system performs, and whether users begin to organize workflows around repeated or parallel delegation.</p>
+<p>The rest of the paper proceeds as follows. Section <a href="#page-3-0" class="internal alias">2</a> describes the related literature and connects it to the work of this paper. Section <a href="#page-5-0" class="internal alias">3</a> studies who is using agentic tooling, documenting growth in Codex usage across users in individual, organizational, and internal OpenAI accounts. Within these categories, we study differences in usage across personas, job functions, and seniority levels. Section <a href="#page-10-0" class="internal alias">4</a> examines what people use Codex for, comparing task composition across user populations and worker groups. Section <a href="#page-13-0" class="internal alias">5</a> studies how people use Codex once they adopt it, focusing on output volume, repeatable workflows, task complexity, runtime, and concurrency. The conclusion summarizes what these usage patterns show about the frontier of agentic AI use.</p>
+<h3 id="2-related-literature"><span id="page-3-0"></span><strong>2 Related literature</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#2-related-literature" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>In studying the diffusion and use of Codex, we connect the emerging literature on agentic AI to three related literatures that study generative AI adoption, delegation and verification in human–AI systems, and the organizational complements that shape technology diffusion.</p>
+<p>First, we extend work on the adoption and use of generative AI. Prior work measures occupational exposure to large language models, generative AI adoption by workers, and usage of conversational AI systems (Eloundou et al. <a href="#page-23-1" class="internal alias">2024;</a> Felten et al. <a href="#page-23-2" class="internal alias">2023;</a> Bick et al. <a href="#page-23-3" class="internal alias">2026;</a> Chatterji et al. <a href="#page-23-0" class="internal alias">2025;</a> Handa et al. <a href="#page-23-4" class="internal alias">2025)</a>. This literature documents the rapid diffusion of generative AI across occupations and industries while highlighting substantial heterogeneity in adoption and use. Recent studies also describe how individuals employ conversational AI systems in practice, finding that information retrieval, learning, writing, content creation, and practical guidance account for a large share of observed usage (Chatterji et al. <a href="#page-23-0" class="internal alias">2025)</a>.</p>
+<p>We extend this work by studying agentic AI tools, where the relevant unit of analysis is a delegated workflow rather than a conversation. Like other papers in this literature, our goal is to understand the underlying tasks people perform with new technologies by analyzing interactions between users and AI systems. However, the agentic nature of Codex allows us to move beyond understanding conversations and to directly observe actions performed on a user’s behalf.</p>
+<p>This distinction connects our work to an emerging literature on agentic AI tools. The closest papers to our work study usage of Perplexity’s agentic products. Yang et al. <a href="#page-24-0" class="internal alias">(2025)</a> study the adoption of a general-purpose browser agent and show that early agentic use is broad, spanning productivity, learning, shopping, media, career, and travel tasks, with usage varying across personal, professional, and educational contexts. Yang et al. <a href="#page-24-1" class="internal alias">(2026)</a> compare Perplexity’s Search and Computer products using matched tasks, showing that the more autonomous Computer product performs substantially more work on users’ behalf, reduces completion time, and expands the scope of tasks users attempt. A related software-focused literature studies coding agents in practice. Sarkar <a href="#page-24-2" class="internal alias">(2026)</a> uses data from an AI-assisted programming platform to show that agents shift software work away from implementation activities such as typing code and toward delegation. Baumann et al. <a href="#page-23-5" class="internal alias">(2026)</a> introduce SWE-chat, a dataset of real coding-agent sessions from open-source developers, and show that coding-agent use in the wild is heterogeneous, involves substantial user correction, and often differs from benchmark-style evaluations. More broadly, a growing literature examines how agentic systems reshape the allocation of work between humans and machines, creating new opportunities for delegation while introducing new requirements for supervision, verification, and coordination.</p>
+<p>These questions connect the emerging literature on agentic AI to a long tradition of research on technology diffusion, organizational complements, and workplace change. A central insight from this literature is that productivity gains from new technologies depend on complementary investments in business processes, worker skills, organizational design, and intangible capital. For example, Brynjolfsson et al. <a href="#page-23-6" class="internal alias">(2019)</a> argue that the gap between rapid AI progress and slow measured productivity growth reflects the time required for organizations to develop complementary innovations and organizational changes.</p>
+<p>A shift toward agentic AI changes not only what tasks can be automated but also how work is organized. Hitzig et al. <a href="#page-23-7" class="internal alias">(2026)</a> argue that agentic systems move human–AI interaction from assistance toward delegation, making supervision, verification, and coordination central determinants of value creation while increasing returns to domain expertise. More broadly, realizing value from agentic AI may depend on the diffusion of AI capabilities throughout the workforce and the growing importance of domain expertise in supervising and coordinating delegated work (Tambe <a href="#page-24-3" class="internal alias">2026;</a> Hitzig et al. <a href="#page-23-7" class="internal alias">2026)</a>. Consistent with this view, Demirer et al. <a href="#page-23-8" class="internal alias">(2026b)</a> show that large task-level productivity gains may translate only imperfectly into final output because downstream human activities remain important bottlenecks. Similarly, Demirer et al. <a href="#page-23-9" class="internal alias">(2026a)</a> find that AI generates the largest productivity gains when it can execute contiguous chains of activities, highlighting the importance of workflow structure and task adjacency for automation and job redesign.</p>
+<p>Recent workplace evidence reinforces these arguments. Dillon et al. <a href="#page-23-10" class="internal alias">(2025)</a> study a field experiment in which workers received access to an integrated generative AI tool for email, meetings, and writing. They find meaningful individual-level time savings, especially in email, but limited evidence that access changed the quantity or composition of workers’ tasks. Similarly, Chen et al. <a href="#page-23-11" class="internal alias">(2026)</a> show that the labor-market effects of generative AI depend on whether occupations are more exposed to automation or augmentation. Using job-posting data, they find reduced demand and skill requirements in automation-prone jobs but increased demand and skill complexity in jobs involving human–AI collaboration. Together, these findings suggest that realizing the value of AI depends not only on technological capability but also on how organizations redesign workflows, responsibilities, and skill requirements around new forms of human–AI collaboration.</p>
+<p>Our evidence on differences across Individual, Organizational, and OpenAI users speaks directly to these organizational-complement mechanisms. If agentic AI adoption depended only on model capability, we would expect similar patterns of use wherever the same model is available. Large differences across user groups instead suggest that adoption depends on context: access to relevant files and systems, management expectations, workforce skills, and the availability of complementary review processes. In this sense, agentic AI is not simply a cheaper input into existing work; its value depends on whether organizations can redesign workflows, responsibilities, and review processes around delegation and verification.</p>
+<h3 id="3-who-uses-agentic-ai"><span id="page-5-0"></span><strong>3 Who Uses Agentic AI?</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#3-who-uses-agentic-ai" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>We begin by studying who uses Codex, and how adoption of agentic tooling differs across user populations and worker groups. Codex usage grew rapidly after launch, with the number of weekly active users increasing more than fivefold between January 1 and June 1, 2026. This establishes the aggregate growth of Codex, but user counts alone do not capture the shift from conversational to agentic tooling. Many users continue to use ChatGPT, and users who adopt Codex often use it much more intensively than users who remain only on conversational interfaces. For that reason, after documenting aggregate weekly active usage, we focus primarily on Codex’s share of output tokens across Codex and ChatGPT.</p>
+<p>Figure <a href="#page-6-0" class="internal alias">1</a> compares the shift to Codex across OpenAI workers, organizational users, and individual users. Panel A shows the extensive margin: whether active users of either product use Codex at all. Panel B shows the intensive margin: the share of output tokens produced through Codex rather than ChatGPT. Among individual users, conversational interfaces continue to dominate: fewer than 1% of active individual users used Codex in the last 28 days. But the individual users who adopt Codex are unusually intensive, so Codex accounts for a much larger share of individual-user output tokens than of individual active users. Among organizational users, adoption is broader. In the last 28 days, 17.3% of organizational users used Codex, several times the corresponding share among individual users, and Codex accounts for the majority of output tokens generated by organizational users in recent weeks. The most pronounced shift is among OpenAI workers. Codex use is both pervasive and intensive: almost all active OpenAI workers use Codex each week, and in recent weeks Codex accounts for more than 99% of output tokens generated across Codex and ChatGPT.</p>
+<p>To assess whether Codex’s growth is driven mainly by developers or by a broader set of users, we classify Codex users into three broad personas based on their recent Codex requests: <em>Developers</em>, <em>General Knowledge Workers</em>, and <em>Personal</em> users. Each request receives a persona label from an automated classifier, and each user is assigned the persona that appears most often in their Codex activity over the prior 30 days, with ties broken by the most recent request. The prompt used for this classification is provided in Appendix <a href="#page-43-0" class="internal alias">D.</a> <a href="#page-5-1" class="internal alias">7</a></p>
+<p>Software development activity is assigned the Developer label, other work activity is labeled as General Knowledge Worker, and non-work usage is combined into the Personal bucket. Typical Developer use includes writing, reviewing, or refactoring code. General Knowledge Worker use includes writing</p>
+<p><span id="page-5-1"></span><sup>7</sup>We validated the persona classifier using a small sample of employees. For each employee, we compared the assigned persona against their HR job title to assess alignment. The results showed strong agreement: over 90% of engineers were classified into the Developer persona, while more than 90% of sales employees were classified into the General Knowledge Worker persona.</p>
+<p><span id="page-6-0"></span><strong>Fig. 1:</strong> Codex usage relative to ChatGPT, by user population</p>
+<p><img src="../clippings/20260806-_page_6_Figure_1.jpeg" alt/></p>
+<h4 id="a-share-of-active-users-using-codex"><strong>(a)</strong> Share of active users using Codex<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#a-share-of-active-users-using-codex" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p><img src="../clippings/20260806-_page_6_Figure_3.jpeg" alt/></p>
+<h4 id="b-share-of-output-tokens-from-codex"><strong>(b)</strong> Share of output tokens from Codex<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#b-share-of-output-tokens-from-codex" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>Panel A shows the share of users active on either ChatGPT or Codex during the preceding twenty-eight days who were active on Codex at least once during that period. Panel B shows output tokens produced on Codex as a share of output tokens produced on either Codex or ChatGPT during the preceding twenty-eight days. We compare individual users, organizational users, and OpenAI workers.</p>
+<p>or editing documents, analyzing spreadsheets, drafting memos, coordinating communication, and other non-coding tasks. Personal users tend to use Codex for tasks including hobbies, financial activities, and education.</p>
+<p>Figure <a href="#page-7-0" class="internal alias">2</a> shows that Codex adoption is not limited to the initial developer base. Developers remain an important share of users, especially among individual and organizational accounts, but growth is faster among Non-developers. Appendix Figure <a href="#page-31-0" class="internal alias">A7</a> provides a more detailed decomposition of personas</p>
+<p><span id="page-7-0"></span><strong>Fig. 2:</strong> Growth in active Codex users by account type and persona</p>
+<p>Figure shows growth in users active in the previous 28 days, by persona and account type. The Non-developer series pools users assigned to the Personal and General Knowledge Worker personas. Personas are assigned using the most common label assigned to a user’s queries in the 30 days prior to June 11, 2026. Users’ account types are allowed to vary over time. All series are indexed to have a value of 1 as of August 1, 2025. Estimates are based on a 3% sample of users.</p>
+<p>for individual and organizational users. It shows that, in contrast to use within OpenAI, individual and organizational use remains more concentrated in developer personas, especially full-stack engineering.</p>
+<p>We next study adoption by job title and function, moving from behavior-based personas to organizational role measures. For organizational users outside OpenAI, we focus on the subset of firms for which we have high-quality job-title information.<a href="#page-7-1" class="internal alias">8</a> We classify job titles into cleaned job-title groups, seniority levels, and people manager statuses using the classifier described in Appendix <a href="#page-34-0" class="internal alias">C.</a> For OpenAI workers in this analysis, we instead use directly observed internal job-function metadata.<a href="#page-7-2" class="internal alias">9</a> These measures allow us to study whether the shift from ChatGPT to Codex is concentrated in technical roles or whether it extends across the organization.</p>
+<p>Figure <a href="#page-8-0" class="internal alias">3</a> highlights broad patterns of adoption. Across all job functions, the share of output tokens generated on Codex is increasing, with the most rapid progress among technical job functions. Among Organizational account users, the average engineer produces 26.8% of their tokens on Codex, a share that has quintupled since the start of the year. Other technical roles, such as Data and Analytics Practitioners, have seen similarly rapid increases, with the average user in such a role now generating about 15.2% of their output tokens on Codex. Though non-technical roles have seen a large proportional in-</p>
+<p><span id="page-7-1"></span><sup>8</sup>Within this set of firms, job-title coverage is broad: for the median firm, we observe job titles for 84.2% of workers.</p>
+<p><span id="page-7-2"></span><sup>9</sup>We use classifier-based measures for OpenAI users elsewhere in the paper. In this analysis, however, internal job-function metadata provides a higher-quality role measure, so we use it instead of classifier-derived job-title groups.</p>
+<p><span id="page-8-0"></span><strong>Fig. 3:</strong> Codex share of output tokens for the average user, by worker type</p>
+<p><img src="../clippings/20260806-_page_8_Figure_1.jpeg" alt/></p>
+<h4 id="a-organizational-users-by-inferred-job-title"><strong>(a)</strong> Organizational users, by inferred job title<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#a-organizational-users-by-inferred-job-title" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p><img src="../clippings/20260806-_page_8_Figure_3.jpeg" alt/></p>
+<h4 id="b-openai-workers-by-job-function"><strong>(b)</strong> OpenAI workers, by job function<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#b-openai-workers-by-job-function" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>Panel A shows the average user-level share of output tokens across ChatGPT and Codex that were produced on Codex among organizational users in firms with high-quality job-title information, by inferred job-title class. Panel B shows the corresponding employee-level share among OpenAI workers, by job function. Figures are based on output tokens generated on each platform in the preceding 28 days. Only users active in the preceding 28 days are included.</p>
+<p>crease, the average user in a non-technical role generates a relatively small share of their tokens in Codex, with Codex usage among legal teams accounting for only 1.9% of output tokens for the average user.</p>
+<p>Among Organizational account users, the relatively low share of tokens generated across job functions is primarily due to the limited share of users who use Codex at all, which we highlight in Figure <a href="#page-6-0" class="internal alias">1.</a> Despite the fact that Codex usage has not diffused fully in most job functions, it nevertheless accounts for a large share of overall tokens generated among many job functions, since usage intensity is much higher among users who adopt Codex. For instance, although Codex accounts for just 26.8% of the output tokens generated by the average engineer with an Organizational account, Codex usage accounts for 88.3% of the total output tokens generated by users of this type. This reflects both its adoption among more intensive users within each function and the deeper use cases agentic tooling enables. We see a similar divide in non-technical roles: among legal users, Codex accounts for 17.6% of total output tokens, despite accounting for only 1.9% of tokens generated by the average user.</p>
+<p>Usage within OpenAI provides a glimpse into a similar transition where workers began to shift usage to Codex from conversational harnesses much earlier. In the second half of 2025, usage patterns within OpenAI looked quite similar to those in external organizational accounts today; engineers used agentic harnesses for the largest share of their usage, while usage in other job functions lagged behind. Over the following months, as tooling improved and Codex usage diffused within the company, Codex continued to rise in all departments, with usage accounting for more than 90% of the average engineer’s usage by March 2026, and for more than 90% of use in almost all departments by the present day.</p>
+<p>The transition to agentic tooling was more rapid in later-adopting job functions within OpenAI than it was among the early-adopting technical functions. In January 2026, when engineering users had already shifted more than half of their AI usage to Codex, use in functions such as legal and recruiting was close to zero. From that point, usage increased gradually to about 20% of output tokens by early April, then rose quickly from roughly 20% to 75% within a month. Although differences across functions remain, convergence toward agentic tooling was rapid: between December 2025 and April 2026, OpenAI moved from a pattern in which most functions primarily used conversational AI to one in which Codex was dominant across functions. This period coincided with a broader internal effort to adopt Codex across workflows, including training sessions and regular feedback loops.</p>
+<p>Finally, Figure <a href="#page-10-1" class="internal alias">4</a> shows that adoption among Organizational users is not confined to a single seniority level. Codex’s share of output tokens rises across the seniority distribution, indicating that agentic tooling is used by both more junior and more senior workers. This result matters because Codex is not only a tool for direct implementation by individual contributors. Senior users may also use agentic tooling for planning, review, and other work that involves delegating tasks and evaluating outputs. We return to these differences in delegated work in Section <a href="#page-10-0" class="internal alias">4.</a></p>
+<p>The evidence in this section shows where the shift to Codex is occurring: adoption is broadest and most intensive among organizational users and OpenAI workers, it begins among technical workers before spreading to non-developer roles, and is occurring across all seniority levels within organizations.</p>
+<p><img src="../clippings/20260806-_page_10_Figure_0.jpeg" alt/></p>
+<p><span id="page-10-1"></span><strong>Fig. 4:</strong> Codex share of output tokens among Organizational users, by inferred seniority level</p>
+<p>Each series shows the average user-level share of output tokens across ChatGPT and Codex that were produced on Codex for organizational users with high-quality job-title information, by inferred seniority level. Figures are based on output tokens generated on each platform in the preceding 28 days. Only users active in the preceding 28 days are included.</p>
+<p>The next section asks what these users do with Codex once they adopt it. That task-level evidence is important because account type, persona, and job function do not by themselves reveal whether Codex is being used for software development, broader knowledge work, or personal tasks.</p>
+<h3 id="4-what-kinds-of-work-do-people-do-with-agentic-ai"><span id="page-10-0"></span><strong>4 What kinds of work do people do with Agentic AI?</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#4-what-kinds-of-work-do-people-do-with-agentic-ai" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>This section studies what users delegate to Codex once they adopt it. We use automated classifiers to measure two aspects of delegated work: the type of task being attempted and, for a smaller sample, the estimated human time required to complete the task without AI. We first compare task composition across individual users, organizational users, and OpenAI workers. We then examine whether users are delegating more complex tasks over time. Finally, we compare task mix across personas, job-title groups, and seniority levels to show how Codex use differs across worker types.</p>
+<h3 id="41-task-shares-for-codex-usage"><strong>4.1 Task shares for Codex usage</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#41-task-shares-for-codex-usage" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>To measure what users delegate to Codex, we classify Codex requests into a fixed two-level task taxonomy. The classifier assigns each request to a primary task category based on the user’s requested outcome, rather than on incidental tool use during execution. The top-level categories include softwarerelated work, such as code implementation, code understanding, code validation, engineering operations, and application management, as well as broader knowledge-work categories such as data analysis, research, knowledge artifacts, collaboration, and business-function workflows. The full prompt and label definitions are reported in Appendix <a href="#page-45-0" class="internal alias">E.</a> We use this taxonomy to compare the tasks Individual, Organizational, and OpenAI users delegate to Codex.</p>
+<p>In Figure <a href="#page-12-0" class="internal alias">5,</a> we compare the composition of top-level task usage across account categories, measuring each user’s distribution of classified Codex requests and then averaging within account category.<a href="#page-11-0" class="internal alias">10</a> Across all account types, the most common task categories are tied to software production. Engineering operations, code implementation, code understanding, application management, and code validation account for a large share of Codex activity across groups. This indicates that Codex use, while concentrated in software production, is not limited to producing new code. Users also rely on it to understand existing code, validate code changes, manage applications, and support engineering workflows. Importantly, this suggests that Codex is integrated into the broader software development life cycle rather than used only as a code-generation tool.</p>
+<p>At the same time, firms closer to the frontier of Codex adoption also use AI for more experimental purposes. Organizational users are more concentrated in coding activities, while OpenAI users show more activity in research, business function workflows, and engineering operations. The pattern suggests that OpenAI use may involve more experimental, research-oriented, or infrastructure-adjacent activity, whereas organizational use is more centered on direct software implementation and understanding.</p>
+<h3 id="42-task-complexity-on-codex"><strong>4.2 Task complexity on Codex</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#42-task-complexity-on-codex" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>The scope of possible requests within each task category is broad: the Code Implementation category covers queries requesting one-line tweaks as well as queries requesting the creation of full-fledged software applications. We quantify the complexity of users’ use cases using a prompt, which analyzes the text of a subset of queries and estimates the time that it would take for an experienced human worker to complete the task without the assistance of AI. We use the classifier to assign estimated task durations to the prompts sent by a 0.1% random sample of Individual accounts who have opted to allow their data to be used for model training. By observing the estimated completion time of turns since November 2025, we are able to measure how the complexity of tasks performed by Codex has changed, as the underlying models have improved and humans have gained experience in assigning tasks to Codex. We provide the prompt used, as well as validation metrics, in Appendix <a href="#page-48-0" class="internal alias">F.</a></p>
+<p>In Figure <a href="#page-13-1" class="internal alias">6,</a> we present statistics about the distribution of query complexity. Over time, the complexity of users’ requests has increased substantially—in December 2025, only 35.4% of active Individual users sent at least one prompt that we estimate would have taken an experienced human at least one hour to complete. This share has increased rapidly—in May 2026, we estimate that 70.2% of users sent at least one prompt of similar or greater difficulty. We estimate even larger proportional increases in the frequency at which users send more difficult prompts: since December 2025, the share of users who send</p>
+<p><span id="page-11-0"></span><sup>10</sup>Appendix <a href="#page-33-0" class="internal alias">B</a> discusses complementary ways of analyzing task usage, including measuring the share of users who use each category rather than the average user’s task mix, and decomposing task use into more granular “second-level” categories.</p>
+<p><img src="../clippings/20260806-_page_12_Figure_0.jpeg" alt/></p>
+<p><span id="page-12-0"></span><strong>Fig. 5:</strong> Share of Codex usage by first-task for the average user</p>
+<p>Shares reflect the average user-level share of classified messages falling into each first-level task category during the 28 days prior to June 11, 2026. The prompt used for our classifications is provided in Appendix <a href="#page-45-0" class="internal alias">E</a> Messages classified as “other” are excluded from the calculation. Organizational and Individual calculations are based on a 4% sample of users; users inactive during the period are excluded. Error bars show 95% cluster bootstrap intervals from resampling sampled Individual and Organizational users; intervals reflect sampling uncertainty.</p>
+<p>at least one prompt that would have taken an experienced human 8 hours to complete has risen from 2.1% to 25.6%.</p>
+<p>The most complicated queries are concentrated at the start of users’ sessions. In Figure <a href="#page-13-1" class="internal alias">6b,</a> we show that the first turn of a thread is more than twice as likely as the fourth turn to require action that would take an experienced human more than one hour. This suggests that users tend to request the broadest, most complex portion of work initially, with further, narrower refinements following later in the session.</p>
+<h3 id="43-task-shares-by-worker-type"><strong>4.3 Task shares by worker type</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#43-task-shares-by-worker-type" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>We next ask whether the task mix differs across the worker groups studied in Section <a href="#page-5-0" class="internal alias">3.</a> Combining the task classifier introduced above with job title and seniority measures allows us to compare the composition of Codex use within each group. Because the figures report within-group token shares, they describe differences in what users delegate to Codex rather than differences in overall adoption or usage intensity.</p>
+<p>Figure <a href="#page-14-0" class="internal alias">7</a> compares the composition of Codex use across job title groups, separately for OpenAI</p>
+<p><span id="page-13-1"></span><strong>Fig. 6:</strong> Model-estimated complexity of Codex turns among Individual account users</p>
+<p><img src="../clippings/20260806-_page_13_Figure_1.jpeg" alt/></p>
+<p><img src="../clippings/20260806-_page_13_Figure_2.jpeg" alt/></p>
+<p><strong>(a)</strong> Distribution of users by peak task complexity <strong>(b)</strong> Complexity of turns by turn index</p>
+<p>Durations reflect the time it would take an experienced human to complete each task, estimated using the classifier described in Section <a href="#page-48-0" class="internal alias">F.</a> Each panel is constructed using a sample of 0.1% of Individual users who have opted to allow their queries to be used in training. Figure <a href="#page-13-1" class="internal alias">6a</a> presents the share of sampled users each month that ask at least one query over each threshold of estimated human completion time. The data for February and March is partial. Figure <a href="#page-13-1" class="internal alias">6b</a> shows the share of turns estimated to have a human completion time over certain thresholds, split by the query’s position in the thread. Only messages sent in May 2026 by Individual users in the 0.1% sample are included. An index of 1 corresponds to the first message sent in a thread.</p>
+<p>workers and users in organizations with job title coverage. We see that most usage both inside OpenAI and inside organizations more broadly is concentrated in engineering operations. Inside OpenAI, across developer and non-developer roles, knowledge artifacts, collaboration, and application management are common tasks. In organizations, many workers are using agentic tools for generating knowledge artifacts, especially in sales, marketing, and recruiting functions.</p>
+<p><span id="page-13-0"></span>Figure <a href="#page-15-0" class="internal alias">8</a> compares the distribution of Codex output tokens across task categories by inferred worker seniority, separately for OpenAI employees and for workers within organizations with job title coverage. We find that Codex use differs meaningfully across seniority groups, but the patterns do not support a simple interpretation in which junior workers use Codex primarily for code generation while senior workers use it primarily for managerial tasks. In organizations, engineering operations accounts for the largest share of output tokens for most seniority groups, while code implementation is especially prominent among early-career workers and contractors. Knowledge artifacts account for a larger share of tokens among executives and managers, suggesting that more senior workers use Codex partly to produce, interpret, and organize technical documentation and other written outputs. Within OpenAI, the distribution is more uneven: Individual Contributors (ICs) and senior ICs allocate relatively large shares of tokens to engineering operations, while managers and executives devote larger shares to collaboration-oriented tasks. Overall, the figure shows that workers across the seniority distribution use Codex for a broad portfolio of technical and organizational activities, including engineering operations, implementation, code understanding, validation, research, data analysis, and documentation.</p>
+<p><span id="page-14-0"></span><strong>Fig. 7:</strong> Differences in Codex use cases across different types of workers, both internally at OpenAI (top) and in organizations with job title coverage (bottom)</p>
+<p><img src="../clippings/20260806-_page_14_Figure_1.jpeg" alt/></p>
+<p>Distribution of Codex tokens across task types, by inferred job title, within OpenAI (top) and organizations with job title coverage (bottom).</p>
+<h1 id="5-how-are-people-using-agentic-ai"><strong>5 How Are People Using Agentic AI?</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#5-how-are-people-using-agentic-ai" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>Although agentic AI can already perform tasks within existing production processes, the literature on general-purpose technologies suggests that the largest productivity gains often arise when firms reorganize production around the new technology rather than merely substitute it into existing workflows. We draw here on the canonical example in David <a href="#page-23-12" class="internal alias">(1990)</a>, who studies the delayed productivity gains from the transition from steam power to electric power in manufacturing. In the early stages of electrification, many factories replaced centralized steam engines with centralized electric motors while preserving existing factory layouts and work patterns. The larger gains emerged only when firms redesigned produc-</p>
+<p><span id="page-15-0"></span><strong>Fig. 8:</strong> Differences in Codex use cases by seniority level and account type</p>
+<p><img src="../clippings/20260806-_page_15_Figure_1.jpeg" alt/></p>
+<p>Distribution of Codex tokens across task types, by inferred seniority level, within OpenAI (top) and organizations with job title coverage (bottom).</p>
+<p>tion around the distinctive capabilities of electric power: smaller motors made it possible to decentralize power, reorganize the factory floor, change the sequencing of tasks, and adopt more flexible production layouts. These changes took decades to diffuse, partly because firms had to incur substantial fixed costs to redesign plants and develop complementary organizational practices. The history of technological adoption suggests that the near-term effects of agentic AI may understate its longer-run productivity potential if firms have not yet discovered, adopted, or scaled the new production processes that the technology makes feasible.</p>
+<p>Building on this literature, we next examine whether users are beginning to adapt their workflows to the capabilities of agentic systems. Having shown what tasks users delegate to Codex, we now study how that delegation is organized. We focus on three observable margins: whether users run multiple agents in parallel, whether agents perform longer blocks of work on users’ behalf, and whether users</p>
+<p><span id="page-16-0"></span><strong>Fig. 9:</strong> Codex turn concurrency</p>
+<p><img src="../clippings/20260806-_page_16_Figure_1.jpeg" alt/></p>
+<p>Figure summarizes concurrent Codex usage in the week prior to June 11, 2026, plotting the distribution, across account types, of users’ peak number of concurrent agents. Simultaneous agents are measured using overlapping turns, spread across different threads, which overlap for more than 30 seconds</p>
+<p>systematize repeated work through skills and plugins. These measures do not fully capture organizational redesign, but they provide early evidence on whether agentic AI use is moving beyond one-off assistance toward more persistent, repeatable, and parallel workflows. The speed of this adjustment may reflect an important difference between digital production processes and earlier episodes of technological change. Whereas electrification often required firms to redesign physical plants and replace durable capital, agentic AI allows workers and organizations to experiment with new workflows at relatively low cost. This lower cost of experimentation may allow new production methods to diffuse more quickly than in prior general-purpose technology transitions, even though the full organizational complements to agentic AI are still emerging.</p>
+<h3 id="51-turn-concurrency"><strong>5.1 Turn Concurrency</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#51-turn-concurrency" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Codex, like many AI agents, uses a threaded interaction model in which users can initiate multiple agents and interact with each one in a largely independent workspace. This design changes the structure of delegation. Because long-running tasks may require an agent to work independently for minutes or hours, users need not wait for one task to finish before beginning another. Instead, they can assign several tasks to different agents, monitor progress across threads, and intervene selectively when an agent requires clarification, review, or correction. The threaded model therefore allows users to manage multiple streams of agentic work in parallel, expanding the scope for concurrent task execution relative to conventional single-threaded interactions with AI systems.</p>
+<p>It has been speculated that, as agentic tooling advances, parallel workflows will become more common, increasing the value of skills such as delegation and management (Alekseeva et al. <a href="#page-23-13" class="internal alias">2026)</a>. In Figure <a href="#page-16-0" class="internal alias">9,</a> we explore the degree to which users are currently using Codex in parallel fashion. For each user, we calculate the number of overlapping turns they have in different threads during the week prior to June 11, 2026.<a href="#page-17-0" class="internal alias">11</a> Each bar shows the distribution of peak concurrency during that week, among users of each account type. Among Organizational and Individual users, the usage of concurrent turns is fairly minimal. Roughly 67.4% of Organizational users and 63.9% of Individual users do not use concurrent turns at all during this period, and among those who do, the majority peak at two concurrent turns. Among OpenAI users, however, workflows have become far more parallelized. Only 10.7% of users in this group use a sole workflow at any one time during this period, and nearly 28.6% managed five or more concurrent agents at some point during this period. The prevalence of this practice within OpenAI represents a workflow in which humans oversee a team of agents, delegating tasks across many simultaneous workers at once. This workflow is fundamentally different from the one practiced by most external users, in which humans directly perform the majority of work, as it requires workers to manage, delegate to, and review the work of a relatively large group of agents.</p>
+<h3 id="52-long-running-agents"><strong>5.2 Long-running agents</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#52-long-running-agents" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Parallelism captures one way agentic use departs from conversational interaction; another is the duration of delegated work. Researchers and practitioners have emphasized the possibility that agents can operate asynchronously for extended periods with limited human supervision.</p>
+<p>In Figure <a href="#page-18-0" class="internal alias">10a,</a> we examine whether this possibility has begun to reshape workflows within OpenAI by measuring the amount of time Codex tasks remain active over the course of a day. For the median OpenAI employee, agentic workflows remain intermittent: on June 11, 2026, the median employee had Codex turns running for 2.5 hours. The typical user therefore delegates meaningful blocks of work, but has not shifted to continuous, around-the-clock autonomous execution.<a href="#page-17-1" class="internal alias">12</a> Among frontier users, however, this pattern looks considerably different; OpenAI employees at the 99th percentile of the distribution have recently run about 71 hours of agent turns within the average day, which implies that at a given hour of the day, they have several agents running concurrently. These parallel, long-running workflows have increased in prevalence recently, with 99th percentile users within OpenAI increasing their cumulative daily runtime by nearly 88% since April 7, 2026. During the period we observe, the absolute increase in daily runtimes within OpenAI was largest at the top of the distribution, although lower percentiles grew faster proportionally.</p>
+<p>Outside OpenAI, cumulative daily runtime remains substantially lower, and the median user continues to use Codex only intermittently over the course of the day. We nevertheless observe substantial growth at the upper tail of the usage distribution during our sample period. At the 99th percentile, daily runtime increased by roughly 25 percent among Organizational users and by about 50 percent among Individual users. While usage intensity is rising across all user populations, these patterns show that OpenAI employees use Codex much more intensively than external users. The contrast between the</p>
+<p><span id="page-17-0"></span><sup>11</sup>We restrict only to turns which run in different threads, and which overlap one another for at least 30 seconds.</p>
+<p><span id="page-17-1"></span><sup>12</sup>We measure the time an agent is active within each turn by summing the latency of all completed request-response pairs. We include gaps of up to 30 minutes between responses, which include the results of tool calls, reasoning, and the output text the agent returns. We remove longer gaps, which are often driven by agents who are awaiting user input or paused. Each user is assigned the total duration of all agent turns they initiate and which begin within that calendar day. Turns that are not interactive, such as those that are run as part of a batch script, are excluded.</p>
+<p><span id="page-18-0"></span><strong>Fig. 10:</strong> Cumulative Codex turn duration per day</p>
+<p><img src="../clippings/20260806-_page_18_Figure_1.jpeg" alt/></p>
+<p>Figure summarizes total active runtime of users’ Codex turns on each day. This measure excludes gaps where no output is returned for more than 30 minutes, which predominantly reflect periods during which Codex is awaiting user input. Because overlapping turns are summed, a user’s cumulative runtime during a day can exceed 24 hours. Figure <a href="#page-18-0" class="internal alias">10a</a> plots usage among OpenAI accounts, Figure <a href="#page-18-0" class="internal alias">10b</a> plots usage among Organizational accounts. Figure <a href="#page-18-0" class="internal alias">10c</a> plots usage among Individual accounts. Accounts inactive on each day are excluded.</p>
+<p>median and the upper tail suggests that agentic workflows remain sporadic for typical users, but that a smaller group of high-intensity users is rapidly expanding the amount of work it delegates to Codex.</p>
+<h4 id="53-systematization-of-agentic-work"><strong>5.3 Systematization of Agentic Work</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#53-systematization-of-agentic-work" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>A final margin is whether delegated workflows remain one-off interactions or become reusable routines. The simplest use of agentic AI is <em>ad hoc</em>: a user describes a task, the agent performs it, and the interaction ends. Codex, like other agentic AI software, also allows users to codify workflows and procedural preferences so that similar work can be delegated repeatedly. We refer to this shift from <em>ad hoc</em> use to reusable workflow infrastructure as the “systematization” of agentic work. Systematization is an important step toward delegated production: without it, users must repeatedly supply task context, procedural guidance, and instructions, limiting the extent to which work can be handed off.</p>
+<p><span id="page-19-0"></span><strong>Fig. 11:</strong> Skill use over time and by account category</p>
+<p><img src="../clippings/20260806-_page_19_Figure_1.jpeg" alt/></p>
+<h4 id="a-skill-use-over-time"><strong>(a)</strong> Skill use over time<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#a-skill-use-over-time" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p><img src="../clippings/20260806-_page_19_Figure_3.jpeg" alt/></p>
+<h4 id="b-skill-use-by-account-category"><strong>(b)</strong> Skill use by account category<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#b-skill-use-by-account-category" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>(a) Each series shows the share of weekly active Codex users who invoked each skill source at least once during the prior 7-day window. Users can appear in multiple skill-source categories. (b) Each dot shows the share of weekly active Codex users in an account category who invoked each skill source at least once during the 7-day window ending on June 11, 2026. Users can appear in multiple categories.</p>
+<p>Within Codex, work is often systematized through skills and plugins, which combine instructions, software, and external-tool integrations that can be reused during a task.<a href="#page-20-0" class="internal alias">13</a> These skills and plugins can be shared across users, allowing workflows to be systematized not only by individuals but also within and across organizations. They therefore make it easier to transfer procedural context, tool access, and task-specific guidance across repeated uses of Codex.</p>
+<p>In our analysis, we distinguish between five sources of skills:</p>
+<ul>
+<li><em>Preinstalled</em> skills, such as image generation, are reusable capabilities bundled with Codex.</li>
+<li><em>Curated</em> skills, such as PDF handling, are standalone OpenAI-distributed skills that are not tied to a plugin.</li>
+<li><em>Plugin</em> skills, such as Google Drive document workflows, are bundled into a plugin alongside other skills or software.</li>
+<li><em>Custom plugin</em> skills are skill invocations that are associated with a recognized plugin but do not match a skill in the curated plugin skill catalog.</li>
+<li><em>Custom</em> skills are standalone skills not distributed by OpenAI, such as team-specific data visualization guidelines or a research workflow.</li>
+</ul>
+<p>These categories capture different forms of systematization, ranging from product-provided reusable capabilities to user- or organization-specific workflow codification.</p>
+<p>Figure <a href="#page-19-0" class="internal alias">11</a> shows that skill use is already common, increasing over time, and unevenly distributed across account categories. In the 7-day window ending on June 11, 2026, 25.7% of active Individual Codex users and 30.4% of active Organizational Codex users invoked at least one skill. Within OpenAI, skill use is nearly universal: 96.2% of active Codex users invoked at least one skill. Skill use also increased substantially during the period shown in Figure <a href="#page-19-0" class="internal alias">11a:</a> the share of active Codex users invoking any skill rose from 5.4% on March 1, 2026 to 26.6% on June 11, 2026.</p>
+<p>The growth in skill use comes especially from plugins and custom skills. These two categories represent different forms of systematization. Plugins extend Codex’s general-purpose capabilities into recurring task domains such as documents, spreadsheets, slide decks, and other structured artifacts. Custom skills serve a different role: they allow users and organizations to encode more local procedural context, such as team writing standards, recurring reports, organization-specific workflows, or user-specific preferences. The growing use of custom skills suggests that users value not only the model’s general capabilities, but also the ability to attach persistent procedural context to repeated tasks that are too specialized to be fully covered by standardized plugins.</p>
+<p><span id="page-20-0"></span><sup>13</sup>In OpenAI’s terminology, a <em>skill</em> is the authoring format for a reusable, task-specific workflow: a directory containing a required SKILL.md file, with name and description metadata and optional scripts, references, and assets. A <em>plugin</em> is an installable distribution unit, identified by a .codex-plugin/plugin.json manifest, that can package skills together with app integrations, Model Context Protocol (MCP) configuration, hooks, and supporting assets. Thus, a skill specifies a workflow, whereas a plugin packages and distributes capabilities.</p>
+<p>Skill use differs across account types not only in terms of overall frequency, but also in terms of the composition of skills invoked. Figure <a href="#page-19-0" class="internal alias">11b</a> shows that plugin and custom skill usage is highest among OpenAI users and substantially higher among Organizational users than among Individual users. These differences are consistent with variation in the returns to workflow systematization across settings. Custom skills are especially valuable when repeated tasks depend on organization-specific context, shared conventions, internal procedures, or team-level standards. These conditions are more common in Organizational settings than in Individual use. The large differences in custom skill adoption therefore suggest that users derive the greatest value from systematized workflows in high-context organizational environments, where persistent procedural context can reduce coordination costs and improve consistency across repeated tasks.<a href="#page-21-0" class="internal alias">14</a></p>
+<h3 id="6-conclusion"><strong>6 Conclusion</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#6-conclusion" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>We document the emergence of agentic AI as a distinct workplace technology. Much prior research has studied AI as an information, advice, and content-generation tool, where the primary interaction is conversational. Agentic systems introduce a different mode of use. Rather than simply asking for information, users increasingly delegate work: producing artifacts, modifying systems, and executing workflows. This shift suggests that standard measures of AI use, such as active users, chats, or message volume, may become less informative as agentic systems diffuse. Future analyses may need to track delegated task complexity, runtime, workflow reuse, concurrency, and production output.</p>
+<p>The evidence we report suggests that the diffusion of agentic AI is not just a shift in which AI tool people use, but a shift in how they organize work around AI. Early use often resembles familiar conversational assistance: asking questions, drafting text, or generating code in a back-and-forth exchange. More agentic use involves assigning tasks, reviewing outputs, coordinating multiple threads of work, and reusing codified workflows. Intensive users appear to manage portfolios of agentic work, with their own role shifting toward delegation, supervision, and integration. This suggests that the adoption of agentic AI involves the development of new work practices, not simply more frequent use of AI.</p>
+<p>Software development is the leading edge of this change. It is still the most common use case for agentic AI tools across user populations, likely because software work has properties that lend themselves to agentic AI: software work is digital, produces verifiable artifacts, and contains many modular subtasks. At the same time, observed uses extend beyond code generation. Users are also delegating system understanding, debugging, validation, documentation, configuration, and operational work.</p>
+<p>We find that as adoption deepens, the scope of agentic work expands. The broadest task portfolios are observed where frictions to adoption are lowest. Among OpenAI workers, Codex is used not only for software engineering but also for research, planning, communication, recruiting, sales, product work, and data analysis. These patterns suggest that while software may be the initial deployment domain for</p>
+<p><span id="page-21-0"></span><sup>14</sup>Appendix Figure <a href="#page-32-0" class="internal alias">A8</a> shows that skill invocation rates also vary by task area. Among Individual and Organizational users, skill use remains concentrated in technical workflows, including application management, collaboration, code validation, and code understanding. Within OpenAI, skill use has diffused further into broader knowledge-work workflows; for example, 50.9% of collaboration conversations invoke at least one skill.</p>
+<p>agentic AI, it is diffusing quickly across this boundary. Figure <a href="#page-22-0" class="internal alias">12</a> shows that as usage patterns within OpenAI have intensified, so have measures of output—between November 1, 2025 and June 11, 2026, the median worker’s number of output tokens rose at least 10-fold in every job function. This growth in token output reflects several factors, including the shift from conversational interfaces to agentic tools and the later emergence of more intensive, persistent uses of those tools. Our evidence from OpenAI is not necessarily representative of the typical organization, but it shows what agentic AI use can look like when adoption frictions are low: use expands across functions, output rises sharply, and work increasingly takes the form of delegated tasks rather than isolated exchanges.</p>
+<p><img src="../clippings/20260806-_page_22_Figure_1.jpeg" alt/></p>
+<p><span id="page-22-0"></span><strong>Fig. 12:</strong> Change in median output tokens per person, by OpenAI job function</p>
+<p>Plot shows the normalized number of output tokens generated in the trailing 28 days by the median worker in each job function within OpenAI. Output tokens include those generated on ChatGPT and those generated on Codex. Each point includes only users active in the preceding 28 days. All series are normalized to have a value of 1 on November 1, 2025.</p>
+<p>These patterns have implications beyond adoption and productivity measurement. As AI use shifts from consultation to delegation, organizations may need to rethink how work is allocated, reviewed, and coordinated. Agentic systems make it possible to offload larger, more repeatable, and more modular units of work, potentially reducing the importance of some routine execution tasks while increasing the importance of judgment, oversight, coordination, and review. Jobs may increasingly involve directing, monitoring, and integrating the outputs of AI agents rather than executing each component task directly. Organizations may also redesign workflows around parallelized agent labor, allowing individual workers to manage multiple workstreams at once. These changes could affect team composition, hiring needs, career ladders, and the distribution of work across skill levels.</p>
+<p>Taken together, the evidence suggests that agentic AI is not simply a more capable form of con-</p>
+<p>versational AI. Conversational systems are mainly used to exchange information with users; agentic systems are increasingly used to carry out work on users’ behalf. The most intensive users do not just chat more often. They delegate tasks, run work in parallel, reuse codified workflows, and shift their own effort toward supervision and integration. The frontier of AI adoption is therefore moving from asking systems for answers toward managing systems that act. Documenting that transition is essential for understanding how AI may reshape work, organizations, and the structure of knowledge production.</p>
+<h3 id="references"><strong>References</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#references" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>
+<p><span id="page-23-13"></span>Alekseeva, L., Azar, J., Giné, M., and Samila, S. (2026). “Artificial Intelligence Adoption and the Demand for Managerial Expertise”. <em>Strategic Management Journal</em>. Online first, 1–27. DOI: <a href="https://doi.org/10.1002/smj.70099" class="external">10.1002/smj.70099<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>.</p>
+</li>
+<li>
+<p><span id="page-23-5"></span>Baumann, J., Padmakumar, V., Li, X., Yang, J., Yang, D., and Koyejo, S. (2026). “SWE-chat: Coding Agent Interactions from Real Users in the Wild”. <em>arXiv preprint arXiv:2604.20779</em>. DOI: <a href="https://doi.org/10.48550/arXiv.2604.20779" class="external">10.48550/arXiv.2604.20779<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>.</p>
+</li>
+<li>
+<p><span id="page-23-3"></span>Bick, A., Blandin, A., and Deming, D. J. (2026). “The Rapid Adoption of Generative AI”. <em>Management Science</em>. Advance online publication. DOI: <a href="https://doi.org/10.1287/mnsc.2025.02523" class="external">10.1287/mnsc.2025.02523<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>.</p>
+</li>
+<li>
+<p><span id="page-23-6"></span>Brynjolfsson, E., Rock, D., and Syverson, C. (2019). “Artificial Intelligence and the Modern Productivity Paradox: A Clash of Expectations and Statistics”. <em>The Economics of Artificial Intelligence: An Agenda</em>. Ed. by A. Agrawal, J. Gans, and A. Goldfarb. University of Chicago Press, pp. 23–60. DOI: <a href="https://doi.org/10.7208/chicago/9780226613475.003.0001" class="external">10.7208/chicago/9780226613475.<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> <a href="https://doi.org/10.7208/chicago/9780226613475.003.0001" class="external">003.0001<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>.</p>
+</li>
+<li>
+<p><span id="page-23-0"></span>Chatterji, A., Cunningham, T., Deming, D. J., Hitzig, Z., Ong, C., Shan, C. Y., and Wadman, K. (2025). <em>How People Use ChatGPT</em>. NBER Working Paper 34255. National Bureau of Economic Research. DOI: <a href="https://doi.org/10.3386/w34255" class="external">10.3386/w34255<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>.</p>
+</li>
+<li>
+<p><span id="page-23-11"></span>Chen, F. and Stratton, J. (2026). “Artificial Intelligence in the Firm”. Working paper.</p>
+</li>
+<li>
+<p><span id="page-23-12"></span>David, P. A. (1990). “The Dynamo and the Computer: An Historical Perspective on the Modern Productivity Paradox”. <em>American Economic Review</em> <strong>80</strong>.(2), 355–361.</p>
+</li>
+<li>
+<p><span id="page-23-9"></span>Demirer, M., Horton, J. J., Immorlica, N., Lucier, B., and Shahidi, P. (Feb. 2026a). <em>Chaining Tasks, Redefining Work: A Theory of AI Automation</em>. NBER Working Paper 34859. National Bureau of Economic Research. DOI: <a href="https://doi.org/10.3386/w34859" class="external">10.3386/<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> <a href="https://doi.org/10.3386/w34859" class="external">w34859<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>.</p>
+</li>
+<li>
+<p><span id="page-23-8"></span>Demirer, M., Musolff, L., and Yang, L. (May 2026b). <em>Writing Code vs. Shipping Code: Productivity Effects Across Generations of AI Coding Tools</em>. NBER Working Paper 35275. National Bureau of Economic Research. DOI: <a href="https://doi.org/10.3386/w35275" class="external">10.3386/<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> <a href="https://doi.org/10.3386/w35275" class="external">w35275<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>.</p>
+</li>
+<li>
+<p><span id="page-23-10"></span>Dillon, E. W., Jaffe, S., Immorlica, N., and Stanton, C. T. (2025). “Shifting Work Patterns with Generative AI”. <em>American Economic Review: Insights</em>. Forthcoming. DOI: <a href="https://doi.org/10.1257/aeri.20250275" class="external">10.1257/aeri.20250275<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>.</p>
+</li>
+<li>
+<p><span id="page-23-1"></span>Eloundou, T., Manning, S., Mishkin, P., and Rock, D. (2024). “GPTs Are GPTs: Labor Market Impact Potential of LLMs”. <em>Science</em> <strong>384</strong>.(6702), 1306–1308. DOI: <a href="https://doi.org/10.1126/science.adj0998" class="external">10.1126/science.adj0998<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>.</p>
+</li>
+<li>
+<p><span id="page-23-2"></span>Felten, E. W., Raj, M., and Seamans, R. (2023). <em>Occupational Heterogeneity in Exposure to Generative AI</em>. SSRN Working Paper 4414065. SSRN. DOI: <a href="https://doi.org/10.2139/ssrn.4414065" class="external">10.2139/ssrn.4414065<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>.</p>
+</li>
+<li>
+<p><span id="page-23-4"></span>Handa, K., Tamkin, A., McCain, M., Huang, S., Durmus, E., Heck, S., Mueller, J., Hong, J., Ritchie, S., Belonax, T., Troy, K. K., Amodei, D., Kaplan, J., Clark, J., and Ganguli, D. (2025). “Which Economic Tasks Are Performed with AI? Evidence from Millions of Claude Conversations”. <em>arXiv preprint arXiv:2503.04761</em>. Preprint. DOI: <a href="https://doi.org/10.48550/arXiv.2503.04761" class="external">10.48550/arXiv.2503.04761<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>.</p>
+</li>
+<li>
+<p><span id="page-23-7"></span>Hitzig, Z., Massenkoff, M., Lyubich, E., Heller, R., and McCrory, P. (2026). <em>Agentic Coding and Persistent Returns to Expertise</em>. Research Report. Anthropic.</p>
+</li>
+<li>
+<p><span id="page-24-2"></span>Sarkar, S. K. (2026). <em>AI Agents and Higher-Order Work</em>. SSRN Working Paper 5713646. Revised May 8, 2026. SSRN. DOI: <a href="https://doi.org/10.2139/ssrn.5713646" class="external">10.2139/ssrn.5713646<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>.</p>
+</li>
+<li>
+<p><span id="page-24-3"></span>Tambe, P. B. (2026). “Reskilling the Workforce for AI: Domain Expertise and Algorithmic Literacy”. <em>Management Science</em> <strong>72</strong>.(1), 515–537. DOI: <a href="https://doi.org/10.1287/mnsc.2022.03968" class="external">10.1287/mnsc.2022.03968<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>.</p>
+</li>
+<li>
+<p><span id="page-24-0"></span>Yang, J., Yonack, N., Zyskowski, K., Yarats, D., Ho, J., and Ma, J. (2025). “The Adoption and Usage of AI Agents: Early Evidence from Perplexity”. <em>arXiv preprint arXiv:2512.07828</em>. Preprint, v2 revised December 10, 2025. DOI: <a href="https://doi.org/10.48550/arXiv.2512.07828" class="external">10.48550/arXiv.2512.07828<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>.</p>
+</li>
+<li>
+<p><span id="page-24-1"></span>Yang, J., Zyskowski, K., Yonack, N., and Ma, J. (2026). “How AI Agents Reshape Knowledge Work: Autonomy, Efficiency, and Scope”. <em>arXiv preprint arXiv:2606.07489</em>. DOI: <a href="https://doi.org/10.48550/arXiv.2606.07489" class="external">10.48550/arXiv.2606.07489<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>.</p>
+</li>
+</ul>
+<h1 id="a-additional-figures"><strong>A Additional Figures</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#a-additional-figures" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p><strong>Fig. A1:</strong> Codex usage share by people manager status</p>
+<p><img src="../clippings/20260806-_page_25_Figure_2.jpeg" alt/></p>
+<p>Each series shows the average user-level share of output tokens across ChatGPT and Codex that were produced on Codex for organizational users with high-quality job-title information, by inferred people manager status. Figures are based on output tokens generated on each platform in the preceding 28 days. Only users active in the preceding 28 days are included.</p>
+<p><span id="page-26-0"></span><strong>Fig. A2:</strong> Users using Codex first-level tasks by account category</p>
+<p><img src="../clippings/20260806-_page_26_Figure_1.jpeg" alt/></p>
+<p>Shares reflect the share of users with at least one classified turn in each first-level task category during the 28 days prior to June 11, 2026. Denominator is users with at least one classified turn during the period. Turns classified as “other” are excluded from the calculation. Calculations are based on a 4% sample of users. Account categories are based on OpenAI internal-user flags and explicit request plan-type whitelists, with OpenAI taking precedence. Other plan types are omitted from plots. Error bars show 95% cluster bootstrap intervals from resampling sampled users; intervals reflect sampling uncertainty.</p>
+<p><span id="page-27-0"></span><strong>Fig. A3:</strong> Users using Codex second-level tasks by account category</p>
+<p><img src="../clippings/20260806-_page_27_Figure_1.jpeg" alt/></p>
+<p>Shares reflect the share of users with at least one classified turn in each second-level task category during the 28 days prior to June 11, 2026. Denominator is users with at least one classified turn during the period. Turns classified as “other” are excluded from the calculation. Calculations are based on a 4% sample of users. Account categories are based on OpenAI internal-user flags and explicit request plan-type whitelists, with OpenAI taking precedence. Other plan types are omitted from plots. Error bars show 95% cluster bootstrap intervals from resampling sampled users; intervals reflect sampling uncertainty. Top 25 second-level task categories shown.</p>
+<p><span id="page-28-0"></span><strong>Fig. A4:</strong> Average user second-level task category mix on Codex by account category</p>
+<p><img src="../clippings/20260806-_page_28_Figure_1.jpeg" alt/></p>
+<p>Shares reflect the average user-level share of classified turns falling into each second-level task category during the 28 days prior to June 11, 2026. Turns classified as “other” are excluded from the calculation. Calculations are based on a 4% sample of users. Inactive users are excluded. Account categories are based on OpenAI internal-user flags and explicit request plan-type whitelists, with OpenAI taking precedence. Other plan types are omitted from plots. Error bars show 95% cluster bootstrap intervals from resampling sampled users; intervals reflect sampling uncertainty. Top 25 second-level task categories shown.</p>
+<p><strong>Fig. A5:</strong> Differences in Codex use cases across workers of different people manager status, both internally at OpenAI (top) and in organizations with job title coverage (bottom)</p>
+<p><img src="../clippings/20260806-_page_29_Figure_1.jpeg" alt/></p>
+<p>Distribution of Codex tokens across task types, by inferred people manager status, within OpenAI (top) and organizations with job title coverage (bottom).</p>
+<p><strong>Fig. A6:</strong> Codex task share by persona (Individual accounts)</p>
+<p><img src="../clippings/20260806-_page_30_Figure_1.jpeg" alt/></p>
+<p>Average user-level share of output tokens generated by different tasks among Individual accounts by persona in the week prior to June 11, 2026.</p>
+<p><span id="page-31-0"></span><strong>Fig. A7:</strong> Detailed Codex persona mix by account category</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th></th><th>Organizational</th><th>Individual</th><th></th></tr></thead><tbody><tr><td>Developer</td><td></td><td></td><td>_</td></tr><tr><td>Full stack engineer</td><td>18%</td><td>21%</td><td></td></tr><tr><td>Other developer</td><td>5%</td><td>6%</td><td></td></tr><tr><td>ML/AI engineer</td><td>5%</td><td>6%</td><td></td></tr><tr><td>DevOps/SRE</td><td>11%</td><td>5%</td><td></td></tr><tr><td>Backend engineer</td><td>10%</td><td>5%</td><td></td></tr><tr><td>Frontend engineer</td><td>4%</td><td>5%</td><td></td></tr><tr><td>Mobile engineer</td><td>4%</td><td>4%</td><td></td></tr><tr><td>Engineering leader</td><td>4%</td><td>3%</td><td></td></tr><tr><td>Data engineer</td><td>3%</td><td>1%</td><td></td></tr><tr><td>Systems infra engineer</td><td>2%</td><td>1%</td><td></td></tr><tr><td>Research engineer</td><td>0.5%</td><td>1.0%</td><td></td></tr><tr><td>Security engineer</td><td>1%</td><td>0.8%</td><td>Share within</td></tr><tr><td>General Knowledge Worker</td><td></td><td></td><td>account category</td></tr><tr><td>Education/student/academic</td><td>2%</td><td>7%</td><td>15,51</td></tr><tr><td>Product project management</td><td>7%</td><td>4%</td><td></td></tr><tr><td>Design research</td><td>2%</td><td>3%</td><td></td></tr><tr><td>Marketing growth</td><td>2%</td><td>3%</td><td>- 10%</td></tr><tr><td>Healthcare life sciences</td><td>1%</td><td>2%</td><td></td></tr><tr><td>Data analysis business ops</td><td>3%</td><td>2%</td><td></td></tr><tr><td>Operations admin</td><td>2%</td><td>2%</td><td>- 5%</td></tr><tr><td>Writing content</td><td>1%</td><td>2%</td><td></td></tr><tr><td>Finance accounting</td><td>1%</td><td>1%</td><td></td></tr><tr><td>Other professional</td><td>1%</td><td>0.8%</td><td>- 0%</td></tr><tr><td>Consulting strategy</td><td>1%</td><td>0.8%</td><td></td></tr><tr><td>Real estate construction</td><td>0.6%</td><td>0.9%</td><td></td></tr><tr><td>Sales customer success</td><td>1%</td><td>0.6%</td><td></td></tr><tr><td>Legal policy</td><td>0.6%</td><td>0.6%</td><td></td></tr><tr><td>HR/recruiting</td><td>0.6%</td><td>0.4%</td><td></td></tr><tr><td>Personal</td><td>0.070</td><td>0.470</td><td></td></tr><tr><td>Other personal</td><td>1%</td><td>2%</td><td></td></tr><tr><td>Hobbies creative</td><td>0.8%</td><td>2%</td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td>Education/self-learning</td><td>0.5%</td><td>1%</td><td></td></tr><tr><td>Personal finance</td><td>0.5%</td><td>1%</td><td></td></tr><tr><td>Entertainment</td><td>0.5%</td><td>1%</td><td></td></tr><tr><td>Household admin</td><td>0.4%</td><td>0.7%</td><td></td></tr><tr><td>Relationships communication</td><td>0.2%</td><td>0.4%</td><td></td></tr></tbody></table></div>
+<p>Persona labels use a request-level classifier on Codex requests. Each user-day is assigned the user’s most frequent label over the prior 30 days, tie-broken by recency, and user-level figures use the latest available label in the analysis window. The chart uses both the first and second persona labels, so Personal remains separate rather than being grouped into General Knowledge Worker. Cell text and color intensity both show the share within each account-category column. OpenAI users are excluded, as are personas used by under 0.3% of accounts in the relevant category.</p>
+<p><span id="page-32-0"></span><strong>Fig. A8:</strong> Skill use by task area</p>
+<p><img src="../clippings/20260806-_page_32_Figure_1.jpeg" alt/></p>
+<p>Each dot shows, for a task area and account category, the share of classified Codex conversations that invoked at least one skill during the 7-day window ending on June 11, 2026. The figure uses the same skill-use sample window as Figure <a href="#page-19-0" class="internal alias">11b;</a> conversations are included when they have a classified task area. Account categories distinguish OpenAI, Organizational, and Individual accounts. Error bars show 95% user-cluster bootstrap intervals.</p>
+<h3 id="b-additional-task-usage-measures-and-second-level-tasks"><span id="page-33-0"></span><strong>B Additional task-usage measures and second-level tasks</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#b-additional-task-usage-measures-and-second-level-tasks" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>The main analysis in Figure <a href="#page-12-0" class="internal alias">5</a> summarizes first-level task categories using user-level averages: for each user, we calculate the share of classified turns in each task category, and then average those shares across users within each account category. This describes the typical user’s distribution of work and gives each active user equal weight.</p>
+<p>A complementary measure is the share of users who use each category at least once. Figure <a href="#page-26-0" class="internal alias">A2</a> reports this measure for first-level task categories. This measure captures breadth rather than intensity. A category can be used by many users but represent a small share of those users’ activity, or be used by fewer users but account for a large amount of activity among those users. The panel indicating the share of users that use a category is therefore particularly useful for measuring adoption: it shows which task categories many users touch at least once, even when their message volume is concentrated in a small set of tasks.</p>
+<p>We also examine task usage at the second level of the taxonomy. Whereas Figure <a href="#page-12-0" class="internal alias">5</a> groups activity into broad task families, the second-level categories distinguish more specific activities within those families. Figure <a href="#page-27-0" class="internal alias">A3</a> reports the share of users who use each second-level category at least once, while Figure <a href="#page-28-0" class="internal alias">A4</a> reports the average user’s distribution of work across second-level categories. The latter figure is analogous to Figure <a href="#page-12-0" class="internal alias">5</a> in the main text, but decomposes Codex activity into the more granular secondlevel taxonomy.</p>
+<p>These figures show that Codex is used for a wide range of granular tasks, such as debugging, environment setup, documentation, planning, repository management, data analysis, and research. This reinforces the view that Codex is being incorporated into a broad technical workflow: it helps users move across many stages of software and knowledge production, from understanding problems, to configuring the environment, to implementing and validating solutions.</p>
+<p>The more granular task categories also help distinguish whether Codex is being used for direct implementation work, troubleshooting and validation, infrastructure and operational tasks, or broader knowledge-work activities. Several categories appear broadly used across account types. Code Q&amp;A, environment configuration, documentation, repository management, code configuration, and bug fixing show up as common second-level activities, suggesting that the use of Codex extends beyond writing new code from scratch. Users ask questions about existing code, configure environments, manage repositories, produce or edit documentation, identify bugs, and validate code. These are exactly the surrounding tasks that often consume a large share of software development time, so their prominence indicates that Codex is being used as a general technical assistant rather than solely as a code-generation interface.</p>
+<p>The comparison between OpenAI and Organizational users shows differences in how Codex is used. OpenAI users are more heavily represented in categories such as web search, research-oriented work, internal knowledge, application management, and some operational activities, which is consistent with the use of Codex in knowledge work discussed earlier. Organizational users are relatively more represented in direct code-related categories such as code Q&amp;A, code implementation, repository management, code configuration, and environment configuration. This pattern is consistent with OpenAI users using Codex in a wider experimental or infrastructure-adjacent set of workflows, while Organizational users use Codex more heavily for practical software development and maintenance tasks.</p>
+<h3 id="c-job-title-classification"><span id="page-34-0"></span><strong>C Job Title Classification</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#c-job-title-classification" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>We use the gpt-5-mini model with minimal reasoning effort to classify Organizational users’ job titles. The classifier uses only the supplied job title, and returns structured outputs for inferred department, seniority, people-manager signal, and cleaned job-title class. In the prompt below, we include only the definitions used for each field.</p>
+<h3 id="c1-job-title-classification-prompt"><strong>C.1 Job Title Classification Prompt</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#c1-job-title-classification-prompt" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Classify this enterprise ChatGPT user job title. Use only the title below.</p>
+<h4 id="field-definitions">Field definitions:<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#field-definitions" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>inferred_department is the likely department, function, or substantive</li>
+<li>,<sup>→</sup> work area. It is not seniority and it is not the literal title family.</li>
+<li>role_level is seniority or rank. It should be classified even when</li>
+<li>,<sup>→</sup> inferred_department is Other / Unknown.</li>
+<li>people_manager_signal is the likelihood that the title implies managing</li>
+<li>people. It is separate from role_level because many titles with Manager ,→</li>
+<li>do not imply people management. ,→</li>
+<li>job_title_class is the cleaned-up occupation or title-family wording. It</li>
+<li>should preserve generic occupations like Consultant and Analyst even ,→</li>
+<li>when inferred_department remains Other / Unknown. ,→</li>
+</ul>
+<h4 id="allowed-inferred_department-labels">Allowed inferred_department labels:<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#allowed-inferred_department-labels" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>
+<p>Financial Markets + Corporate Finance</p>
+</li>
+<li>
+<p>Sales</p>
+</li>
+<li>
+<p>Marketing</p>
+</li>
+<li>
+<p>Data Science</p>
+</li>
+<li>
+<p>Biz Ops</p>
+</li>
+<li>
+<p>Engineering</p>
+</li>
+<li>
+<p>Design</p>
+</li>
+<li>
+<p>User Ops / Customer Support</p>
+</li>
+<li>
+<p>Legal</p>
+</li>
+<li>
+<p>Product Management</p>
+</li>
+<li>
+<p>Project Management</p>
+</li>
+<li>
+<p>Healthcare / Life Sciences</p>
+</li>
+<li>
+<p>Education</p>
+</li>
+<li>
+<p>Policy</p>
+</li>
+<li>
+<p>Security</p>
+</li>
+<li>
+<p>People &amp; Recruiting</p>
+</li>
+<li>
+<p>IT</p>
+</li>
+<li>
+<p>Partnerships</p>
+</li>
+<li>
+<p>Comms</p>
+</li>
+<li>
+<p>Research</p>
+</li>
+<li>
+<p>Other / Unknown</p>
+</li>
+</ul>
+<h4 id="inferred-department-guidelines">Inferred-department guidelines:<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#inferred-department-guidelines" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>
+<p>Financial Markets + Corporate Finance: finance, accounting, audit,</p>
+</li>
+<li>
+<p>treasury, FP&amp;A, investment, portfolio, banking, tax, controller, CFO ,→</p>
+</li>
+<li>
+<p>roles. ,→</p>
+</li>
+<li>
+<p>Sales: sales, account executive, account manager, business development,</p>
+</li>
+<li>
+<p>,<sup>→</sup> revenue, SDR/BDR, sales engineering when primarily commercial.</p>
+</li>
+<li>
+<p>Marketing: brand, growth, demand generation, content marketing, product</p>
+</li>
+<li>
+<p>,<sup>→</sup> marketing, SEO, lifecycle, communications only when clearly marketing.</p>
+</li>
+<li>
+<p>Data Science: data scientist, data analyst, analytics engineer, machine</p>
+</li>
+<li>
+<p>,<sup>→</sup> learning scientist, BI, quantitative analyst when primarily data or ML.</p>
+</li>
+<li>
+<p>Biz Ops: operations, strategy, chief of staff, business analyst, general</p>
+</li>
+<li>
+<p>,<sup>→</sup> management, consulting, program operations, administrative roles.</p>
+</li>
+<li>
+<p>Engineering: software, hardware, infrastructure, platform, systems,</p>
+</li>
+<li>
+<p>,<sup>→</sup> DevOps, QA, site reliability, technical engineering roles.</p>
+</li>
+<li>
+<p>Design: product design, UX, UI, visual design, creative design, design</p>
+</li>
+<li>
+<p>,<sup>→</sup> research.</p>
+</li>
+<li>
+<p>User Ops / Customer Support: customer success, support, customer</p>
+</li>
+<li>
+<p>experience, implementation, solutions, technical account management, ,→</p>
+</li>
+<li>
+<p>help desk. ,→</p>
+</li>
+<li>
+<p>Legal: legal, counsel, compliance legal, contracts, privacy counsel.</p>
+</li>
+<li>
+<p>Product Management: product manager, product owner, product lead, product ,<sup>→</sup> strategy.</p>
+</li>
+<li>
+<p>Project Management: project manager, program manager, delivery manager,</p>
+</li>
+<li>
+<p>,<sup>→</sup> scrum master, agile coach, PMO.</p>
+</li>
+<li>
+<p>Healthcare / Life Sciences: clinical, medical, physician, nurse,</p>
+</li>
+<li>
+<p>pharmaceutical, biotech, lab, hospital, health science, life science ,→</p>
+</li>
+<li>
+<p>research. ,→</p>
+</li>
+<li>
+<p>Education: student, teacher, professor, instructor, faculty, academic,</p>
+</li>
+<li>
+<p>,<sup>→</sup> dean, curriculum, school administration.</p>
+</li>
+<li>
+<p>Policy: public policy, government affairs, trust and safety policy,</p>
+</li>
+<li>
+<p>,<sup>→</sup> regulatory policy, public affairs when policy-focused.</p>
+</li>
+<li>
+<p>Security: cybersecurity, information security, security engineering, GRC,</p>
+</li>
+<li>
+<p>,<sup>→</sup> threat, risk when security-specific.</p>
+</li>
+<li>
+<p>People &amp; Recruiting: HR, people ops, talent, recruiting, compensation,</p>
+</li>
+<li>
+<p>,<sup>→</sup> benefits, learning and development.</p>
+</li>
+<li>
+<p>IT: IT, systems administration, enterprise applications, workplace</p>
+</li>
+<li>
+<p>,<sup>→</sup> technology, service desk, network administration.</p>
+</li>
+<li>
+<p>Partnerships: partnerships, alliances, partner management, ecosystem,</p>
+</li>
+<li>
+<p>,<sup>→</sup> channel partnerships.</p>
+</li>
+<li>
+<p>Comms: communications, PR, media relations, internal comms, corporate</p>
+<ul>
+<li>,<sup>→</sup> communications.</li>
+</ul>
+</li>
+<li>
+<p>Research: researcher, scientist, research engineer, research associate,</p>
+</li>
+<li>
+<p>,<sup>→</sup> lab research, academic research unless clearly healthcare or education.</p>
+</li>
+<li>
+<p>Other / Unknown: seniority-only, malformed, vague, or titles without</p>
+</li>
+<li>
+<p>,<sup>→</sup> enough department/function signal.</p>
+</li>
+</ul>
+<h4 id="allowed-role_level-labels">Allowed role_level labels:<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#allowed-role_level-labels" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Student / Trainee / Intern</li>
+<li>Entry / Associate</li>
+<li>Individual Contributor / Professional</li>
+<li>Senior IC / Principal</li>
+<li>Manager / Team Lead</li>
+<li>Director / Head</li>
+<li>VP / Senior Executive</li>
+<li>C-suite / Founder / Owner / Partner</li>
+<li>Contractor / Temporary</li>
+<li>Unknown</li>
+</ul>
+<h4 id="allowed-people_manager_signal-labels">Allowed people_manager_signal labels:<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#allowed-people_manager_signal-labels" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Likely people manager</li>
+<li>Manager title but ambiguous</li>
+<li>Likely individual contributor</li>
+<li>Unknown</li>
+</ul>
+<h4 id="allowed-job_title_class-labels">Allowed job_title_class labels:<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#allowed-job_title_class-labels" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Consultant / Professional Services</li>
+<li>Analyst</li>
+<li>Engineering / Technical Practitioner</li>
+<li>Data / Analytics Practitioner</li>
+<li>Product Role</li>
+<li>Project / Program Role</li>
+<li>Sales / Account Role</li>
+<li>Customer Success / Support Role</li>
+<li>Finance / Accounting Role</li>
+<li>Legal Role</li>
+<li>Healthcare / Clinical Role</li>
+<li>Education / Academic Role</li>
+<li>Research / Scientist Role</li>
+<li>Design / Creative Role</li>
+<li>Administrative / Executive Support</li>
+<li>People / Recruiting Role</li>
+<li>IT / Systems Role</li>
+<li>Marketing / Communications Role</li>
+<li>Security Role</li>
+<li>Executive / Founder / Partner</li>
+<li>Generic Rank / Seniority Only</li>
+<li>Contractor / Temporary</li>
+<li>Placeholder / Malformed</li>
+<li>Unknown</li>
+</ul>
+<p>The classifier returns a JSON object with the following fields: inferred_department, confidence, evidence_source, rationale, role_level, role_level_confidence, people_manager_signal, people_manager_signal_confidence, role_rationale, job_title_class, job_title_class_confidence, and job_title_class_rationale.</p>
+<p>Throughout the paper, before plotting, we collapse several fine-grained job-title classifier outputs into coarser display categories and then recompute all totals at the collapsed-category level. For the department dimension, Other / Unknown is mapped to Unknown / ambiguous. For the job-title-class dimension, Unknown, Generic Rank / Seniority Only, and Placeholder / Malformed are all mapped to Unknown / ambiguous, while all other job-title classes are left unchanged. For the seniority dimension, Student / Trainee / Intern and Entry / Associate are mapped to Early-career / trainee; Individual Contributor / Professional is mapped to ICs / professionals; Senior IC / Principal is mapped to Senior IC / principal; Manager / Team Lead and Director / Head are mapped to Manager / director; VP / Senior Executive and C-suite / Founder / Owner / Partner are mapped to Executive; and Unknown is mapped to Unknown / ambiguous. For the manager-status dimension, Likely individual contributor is mapped to Individual contributors, Likely people manager is mapped to People managers, and both Manager title but ambiguous and Unknown are mapped to Unknown / ambiguous.</p>
+<h3 id="c2-job-title-classifier-validation"><strong>C.2 Job Title Classifier Validation</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#c2-job-title-classifier-validation" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>To provide some validation of the values assigned by our job title classifier, we report below the top five most common job titles for each unique inferred job title class, seniority level, and people manager level. To limit disclosure risk, we apply a pre-specified suppression rule to raw job-title strings: after normalizing superficial title variants, we display a title only if it is observed in at least two distinct non-OpenAI organizations or in OpenAI’s internal sample. Titles that do not satisfy this rule are redacted. We do not report titles for the labels “Unknown” and “Placeholder / Malformed,” because their most common values often contained sensitive or identifying information.</p>
+<p><strong>Table A1:</strong> Top 5 actual job titles by job title class</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Job title class</th><th>Actual job title</th><th>User share</th></tr></thead><tbody><tr><td>Administrative / executive support</td><td>Executive assistant</td><td>18.9%</td></tr><tr><td>Administrative / executive support</td><td>Senior executive assistant</td><td>3.6%</td></tr><tr><td>Administrative / executive support</td><td>Administrative assistant</td><td>3.5%</td></tr><tr><td>Administrative / executive support</td><td>Office manager</td><td>2.1%</td></tr><tr><td>Administrative / executive support</td><td>Senior administrative assistant</td><td>1.8%</td></tr><tr><td>Analyst</td><td>Analyst</td><td>9.9%</td></tr><tr><td>Analyst</td><td>Business analyst</td><td>5.0%</td></tr><tr><td>Analyst</td><td>Senior analyst</td><td>2.9%</td></tr><tr><td>Analyst</td><td>Senior business analyst</td><td>2.2%</td></tr><tr><td>Analyst</td><td>Data analyst</td><td>1.6%</td></tr><tr><td>Consultant / professional services</td><td>Consultant</td><td>29.6%</td></tr><tr><td>Consultant / professional services</td><td>Senior consultant</td><td>7.7%</td></tr><tr><td>Consultant / professional services</td><td>Associate consultant</td><td>5.3%</td></tr><tr><td>Consultant / professional services</td><td>Engagement manager</td><td>4.6%</td></tr><tr><td>Consultant / professional services</td><td><redacted></redacted></td><td>1.6%</td></tr><tr><td>Contractor / temporary</td><td>Contractor</td><td>38.6%</td></tr><tr><td>Contractor / temporary</td><td>Temporary worker</td><td>11.1%</td></tr><tr><td>Contractor / temporary</td><td>Contingent worker</td><td>8.2%</td></tr><tr><td>Contractor / temporary</td><td><redacted></redacted></td><td>4.0%</td></tr><tr><td>Contractor / temporary</td><td>Contractor - <redacted></redacted></td><td>3.9%</td></tr><tr><td>Customer success / support role</td><td>Customer success manager</td><td>2.7%</td></tr></tbody></table></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Job title class</th><th>Actual job title</th><th>User share</th></tr></thead><tbody><tr><td>Customer success / support role</td><td>Senior customer success manager</td><td>1.8%</td></tr><tr><td>Customer success / support role</td><td><redacted></redacted></td><td>0.8%</td></tr><tr><td>Customer success / support role</td><td>Technical support engineer</td><td>0.8%</td></tr><tr><td>Customer success / support role</td><td>Service operations specialist</td><td>0.8%</td></tr><tr><td>Data / analytics practitioner</td><td>Senior data scientist</td><td>5.3%</td></tr><tr><td>Data / analytics practitioner</td><td>Data engineer</td><td>4.4%</td></tr><tr><td>Data / analytics practitioner</td><td>Senior data engineer</td><td>4.0%</td></tr><tr><td>Data / analytics practitioner</td><td>Data scientist</td><td>3.8%</td></tr><tr><td>Data / analytics practitioner</td><td>Machine learning engineer</td><td>2.1%</td></tr><tr><td>Design / creative role</td><td>Senior product designer</td><td>4.8%</td></tr><tr><td>Design / creative role</td><td>Product designer</td><td>3.8%</td></tr><tr><td>Design / creative role</td><td>Graphic designer</td><td>1.8%</td></tr><tr><td>Design / creative role</td><td>Producer</td><td>1.6%</td></tr><tr><td>Design / creative role</td><td>Senior designer</td><td>1.5%</td></tr><tr><td>Education / academic role</td><td>Instructional designer</td><td>3.4%</td></tr><tr><td>Education / academic role</td><td>Associate professor</td><td>2.4%</td></tr><tr><td>Education / academic role</td><td>Working student</td><td>2.3%</td></tr><tr><td>Education / academic role</td><td>Assistant professor</td><td>2.0%</td></tr><tr><td>Education / academic role</td><td>Professor</td><td>1.9%</td></tr><tr><td>Engineering / technical practitioner</td><td>Senior software engineer</td><td>7.7%</td></tr><tr><td>Engineering / technical practitioner</td><td>Software engineer</td><td>7.0%</td></tr><tr><td>Engineering / technical practitioner</td><td>Software engineer II</td><td>2.0%</td></tr><tr><td>Engineering / technical practitioner</td><td>Staff software engineer</td><td>1.9%</td></tr><tr><td>Engineering / technical practitioner</td><td>Senior engineer</td><td>1.1%</td></tr><tr><td>Executive / founder / partner</td><td>Partner</td><td>14.2%</td></tr><tr><td>Executive / founder / partner</td><td>Managing director</td><td>7.5%</td></tr><tr><td>Executive / founder / partner</td><td>Managing director and partner</td><td>1.9%</td></tr><tr><td>Executive / founder / partner</td><td>Associate partner</td><td>1.9%</td></tr><tr><td>Executive / founder / partner</td><td>Executive director</td><td>1.9%</td></tr><tr><td>Finance / accounting role</td><td>Senior accountant</td><td>1.5%</td></tr><tr><td>Finance / accounting role</td><td>Trader</td><td>1.4%</td></tr><tr><td>Finance / accounting role</td><td>Portfolio manager</td><td>1.4%</td></tr><tr><td>Finance / accounting role</td><td>Finance manager</td><td>1.3%</td></tr><tr><td>Finance / accounting role</td><td>Accounting manager</td><td>0.7%</td></tr></tbody></table></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Job title class</th><th>Actual job title</th><th>User share</th></tr></thead><tbody><tr><td>Generic rank / seniority only</td><td>Associate</td><td>13.5%</td></tr><tr><td>Generic rank / seniority only</td><td>Senior associate</td><td>11.4%</td></tr><tr><td>Generic rank / seniority only</td><td>Manager</td><td>8.3%</td></tr><tr><td>Generic rank / seniority only</td><td>Director</td><td>6.2%</td></tr><tr><td>Generic rank / seniority only</td><td>Senior manager</td><td>4.9%</td></tr><tr><td>Healthcare / clinical role</td><td><redacted></redacted></td><td>3.5%</td></tr><tr><td>Healthcare / clinical role</td><td>Medical science liaison</td><td>2.4%</td></tr><tr><td>Healthcare / clinical role</td><td>Senior medical science liaison</td><td>1.9%</td></tr><tr><td>Healthcare / clinical role</td><td>Senior CRA</td><td>0.9%</td></tr><tr><td>Healthcare / clinical role</td><td>Senior oncology specialist</td><td>0.9%</td></tr><tr><td>IT / systems role</td><td><redacted></redacted></td><td>0.9%</td></tr><tr><td>IT / systems role</td><td>IT manager</td><td>0.9%</td></tr><tr><td>IT / systems role</td><td>Systems administrator</td><td>0.8%</td></tr><tr><td>IT / systems role</td><td><redacted></redacted></td><td>0.6%</td></tr><tr><td>IT / systems role</td><td>IT support specialist</td><td>0.6%</td></tr><tr><td>Legal role</td><td>Legal counsel</td><td>3.2%</td></tr><tr><td>Legal role</td><td>Senior legal counsel</td><td>2.8%</td></tr><tr><td>Legal role</td><td><redacted></redacted></td><td>2.1%</td></tr><tr><td>Legal role</td><td>Paralegal</td><td>1.9%</td></tr><tr><td>Legal role</td><td>Senior counsel</td><td>1.7%</td></tr><tr><td>Marketing / communications role</td><td>Marketing manager</td><td>1.4%</td></tr><tr><td>Marketing / communications role</td><td>Product marketing manager</td><td>0.8%</td></tr><tr><td>Marketing / communications role</td><td>Senior product marketing manager</td><td>0.7%</td></tr><tr><td>Marketing / communications role</td><td>Journalist</td><td>0.6%</td></tr><tr><td>Marketing / communications role</td><td>Senior marketing manager</td><td>0.6%</td></tr><tr><td>People / recruiting role</td><td>Senior recruiter</td><td>1.8%</td></tr><tr><td>People / recruiting role</td><td>Recruiter</td><td>1.8%</td></tr><tr><td>People / recruiting role</td><td>HR business partner</td><td>1.4%</td></tr><tr><td>People / recruiting role</td><td>Talent acquisition partner</td><td>1.0%</td></tr><tr><td>People / recruiting role</td><td>HR manager</td><td>0.8%</td></tr><tr><td>Product role</td><td>Senior product manager</td><td>11.6%</td></tr><tr><td>Product role</td><td>Product manager</td><td>9.8%</td></tr><tr><td>Product role</td><td>Product owner</td><td>2.5%</td></tr><tr><td>Product role</td><td>Principal product manager</td><td>2.4%</td></tr></tbody></table></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Job title class</th><th>Actual job title</th><th>User share</th></tr></thead><tbody><tr><td>Product role</td><td>Director, product management</td><td>1.9%</td></tr><tr><td>Project / program role</td><td>Project leader</td><td>5.8%</td></tr><tr><td>Project / program role</td><td>Project manager</td><td>4.8%</td></tr><tr><td>Project / program role</td><td>Senior project manager</td><td>3.1%</td></tr><tr><td>Project / program role</td><td>Program manager</td><td>1.4%</td></tr><tr><td>Project / program role</td><td>Senior program manager</td><td>1.2%</td></tr><tr><td>Research / scientist role</td><td>Quantitative researcher</td><td>3.1%</td></tr><tr><td>Research / scientist role</td><td>Senior scientist</td><td>2.7%</td></tr><tr><td>Research / scientist role</td><td>Principal scientist</td><td>2.0%</td></tr><tr><td>Research / scientist role</td><td>Scientist</td><td>1.3%</td></tr><tr><td>Research / scientist role</td><td><redacted></redacted></td><td>1.2%</td></tr><tr><td>Sales / account role</td><td>Account executive</td><td>2.7%</td></tr><tr><td>Sales / account role</td><td>Account manager</td><td>2.2%</td></tr><tr><td>Sales / account role</td><td><redacted></redacted></td><td>2.1%</td></tr><tr><td>Sales / account role</td><td>Senior account manager</td><td>1.9%</td></tr><tr><td>Sales / account role</td><td>Senior account executive</td><td>1.6%</td></tr><tr><td>Security role</td><td>Security engineer</td><td>2.9%</td></tr><tr><td>Security role</td><td>Senior security engineer</td><td>2.4%</td></tr><tr><td>Security role</td><td>Chief information security officer</td><td>1.4%</td></tr><tr><td>Security role</td><td>Security analyst</td><td>0.8%</td></tr><tr><td>Security role</td><td>Senior asset protection manager</td><td>0.8%</td></tr></tbody></table></div>
+<p><em>Note:</em> Percentages are shares of title-user observations within each classifier value from 2025-10-01 through 2026-06-11. Unknown and malformed classifier values are omitted. Normalized title variants are combined before applying the publication rule. Job-title detail observed in fewer than 2 outside organizations and not used within OpenAI is redacted. Ties are ordered alphabetically by actual title.</p>
+<p><strong>Table A2:</strong> Top 5 actual job titles by seniority level</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Seniority level</th><th>Actual job title</th><th>User share</th></tr></thead><tbody><tr><td>C-suite / founder / owner / partner</td><td>Partner</td><td>34.8%</td></tr><tr><td>C-suite / founder / owner / partner</td><td>Managing director and partner</td><td>4.8%</td></tr><tr><td>C-suite / founder / owner / partner</td><td>Executive director</td><td>4.6%</td></tr><tr><td>C-suite / founder / owner / partner</td><td><redacted></redacted></td><td>2.1%</td></tr><tr><td>C-suite / founder / owner / partner</td><td>Chief financial officer</td><td>2.0%</td></tr></tbody></table></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Contractor / temporary<br/>Contractor<br/>34.3%<br/>Contractor / temporary<br/>Temporary worker<br/>9.9%<br/>Contractor / temporary<br/>Contingent worker<br/>7.3%<br/>Contractor / temporary<br/><redacted><br/>6.9%<br/>Contractor / temporary<br/>Contractor - <redacted><br/>3.5%<br/>Director / head<br/>Director<br/>7.3%<br/>Director / head<br/>Senior manager<br/>5.6%<br/>Director / head<br/>Associate director<br/>0.8%<br/>Director / head<br/>Senior director<br/>0.8%<br/>Director / head<br/>[non-Latin text]<br/>0.6%<br/>Entry / associate<br/>Associate<br/>19.5%<br/>Entry / associate<br/>Analyst<br/>4.9%<br/>Entry / associate<br/>Business analyst<br/>2.5%<br/>Entry / associate<br/>Associate consultant<br/>2.0%<br/>Entry / associate<br/>Software engineer I<br/>0.9%<br/>Individual contributor / professional<br/>Software engineer<br/>5.5%<br/>Individual contributor / professional<br/>Consultant<br/>5.5%<br/>Individual contributor / professional<br/>Executive assistant<br/>1.6%<br/>Individual contributor / professional<br/>Software engineer II<br/>1.6%<br/>Individual contributor / professional<br/>Product manager<br/>1.4%<br/>Manager / team lead<br/>Manager<br/>7.0%<br/>Manager / team lead<br/>Project leader<br/>1.5%<br/>Manager / team lead<br/>[non-Latin text]<br/>1.3%<br/>Manager / team lead<br/>[non-Latin text]<br/>1.1%<br/>Manager / team lead<br/>Engineering manager<br/>0.9%<br/>Senior IC / principal<br/>Senior associate<br/>7.1%<br/>Senior IC / principal<br/>Senior software engineer<br/>5.3%<br/>Senior IC / principal<br/>Principal<br/>2.1%<br/>Senior IC / principal<br/>Senior product manager<br/>1.4%<br/>Senior IC / principal<br/>Staff software engineer<br/>1.3%<br/>Student / trainee / intern<br/>Intern<br/>9.0%<br/>Student / trainee / intern<br/><redacted><br/>5.4%<br/>Student / trainee / intern<br/>Working student<br/>3.3%<br/>Student / trainee / intern<br/>Trainee<br/>2.8%</redacted></redacted></redacted></th><th>Seniority level</th><th>Actual job title</th><th>User share</th></tr></thead><tbody><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr></tbody></table></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Seniority level</th><th>Actual job title</th><th>User share</th></tr></thead><tbody><tr><td>Student / trainee / intern</td><td>Graduate</td><td>2.5%</td></tr><tr><td>VP / senior executive</td><td>Vice president</td><td>13.7%</td></tr><tr><td>VP / senior executive</td><td>Managing director</td><td>10.7%</td></tr><tr><td>VP / senior executive</td><td>Corporate vice president</td><td>3.7%</td></tr><tr><td>VP / senior executive</td><td>Senior vice president</td><td>2.6%</td></tr><tr><td>VP / senior executive</td><td>Senior managing director</td><td>0.9%</td></tr></tbody></table></div>
+<p><em>Note:</em> Percentages are shares of title-user observations within each classifier value from 2025-10-01 through 2026-06-11. Unknown and malformed classifier values are omitted. Normalized title variants are combined before applying the publication rule. Job-title detail observed in fewer than 2 outside organizations and not used within OpenAI is redacted. Ties are ordered alphabetically by actual title.</p>
+<p><strong>Table A3:</strong> Top 5 actual job titles by manager status</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Manager status</th><th>Actual job title</th><th>User share</th></tr></thead><tbody><tr><td>Likely individual contributor</td><td>Associate</td><td>5.0%</td></tr><tr><td>Likely individual contributor</td><td>Senior software engineer</td><td>3.2%</td></tr><tr><td>Likely individual contributor</td><td>Software engineer</td><td>2.9%</td></tr><tr><td>Likely individual contributor</td><td>Consultant</td><td>2.9%</td></tr><tr><td>Likely individual contributor</td><td>Analyst</td><td>1.3%</td></tr><tr><td>Likely people manager</td><td>Manager</td><td>3.3%</td></tr><tr><td>Likely people manager</td><td>Partner</td><td>2.7%</td></tr><tr><td>Likely people manager</td><td>Director</td><td>2.5%</td></tr><tr><td>Likely people manager</td><td>Senior manager</td><td>2.0%</td></tr><tr><td>Likely people manager</td><td>Vice president</td><td>1.8%</td></tr><tr><td>Manager title but ambiguous</td><td>Senior product manager</td><td>2.4%</td></tr><tr><td>Manager title but ambiguous</td><td>Product manager</td><td>2.0%</td></tr><tr><td>Manager title but ambiguous</td><td>Project manager</td><td>1.5%</td></tr><tr><td>Manager title but ambiguous</td><td>Engagement manager</td><td>1.2%</td></tr><tr><td>Manager title but ambiguous</td><td>Account executive</td><td>1.1%</td></tr></tbody></table></div>
+<p><span id="page-43-0"></span><em>Note:</em> Percentages are shares of title-user observations within each classifier value from 2025-10-01 through 2026-06-11. Unknown and malformed classifier values are omitted. Normalized title variants are combined before applying the publication rule. Job-title detail observed in fewer than 2 outside organizations and not used within OpenAI is redacted. Ties are ordered alphabetically by actual title.</p>
+<h2 id="d-persona-prompt"><strong>D Persona Prompt</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#d-persona-prompt" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>The following prompt is used to classify the most likely persona corresponding to a given user’s prompt. We reproduce only the sections of the prompt that describe the personas.</p>
+<pre><code>Return exactly one label in this format:
+top_level | subtype
+Do not include explanations, markdown, JSON, confidence scores, or extra
+,→ text.
+Choose the single best label from this taxonomy.
+developer:
+- developer | frontend_engineer
+- developer | backend_engineer
+- developer | full_stack_engineer
+- developer | mobile_engineer
+- developer | data_engineer
+- developer | ml_ai_engineer
+- developer | research_engineer
+- developer | systems_infra_engineer
+- developer | devops_sre
+- developer | security_engineer
+- developer | engineering_leader
+- developer | other_developer
+general_knowledge_worker:
+- general_knowledge_worker | marketing_growth
+- general_knowledge_worker | sales_customer_success
+- general_knowledge_worker | legal_policy
+- general_knowledge_worker | finance_accounting
+- general_knowledge_worker | data_analysis_business_ops
+- general_knowledge_worker | product_project_management
+- general_knowledge_worker | design_research
+- general_knowledge_worker | writing_content
+- general_knowledge_worker | hr_recruiting
+- general_knowledge_worker | operations_admin
+</code></pre>
+<pre><code>- general_knowledge_worker | education_student_academic
+- general_knowledge_worker | consulting_strategy
+- general_knowledge_worker | healthcare_life_sciences
+- general_knowledge_worker | real_estate_construction
+- general_knowledge_worker | other_professional
+personal:
+- personal | travel
+- personal | household_admin
+- personal | personal_finance
+- personal | health_fitness
+- personal | shopping
+- personal | entertainment
+- personal | hobbies_creative
+- personal | relationships_communication
+- personal | education_self_learning
+- personal | local_life
+- personal | other_personal
+</code></pre>
+<h3 id="e-task-classifier-prompt"><span id="page-45-0"></span><strong>E Task Classifier Prompt</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#e-task-classifier-prompt" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>The following prompt is used for the classification of tasks throughout the paper. We reproduce only the sections of the prompt that describe the task types and examples provided for each. We omit the ‘other’ category.</p>
+<pre><code>Allowed labels and descriptions:
+Code Understanding | Code Q&amp;A - Repo-specific questions about source code,
+    architecture, APIs, data flow, implementation behavior, and technical
+    context.
+,→
+,→
+Code Understanding | Planning - Implementation approaches, migration plans,
+,→ rollout plans, and technical task breakdowns before coding.
+Code Implementation | Backend Features - Server-side code changes such as
+    APIs, services, auth, databases, integrations, backend business logic,
+    and data-engineering code like pipelines or warehouse models.
+,→
+,→
+Code Implementation | Frontend Interfaces - New or changed screens, UI
+,→ components, layouts, navigation, and client-side interactions.
+Code Implementation | App Prototypes - New apps, demos, dashboards, and
+,→ internal tools built as runnable experiences.
+Code Implementation | Game Development - Gameplay, simulations, rules,
+,→ mechanics, and game-specific interactions.
+</code></pre>
+<p>Code Implementation | Refactoring - Restructuring existing code without ,<sup>→</sup> intentionally changing user-visible behavior.</p>
+<p>Code Implementation | Bug Fixing - Repairs that restore broken, regressed, ,<sup>→</sup> crashing, or incorrect software behavior.</p>
+<p>Code Validation | Code Review - Review of diffs, branches, or proposed changes for bugs, regressions, maintainability issues, and design risks. ,→ ,→</p>
+<p>Code Validation | Security Audit - Review of auth, permissions, secrets, ,<sup>→</sup> privacy, data exposure, and trust boundaries for security risk. Code Validation | Testing - Adding, running, repairing, or interpreting</p>
+<p>,<sup>→</sup> tests and validation checks when testing is the main task.</p>
+<p>Engineering Operations | Repo Management - Branches, commits, merges,</p>
+<p>,<sup>→</sup> rebases, worktrees, pull requests, and other repository state changes.</p>
+<p>Engineering Operations | Build and Release Pipelines - CI checks, build</p>
+<ul>
+<li>failures, release automation, deployments, rollbacks, and the path from ,→</li>
+<li>code to shipped software. ,→</li>
+</ul>
+<p>Engineering Operations | Environment Configuration - Setup or repair of</p>
+<ul>
+<li>local, staging, and production environments, including credentials, ,→</li>
+<li>runtime services, and configuration. ,→</li>
+</ul>
+<p>Engineering Operations | Job Management - Backfills, scheduled jobs,</p>
+<p>,<sup>→</sup> queues, batch runs, monitors, and recurring execution.</p>
+<p>Engineering Operations | Production Monitoring and Investigation -</p>
+<ul>
+<li>Investigations that clearly use external production evidence such as ,→</li>
+<li>logs, alerts, metrics, traces, dashboards, incident reports, outages, ,→</li>
+<li>or live/recent production behavior. ,→</li>
+</ul>
+<p>Data Analysis | Data Queries - Queries that retrieve data, metrics,</p>
+<p>,<sup>→</sup> records, or dashboard inputs.</p>
+<p>Data Analysis | Data Interpretation - Interpretation of what data,</p>
+<p>,<sup>→</sup> dashboards, metrics, experiments, or evals mean.</p>
+<p>Data Analysis | Data Processing - Cleaning, reshaping, deduplicating,</p>
+<p>,<sup>→</sup> converting, or exporting structured datasets and local data files.</p>
+<p>Data Analysis | Data Labeling - Labels, taxonomies, classifications,</p>
+<p>,<sup>→</sup> annotations, and structured categories applied to data.</p>
+<p>Research | Internal Knowledge - Internal docs, tickets, notes, wiki pages,</p>
+<p>,<sup>→</sup> and knowledge bases that are not primarily source code.</p>
+<p>Research | Market and Competitive Landscape - Research on competitors,</p>
+<ul>
+<li>vendors, customers, pricing, markets, competitive landscapes, ,→</li>
+<li>positioning, and product categories. ,→</li>
+</ul>
+<p>Research | Financial Markets and Trading - Research on financial markets,</p>
+<ul>
+<li>stocks, crypto, trading strategies, market signals, trading platforms, ,→</li>
+<li>and investment-related market information. ,→</li>
+</ul>
+<p>Research | Web Search - Public internet lookup of facts, sources,</p>
+<p>,<sup>→</sup> documents, products, travel options, and current events.</p>
+<p>Knowledge Artifacts | Documents - Writing and revision of guides, reports,</p>
+<p>,<sup>→</sup> READMEs, FAQs, runbooks, specs, memos, and long-form prose.</p>
+<p>Knowledge Artifacts | Presentations - Decks, slides, diagrams, and</p>
+<p>,<sup>→</sup> presentation-ready materials.</p>
+<p>Knowledge Artifacts | Spreadsheets - Spreadsheet files and workbook</p>
+<ul>
+<li>deliverables, including formulas, charts, structure, cleanup, and ,→</li>
+<li>content updates. ,→</li>
+</ul>
+<p>Knowledge Artifacts | Multimedia Assets - Images, audio, video, subtitles,</p>
+<p>,<sup>→</sup> and other media assets.</p>
+<p>Knowledge Artifacts | PDFs - Managing, creating, editing, extracting,</p>
+<ul>
+<li>converting, summarizing, or producing PDFs when the PDF is the main ,→</li>
+<li>artifact. ,→</li>
+</ul>
+<p>Collaboration | Message Drafting - Drafting, revising, sending, or</p>
+<ul>
+<li>scheduling emails, Slack messages, replies, reminders, and other direct ,→</li>
+<li>communications. ,→</li>
+</ul>
+<p>Collaboration | Message Summaries - Summaries of inboxes, Slack channels,</p>
+<p>,<sup>→</sup> threads, mentions, and message streams so the user can catch up.</p>
+<p>Collaboration | Scheduling - Creating, moving, canceling, and coordinating</p>
+<p>,<sup>→</sup> calendar events, meeting times, rooms, and availability.</p>
+<p>Collaboration | Task Management - Creating, updating, triaging,</p>
+<p>,<sup>→</sup> prioritizing, and summarizing tasks, tickets, issues, and action items.</p>
+<p>Collaboration | Meeting Support - Agendas, attendee context, pre-reads,</p>
+<p>,<sup>→</sup> live notes, decisions, recaps, and follow-up actions.</p>
+<p>Business Function Workflows | Finance and Accounting - Finance and</p>
+<ul>
+<li>accounting processes such as invoices, expenses, close work, billing, ,→</li>
+<li>reconciliation, and financial reporting. ,→</li>
+</ul>
+<p>Business Function Workflows | Sales - Sales processes such as account</p>
+<ul>
+<li>planning, pipeline work, deal support, outreach preparation, and sales ,→</li>
+<li>materials. ,→</li>
+</ul>
+<p>Business Function Workflows | Marketing and Communications - Marketing and</p>
+<ul>
+<li>communications processes such as campaign planning, launch ,→</li>
+<li>coordination, audience work, lifecycle programs, and comms operations. ,→</li>
+</ul>
+<p>Business Function Workflows | Product and Design - Product and design</p>
+<ul>
+<li>workflows such as requirements, user stories, UX flows, design ,→</li>
+<li>critique, launch scope, and acceptance criteria when the product or ,→</li>
+<li>design process is primary. ,→</li>
+</ul>
+<p>Business Function Workflows | Customer Support - Providing customer support</p>
+<ul>
+<li>or support operations such as case summaries, response drafting, ,→</li>
+<li>escalation routing, issue categorization, and support queue work. ,→</li>
+</ul>
+<p>Business Function Workflows | Recruiting and People Ops - Recruiting and</p>
+<ul>
+<li>people operations processes such as hiring coordination, onboarding, HR ,→</li>
+<li>workflows, employee programs, and policy handling. ,→</li>
+</ul>
+<p>Business Function Workflows | Legal and Compliance - Non-technical legal</p>
+<ul>
+<li>and compliance processes such as contract review, policy checks, ,→</li>
+<li>controls, audits, governed approval workflows, and regulatory ,→</li>
+<li>documentation. ,→</li>
+</ul>
+<p>Application Management | Codex Configuration - Configuring Codex itself or</p>
+<ul>
+<li>its surrounding app/tooling, including Codex instructions, AGENTS.md ,→</li>
+<li>files, skills, apps, connectors, MCP servers, persistent connections, ,→</li>
+<li>automations, and model settings. ,→</li>
+</ul>
+<p>Application Management | Data Entry - Entering, updating, or correcting</p>
+<p>,<sup>→</sup> records, forms, CRM fields, trackers, and portal data.</p>
+<p>Application Management | Browser Actions - Navigation of websites or web</p>
+<p>,<sup>→</sup> apps and completion of direct browser actions on the user’s behalf.</p>
+<h1 id="f-query-complexity-prompt"><span id="page-48-0"></span><strong>F Query Complexity Prompt</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#f-query-complexity-prompt" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>We use the gpt-5-mini model and the following prompt to evaluate the complexity of work performed by Codex:</p>
+<p>Estimate the active work time in minutes an experienced human would need to</p>
+<ul>
+<li>complete the substantive user request in this Codex conversation ,→</li>
+<li>without AI. Count only hands-on work. Ignore system, developer, ,→</li>
+<li>environment, tool, and copied helper instructions; waiting time; ,→</li>
+<li>approvals; builds; and AI runtime. If the transcript mostly contains ,→</li>
+<li>wrapper text, estimate only the embedded actual user request when ,→</li>
+<li>present. If there is no substantive user request, return 0 minutes. ,→</li>
+<li>Return only the requested schema. ,→</li>
+</ul>
+<p>To benchmark the performance of this model, we apply the classifier to 1,000 random <a href="https://codeforces.com/apiHelp" class="external">Codeforces<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> problems. Codeforces is a competitive programming website, which provides a variety of self-contained coding problems, with metadata about each including the quickest completion times and a difficulty score. In Figure <a href="#page-49-0" class="internal alias">A9,</a> we then benchmark the resulting human completion time estimates against both the difficulty score and the average solve time among the five fastest humans.</p>
+<p><span id="page-49-0"></span><img src="../clippings/20260806-_page_49_Figure_1.jpeg" alt/></p>
+<p><img src="../clippings/20260806-_page_49_Figure_2.jpeg" alt/></p>
+<p><strong>(a)</strong> Estimated complexity relative to duration <strong>(b)</strong> Estimated complexity relative to difficulty</p>
+<p>Figure summarizes the relationship between the difficulty of Codeforces coding problems and the estimated human completion time assigned by our complexity classifier, using a sample of 1,000 problems. Figure <a href="#page-49-0" class="internal alias">A9a</a> shows the relationship between the human completion time estimated by the classifier and the mean of the five fastest completion times on Codeforces. Figure <a href="#page-49-0" class="internal alias">A9b</a> benchmarks the same classifier-derived completion time estimate against the problem’s difficulty score on Codeforces.</p>
+<p>We find a strong, positive correlation between the model-estimated difficulty and each of the two difficulty measures derived from Codeforces, with a correlation of 0.65 between the model-predicted time and the average completion time among the five fastest human solvers of the problem, and a correlation of 0.69 between the difficulty score and the model-predicted time. We find that, in general, the model tends to predict slower completion times than the scores derived from the metadata. We believe that this is in part because we are measuring our modeled prediction against the speed of a nonrandomly selected group, which is largely made up of competitive programmers. Nevertheless, we interpret the evidence from this benchmarking exercise as indicative of the fact that the prompt and model we use to predict human completion times are able to distinguish between simple and complicated tasks.</p>
+<hr/>
+<p><em>원문: <a href="https://cdn.openai.com/pdf/5d1e1489-21c0-43e4-9d42-f87efdbf0082/the-shift-to-agentic-ai-evidence-from-codex.pdf" class="external">https://cdn.openai.com/pdf/5d1e1489-21c0-43e4-9d42-f87efdbf0082/the-shift-to-agentic-ai-evidence-from-codex.pdf<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></em></p></article><hr/><div class="page-footer"><div class="backlinks"><h3>백링크</h3><ul id="list-1" class="overflow"><li><a href="../garden/20260806-adoption-is-the-size-of-delegated-work" class="internal">AI 도입률은 사용자 수가 아니라 위임한 일의 크기로 재야 한다</a></li><li><a href="../garden/20260806-agentic-bottleneck-is-organizational-review-structure" class="internal">에이전틱 전환의 병목은 모델 성능이 아니라 조직의 리뷰 구조다</a></li><li><a href="../garden/20260806-skills-mark-the-shift-from-user-to-workflow-designer" class="internal">스킬을 쓰기 시작하는 순간이 도구 사용자에서 워크플로 설계자로 넘어가는 지점이다</a></li><li><a href="../wiki/concepts/20260806-agentic-delegation-measurement" class="internal">에이전틱 전환의 측정 프레임 (위임·복잡도·체계화·동시성)</a></li><li><a href="../wiki/entities/20260606-codex" class="internal">Codex</a></li><li class="overflow-end"></li></ul></div><div class="giscus" data-repo="dataofmen/quartz-wiki" data-repo-id="R_kgDOSOxrZA" data-category="General" data-category-id="DIC_kwDOSOxrZM4C-Edy" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-input-position="bottom" data-light-theme="light" data-dark-theme="dark" data-theme-url="https://dataofmen.github.io/static/giscus" data-lang="ko"></div></div></div><div class="right sidebar"><div class="graph desktop-only"><h3>그래프 뷰</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                  s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                  c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                  C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                  c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                  v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                  s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                  C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                  S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                  s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                  s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.5.2</a> © 2026</p><ul></ul></footer></div></div></body><script type="application/javascript" data-persist="true">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module" data-persist="true">function E(a,e){if(!a)return;function t(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function n(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}a?.addEventListener("click",t),window.addCleanup(()=>a?.removeEventListener("click",t)),document.addEventListener("keydown",n),window.addCleanup(()=>document.removeEventListener("keydown",n))}function f(a){for(;a.firstChild;)a.removeChild(a.firstChild)}var m=class{constructor(e,t){this.container=e;this.content=t;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),t=this.onMouseMove.bind(this),n=this.onMouseUp.bind(this),o=this.onTouchStart.bind(this),r=this.onTouchMove.bind(this),i=this.onTouchEnd.bind(this),s=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",t),document.addEventListener("mouseup",n),this.container.addEventListener("touchstart",o,{passive:!1}),document.addEventListener("touchmove",r,{passive:!1}),document.addEventListener("touchend",i),window.addEventListener("resize",s),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",t),()=>document.removeEventListener("mouseup",n),()=>this.container.removeEventListener("touchstart",o),()=>document.removeEventListener("touchmove",r),()=>document.removeEventListener("touchend",i),()=>window.removeEventListener("resize",s))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let t=this.createButton("+",()=>this.zoom(.1)),n=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(n),e.appendChild(o),e.appendChild(t),this.container.appendChild(e)}createButton(e,t){let n=document.createElement("button");return n.textContent=e,n.className="mermaid-control-button",n.addEventListener("click",t),window.addCleanup(()=>n.removeEventListener("click",t)),n}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}onTouchStart(e){if(e.touches.length!==1)return;this.isDragging=!0;let t=e.touches[0];this.startPan={x:t.clientX-this.currentPan.x,y:t.clientY-this.currentPan.y}}onTouchMove(e){if(!this.isDragging||e.touches.length!==1)return;e.preventDefault();let t=e.touches[0];this.currentPan={x:t.clientX-this.startPan.x,y:t.clientY-this.startPan.y},this.updateTransform()}onTouchEnd(){this.isDragging=!1}zoom(e){let t=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),n=this.content.getBoundingClientRect(),o=n.width/2,r=n.height/2,i=t-this.scale;this.currentPan.x-=o*i,this.currentPan.y-=r*i,this.scale=t,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){let t=this.content.querySelector("svg").getBoundingClientRect(),n=t.width/this.scale,o=t.height/this.scale;this.scale=1,this.currentPan={x:(this.container.clientWidth-n)/2,y:(this.container.clientHeight-o)/2},this.updateTransform()}},T=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],y;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;y||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let t=y.default,n=new WeakMap;for(let r of e)n.set(r,r.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let c=n.get(s);c&&(s.innerHTML=c)}let r=T.reduce((s,c)=>(s[c]=window.getComputedStyle(document.documentElement).getPropertyValue(c),s),{}),i=document.documentElement.getAttribute("saved-theme")==="dark";t.initialize({startOnLoad:!1,securityLevel:"loose",theme:i?"dark":"base",themeVariables:{fontFamily:r["--codeFont"],primaryColor:r["--light"],primaryTextColor:r["--darkgray"],primaryBorderColor:r["--tertiary"],lineColor:r["--darkgray"],secondaryColor:r["--secondary"],tertiaryColor:r["--tertiary"],clusterBkg:r["--light"],edgeLabelBackground:r["--highlight"]}}),await t.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let r=0;r<e.length;r++){let v=function(){let g=l.querySelector("#mermaid-space"),h=l.querySelector(".mermaid-content");if(!h)return;f(h);let w=i.querySelector("svg").cloneNode(!0);h.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new m(g,h)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},i=e[r],s=i.parentElement,c=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(c),L=c.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),E(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../postscript.js" type="module" data-persist="true"></script></html>

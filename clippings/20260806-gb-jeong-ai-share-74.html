@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr"><head><title>피드 상세 ## 피드 게시물</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto Sans KR:wght@400;700&amp;family=Noto Sans KR:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="dataofmen"/><meta property="og:title" content="피드 상세 ## 피드 게시물"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="피드 상세 ## 피드 게시물"/><meta name="twitter:description" content="피드 상세 피드 게시물 Goobong Jeong님의 그래픽 링크 보기 [Goobong Jeong • 3촌 이상 Host of Ralphthon | Optimistic Engineer](www.linkedin.com/in/gb-jeong%3Ali%3Afsd_profile%3AACoAACY7KJQBDtSTk6IuIwZY6ntBGJx1fCYwsYI) 2주 • AI를 못 쓰는 회사는 매번 맨땅에서 시작합니다."/><meta property="og:description" content="피드 상세 피드 게시물 Goobong Jeong님의 그래픽 링크 보기 [Goobong Jeong • 3촌 이상 Host of Ralphthon | Optimistic Engineer](www.linkedin.com/in/gb-jeong%3Ali%3Afsd_profile%3AACoAACY7KJQBDtSTk6IuIwZY6ntBGJx1fCYwsYI) 2주 • AI를 못 쓰는 회사는 매번 맨땅에서 시작합니다."/><meta property="og:image:alt" content="피드 상세 피드 게시물 Goobong Jeong님의 그래픽 링크 보기 [Goobong Jeong • 3촌 이상 Host of Ralphthon | Optimistic Engineer](www.linkedin.com/in/gb-jeong%3Ali%3Afsd_profile%3AACoAACY7KJQBDtSTk6IuIwZY6ntBGJx1fCYwsYI) 2주 • AI를 못 쓰는 회사는 매번 맨땅에서 시작합니다."/><meta property="og:image" content="https://dataofmen.github.io/static/og-image.png"/><meta property="og:image:url" content="https://dataofmen.github.io/static/og-image.png"/><meta name="twitter:image" content="https://dataofmen.github.io/static/og-image.png"/><meta property="og:image:type" content="image/.png"/><meta property="twitter:domain" content="dataofmen.github.io"/><meta property="og:url" content="https://dataofmen.github.io/clippings/20260806-gb-jeong-ai-share-74"/><meta property="twitter:url" content="https://dataofmen.github.io/clippings/20260806-gb-jeong-ai-share-74"/><link rel="icon" href="../static/icon.png"/><meta name="description" content="피드 상세 피드 게시물 Goobong Jeong님의 그래픽 링크 보기 [Goobong Jeong • 3촌 이상 Host of Ralphthon | Optimistic Engineer](www.linkedin.com/in/gb-jeong%3Ali%3Afsd_profile%3AACoAACY7KJQBDtSTk6IuIwZY6ntBGJx1fCYwsYI) 2주 • AI를 못 쓰는 회사는 매번 맨땅에서 시작합니다."/><meta name="generator" content="Quartz"/><link href="../index.css" rel="stylesheet" type="text/css" data-persist="true"/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiL2hvbWUvcnVubmVyL3dvcmsvcXVhcnR6LXdpa2kvcXVhcnR6LXdpa2kvcXVhcnR6L2NvbXBvbmVudHMvc3R5bGVzIiwic291cmNlcyI6WyJtZXJtYWlkLmlubGluZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFHRjtFQUNFOzs7QUFLRjtFQUNFO0VBQ0E7OztBQUlKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFOztBQUdGO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFJSjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTs7QUFJRjtFQUNFO0VBQ0E7RUFDQSIsInNvdXJjZXNDb250ZW50IjpbIi5leHBhbmQtYnV0dG9uIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbG9hdDogcmlnaHQ7XG4gIHBhZGRpbmc6IDAuNHJlbTtcbiAgbWFyZ2luOiAwLjNyZW07XG4gIHJpZ2h0OiAwOyAvLyBOT1RFOiByaWdodCB3aWxsIGJlIHNldCBpbiBtZXJtYWlkLmlubGluZS50c1xuICBjb2xvcjogdmFyKC0tZ3JheSk7XG4gIGJvcmRlci1jb2xvcjogdmFyKC0tZGFyayk7XG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWxpZ2h0KTtcbiAgYm9yZGVyOiAxcHggc29saWQ7XG4gIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgb3BhY2l0eTogMDtcbiAgdHJhbnNpdGlvbjogMC4ycztcblxuICAmID4gc3ZnIHtcbiAgICBmaWxsOiB2YXIoLS1saWdodCk7XG4gICAgZmlsdGVyOiBjb250cmFzdCgwLjMpO1xuICB9XG5cbiAgJjpob3ZlciB7XG4gICAgY3Vyc29yOiBwb2ludGVyO1xuICAgIGJvcmRlci1jb2xvcjogdmFyKC0tc2Vjb25kYXJ5KTtcbiAgfVxuXG4gICY6Zm9jdXMge1xuICAgIG91dGxpbmU6IDA7XG4gIH1cbn1cblxucHJlIHtcbiAgJjpob3ZlciA+IC5leHBhbmQtYnV0dG9uIHtcbiAgICBvcGFjaXR5OiAxO1xuICAgIHRyYW5zaXRpb246IDAuMnM7XG4gIH1cbn1cblxuI21lcm1haWQtY29udGFpbmVyIHtcbiAgcG9zaXRpb246IGZpeGVkO1xuICBjb250YWluOiBsYXlvdXQ7XG4gIHotaW5kZXg6IDk5OTtcbiAgbGVmdDogMDtcbiAgdG9wOiAwO1xuICB3aWR0aDogMTAwdnc7XG4gIGhlaWdodDogMTAwdmg7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIGRpc3BsYXk6IG5vbmU7XG4gIGJhY2tkcm9wLWZpbHRlcjogYmx1cig0cHgpO1xuICBiYWNrZ3JvdW5kOiByZ2JhKDAsIDAsIDAsIDAuNSk7XG5cbiAgJi5hY3RpdmUge1xuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgfVxuXG4gICYgPiAjbWVybWFpZC1zcGFjZSB7XG4gICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1saWdodCk7XG4gICAgYm9yZGVyLXJhZGl1czogNXB4O1xuICAgIHBvc2l0aW9uOiBmaXhlZDtcbiAgICB0b3A6IDUwJTtcbiAgICBsZWZ0OiA1MCU7XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGUoLTUwJSwgLTUwJSk7XG4gICAgaGVpZ2h0OiA4MHZoO1xuICAgIHdpZHRoOiA4MHZ3O1xuICAgIG92ZXJmbG93OiBoaWRkZW47XG5cbiAgICAmID4gLm1lcm1haWQtY29udGVudCB7XG4gICAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgICB0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7XG4gICAgICB0cmFuc2l0aW9uOiB0cmFuc2Zvcm0gMC4xcyBlYXNlO1xuICAgICAgb3ZlcmZsb3c6IHZpc2libGU7XG4gICAgICBtaW4taGVpZ2h0OiAyMDBweDtcbiAgICAgIG1pbi13aWR0aDogMjAwcHg7XG5cbiAgICAgIHByZSB7XG4gICAgICAgIG1hcmdpbjogMDtcbiAgICAgICAgYm9yZGVyOiBub25lO1xuICAgICAgfVxuXG4gICAgICBzdmcge1xuICAgICAgICBtYXgtd2lkdGg6IG5vbmU7XG4gICAgICAgIGhlaWdodDogYXV0bztcbiAgICAgIH1cbiAgICB9XG5cbiAgICAmID4gLm1lcm1haWQtY29udHJvbHMge1xuICAgICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgICAgYm90dG9tOiAyMHB4O1xuICAgICAgcmlnaHQ6IDIwcHg7XG4gICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgZ2FwOiA4cHg7XG4gICAgICBwYWRkaW5nOiA4cHg7XG4gICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1saWdodCk7XG4gICAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgICAgYm9yZGVyLXJhZGl1czogNnB4O1xuICAgICAgYm94LXNoYWRvdzogMCAycHggNHB4IHJnYmEoMCwgMCwgMCwgMC4xKTtcbiAgICAgIHotaW5kZXg6IDI7XG5cbiAgICAgIC5tZXJtYWlkLWNvbnRyb2wtYnV0dG9uIHtcbiAgICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICAgICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gICAgICAgIHdpZHRoOiAzMnB4O1xuICAgICAgICBoZWlnaHQ6IDMycHg7XG4gICAgICAgIHBhZGRpbmc6IDA7XG4gICAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0KTtcbiAgICAgICAgY29sb3I6IHZhcigtLWRhcmspO1xuICAgICAgICBib3JkZXItcmFkaXVzOiA0cHg7XG4gICAgICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICAgICAgZm9udC1zaXplOiAxNnB4O1xuICAgICAgICBmb250LWZhbWlseTogdmFyKC0tYm9keUZvbnQpO1xuICAgICAgICB0cmFuc2l0aW9uOiBhbGwgMC4ycyBlYXNlO1xuXG4gICAgICAgICY6aG92ZXIge1xuICAgICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIH1cblxuICAgICAgICAmOmFjdGl2ZSB7XG4gICAgICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKDFweCk7XG4gICAgICAgIH1cblxuICAgICAgICAvLyBTdHlsZSB0aGUgcmVzZXQgYnV0dG9uIGRpZmZlcmVudGx5XG4gICAgICAgICY6bnRoLWNoaWxkKDIpIHtcbiAgICAgICAgICB3aWR0aDogYXV0bztcbiAgICAgICAgICBwYWRkaW5nOiAwIDEycHg7XG4gICAgICAgICAgZm9udC1zaXplOiAxNHB4O1xuICAgICAgICB9XG4gICAgICB9XG4gICAgfVxuICB9XG59XG4iXX0= */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../prescript.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://dataofmen.github.io/index.xml"/></head><body data-slug="clippings/20260806-gb-jeong-ai-share-74"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"></div><div class="center"><div class="page-header"><header><h2 class="page-title"><a href="..">dataofmen</a></h2><nav class="nav-links"><a href="/wiki" class="nav-link">wiki</a><a href="/garden" class="nav-link">garden</a><a href="/clippings" class="nav-link">clippings</a></nav><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 1rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>검색</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="검색어를 입력하세요" placeholder="검색어를 입력하세요"/><div class="search-layout" data-preview="true"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="다크 모드"><title>다크 모드</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="라이트 모드"><title>라이트 모드</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div></div></header><div class="popover-hint"><h1 class="article-title">피드 상세 ## 피드 게시물</h1><p show-comma="true" class="content-meta"><time datetime="2026-08-06T00:00:00.000Z">2026년 8월 06일</time><span>9 min read</span></p><ul class="tags"><li><a href="../tags/linkedin" class="internal tag-link">linkedin</a></li></ul><div class="toc"><button type="button" class="toc-header" aria-controls="toc-105" aria-expanded="true"><h3>목차</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-0" class="toc-content overflow"><li class="depth-0"><a href="#피드-상세" data-for="피드-상세">피드 상세</a></li><li class="depth-1"><a href="#피드-게시물" data-for="피드-게시물">피드 게시물</a></li><li class="depth-2"><a href="#반응" data-for="반응">반응</a></li><li class="overflow-end"></li></ul></div></div></div><article class="popover-hint"><h1 id="피드-상세">피드 상세<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#피드-상세" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="피드-게시물">피드 게시물<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#피드-게시물" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p><a href="https://www.linkedin.com/in/gb-jeong?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAACY7KJQBDtSTk6IuIwZY6ntBGJx1fCYwsYI" class="external">Goobong Jeong님의  그래픽 링크 보기<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<p>[Goobong Jeong</p>
+<p>• 3촌 이상</p>
+<p>Host of Ralphthon | Optimistic Engineer](<a href="https://www.linkedin.com/in/gb-jeong?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAACY7KJQBDtSTk6IuIwZY6ntBGJx1fCYwsYI" class="external">https://www.linkedin.com/in/gb-jeong?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAACY7KJQBDtSTk6IuIwZY6ntBGJx1fCYwsYI<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>)</p>
+<p>2주 •</p>
+<p>AI를 못 쓰는 회사는 매번 맨땅에서 시작합니다. 잘 쓰기 시작한 회사는 토큰 비용이 폭발합니다. 더 잘 쓰는 회사는 결국 범용 model의 taste 한계에 부딪힙니다.</p>
+<p>Satya Nadella는 축적되지 않는 지식을, Ramp는 폭발하는 AI 비용을 말합니다. Thinking Machines와 Fireworks는 specialized model을 말합니다.</p>
+<p>이 문제들은 이어집니다. 그래서 마지막에는 모든 회사에 Lab이 필요해집니다.</p>
+<ol>
+<li>AI를 써도 회사는 학습하지 않는다</li>
+</ol>
+<p>직원은 frontier model의 틀린 답을 고치고 고객의 예외와 판단 기준을 알려줍니다. 그 순간에는 답이 좋아지지만 다음 대화에서는 같은 설명을 다시 해야 합니다.</p>
+<p>기업은 AI를 사용할 때 돈만 내는 것이 아닙니다. 직원의 판단, 고객 경험, 실패를 수정하는 시간, 무엇이 좋은 답인지 정의하는 노력까지 투자합니다.</p>
+<p>그런데 그 과정이 회사의 자산으로 남지 않는다면, 기업은 매일 학습하면서도 아무것도 축적하지 못합니다.</p>
+<p>모델 회사가 우리 데이터로 학습하지 않는 것만으로는 충분하지 않습니다. 우리 회사가 자기 경험으로부터 학습해야 합니다.</p>
+<p>그래서 먼저 private eval, correction, trace, memory와 skill을 남깁니다.</p>
+<ol start="2">
+<li>학습하기 시작하자 돈이 너무 빨리 탄다</li>
+</ol>
+<p>AI가 실제 workflow에 들어가면 토큰 사용량이 폭발합니다. Ramp는 token을 사람과 vendor에 이은 기업 비용의 세 번째 기둥이라고 부릅니다.</p>
+<p>AI 사용을 일괄적으로 줄이면 실제로 compounding하는 업무까지 멈춥니다. 계속 지불하면 어떤 workflow가 가치를 만드는지 모른 채 비용만 커집니다.</p>
+<p>비용 데이터만으로는 model을 바꿀 수 없습니다. Private eval이 있어야 같은 업무를 여러 model에 시키고 품질 기준을 통과하는 가장 경제적인 model을 고를 수 있습니다.</p>
+<p>단순한 업무에는 작은 model, 기준이 명확한 반복 업무에는 specialized model, 새롭고 중요한 문제에는 frontier model을 씁니다.</p>
+<p>모델 라우팅은 내가 Claude를 선호하냐, Gemini를 선호하냐의 문제가 아닙니다. 어디에 얼마나 많은 지능을 투입할지 정하는 자본 배분입니다.</p>
+<p>비용이 높다고 해서 바로 파인튜닝 하면 안 됩니다. Prompt, context, caching, skill, memory와 routing부터 고칩니다.</p>
+<p>이것까지 다 잘했을 때 마지막 천장이 다가옵니다. 끝판왕이죠.</p>
+<ol start="3">
+<li>범용 model은 우리 회사의 taste를 모른다</li>
+</ol>
+<p>Frontier model은 세상에서 평균적으로 좋은 답을 만듭니다. 하지만 회사가 엑스트라 마일을 가는 방법은 평균적으로 좋은 답을 구한다고 해서 나오지 않습니다.</p>
+<p>어떤 고객을 중요한 고객으로 보는가. 어떤 위험을 감수하는가. 어떤 문서가 읽을 가치가 있는가. 무엇을 좋은 디자인, 코드, 투자 판단이라고 보는가.</p>
+<p>이건 단순한 취향 얘기가 아닙니다. 회사가 고객과 실패를 겪으며 만든 particular intelligence입니다. 중요한 판단일수록 말로 완벽하게 설명하기 어렵습니다.</p>
+<p>Bridgewater AIA Labs에서 전문가가 prompt를 직접 개선한 frontier model은 최고 78.2%였습니다. 투자자의 실제 판단으로 dataset과 eval을 만들고 Qwen을 훈련하자 84.7%를 기록했습니다. 실수는 29.8% 줄었고 inference cost per task는 13.8배 낮았습니다.</p>
+<p>모든 업무에서 custom model이 낫다는 뜻은 아닙니다. 반복량, stable eval, 조직 고유의 feedback이 있는 업무에서는 우리 판단을 배운 model이 더 정확하고 더 쌀 수 있다는 뜻입니다.</p>
+<ol start="4">
+<li>끝에는 회사 자체가 Thinking Machine이 된다</li>
+</ol>
+<p>Thinking Machines의 Tinker에서 회사는 dataset, objective, environment와 eval을 정합니다. 개선 결과는 prompt와 skill, memory에 남을 수도 있고 필요한 경우 adapter와 weights에 들어갈 수도 있습니다.</p>
+<p>Model을 바꿀 수 있다는 건 dataset, eval, environment와 training recipe가 회사에 남아 새로운 base model에서도 그 능력을 다시 훈련하고 검증할 수 있다는 뜻입니다.</p>
+<p>Fireworks가 처리하는 하루 40조 개가 넘는 token 중 95% 이상은 고객 데이터와 특정 업무에 특화된 model에서 나옵니다. Production AI가 specialized intelligence로 이동하고 있습니다.</p>
+<p>끝판왕은 Thinking Machines라는 회사를 쓰는 게 아닙니다. 우리 회사 자체가 하나의 Thinking Machine이 되는 겁니다.</p>
+<p>아직 답이 없는 문제를 고르고, eval을 만들고, feedback을 남기고, 어디를 개선할지 결정하고, 업무마다 model을 배분하고, 실제 outcome을 보고 다음 질문을 고르는 것.</p>
+<p>이 학습 루프가 도는 회사가 Lab입니다.</p>
+<p>모두가 같은 frontier model을 쓸수록 model 접근성은 해자가 되지 못합니다. 무엇을 풀 가치가 있다고 보는지, 무엇을 좋은 답이라고 판별하는지, 고객에게 배운 것을 얼마나 빠르게 다음 version에 남기는지가 회사의 taste가 됩니다.</p>
+<p>Taste가 eval이 되고, eval이 data를 만들고, data가 model과 workflow를 개선합니다. 이 compounding loop가 회사를 엑스트라 마일까지 데려갑니다.</p>
+<p>모든 회사가 자기 foundation model을 가질 필요는 없습니다. 하지만 AI가 핵심 workflow에 들어오는 순간, 모든 회사는 자기만의 learning system을 가져야 합니다.</p>
+<p>프런티어 모델은 지능을 공급합니다. Internal Lab은 무엇을 학습하고 어디에 그 지능을 쓸지 결정합니다.</p>
+<p>모델은 빌릴 수 있습니다. 회사의 taste와 학습곡선은 회사 안에 복리로 쌓여야 합니다.</p>
+<h3 id="반응">반응<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#반응" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>
+<p>[<img src="https://media.licdn.com/dms/image/v2/D4D03AQFZ6QSPUTMJgw/profile-displayphoto-scale_100_100/B4DZv0pc6UHEAc-/0/1769336069133?e=1787788800&amp;v=beta&amp;t=Kv3KENg_QZ2e46kLJC6T-DpIfn498Dj9jQHx0kFQt_M" alt="최다정님의  그래픽 링크 보기"/></p>
+<p><img src="https://static.licdn.com/aero-v1/sc/h/4c1dzspg0yqfip47a9y26tnx8" alt="like"/>](<a href="https://www.linkedin.com/in/ACoAAGPEUEoBe4W1OtXcPM9dhSiBPd4fCwcRL98" class="external">https://www.linkedin.com/in/ACoAAGPEUEoBe4W1OtXcPM9dhSiBPd4fCwcRL98<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>)</p>
+</li>
+<li>
+<p>[<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Park Jonghyun님의  그래픽 링크 보기"/></p>
+<p><img src="https://static.licdn.com/aero-v1/sc/h/4c1dzspg0yqfip47a9y26tnx8" alt="like"/>](<a href="https://www.linkedin.com/in/ACoAAA5ifPoB5HGroKKrkZbu3NDp-H_9lAQuKiE" class="external">https://www.linkedin.com/in/ACoAAA5ifPoB5HGroKKrkZbu3NDp-H_9lAQuKiE<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>)</p>
+</li>
+<li>
+<p>[<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="정석용님의  그래픽 링크 보기"/></p>
+<p><img src="https://static.licdn.com/aero-v1/sc/h/4c1dzspg0yqfip47a9y26tnx8" alt="like"/>](<a href="https://www.linkedin.com/in/ACoAAGKyJz0BOuZ_1pWGSXVg4XxiRcOe_D9TBoA" class="external">https://www.linkedin.com/in/ACoAAGKyJz0BOuZ_1pWGSXVg4XxiRcOe_D9TBoA<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>)</p>
+</li>
+<li>
+<p>[<img src="https://media.licdn.com/dms/image/v2/D5603AQHFhlPYLTkG2g/profile-displayphoto-scale_100_100/B56Ztu1WDlHgAc-/0/1767091037859?e=1787788800&amp;v=beta&amp;t=arWtOfGSHKnsiNw71-3LGtko_BTyf8HBP_r3OdxveKI" alt="Hosook Jeon님의  그래픽 링크 보기"/></p>
+<p><img src="https://static.licdn.com/aero-v1/sc/h/4c1dzspg0yqfip47a9y26tnx8" alt="like"/>](<a href="https://www.linkedin.com/in/ACoAAGK7EMYBUhqU6UMY2TNqVXLCrvRyBGsr3yU" class="external">https://www.linkedin.com/in/ACoAAGK7EMYBUhqU6UMY2TNqVXLCrvRyBGsr3yU<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>)</p>
+</li>
+<li>
+<p>[<img src="https://media.licdn.com/dms/image/v2/C5603AQEsUH1LvAKtxg/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1641697520559?e=1787788800&amp;v=beta&amp;t=WWcU4GXcR5aUbTQAjL52N9nRahAN9eYN95QI49H4LaE" alt="배휘동님의  그래픽 링크 보기"/></p>
+<p><img src="https://static.licdn.com/aero-v1/sc/h/4c1dzspg0yqfip47a9y26tnx8" alt="like"/>](<a href="https://www.linkedin.com/in/ACoAAAyhJxgBhcvAmkhIp2YcqJUp7HboCVTXBbk" class="external">https://www.linkedin.com/in/ACoAAAyhJxgBhcvAmkhIp2YcqJUp7HboCVTXBbk<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>)</p>
+</li>
+<li>
+<p>[<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Lee Seung Ho님의  그래픽 링크 보기"/></p>
+<p><img src="https://static.licdn.com/aero-v1/sc/h/4c1dzspg0yqfip47a9y26tnx8" alt="like"/>](<a href="https://www.linkedin.com/in/ACoAACnYJ5UBDQo293WdcpL4XSp2hI-LdWJhu3Q" class="external">https://www.linkedin.com/in/ACoAACnYJ5UBDQo293WdcpL4XSp2hI-LdWJhu3Q<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>)</p>
+</li>
+<li>
+<p>[<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Sangwon Kang님의  그래픽 링크 보기"/></p>
+<p><img src="https://static.licdn.com/aero-v1/sc/h/4c1dzspg0yqfip47a9y26tnx8" alt="like"/>](<a href="https://www.linkedin.com/in/ACoAACmKf-0BVfJgpQqwvGnvW5QliQoW8iQQsBE" class="external">https://www.linkedin.com/in/ACoAACmKf-0BVfJgpQqwvGnvW5QliQoW8iQQsBE<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>)</p>
+</li>
+<li>
+<p>[<img src="https://media.licdn.com/dms/image/v2/D5603AQEFO40yGFfWyQ/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1720014131372?e=1787788800&amp;v=beta&amp;t=0SQIKk-EkfVUov_BkCV3kuzu3ANe3vlsV446zyLIqWg" alt="Eunkyu Park (박은규)님의  그래픽 링크 보기"/></p>
+<p><img src="https://static.licdn.com/aero-v1/sc/h/4c1dzspg0yqfip47a9y26tnx8" alt="like"/>](<a href="https://www.linkedin.com/in/ACoAACIPSokBmEZ0nETBmD1JnWf8mJgaGdcqvfk" class="external">https://www.linkedin.com/in/ACoAACIPSokBmEZ0nETBmD1JnWf8mJgaGdcqvfk<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>)</p>
+</li>
+</ul>
+<p><img src="https://media.licdn.com/dms/image/v2/D5603AQGQsU6QlPnOUw/profile-displayphoto-shrink_100_100/B56ZWOsQe3HsAc-/0/1741855721833?e=1787788800&amp;v=beta&amp;t=BYn_7iwYzjvG8FguuGEagWS9UjgdGEJ4b-7-cAlqHdA" alt="KwonHyuck Min님"/></p>
+<p><a href="https://www.linkedin.com/in/kris-yu-350510263" class="external">kris yu님의  그래픽 링크 보기<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<p>[### kris yu • 3촌 이상</p>
+<p>Founder &amp; CEO at Conscience Technology](<a href="https://www.linkedin.com/in/kris-yu-350510263" class="external">https://www.linkedin.com/in/kris-yu-350510263<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>)</p>
+<p>2주</p>
+<p>너무 공감되는 글입니다 ㅎㅎㅎ</p>
+<hr/>
+<p><em>원문: <a href="https://www.linkedin.com/posts/gb-jeong_ai%EB%A5%BC-%EB%AA%BB-%EC%93%B0%EB%8A%94-%ED%9A%8C%EC%82%AC%EB%8A%94-%EB%A7%A4%EB%B2%88-%EB%A7%A8%EB%95%85%EC%97%90%EC%84%9C-%EC%8B%9C%EC%9E%91%ED%95%A9%EB%8B%88%EB%8B%A4-%EC%9E%98-%EC%93%B0%EA%B8%B0-%EC%8B%9C%EC%9E%91%ED%95%9C-%ED%9A%8C%EC%82%AC%EB%8A%94-share-7483544212328587264-Ka_5/?utm_source=social_share_send&amp;utm_medium=ios_app&amp;rcm=ACoAAAbbNOkBv7QeuAeF00hO2ZZHHsvNNE4vob0&amp;utm_campaign=copy_link" class="external">https://www.linkedin.com/posts/gb-jeong_ai를-못-쓰는-회사는-매번-맨땅에서-시작합니다-잘-쓰기-시작한-회사는-share-7483544212328587264-Ka_5/?utm_source=social_share_send&amp;utm_medium=ios_app&amp;rcm=ACoAAAbbNOkBv7QeuAeF00hO2ZZHHsvNNE4vob0&amp;utm_campaign=copy_link<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></em></p></article><hr/><div class="page-footer"><div class="backlinks"><h3>백링크</h3><ul id="list-1" class="overflow"><li><a href="../garden/20260806-model-routing-is-capital-allocation" class="internal">모델 라우팅은 취향 선택이 아니라 자본 배분이다</a></li><li><a href="../garden/20260806-real-ai-cost-is-unaccumulated-learning" class="internal">AI 도입의 진짜 비용은 토큰이 아니라 축적되지 않는 학습이다</a></li><li><a href="../garden/20260806-taste-is-the-only-unborrowable-moat" class="internal">모델은 빌릴 수 있지만 taste는 빌릴 수 없다</a></li><li><a href="../wiki/concepts/20260806-internal-ai-lab" class="internal">Internal AI Lab (사내 학습 시스템)</a></li><li><a href="../wiki/entities/20260806-bridgewater-aia-labs" class="internal">Bridgewater AIA Labs</a></li><li><a href="../wiki/entities/20260806-thinking-machines-tinker" class="internal">Thinking Machines Tinker</a></li><li class="overflow-end"></li></ul></div><div class="giscus" data-repo="dataofmen/quartz-wiki" data-repo-id="R_kgDOSOxrZA" data-category="General" data-category-id="DIC_kwDOSOxrZM4C-Edy" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-input-position="bottom" data-light-theme="light" data-dark-theme="dark" data-theme-url="https://dataofmen.github.io/static/giscus" data-lang="ko"></div></div></div><div class="right sidebar"><div class="graph desktop-only"><h3>그래프 뷰</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                  s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                  c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                  C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                  c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                  v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                  s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                  C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                  S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                  s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                  s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.5.2</a> © 2026</p><ul></ul></footer></div></div></body><script type="application/javascript" data-persist="true">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module" data-persist="true">function E(a,e){if(!a)return;function t(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function n(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}a?.addEventListener("click",t),window.addCleanup(()=>a?.removeEventListener("click",t)),document.addEventListener("keydown",n),window.addCleanup(()=>document.removeEventListener("keydown",n))}function f(a){for(;a.firstChild;)a.removeChild(a.firstChild)}var m=class{constructor(e,t){this.container=e;this.content=t;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),t=this.onMouseMove.bind(this),n=this.onMouseUp.bind(this),o=this.onTouchStart.bind(this),r=this.onTouchMove.bind(this),i=this.onTouchEnd.bind(this),s=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",t),document.addEventListener("mouseup",n),this.container.addEventListener("touchstart",o,{passive:!1}),document.addEventListener("touchmove",r,{passive:!1}),document.addEventListener("touchend",i),window.addEventListener("resize",s),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",t),()=>document.removeEventListener("mouseup",n),()=>this.container.removeEventListener("touchstart",o),()=>document.removeEventListener("touchmove",r),()=>document.removeEventListener("touchend",i),()=>window.removeEventListener("resize",s))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let t=this.createButton("+",()=>this.zoom(.1)),n=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(n),e.appendChild(o),e.appendChild(t),this.container.appendChild(e)}createButton(e,t){let n=document.createElement("button");return n.textContent=e,n.className="mermaid-control-button",n.addEventListener("click",t),window.addCleanup(()=>n.removeEventListener("click",t)),n}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}onTouchStart(e){if(e.touches.length!==1)return;this.isDragging=!0;let t=e.touches[0];this.startPan={x:t.clientX-this.currentPan.x,y:t.clientY-this.currentPan.y}}onTouchMove(e){if(!this.isDragging||e.touches.length!==1)return;e.preventDefault();let t=e.touches[0];this.currentPan={x:t.clientX-this.startPan.x,y:t.clientY-this.startPan.y},this.updateTransform()}onTouchEnd(){this.isDragging=!1}zoom(e){let t=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),n=this.content.getBoundingClientRect(),o=n.width/2,r=n.height/2,i=t-this.scale;this.currentPan.x-=o*i,this.currentPan.y-=r*i,this.scale=t,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){let t=this.content.querySelector("svg").getBoundingClientRect(),n=t.width/this.scale,o=t.height/this.scale;this.scale=1,this.currentPan={x:(this.container.clientWidth-n)/2,y:(this.container.clientHeight-o)/2},this.updateTransform()}},T=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],y;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;y||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let t=y.default,n=new WeakMap;for(let r of e)n.set(r,r.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let c=n.get(s);c&&(s.innerHTML=c)}let r=T.reduce((s,c)=>(s[c]=window.getComputedStyle(document.documentElement).getPropertyValue(c),s),{}),i=document.documentElement.getAttribute("saved-theme")==="dark";t.initialize({startOnLoad:!1,securityLevel:"loose",theme:i?"dark":"base",themeVariables:{fontFamily:r["--codeFont"],primaryColor:r["--light"],primaryTextColor:r["--darkgray"],primaryBorderColor:r["--tertiary"],lineColor:r["--darkgray"],secondaryColor:r["--secondary"],tertiaryColor:r["--tertiary"],clusterBkg:r["--light"],edgeLabelBackground:r["--highlight"]}}),await t.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let r=0;r<e.length;r++){let v=function(){let g=l.querySelector("#mermaid-space"),h=l.querySelector(".mermaid-content");if(!h)return;f(h);let w=i.querySelector("svg").cloneNode(!0);h.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new m(g,h)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},i=e[r],s=i.parentElement,c=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(c),L=c.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),E(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../postscript.js" type="module" data-persist="true"></script></html>
