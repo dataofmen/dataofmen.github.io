@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr"><head><title>2025–2026 年，Polymarket 上的交易 bot 已经创造了超过 6000 万美元利润。</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto Sans KR:wght@400;700&amp;family=Noto Sans KR:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="dataofmen"/><meta property="og:title" content="2025–2026 年，Polymarket 上的交易 bot 已经创造了超过 6000 万美元利润。"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="2025–2026 年，Polymarket 上的交易 bot 已经创造了超过 6000 万美元利润。"/><meta name="twitter:description" content="Hermes + Polymarket：如何搭建一个能自学习的 BTC 交易代理，从 100 美元小资金开始跑自动化策略 2025–2026 年，Polymarket 上的交易 bot 已经创造了超过 6000 万美元利润。 其中 77%，来自同一个市场： Crypto UP/DOWN 更具体一点，是 BTC Up/Down 这类短周期加密市场。 这篇文章讲的不是简单的“AI 自动交易”概念，也不是让你盲目跟单某个 bot。 它真正想拆的是： 为什么 BTC 5 分钟 Up/Down 市场会长期存在结构性低效？ 这些 bot 到底在吃什么 edge？ 以及如何用 Hermes + Atomic..."/><meta property="og:description" content="Hermes + Polymarket：如何搭建一个能自学习的 BTC 交易代理，从 100 美元小资金开始跑自动化策略 2025–2026 年，Polymarket 上的交易 bot 已经创造了超过 6000 万美元利润。 其中 77%，来自同一个市场： Crypto UP/DOWN 更具体一点，是 BTC Up/Down 这类短周期加密市场。 这篇文章讲的不是简单的“AI 自动交易”概念，也不是让你盲目跟单某个 bot。 它真正想拆的是： 为什么 BTC 5 分钟 Up/Down 市场会长期存在结构性低效？ 这些 bot 到底在吃什么 edge？ 以及如何用 Hermes + Atomic..."/><meta property="og:image:alt" content="Hermes + Polymarket：如何搭建一个能自学习的 BTC 交易代理，从 100 美元小资金开始跑自动化策略 2025–2026 年，Polymarket 上的交易 bot 已经创造了超过 6000 万美元利润。 其中 77%，来自同一个市场： Crypto UP/DOWN 更具体一点，是 BTC Up/Down 这类短周期加密市场。 这篇文章讲的不是简单的“AI 自动交易”概念，也不是让你盲目跟单某个 bot。 它真正想拆的是： 为什么 BTC 5 分钟 Up/Down 市场会长期存在结构性低效？ 这些 bot 到底在吃什么 edge？ 以及如何用 Hermes + Atomic..."/><meta property="og:image" content="https://dataofmen.github.io/static/og-image.png"/><meta property="og:image:url" content="https://dataofmen.github.io/static/og-image.png"/><meta name="twitter:image" content="https://dataofmen.github.io/static/og-image.png"/><meta property="og:image:type" content="image/.png"/><meta property="twitter:domain" content="dataofmen.github.io"/><meta property="og:url" content="https://dataofmen.github.io/clippings/20260605-20252026-polymarket"/><meta property="twitter:url" content="https://dataofmen.github.io/clippings/20260605-20252026-polymarket"/><link rel="icon" href="../static/icon.png"/><meta name="description" content="Hermes + Polymarket：如何搭建一个能自学习的 BTC 交易代理，从 100 美元小资金开始跑自动化策略 2025–2026 年，Polymarket 上的交易 bot 已经创造了超过 6000 万美元利润。 其中 77%，来自同一个市场： Crypto UP/DOWN 更具体一点，是 BTC Up/Down 这类短周期加密市场。 这篇文章讲的不是简单的“AI 自动交易”概念，也不是让你盲目跟单某个 bot。 它真正想拆的是： 为什么 BTC 5 分钟 Up/Down 市场会长期存在结构性低效？ 这些 bot 到底在吃什么 edge？ 以及如何用 Hermes + Atomic..."/><meta name="generator" content="Quartz"/><link href="../index.css" rel="stylesheet" type="text/css" data-persist="true"/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiL2hvbWUvcnVubmVyL3dvcmsvcXVhcnR6LXdpa2kvcXVhcnR6LXdpa2kvcXVhcnR6L2NvbXBvbmVudHMvc3R5bGVzIiwic291cmNlcyI6WyJtZXJtYWlkLmlubGluZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFHRjtFQUNFOzs7QUFLRjtFQUNFO0VBQ0E7OztBQUlKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFOztBQUdGO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFJSjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTs7QUFJRjtFQUNFO0VBQ0E7RUFDQSIsInNvdXJjZXNDb250ZW50IjpbIi5leHBhbmQtYnV0dG9uIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbG9hdDogcmlnaHQ7XG4gIHBhZGRpbmc6IDAuNHJlbTtcbiAgbWFyZ2luOiAwLjNyZW07XG4gIHJpZ2h0OiAwOyAvLyBOT1RFOiByaWdodCB3aWxsIGJlIHNldCBpbiBtZXJtYWlkLmlubGluZS50c1xuICBjb2xvcjogdmFyKC0tZ3JheSk7XG4gIGJvcmRlci1jb2xvcjogdmFyKC0tZGFyayk7XG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWxpZ2h0KTtcbiAgYm9yZGVyOiAxcHggc29saWQ7XG4gIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgb3BhY2l0eTogMDtcbiAgdHJhbnNpdGlvbjogMC4ycztcblxuICAmID4gc3ZnIHtcbiAgICBmaWxsOiB2YXIoLS1saWdodCk7XG4gICAgZmlsdGVyOiBjb250cmFzdCgwLjMpO1xuICB9XG5cbiAgJjpob3ZlciB7XG4gICAgY3Vyc29yOiBwb2ludGVyO1xuICAgIGJvcmRlci1jb2xvcjogdmFyKC0tc2Vjb25kYXJ5KTtcbiAgfVxuXG4gICY6Zm9jdXMge1xuICAgIG91dGxpbmU6IDA7XG4gIH1cbn1cblxucHJlIHtcbiAgJjpob3ZlciA+IC5leHBhbmQtYnV0dG9uIHtcbiAgICBvcGFjaXR5OiAxO1xuICAgIHRyYW5zaXRpb246IDAuMnM7XG4gIH1cbn1cblxuI21lcm1haWQtY29udGFpbmVyIHtcbiAgcG9zaXRpb246IGZpeGVkO1xuICBjb250YWluOiBsYXlvdXQ7XG4gIHotaW5kZXg6IDk5OTtcbiAgbGVmdDogMDtcbiAgdG9wOiAwO1xuICB3aWR0aDogMTAwdnc7XG4gIGhlaWdodDogMTAwdmg7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIGRpc3BsYXk6IG5vbmU7XG4gIGJhY2tkcm9wLWZpbHRlcjogYmx1cig0cHgpO1xuICBiYWNrZ3JvdW5kOiByZ2JhKDAsIDAsIDAsIDAuNSk7XG5cbiAgJi5hY3RpdmUge1xuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgfVxuXG4gICYgPiAjbWVybWFpZC1zcGFjZSB7XG4gICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1saWdodCk7XG4gICAgYm9yZGVyLXJhZGl1czogNXB4O1xuICAgIHBvc2l0aW9uOiBmaXhlZDtcbiAgICB0b3A6IDUwJTtcbiAgICBsZWZ0OiA1MCU7XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGUoLTUwJSwgLTUwJSk7XG4gICAgaGVpZ2h0OiA4MHZoO1xuICAgIHdpZHRoOiA4MHZ3O1xuICAgIG92ZXJmbG93OiBoaWRkZW47XG5cbiAgICAmID4gLm1lcm1haWQtY29udGVudCB7XG4gICAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgICB0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7XG4gICAgICB0cmFuc2l0aW9uOiB0cmFuc2Zvcm0gMC4xcyBlYXNlO1xuICAgICAgb3ZlcmZsb3c6IHZpc2libGU7XG4gICAgICBtaW4taGVpZ2h0OiAyMDBweDtcbiAgICAgIG1pbi13aWR0aDogMjAwcHg7XG5cbiAgICAgIHByZSB7XG4gICAgICAgIG1hcmdpbjogMDtcbiAgICAgICAgYm9yZGVyOiBub25lO1xuICAgICAgfVxuXG4gICAgICBzdmcge1xuICAgICAgICBtYXgtd2lkdGg6IG5vbmU7XG4gICAgICAgIGhlaWdodDogYXV0bztcbiAgICAgIH1cbiAgICB9XG5cbiAgICAmID4gLm1lcm1haWQtY29udHJvbHMge1xuICAgICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgICAgYm90dG9tOiAyMHB4O1xuICAgICAgcmlnaHQ6IDIwcHg7XG4gICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgZ2FwOiA4cHg7XG4gICAgICBwYWRkaW5nOiA4cHg7XG4gICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1saWdodCk7XG4gICAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgICAgYm9yZGVyLXJhZGl1czogNnB4O1xuICAgICAgYm94LXNoYWRvdzogMCAycHggNHB4IHJnYmEoMCwgMCwgMCwgMC4xKTtcbiAgICAgIHotaW5kZXg6IDI7XG5cbiAgICAgIC5tZXJtYWlkLWNvbnRyb2wtYnV0dG9uIHtcbiAgICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICAgICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gICAgICAgIHdpZHRoOiAzMnB4O1xuICAgICAgICBoZWlnaHQ6IDMycHg7XG4gICAgICAgIHBhZGRpbmc6IDA7XG4gICAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0KTtcbiAgICAgICAgY29sb3I6IHZhcigtLWRhcmspO1xuICAgICAgICBib3JkZXItcmFkaXVzOiA0cHg7XG4gICAgICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICAgICAgZm9udC1zaXplOiAxNnB4O1xuICAgICAgICBmb250LWZhbWlseTogdmFyKC0tYm9keUZvbnQpO1xuICAgICAgICB0cmFuc2l0aW9uOiBhbGwgMC4ycyBlYXNlO1xuXG4gICAgICAgICY6aG92ZXIge1xuICAgICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIH1cblxuICAgICAgICAmOmFjdGl2ZSB7XG4gICAgICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKDFweCk7XG4gICAgICAgIH1cblxuICAgICAgICAvLyBTdHlsZSB0aGUgcmVzZXQgYnV0dG9uIGRpZmZlcmVudGx5XG4gICAgICAgICY6bnRoLWNoaWxkKDIpIHtcbiAgICAgICAgICB3aWR0aDogYXV0bztcbiAgICAgICAgICBwYWRkaW5nOiAwIDEycHg7XG4gICAgICAgICAgZm9udC1zaXplOiAxNHB4O1xuICAgICAgICB9XG4gICAgICB9XG4gICAgfVxuICB9XG59XG4iXX0= */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../prescript.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://dataofmen.github.io/index.xml"/></head><body data-slug="clippings/20260605-20252026-polymarket"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"></div><div class="center"><div class="page-header"><header><h2 class="page-title"><a href="..">dataofmen</a></h2><nav class="nav-links"><a href="/wiki" class="nav-link">wiki</a><a href="/garden" class="nav-link">garden</a><a href="/clippings" class="nav-link">clippings</a></nav><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 1rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>검색</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="검색어를 입력하세요" placeholder="검색어를 입력하세요"/><div class="search-layout" data-preview="true"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="다크 모드"><title>다크 모드</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="라이트 모드"><title>라이트 모드</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div></div></header><div class="popover-hint"><h1 class="article-title">2025–2026 年，Polymarket 上的交易 bot 已经创造了超过 6000 万美元利润。</h1><p show-comma="true" class="content-meta"><time datetime="2026-06-05T00:00:00.000Z">2026년 6월 05일</time><span>17 min read</span></p></div></div><article class="popover-hint"><h1 id="hermes--polymarket如何搭建一个能自学习的-btc-交易代理从-100-美元小资金开始跑自动化策略">Hermes + Polymarket：如何搭建一个能自学习的 BTC 交易代理，从 100 美元小资金开始跑自动化策略<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#hermes--polymarket如何搭建一个能自学习的-btc-交易代理从-100-美元小资金开始跑自动化策略" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>2025–2026 年，Polymarket 上的交易 bot 已经创造了超过 6000 万美元利润。</p>
+<p>其中 77%，来自同一个市场：</p>
+<p>Crypto UP/DOWN</p>
+<p>更具体一点，是 BTC Up/Down 这类短周期加密市场。</p>
+<p>这篇文章讲的不是简单的“AI 自动交易”概念，也不是让你盲目跟单某个 bot。</p>
+<p>它真正想拆的是：</p>
+<p>为什么 BTC 5 分钟 Up/Down 市场会长期存在结构性低效？</p>
+<p>这些 bot 到底在吃什么 edge？</p>
+<p>以及如何用 Hermes + Atomic + Claude Opus + Polymarket CLOB v2，搭建一个可以持续复盘、持续调整参数、具备自学习能力的 BTC 交易代理。</p>
+<p>01｜机会在哪里？</p>
+<p>为什么是 BTC Up/Down 市场？</p>
+<p>Polymarket 上的 BTC 5 分钟 Up/Down 市场，是预测市场里结构性低效最明显的板块之一，大多数人交易这类市场，依靠的是情绪</p>
+<p>新闻来了，跟</p>
+<p>社交媒体热了，跟</p>
+<p>K 线突然波动，凭感觉下注</p>
+<p>但真正赚钱的 bot，不是这样交易的</p>
+<p>它看的不是情绪，也不是短期噪音</p>
+<p>它看的是 BTC 价格状态背后的转移概率，当 BTC 进入一个明确的方向状态时，这种状态是否会继续，是可以被数学模型测量出来的</p>
+<p>人群还在根据感觉下注时，transition matrix 已经能提前识别出状态持续性</p>
+<p>这就是差距</p>
+<p>数学模型给出的概率，和市场当前价格之间的差，就是 edge，而且这个 edge 不是一次性的，它可以被重复捕捉</p>
+<p>可以被放大，也可以被自动化执行，这套系统使用的 agent 框架是 Hermes</p>
+<p>Hermes 是 NousResearch 推出的开源框架</p>
+<p>NousResearch 背后有 Paradigm 的 7000 万美元支持</p>
+<p>到 2026 年 4 月，Hermes 的 GitHub stars 已经超过 Anthropic 的 Claude Code</p>
+<p>这说明开发者社区正在快速采用这类 agent 框架</p>
+<p>也意味着，自动化交易正在从“写死规则的 bot”，升级成“能调用模型、读取日志、持续复盘的 agent 系统”</p>
+<p>BTC Up/Down 市场非常适合这种系统</p>
+<p>单个资产每天有：288 个交易窗口。</p>
+<p>平均：每 81 秒就可能出现一笔交易机会。</p>
+<p>平均 edge window 大约是：5%–15% gap。</p>
+<p>当模型概率满足：p ≥ 0.87</p>
+<p>对应胜率大概在：63%–72%。</p>
+<p>这不是说每一笔都会赢</p>
+<p>而是 bot 只在概率优势足够明显的时候进场</p>
+<p>现在已经有几个 bot 在这类市场里跑出了结果</p>
+<p>第一个是 Bonereaper</p>
+<p>它的策略是：</p>
+<p>High-Confidence Spread Capture</p>
+<p>也就是高确定性价差捕捉</p>
+<p>Profile：<a href="https://polymarket.com/@bonereaper?via=Miko66" class="external">https://polymarket.com/@bonereaper?via=Miko66<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<p>第二个是 0xe1D6b514</p>
+<p>它的策略是：</p>
+<p>Dual-Mode Expected Value</p>
+<p>也就是双模式 EV 策略</p>
+<p>Profile：</p>
+<p><a href="https://polymarket.com/@0xe1d6b51521bd4365769199f392f9818661bd907?via=Miko66" class="external">https://polymarket.com/@0xe1d6b51521bd4365769199f392f9818661bd907?via=Miko66<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<p>第三个是 0xB27BC932</p>
+<p>Multi-Asset Variance Reduction</p>
+<p>也就是多资产降低方差。</p>
+<p>Profile：</p>
+<p><a href="https://polymarket.com/@0xb27bc932bf8110d8f78e55da7d5f0497a18b5b82-1772569391020?via=Miko66" class="external">https://polymarket.com/@0xb27bc932bf8110d8f78e55da7d5f0497a18b5b82-1772569391020?via=Miko66<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<p>三个 bot</p>
+<p>同一个市场板块，同一套底层数学逻辑</p>
+<p>合计收益：$2,112,019</p>
+<p>02｜edge 是怎么来的？</p>
+<p>这套模型的核心，是 Markov Chain analysis</p>
+<p>也就是马尔可夫链分析</p>
+<p>它的基本思路是：</p>
+<p>把 BTC 的价格变化拆成不同状态，然后计算当前状态转移到下一个状态的概率</p>
+<p>关键点在于：</p>
+<p>价格运动并不总是随机的</p>
+<p>当市场进入一个持续性的方向状态时，它继续沿着这个状态运行的概率，可能会显著高于 50%，这时，如果市场价格还没有完全反映这个概率，就会出现交易机会。</p>
+<p>进场公式是：</p>
+<p>Δ⁽ʷ⁾ = p̂⁽ʷ⁾ − q⁽ʷ⁾ ≥ ε → ENTER</p>
+<p>其中：p̂ = 模型概率  q = 市场价格  ε = 最小 gap</p>
+<p>这里设置的最小 gap 是：5%。</p>
+<p>也就是说，如果模型认为某个方向的真实概率是 70%，而市场只定价到 62%，中间就有 8% 的差距，只要这个差距超过 5%，这笔交易就进入候选</p>
+<p>收益公式是：r = (1 − q) / q</p>
+<p>如果进场价格是：q = 0.647</p>
+<p>那么单笔收益率约为：+54.5%。</p>
+<p>如果进场价格是：q = 0.441</p>
+<p>那么单笔收益率约为：+126.7%。</p>
+<p>这就是为什么一些中等价格区间的 Up/Down 交易，看起来收益率非常高</p>
+<p>但价格越低，潜在收益越高，风险也越大，所以不能只看收益率，还要看模型概率、胜率和仓位控制</p>
+<p>bot 还有一个更严格的入场条件：</p>
+<p>p(j*,j*) ≥ 0.87</p>
+<p>这是 Markov persistence threshold</p>
+<p>也就是状态持续性阈值，只有当某个状态继续保持的概率达到 87% 以上，bot 才会进场，低于这个阈值，不交易</p>
+<p>这也是为什么它不需要传统意义上的“方向预测”，胜率依然可以稳定在 65% 以上，它不是每个窗口都下注，它只等市场进入高持续性状态，再去捕捉模型概率和市场价格之间的 gap，仓位管理用的是 Kelly Criterion</p>
+<p>公式是：</p>
+<p>Kelly f* = p − (1−p)/b</p>
+<p>其中：</p>
+<p>p 是模型概率或胜率  b 是赔率收益</p>
+<p>当：</p>
+<p>p = 0.87   b = 0.647</p>
+<p>对应的 Kelly 仓位约为：f* ≈ 0.71。</p>
+<p>Kelly 的作用不是让 bot 无脑重仓，而是在胜率和赔率确定的情况下，计算一个更合理的下注比例，仓位太小，增长太慢，仓位太大，一次错误就可能伤到本金，所以这套系统真正依赖的不是“每一笔都赢”</p>
+<p>而是：</p>
+<p>概率过滤</p>
+<p>状态持续性过滤。</p>
+<p>5% 以上 gap 过滤</p>
+<p>再用 Kelly sizing 控制仓位</p>
+<p>03｜需要哪些工具？</p>
+<p>这套系统可以完全基于开源工具运行，不需要从零写一个完整交易系统</p>
+<p>也不需要一开始就是高级开发者，整体成本也很低。</p>
+<p>每月成本：低于 $10。</p>
+<p>最低启动资金：$10。</p>
+<p>更推荐的起步资金：$50。</p>
+<p>Gas 费用：约 2 POL，大概 $1</p>
+<p>搭建时间：约 30 分钟。</p>
+<p>核心组合是：</p>
+<p>Hermes agent framework</p>
+<p>Atomic</p>
+<p>Claude Opus</p>
+<p>GitHub repo</p>
+<p>Polymarket CLOB v2</p>
+<p>Telegram bot</p>
+<p>这套组合的重点不是让 AI 凭感觉下注</p>
+<p>而是让 agent 读取策略、执行规则、记录日志、复盘交易，并根据结果更新参数</p>
+<p>04｜如何用 3 步设置 Hermes？</p>
+<p>Step 01｜安装 Atomic，并启动 Hermes</p>
+<p>第一步，进入：atomicbot.ai</p>
+<p>下载 Atomic</p>
+<p>打开后，在主页选择 Hermes agent。你可以选择本地运行，也可以选择右上角的：</p>
+<p>Run in Cloud</p>
+<p>用 Google 登录之后，云端和本地使用的是同一套界面，如果是在 Mac 上本地运行，下载后把 app 移动到 Applications 文件夹</p>
+<p>Atomic 支持 100+ integrations、persistent memory，以及 Claude、ChatGPT、Gemini 等主流 AI 模型，所以它更像是一个 agent 工作台，而不是单纯的交易脚本</p>
+<p>Step 02｜连接模型 API</p>
+<p>第二步，在 Atomic 里连接模型 API。</p>
+<p>路径是：</p>
+<p>Atomic settings → AI Models → Anthropic → paste your API key</p>
+<p>然后选择：</p>
+<p>Claude Opus 4.7</p>
+<p>它的作用是作为 agent 的大脑</p>
+<p>用来做实时市场分析、读取交易日志、复盘策略表现，并根据结果调整参数。</p>
+<p>也可以选择替代方案：OpenRouter</p>
+<p>按量付费</p>
+<p>或者：OpenAI Codex</p>
+<p>通过 ChatGPT Pro 使用</p>
+<p>配置示例：</p>
+<p>这里 temperature 设置为 0.2，因为交易决策需要稳定性，不需要模型每次都发散思考，温度越低，输出越一致。</p>
+<p>Step 03｜连接 Telegram bot</p>
+<p>第三步，把 Telegram bot 接入 agent。</p>
+<p>路径是：</p>
+<p>Atomic → Skills → Messengers → Telegram → Connect</p>
+<p>然后打开 Telegram，通过：@BotFather 创建一个 bot</p>
+<p>复制 token，粘贴回 Atomic</p>
+<p>这样 Hermes agent 就可以通过 Telegram 给你发送交易报告、运行状态、dry run 总结和每日复盘</p>
+<p>从这一步开始，agent 就已经在线，等待你输入交易逻辑</p>
+<p>05｜设置 BTC 交易策略</p>
+<p>不要从零开始写交易系统</p>
+<p>更好的方式是找一个已有 GitHub repo 作为基础逻辑，然后交给 Hermes，让 Claude Opus 把它更新到最新的 Polymarket CLOB v2</p>
+<p>推荐的 repo 有 3 个。</p>
+<p>第一个：aulekator/polymarket-BTC-15-Minute-Trading-Bot</p>
+<p>特点是 production-grade</p>
+<p>包含 7-phase architecture、Grafana、Redis、SL/TP</p>
+<p>适合做：</p>
+<p>Markov-based entries</p>
+<p>Kelly sizing</p>
+<p>第二个：JLowo/gengar-polymarket-bot</p>
+<p>特点是：</p>
+<p>Quarter-Kelly</p>
+<p>Brownian motion</p>
+<p>calibrated vol</p>
+<p>适合更保守的仓位管理，以及带有现实风控边界的策略</p>
+<p>第三个：dijenne/Polymarket-bot</p>
+<p>它有两套策略：arbitrage + momentum</p>
+<p>并且支持 auto-optimization</p>
+<p>适合做多策略组合</p>
+<p>Step 1｜给 Hermes 输入交易逻辑 prompt</p>
+<p>第一段 prompt 的目标，是让 Hermes 基于已有 repo 构建一个 Polymarket BTC 5 分钟 Up/Down trading agent。</p>
+<p>基础 repo：github.com/aulekator/polymarket-BTC-15-Minute-Trading-Bot</p>
+<p>目标：更新到 Polymarket CLOB v2，并准备成可以安全实盘的版本。</p>
+<p>提示词“</p>
+<p>Step 2｜设置钱包</p>
+<p>Step 3｜环境变量配置</p>
+<p>.env 配置如下：</p>
+<p>几个核心参数：DRY_RUN=true</p>
+<p>先模拟运行</p>
+<p>MIN_EDGE=0.05</p>
+<p>至少 5% gap 才考虑入场</p>
+<p>MIN_PROB=0.87</p>
+<p>Markov 状态持续概率至少达到 87%</p>
+<p>MIN_BET=1.00</p>
+<p>用 1 美元小额测试</p>
+<p>MAX_BET=50.00</p>
+<p>限制单笔最大仓位</p>
+<p>BANKROLL=100.00</p>
+<p>初始 bankroll 设置为 100 美元。</p>
+<p>这也是“从 100 美元开始”的来源。</p>
+<p>但它不是保证 100 美元一定变成 10,000 美元</p>
+<p>它只是用 100 美元作为初始资金，测试一个可学习、可复盘、可迭代的交易框架</p>
+<p>Step 4｜先跑 dry test</p>
+<p>06｜自学习循环：agent 如何变得更聪明？</p>
+<p>Hermes 和普通静态 bot 最大的区别，是它可以形成 self-learning loop</p>
+<p>普通 bot 是规则写死的，你设定什么参数，它就一直用什么参数</p>
+<p>但市场不会一直不变，BTC 波动会变</p>
+<p>流动性会变，不同时间段的交易质量会变</p>
+<p>某些 Markov state 可能今天有效，明天就失效</p>
+<p>所以这套系统需要让 agent 读取交易日志，并根据实际结果调整策略</p>
+<p>第一步，执行交易</p>
+<p>当 bot 发现：p(j*,j*) ≥ 0.87，并且 gap 满足要求时，它会进入市场，每一次 entry、exit 和 P/L，都会记录到 journal，这份 journal 是后续自学习的基础</p>
+<p>没有日志，就没有复盘</p>
+<p>没有复盘，就没有优化</p>
+<p>第二步，夜间复盘</p>
+<p>每天结束后，Claude Opus 会读取完整交易日志</p>
+<p>它会分析：</p>
+<p>哪些 Markov states 胜率最高</p>
+<p>哪些 persistence thresholds 表现最好</p>
+<p>哪些窗口亏损最多</p>
+<p>哪些 entry price ranges 的 EV 最好</p>
+<p>这一步不是让 AI 凭感觉调整策略</p>
+<p>而是让模型基于真实交易记录做复盘</p>
+<p>第三步，更新策略</p>
+<p>Claude Opus 会根据交易日志，重写阈值规则，调整 Kelly sizing，并更新关键参数</p>
+<p>比如：</p>
+<p>MIN_PROB</p>
+<p>MIN_EDGE</p>
+<p>如果某个阈值太松，导致亏损变多，就上调</p>
+<p>如果某个价格区间表现更好，就提高权重</p>
+<p>如果 Kelly sizing 太激进，就降低仓位</p>
+<p>第四步，用新规则进入下一轮交易</p>
+<p>下一次 session 运行时，agent 会使用更新后的参数继续执行</p>
+<p>也就是说，它不是每天重复同一套规则</p>
+<p>它会根据过去一天的交易结果，调整明天的策略</p>
+<p>当交易数量达到 50–100 笔 后，agent 会逐渐积累自己的交易历史</p>
+<p>它开始知道哪些状态有效</p>
+<p>哪些价格区间有效</p>
+<p>哪些窗口应该避开</p>
+<p>哪些规则只是噪音</p>
+<p>这就是自学习循环的核心每天早上，Telegram 会发送一份报告</p>
+<p>里面包括：</p>
+<p>昨天的交易表现</p>
+<p>更新后的规则</p>
+<p>今天的策略</p>
+<p>你可以查看报告，确认变更，再决定是否继续运行</p>
+<p>这让 agent 不只是一个自动交易脚本</p>
+<p>它更像是一个会记录、会复盘、会调整、会汇报的交易代理</p>
+<p>夜间复盘 prompt 可以这样设计：</p>
+<p>这套循环的目标，不是让 AI 神奇地预测市场，而是让它把每一笔交易都变成学习数据，每次执行后记录，每天复盘，根据结果更新参数，下一轮再用新参数继续测试</p>
+<p>结论</p>
+<p>Polymarket 上的 trading bots，已经从手动交易员手里拿走了大量利润</p>
+<p>而且这个比例还在继续增加</p>
+<p>随着 Hermes 和 Atomic 这样的 agentic frameworks 出现，搭建交易 agent 的门槛正在降低</p>
+<p>你不一定需要是高级开发者</p>
+<p>你需要的是：</p>
+<p>Claude Opus 作为大脑。</p>
+<p>一个 GitHub repo 作为起点。</p>
+<p>Hermes / Atomic 作为 agent 框架。</p>
+<p>Polymarket CLOB v2 作为执行接口。</p>
+<p>Telegram 作为汇报入口。</p>
+<p>50–100 笔训练交易作为学习数据。</p>
+<p>然后让 self-learning loop 持续复盘和优化。</p>
+<p>但一开始不要急。</p>
+<p>先小额</p>
+<p>先：DRY_RUN=true</p>
+<p>再用：<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1–</span></span></span></span>2 per trade</p>
+<p>跑训练</p>
+<p>不要跳过学习阶段</p>
+<p>因为这套系统真正重要的，不是第一天赚多少钱</p>
+<p>而是 agent 能不能通过每一笔交易变得更好</p>
+<p>能不能识别哪些状态有 edge</p>
+<p>能不能发现哪些窗口在亏钱</p>
+<p>能不能及时调整阈值和仓位</p>
+<p>能不能避免把短期好运误判成长期能力</p>
+<p>Hermes + Polymarket 真正值得关注的地方，不是“AI 自动赚钱”，而是它把预测市场交易，从人的主观判断，变成了一个可记录、可复盘、可迭代的 agent 系统</p>
+<p>PM聪明钱排行榜：</p>
+<p><a href="https://polymarket.com/zh/leaderboard?via=Miko66" class="external">https://polymarket.com/zh/leaderboard?via=Miko66<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<p>如果你感觉推文对你帮助，请点赞转发♥</p>
+<p><em>원문: <a href="https://x.com/mikocrypto11/status/2058857976786764062?s=52" class="external">https://x.com/mikocrypto11/status/2058857976786764062?s=52<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></em></p></article><hr/><div class="page-footer"><div class="backlinks"><h3>백링크</h3><ul id="list-1" class="overflow"><li><a href="../garden/20260605-agent-self-learning-loop-is-the-new-alpha" class="internal">고정된 규칙의 트레이딩 봇 시대는 끝났다 — 스스로 복기하고 진화하는 에이전트 루프가 새로운 알파다</a></li><li><a href="../garden/20260605-prediction-market-profit-comes-from-state-not-direction" class="internal">예측 시장의 진정한 수익은 방향 예측이 아니라 '상태 지속성'의 수치적 괴리에서 발생한다</a></li><li><a href="../wiki/concepts/20260605-markov-chain-trading-agent" class="internal">마르코프 체인 기반 자가 학습 트레이딩 에이전트</a></li><li class="overflow-end"></li></ul></div><div class="giscus" data-repo="dataofmen/quartz-wiki" data-repo-id="R_kgDOSOxrZA" data-category="General" data-category-id="DIC_kwDOSOxrZM4C-Edy" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-input-position="bottom" data-light-theme="light" data-dark-theme="dark" data-theme-url="https://dataofmen.github.io/static/giscus" data-lang="ko"></div></div></div><div class="right sidebar"><div class="graph desktop-only"><h3>그래프 뷰</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                  s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                  c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                  C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                  c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                  v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                  s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                  C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                  S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                  s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                  s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.5.2</a> © 2026</p><ul></ul></footer></div></div></body><script type="application/javascript" data-persist="true">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module" data-persist="true">function E(a,e){if(!a)return;function t(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function n(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}a?.addEventListener("click",t),window.addCleanup(()=>a?.removeEventListener("click",t)),document.addEventListener("keydown",n),window.addCleanup(()=>document.removeEventListener("keydown",n))}function f(a){for(;a.firstChild;)a.removeChild(a.firstChild)}var m=class{constructor(e,t){this.container=e;this.content=t;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),t=this.onMouseMove.bind(this),n=this.onMouseUp.bind(this),o=this.onTouchStart.bind(this),r=this.onTouchMove.bind(this),i=this.onTouchEnd.bind(this),s=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",t),document.addEventListener("mouseup",n),this.container.addEventListener("touchstart",o,{passive:!1}),document.addEventListener("touchmove",r,{passive:!1}),document.addEventListener("touchend",i),window.addEventListener("resize",s),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",t),()=>document.removeEventListener("mouseup",n),()=>this.container.removeEventListener("touchstart",o),()=>document.removeEventListener("touchmove",r),()=>document.removeEventListener("touchend",i),()=>window.removeEventListener("resize",s))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let t=this.createButton("+",()=>this.zoom(.1)),n=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(n),e.appendChild(o),e.appendChild(t),this.container.appendChild(e)}createButton(e,t){let n=document.createElement("button");return n.textContent=e,n.className="mermaid-control-button",n.addEventListener("click",t),window.addCleanup(()=>n.removeEventListener("click",t)),n}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}onTouchStart(e){if(e.touches.length!==1)return;this.isDragging=!0;let t=e.touches[0];this.startPan={x:t.clientX-this.currentPan.x,y:t.clientY-this.currentPan.y}}onTouchMove(e){if(!this.isDragging||e.touches.length!==1)return;e.preventDefault();let t=e.touches[0];this.currentPan={x:t.clientX-this.startPan.x,y:t.clientY-this.startPan.y},this.updateTransform()}onTouchEnd(){this.isDragging=!1}zoom(e){let t=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),n=this.content.getBoundingClientRect(),o=n.width/2,r=n.height/2,i=t-this.scale;this.currentPan.x-=o*i,this.currentPan.y-=r*i,this.scale=t,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){let t=this.content.querySelector("svg").getBoundingClientRect(),n=t.width/this.scale,o=t.height/this.scale;this.scale=1,this.currentPan={x:(this.container.clientWidth-n)/2,y:(this.container.clientHeight-o)/2},this.updateTransform()}},T=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],y;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;y||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let t=y.default,n=new WeakMap;for(let r of e)n.set(r,r.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let c=n.get(s);c&&(s.innerHTML=c)}let r=T.reduce((s,c)=>(s[c]=window.getComputedStyle(document.documentElement).getPropertyValue(c),s),{}),i=document.documentElement.getAttribute("saved-theme")==="dark";t.initialize({startOnLoad:!1,securityLevel:"loose",theme:i?"dark":"base",themeVariables:{fontFamily:r["--codeFont"],primaryColor:r["--light"],primaryTextColor:r["--darkgray"],primaryBorderColor:r["--tertiary"],lineColor:r["--darkgray"],secondaryColor:r["--secondary"],tertiaryColor:r["--tertiary"],clusterBkg:r["--light"],edgeLabelBackground:r["--highlight"]}}),await t.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let r=0;r<e.length;r++){let v=function(){let g=l.querySelector("#mermaid-space"),h=l.querySelector(".mermaid-content");if(!h)return;f(h);let w=i.querySelector("svg").cloneNode(!0);h.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new m(g,h)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},i=e[r],s=i.parentElement,c=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(c),L=c.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),E(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../postscript.js" type="module" data-persist="true"></script></html>

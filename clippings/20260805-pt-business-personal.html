@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr"><head><title>비즈니스 PT - Business Personal Training</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto Sans KR:wght@400;700&amp;family=Noto Sans KR:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="dataofmen"/><meta property="og:title" content="비즈니스 PT - Business Personal Training"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="비즈니스 PT - Business Personal Training"/><meta name="twitter:description" content="Title: 비즈니스 PT - Business Personal Training 여러분이 월 1,000만 원을 벌 수 있는 이유, 그리고 달성 방법을 알려 드리겠습니다. “돈 벌고 성공하는 건 운 아닌가요?” 물론 운도 중요한 건 사실입니다."/><meta property="og:description" content="Title: 비즈니스 PT - Business Personal Training 여러분이 월 1,000만 원을 벌 수 있는 이유, 그리고 달성 방법을 알려 드리겠습니다. “돈 벌고 성공하는 건 운 아닌가요?” 물론 운도 중요한 건 사실입니다."/><meta property="og:image:alt" content="Title: 비즈니스 PT - Business Personal Training 여러분이 월 1,000만 원을 벌 수 있는 이유, 그리고 달성 방법을 알려 드리겠습니다. “돈 벌고 성공하는 건 운 아닌가요?” 물론 운도 중요한 건 사실입니다."/><meta property="og:image" content="https://dataofmen.github.io/static/og-image.png"/><meta property="og:image:url" content="https://dataofmen.github.io/static/og-image.png"/><meta name="twitter:image" content="https://dataofmen.github.io/static/og-image.png"/><meta property="og:image:type" content="image/.png"/><meta property="twitter:domain" content="dataofmen.github.io"/><meta property="og:url" content="https://dataofmen.github.io/clippings/20260805-pt-business-personal"/><meta property="twitter:url" content="https://dataofmen.github.io/clippings/20260805-pt-business-personal"/><link rel="icon" href="../static/icon.png"/><meta name="description" content="Title: 비즈니스 PT - Business Personal Training 여러분이 월 1,000만 원을 벌 수 있는 이유, 그리고 달성 방법을 알려 드리겠습니다. “돈 벌고 성공하는 건 운 아닌가요?” 물론 운도 중요한 건 사실입니다."/><meta name="generator" content="Quartz"/><link href="../index.css" rel="stylesheet" type="text/css" data-persist="true"/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiL2hvbWUvcnVubmVyL3dvcmsvcXVhcnR6LXdpa2kvcXVhcnR6LXdpa2kvcXVhcnR6L2NvbXBvbmVudHMvc3R5bGVzIiwic291cmNlcyI6WyJtZXJtYWlkLmlubGluZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFHRjtFQUNFOzs7QUFLRjtFQUNFO0VBQ0E7OztBQUlKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFOztBQUdGO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFJSjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTs7QUFJRjtFQUNFO0VBQ0E7RUFDQSIsInNvdXJjZXNDb250ZW50IjpbIi5leHBhbmQtYnV0dG9uIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbG9hdDogcmlnaHQ7XG4gIHBhZGRpbmc6IDAuNHJlbTtcbiAgbWFyZ2luOiAwLjNyZW07XG4gIHJpZ2h0OiAwOyAvLyBOT1RFOiByaWdodCB3aWxsIGJlIHNldCBpbiBtZXJtYWlkLmlubGluZS50c1xuICBjb2xvcjogdmFyKC0tZ3JheSk7XG4gIGJvcmRlci1jb2xvcjogdmFyKC0tZGFyayk7XG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWxpZ2h0KTtcbiAgYm9yZGVyOiAxcHggc29saWQ7XG4gIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgb3BhY2l0eTogMDtcbiAgdHJhbnNpdGlvbjogMC4ycztcblxuICAmID4gc3ZnIHtcbiAgICBmaWxsOiB2YXIoLS1saWdodCk7XG4gICAgZmlsdGVyOiBjb250cmFzdCgwLjMpO1xuICB9XG5cbiAgJjpob3ZlciB7XG4gICAgY3Vyc29yOiBwb2ludGVyO1xuICAgIGJvcmRlci1jb2xvcjogdmFyKC0tc2Vjb25kYXJ5KTtcbiAgfVxuXG4gICY6Zm9jdXMge1xuICAgIG91dGxpbmU6IDA7XG4gIH1cbn1cblxucHJlIHtcbiAgJjpob3ZlciA+IC5leHBhbmQtYnV0dG9uIHtcbiAgICBvcGFjaXR5OiAxO1xuICAgIHRyYW5zaXRpb246IDAuMnM7XG4gIH1cbn1cblxuI21lcm1haWQtY29udGFpbmVyIHtcbiAgcG9zaXRpb246IGZpeGVkO1xuICBjb250YWluOiBsYXlvdXQ7XG4gIHotaW5kZXg6IDk5OTtcbiAgbGVmdDogMDtcbiAgdG9wOiAwO1xuICB3aWR0aDogMTAwdnc7XG4gIGhlaWdodDogMTAwdmg7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIGRpc3BsYXk6IG5vbmU7XG4gIGJhY2tkcm9wLWZpbHRlcjogYmx1cig0cHgpO1xuICBiYWNrZ3JvdW5kOiByZ2JhKDAsIDAsIDAsIDAuNSk7XG5cbiAgJi5hY3RpdmUge1xuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgfVxuXG4gICYgPiAjbWVybWFpZC1zcGFjZSB7XG4gICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1saWdodCk7XG4gICAgYm9yZGVyLXJhZGl1czogNXB4O1xuICAgIHBvc2l0aW9uOiBmaXhlZDtcbiAgICB0b3A6IDUwJTtcbiAgICBsZWZ0OiA1MCU7XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGUoLTUwJSwgLTUwJSk7XG4gICAgaGVpZ2h0OiA4MHZoO1xuICAgIHdpZHRoOiA4MHZ3O1xuICAgIG92ZXJmbG93OiBoaWRkZW47XG5cbiAgICAmID4gLm1lcm1haWQtY29udGVudCB7XG4gICAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgICB0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7XG4gICAgICB0cmFuc2l0aW9uOiB0cmFuc2Zvcm0gMC4xcyBlYXNlO1xuICAgICAgb3ZlcmZsb3c6IHZpc2libGU7XG4gICAgICBtaW4taGVpZ2h0OiAyMDBweDtcbiAgICAgIG1pbi13aWR0aDogMjAwcHg7XG5cbiAgICAgIHByZSB7XG4gICAgICAgIG1hcmdpbjogMDtcbiAgICAgICAgYm9yZGVyOiBub25lO1xuICAgICAgfVxuXG4gICAgICBzdmcge1xuICAgICAgICBtYXgtd2lkdGg6IG5vbmU7XG4gICAgICAgIGhlaWdodDogYXV0bztcbiAgICAgIH1cbiAgICB9XG5cbiAgICAmID4gLm1lcm1haWQtY29udHJvbHMge1xuICAgICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgICAgYm90dG9tOiAyMHB4O1xuICAgICAgcmlnaHQ6IDIwcHg7XG4gICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgZ2FwOiA4cHg7XG4gICAgICBwYWRkaW5nOiA4cHg7XG4gICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1saWdodCk7XG4gICAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgICAgYm9yZGVyLXJhZGl1czogNnB4O1xuICAgICAgYm94LXNoYWRvdzogMCAycHggNHB4IHJnYmEoMCwgMCwgMCwgMC4xKTtcbiAgICAgIHotaW5kZXg6IDI7XG5cbiAgICAgIC5tZXJtYWlkLWNvbnRyb2wtYnV0dG9uIHtcbiAgICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICAgICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gICAgICAgIHdpZHRoOiAzMnB4O1xuICAgICAgICBoZWlnaHQ6IDMycHg7XG4gICAgICAgIHBhZGRpbmc6IDA7XG4gICAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0KTtcbiAgICAgICAgY29sb3I6IHZhcigtLWRhcmspO1xuICAgICAgICBib3JkZXItcmFkaXVzOiA0cHg7XG4gICAgICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICAgICAgZm9udC1zaXplOiAxNnB4O1xuICAgICAgICBmb250LWZhbWlseTogdmFyKC0tYm9keUZvbnQpO1xuICAgICAgICB0cmFuc2l0aW9uOiBhbGwgMC4ycyBlYXNlO1xuXG4gICAgICAgICY6aG92ZXIge1xuICAgICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIH1cblxuICAgICAgICAmOmFjdGl2ZSB7XG4gICAgICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKDFweCk7XG4gICAgICAgIH1cblxuICAgICAgICAvLyBTdHlsZSB0aGUgcmVzZXQgYnV0dG9uIGRpZmZlcmVudGx5XG4gICAgICAgICY6bnRoLWNoaWxkKDIpIHtcbiAgICAgICAgICB3aWR0aDogYXV0bztcbiAgICAgICAgICBwYWRkaW5nOiAwIDEycHg7XG4gICAgICAgICAgZm9udC1zaXplOiAxNHB4O1xuICAgICAgICB9XG4gICAgICB9XG4gICAgfVxuICB9XG59XG4iXX0= */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../prescript.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://dataofmen.github.io/index.xml"/></head><body data-slug="clippings/20260805-pt-business-personal"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"></div><div class="center"><div class="page-header"><header><h2 class="page-title"><a href="..">dataofmen</a></h2><nav class="nav-links"><a href="/wiki" class="nav-link">wiki</a><a href="/garden" class="nav-link">garden</a><a href="/clippings" class="nav-link">clippings</a></nav><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 1rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>검색</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="검색어를 입력하세요" placeholder="검색어를 입력하세요"/><div class="search-layout" data-preview="true"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="다크 모드"><title>다크 모드</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="라이트 모드"><title>라이트 모드</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div></div></header><div class="popover-hint"><h1 class="article-title">비즈니스 PT - Business Personal Training</h1><p show-comma="true" class="content-meta"><time datetime="2026-08-05T00:00:00.000Z">2026년 8월 05일</time><span>41 min read</span></p><div class="toc"><button type="button" class="toc-header" aria-controls="toc-99" aria-expanded="true"><h3>목차</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-0" class="toc-content overflow"><li class="depth-0"><a href="#돈은-만들어-내는-것이다" data-for="돈은-만들어-내는-것이다">돈은 만들어 내는 것이다</a></li><li class="depth-0"><a href="#월-1000만-원을-만드는-공식" data-for="월-1000만-원을-만드는-공식">월 1,000만 원을 만드는 공식</a></li><li class="depth-0"><a href="#나의-강점을-살리기" data-for="나의-강점을-살리기">나의 강점을 살리기</a></li><li class="depth-0"><a href="#상품이-없어도-수익화-시작할-수-있는-이유" data-for="상품이-없어도-수익화-시작할-수-있는-이유">상품이 없어도 수익화 시작할 수 있는 이유</a></li><li class="depth-0"><a href="#돈은-만들어-내는-것이다-1" data-for="돈은-만들어-내는-것이다-1">돈은 만들어 내는 것이다</a></li><li class="depth-0"><a href="#월-1000만-원을-만드는-공식-1" data-for="월-1000만-원을-만드는-공식-1">월 1,000만 원을 만드는 공식</a></li><li class="depth-0"><a href="#나의-강점을-살리기-1" data-for="나의-강점을-살리기-1">나의 강점을 살리기</a></li><li class="depth-0"><a href="#상품이-없어도-수익화-시작할-수-있는-이유-1" data-for="상품이-없어도-수익화-시작할-수-있는-이유-1">상품이 없어도 수익화 시작할 수 있는 이유</a></li><li class="overflow-end"></li></ul></div></div></div><article class="popover-hint"><p>Title: 비즈니스 PT - Business Personal Training</p>
+<p>여러분이 <strong>월 1,000만 원을 벌 수 있는 이유,</strong></p>
+<p>그리고 <strong>달성 방법</strong>을 알려 드리겠습니다.</p>
+<p><strong>“돈 벌고 성공하는 건 운 아닌가요?”</strong></p>
+<p>물론 운도 중요한 건 사실입니다.</p>
+<p>어느 시대에 태어났는지, 어떤 집에서 자랐는지, 어떤 기회를 만났는지는 내가 정하지 못하죠.</p>
+<p>경기가 좋을 때 사회생활 시작한 사람과,</p>
+<p>IMF, 코로나 때 시작해야 했던 사람의 출발선은 같을 수 없습니다.</p>
+<p>하지만 수백억 부자가 되는 것이 아닌,</p>
+<p><strong>월 1,000만 원</strong> 버는 것은 ‘운’이 아닙니다.</p>
+<p>**‘운’**보다 **‘실행’**의 영역입니다.</p>
+<p>예를 들어 평범한 사람이 “10개월 동안 퇴근 후 하루 2시간 ~ 3시간씩 무언가를 배워보겠다” 결심합니다.</p>
+<p>하루 2시간 동안 무엇을 배우는지, 무엇을 실천하는지 운보다 실행의 영향을 더 많이 받습니다.</p>
+<p>매일 2시간이 30일, 90일, 180일 쌓이면 누군가는 새로운 수익을 벌기 시작하죠.</p>
+<p>아이 셋을 키우는 <strong>30대 남성</strong>분은 <strong>한 달 1,500만 원 매출</strong>을 발생시켰습니다.</p>
+<p>서울 거주 <strong>40대 여성</strong>분은 <strong>한 달 1,000만 원 매출</strong>을 발생시켰습니다.</p>
+<p>즉, 인생 전체로 보면 운의 비중이 크지만,</p>
+<p>월 1,000만 원만 보면 올바른 배움과 실행으로도 충분합니다.</p>
+<p>이 칼럼을 통해 여러분은 수많은 수익 사례로 검증된 **‘월 1,000만 원 달성 전략’**이 무엇인지 알게 됩니다.</p>
+<p>경제적으로 개선이 필요하고 추가 수익이 필요한 분들이라면 끝까지 읽어보시길 바랍니다.</p>
+<p><img src="https://viewtrap.com/assets/letter_1-8eb2a3ac.png" alt="Image 1: letter_1"/></p>
+<p><img src="https://viewtrap.com/assets/letter_2-8aef60a6.png" alt="Image 2: letter_2"/></p>
+<p>&lt;사진: 비즈니스 PT 회원 매출 발생 사례></p>
+<hr/>
+<h3 id="돈은-만들어-내는-것이다">돈은 만들어 내는 것이다<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#돈은-만들어-내는-것이다" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<hr/>
+<p>‘대리’, ‘과장’, ‘팀장’이라는 직함은 회사를 떠나는 순간 사라지는, 빌려 입은 정체성입니다.</p>
+<p>많은 직장인들이 이 **‘임대된 정체성’**에서 안정감을 찾으려 하죠.</p>
+<p>하지만 부자가 되고 싶다면 자본주의에서 진짜 인정받는 정체성을 가져야 합니다.</p>
+<p>바로 ‘어떠한 문제를 해결해 주는 사람’이라는 정체성입니다.</p>
+<p>자본주의에선 문제 해결이 곧 <strong>돈</strong>입니다.</p>
+<p>고객이 돈을 지불하는 이유는 단순히 상품을 사기 위해서가 아닙니다.</p>
+<p>자신이 겪고 있는 불편, 고통, 욕망, 결핍을 해결하기 위해 돈을 지불합니다.</p>
+<p>여러분이 더 많은 사람의 문제를 해결하면 더 많은 돈이 움직입니다.</p>
+<p>여러분이 더 크고 절실한 문제를 해결하면 그만큼 더 큰돈이 움직입니다.</p>
+<p>여러분 문제 해결사가 되기로 마음먹었다면, 다음 단계는 자연스럽게 이것입니다.</p>
+<p>“문제 해결을 통해 어떻게 돈을 벌 수 있을까?”</p>
+<p>이때 부를 쌓는 사람들은 단순히 돈을 벌려고 애쓰지 않습니다.</p>
+<p>**‘돈이 만들어지는 시스템’**을 설계합니다.</p>
+<p>예를 들어 여러분은 피아노를 가르치는 학원 선생님입니다.</p>
+<p>한 명마다 피아노 치는 것을 봐줘야 하고, 모든 과정에 나의 시간과 노력이 계속 투입되어야 한다면, 이는 직장인처럼 돈을 좇는 방식입니다.</p>
+<p>이 방식은 부자가 되기엔 한계가 있습니다. 만화 나루토처럼 그림자 분신술을 쓰지 않는 이상 힘들죠.</p>
+<p>대신, 여러분은 **‘문제 해결 과정’**을 <strong>시스템화</strong>합니다.</p>
+<p>피아노 강의를 찍고 SNS 콘텐츠가 고객을 대신 모으게 만들고 한 달에 수십 명에게 판매합니다. 내가 잘 때도 돈이 벌리게 끔 세팅하는 것입니다.</p>
+<p>똑같은 직업, 똑같은 고생을 하더라도, <strong>결과가 100배 차이</strong>가 나는 것은 재능 때문이 아닙니다.</p>
+<p>핵심은 문제 해결 과정을 시스템화하고, 이를 실제 수익으로 연결하는 것입니다.</p>
+<p>유튜브는 이 시스템을 만드는 데 가장 좋은 방법입니다.</p>
+<p>콘텐츠 덕분에 고객이 직접 찾아오고, 설득되고, 구매 페이지로 이동해 <strong>내 상품을 구매하는 과정</strong>을 자동으로 만들 수 있습니다.</p>
+<p>콘텐츠 유입 세팅을 잘 해두면 유튜브 채널은 나만의 <strong>24시간 영업사원</strong> 역할을 해내죠.</p>
+<p>“SNS 중에 유튜브가 꼭 아니어도 되지 않나요?”</p>
+<p>다른 플랫폼도 가능합니다.</p>
+<p>하지만 현재 유튜브가 제일 수익화하기 좋은 플랫폼입니다.</p>
+<p>한 달 이용자가 약 4,600만 명으로 대한민국 사람은 다 모여있습니다.</p>
+<p>그리고 유튜브를 먼저 배우게 되면 인스타, 스레드, 틱톡, 블로그 같은 플랫폼은 훨씬 수월해집니다.</p>
+<p>롱폼 콘텐츠는 블로그, 뉴스레터와 맞닿아있고,</p>
+<p>쇼츠는 인스타, 틱톡, 스레드에 맞닿아 있기 때문입니다.</p>
+<p>여러분이 <strong>유튜브 수익화 시스템</strong>을 만든다는 것은 누구도 빼앗을 수 없는 자신만의 **‘가치’**로 돈벌이를 만든다는 뜻입니다.</p>
+<p>이제 <strong>월 1,000만 원</strong>을 꾸준히 만들어내는 <strong>유튜브 수익화 시스템의 정체</strong>를 알려드리겠습니다.</p>
+<hr/>
+<h3 id="월-1000만-원을-만드는-공식">월 1,000만 원을 만드는 공식<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#월-1000만-원을-만드는-공식" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<hr/>
+<p>여러분이 버는 돈은 아래 <strong>단순한 공식</strong>으로 표현됩니다.</p>
+<p><strong>수익 = 얼마 짜리 상품을(객단가) X 몇 개 파는가(판매량)</strong></p>
+<p>직장인은 **한정된 시간(24시간)**이라는 판매량을 고정된 **가격(시급)**에 파는 것입니다.</p>
+<p>24시간 그 이상의 **‘판매량’**을 늘릴 수가 없습니다.</p>
+<p>시급도 회사에 정해진 규칙에 따라야 합니다.</p>
+<p>그래서 우리는 **‘가격’과 ‘판매량’**을 높일 수 있는 <strong>시스템의 영역</strong>으로 들어와야 합니다.</p>
+<p>이걸 기반으로, 유튜브 수익화 시스템은 아래 간단한 공식으로 이루어집니다.</p>
+<p><strong>월 수익</strong> = ①객단가(상품 가격) x ②마진율 x ③구매 전환율(설득력) x ④트래픽(조회수)</p>
+<p><strong>① 객단가:</strong> 상품 하나를 팔았을 때 발생하는 매출.</p>
+<p><strong>② 마진율:</strong> 매출에서 원가를 제외하고 순수하게 남는 이익의 비율.</p>
+<p><strong>③ 구매 전환율:</strong> 여러분의 콘텐츠를 본 사람 중 실제 구매로 이어진 비율.</p>
+<p><strong>④ 트래픽(조회수):</strong> 여러분의 콘텐츠를 본 시청자 수.</p>
+<p>이해를 돕기 위해, 월 1,000만 원에 가까운 월 900만 원을 목표로 잡아보겠습니다.</p>
+<p><strong>1단계 (하루 목표):</strong> 한 달 900만 원을 벌려면, 먼저 하루 목표를 30만 원으로 잡아야 합니다.</p>
+<p><strong>2단계 (상품 이익):</strong> 10만 원짜리 상품을 팔 때 마진율이 30% 라면, 한 개당 순수하게 약 3만 원이 남습니다.</p>
+<p><strong>3단계 (판매 수량):</strong> 하루 목표 30만 원을 채우려면, 3만 원 남는 상품을 10개 팔아야 합니다.</p>
+<p><strong>4단계 (방문자 수):</strong> 영상 1000명이 볼 때 5명이 산다고 가정하면(구매 전환율 0.5%), 하루 10개를 팔기 위해서는 하루 2,000회의 조회수가 필요합니다.</p>
+<p><strong>즉, 하루 순수익 30만 원</strong> = 객단가 10만 원 X 마진율 30% X 구매 전환율 0.5% X 하루 조회수 2,000회</p>
+<p>여러분은 이제 깨달으셨나요?</p>
+<p>“월 1,000만 원을 위해 500만 조회수가 필요한 것이 아니었구나!”</p>
+<p>하루 2,000회면 됩니다.</p>
+<p>유튜브는 조회수 수익이 아니라 **‘비즈니스 방식’**으로 해야 제대로 돈을 벌 수 있습니다.</p>
+<p>그리고 이 방식은 조회수 수익처럼 하루 벌어 하루 사는 방식이 아닌,</p>
+<p>내 채널, 사업이 같이 크고 성장하는 방식입니다.</p>
+<p>사업이기 때문에 추후 **엑싯(매각)**도 가능합니다.</p>
+<p>여러분도 이 **4가지 요소(객단가, 마진율, 전환율, 조회수)**를 잘 조합하고 개선하면 충분히 <strong>월 1,000만 원</strong>이라는 목표에 도달할 수 있습니다.</p>
+<p>아마 이 지점에서, 이런 생각들이 머릿속에 떠오를 수 있습니다.</p>
+<ul>
+<li>
+<p>“10만 원짜리 상품을 구할 방법이 없어”</p>
+</li>
+<li>
+<p>“마진율 30%을 어떻게 구하지?”</p>
+</li>
+<li>
+<p>“구매 전환율 0.5%? 나는 설득하는 능력이 없어”</p>
+</li>
+<li>
+<p>“하루 조회수 2,000회를 어떻게 만들지?”</p>
+</li>
+</ul>
+<p>이 장애물은 포기할 이유가 아니라, 극복만 하면 돈이 벌리는 시작점이 됩니다.</p>
+<p><strong>월 1,000만 원</strong>을 달성하기 위해 장애물을 어떻게 해결해야 하는지 알아봅시다</p>
+<hr/>
+<h3 id="나의-강점을-살리기">나의 강점을 살리기<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#나의-강점을-살리기" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<hr/>
+<p>사업에 재능이 있는 사람이 아니라면, 대부분은 <strong>4가지 변수</strong>를 다 잘하지 않습니다.</p>
+<p>그리고 그럴 필요도 없습니다.</p>
+<p>중요한 것은 내가 버는 수익의 결과가 ‘곱셈’으로 연결되어 있다는 사실입니다.</p>
+<p>여러분은 남들보다 뛰어난 ‘강점’을 가지고 있습니다. 자신이 모를 뿐이죠.</p>
+<p>아래 강점 체크리스트를 통해 내 강점을 확인해 보시길 바랍니다.</p>
+<p>(참고로 여러분의 강점은 실제로 유튜브를 시작해 영상 제작을 해보아야 알 수 있습니다.)</p>
+<h4 id="1-객단가와-마진율에-강점이-있는-사람의-특징">1. 객단가와 마진율에 강점이 있는 사람의 특징<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#1-객단가와-마진율에-강점이-있는-사람의-특징" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>나는 직접 제품을 생산할 수 있는가? 또는 디지털 제품인가?</li>
+<li>좋은 제품을 공급받을 수 있는 인맥이 있는가?</li>
+<li>공급사에게 기세를 가지고 어필할 자신이 있는가?</li>
+<li>공급사와 유리한 조건으로 협상할 수 있는 능력이 있는가?</li>
+</ol>
+<p>여러분이 마진율을 30%가 아닌 50%로 만들 수 있다면,</p>
+<p>하루 필요 판매량이 약 절반인 6개로 줄어듭니다.</p>
+<p>즉, 구매전환율과 조회수의 부담을 극적으로 낮추게 되죠</p>
+<h4 id="2-구매-전환율에-강점이-있는-사람-특징">2. 구매 전환율에 강점이 있는 사람 특징<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#2-구매-전환율에-강점이-있는-사람-특징" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>자신이 말이나 영상으로 사람을 설득하는 데 재능이 있는가?</li>
+<li>구매 전환율을 0.5%가 아닌 1%로 올릴 수 있다면, 필요한 조회수 역시 절반인 1,000회로 줄어듭니다.</li>
+</ol>
+<h4 id="3-조회수에-강점이-있는-사람-특징">3. 조회수에 강점이 있는 사람 특징<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#3-조회수에-강점이-있는-사람-특징" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>나는 다른 건 몰라도 사람들 눈길을 끄는 썸네일을 만드는 데 자신이 있는가?</li>
+<li>시청자를 끝까지 붙잡아두는 원고 능력이 있는가? 그렇다면 조회수를 2,000회가 아닌 5,000, 10,000회로 만들어서 다른 변수(객단가, 마진율, 구매전환율)의 부족함을 보완할 수 있습니다.</li>
+</ol>
+<h4 id="4-영상-제작-속도에-강점이-있는-사람-특징">4. 영상 제작 속도에 강점이 있는 사람 특징<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#4-영상-제작-속도에-강점이-있는-사람-특징" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>영상 1개의 퀄리티가 조금 낮더라도 남들보다 영상 제작을 더 많이 할 수 있는가?</li>
+<li>조회수 700회짜리 콘텐츠를 하루에 3개 발행해서 2,000회를 채울 수 있습니다.</li>
+</ol>
+<p>이처럼 자신의 강점이 무엇이냐에 따라 전략은 무궁무진하게 달라집니다.</p>
+<p>비즈니스 PT에선 여러분의 강점을 트레이너가 함께 체크해 드리지만,</p>
+<p>만약 혼자 한다면 직접 유튜블 하며 강점을 찾으시면 되겠습니다.</p>
+<p>서울 거주 <strong>94년생 주부</strong>분은 SNS 경험조차 전혀 없었지만, 가족 중 좋은 제품을 공급해 줄 사람이 있어 해당 강점을 살려 유튜브를 통해 <strong>1,400만 원 매출</strong>을 발생시켰습니다.</p>
+<p>천안 거주 <strong>20대 남성</strong>분은 조회수가 강점이 있는 상태에서 약점인 구매전환율을 개선해서 <strong>2억 매출</strong>을 발생시켰습니다.</p>
+<p>만약 여러분이 콘텐츠 조회수 만드는 것이 막막하다면, 여기를 클릭해 뷰트랩 카카오톡 채널에서 .**‘조회수 수직 상승 썸네일 공식 19가지 PDF’**를 받아보세요. 친구 추가 시 즉시 제공됩니다.</p>
+<p>“이제 월 1,000만 원이 어떻게 되는지 알겠습니다. 근데 무엇을 팔아야 할까요?”</p>
+<p>여기에 대한 답을 드리겠습니다.</p>
+<p><img src="https://viewtrap.com/assets/letter_3-ec3edbaf.png" alt="Image 3: letter_3"/></p>
+<p><img src="https://viewtrap.com/assets/letter_1-7ff2d648.png" alt="Image 4: letter_4"/></p>
+<p>&lt;사진: 비즈니스 PT 회원 매출 발생 사례></p>
+<hr/>
+<h3 id="상품이-없어도-수익화-시작할-수-있는-이유">상품이 없어도 수익화 시작할 수 있는 이유<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#상품이-없어도-수익화-시작할-수-있는-이유" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<hr/>
+<p>사실 여러분이 현재 상품이 없거나, 전문가가 아니어도 수익화를 시작하고 돈을 벌 수 있습니다.</p>
+<p><strong>90년생 주부</strong>는 구독자 0명으로 시작한 채널로 <strong>1억 7천만 원</strong>의 매출을 발생시켰습니다.</p>
+<p>사업 경험도 없었고 상품 없이 시작했지만, 고객을 먼저 모으고 이후 상품을 마련해 발생시킨 매출입니다.</p>
+<p><strong>87년생 남성</strong>은 부업으로 시작한 채널로 <strong>1억 2천만 원 매출</strong>을 발생시켰습니다.</p>
+<p>마찬가지로 러닝 채널로 고객을 먼저 모으고, 이후 상품을 마련해 발생시킨 매출입니다.</p>
+<p>여러분 <strong>월 1,000만 원</strong>은 막연한 꿈이 아닙니다.</p>
+<p>올바른 전략을 배우고 실천하면 충분히 달성할 수 있는 프로젝트입니다.</p>
+<p>그럼에도 많은 분들이 상품 기획을 어려워하고, 조회수 자체를 만들기 어려워하고,</p>
+<p>상품 구매를 설득하는 콘텐츠를 만들기 어려워합니다.</p>
+<p>이 어려움에 대한 명확한 해결책을 드리겠습니다.</p>
+<p><img src="https://viewtrap.com/assets/letter_1-e97e7fc1.png" alt="Image 5: letter_5"/></p>
+<p><img src="https://viewtrap.com/assets/letter_1-eb00baf1.png" alt="Image 6: letter_6"/></p>
+<p>&lt;사진: 비즈니스 PT 회원 매출 발생 사례></p>
+<p>아래 유튜브 수익화 무료 강의를 통해 2026년 평범한 사람이 돈을 버는 구체적인 시작 방법을 알려드리겠습니다.</p>
+<p>비즈니스 PT 대기 신청 하시면 무료 강의가 즉시 제공됩니다.</p>
+<p>여러분은 상품 기획은 어떻게 해야 하는지, 실제 비즈니스 구축 순서가 무엇인 지 알 게 됩니다.</p>
+<p>2026년, 유튜브를 통해 경제적 자립을 만들어 보고 싶다면 아래에서 대기 신청을 하고 무료 강의를 시청하세요.</p>
+<p>비즈니스 PT는 여러분이 나만의 유튜브 수익 구조를 만들도록 돕는 곳입니다.</p>
+<p>여러분에게 담당 1:1 트레이너가 배정되어 매주 실천 독려를 받게 됩니다. 강제 실천 환경을 제공받는 것입니다.</p>
+<p>그리고 대표 강사 주언규PD 강의와 실행 강의, 총 250강 이상을 시청하며 수익화 전략을 완전히 전수 받습니다.</p>
+<p>비즈니스 PT의 수익화 무료 강의를 들어보시고 첫 트레이닝도 받아보시길 권합니다.</p>
+<p>첫 트레이닝 불만족 시 100% 환불됩니다.</p>
+<p>그러니 오프라인 센터에 오셔서 비즈니스PT의 진짜 가치를 경험해 보시는 것을 추천합니다.</p>
+<p>지금 대기 신청만 해도 ‘수익화 무료 강의’ 바로 시청 가능합니다.</p>
+<hr/>
+<p>대기 신청만 하셔도, 비즈니스 PT 무료 강의를 받아보실 수 있습니다. 직접 경험해보세요.</p>
+<p>여러분이 <strong>월 1,000만 원을 벌 수 있는 이유,</strong></p>
+<p>그리고 <strong>달성 방법</strong>을 알려 드리겠습니다.</p>
+<p><strong>“돈 벌고 성공하는 건 운 아닌가요?”</strong></p>
+<p>물론 운도 중요한 건 사실입니다.</p>
+<p>어느 시대에 태어났는지, 어떤 집에서 자랐는지, 어떤 기회를 만났는지는 내가 정하지 못하죠.</p>
+<p>경기가 좋을 때 사회생활 시작한 사람과,</p>
+<p>IMF, 코로나 때 시작해야 했던 사람의 출발선은 같을 수 없습니다.</p>
+<p>하지만 수백억 부자가 되는 것이 아닌,</p>
+<p><strong>월 1,000만 원</strong> 버는 것은 ‘운’이 아닙니다.</p>
+<p>**‘운’**보다 **‘실행’**의 영역입니다.</p>
+<p>예를 들어 평범한 사람이 “10개월 동안 퇴근 후 하루 2시간 ~ 3시간씩 무언가를 배워보겠다” 결심합니다.</p>
+<p>하루 2시간 동안 무엇을 배우는지, 무엇을 실천하는지 운보다 실행의 영향을 더 많이 받습니다.</p>
+<p>매일 2시간이 30일, 90일, 180일 쌓이면 누군가는 새로운 수익을 벌기 시작하죠.</p>
+<p>아이 셋을 키우는 <strong>30대 남성</strong>분은 <strong>한 달 1,500만 원 매출</strong>을 발생시켰습니다.</p>
+<p>서울 거주 <strong>40대 여성</strong>분은 <strong>한 달 1,000만 원 매출</strong>을 발생시켰습니다.</p>
+<p>즉, 인생 전체로 보면 운의 비중이 크지만,</p>
+<p>월 1,000만 원만 보면 올바른 배움과 실행으로도 충분합니다.</p>
+<p>이 칼럼을 통해 여러분은 수많은 수익 사례로 검증된 **‘월 1,000만 원 달성 전략’**이 무엇인지 알게 됩니다.</p>
+<p>경제적으로 개선이 필요하고 추가 수익이 필요한 분들이라면 끝까지 읽어보시길 바랍니다.</p>
+<p><img src="https://viewtrap.com/assets/letter_1-8eb2a3ac.png" alt="Image 7: letter_1"/></p>
+<p><img src="https://viewtrap.com/assets/letter_2-8aef60a6.png" alt="Image 8: letter_2"/></p>
+<p>&lt;사진: 비즈니스 PT 회원 매출 발생 사례></p>
+<hr/>
+<h3 id="돈은-만들어-내는-것이다-1">돈은 만들어 내는 것이다<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#돈은-만들어-내는-것이다-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<hr/>
+<p>‘대리’, ‘과장’, ‘팀장’이라는 직함은 회사를 떠나는 순간 사라지는, 빌려 입은 정체성입니다.</p>
+<p>많은 직장인들이 이 **‘임대된 정체성’**에서 안정감을 찾으려 하죠.</p>
+<p>하지만 부자가 되고 싶다면 자본주의에서 진짜 인정받는 정체성을 가져야 합니다.</p>
+<p>바로 ‘어떠한 문제를 해결해 주는 사람’이라는 정체성입니다.</p>
+<p>자본주의에선 문제 해결이 곧 <strong>돈</strong>입니다.</p>
+<p>고객이 돈을 지불하는 이유는 단순히 상품을 사기 위해서가 아닙니다.</p>
+<p>자신이 겪고 있는 불편, 고통, 욕망, 결핍을 해결하기 위해 돈을 지불합니다.</p>
+<p>여러분이 더 많은 사람의 문제를 해결하면 더 많은 돈이 움직입니다.</p>
+<p>여러분이 더 크고 절실한 문제를 해결하면 그만큼 더 큰돈이 움직입니다.</p>
+<p>여러분 문제 해결사가 되기로 마음먹었다면, 다음 단계는 자연스럽게 이것입니다.</p>
+<p>“문제 해결을 통해 어떻게 돈을 벌 수 있을까?”</p>
+<p>이때 부를 쌓는 사람들은 단순히 돈을 벌려고 애쓰지 않습니다.</p>
+<p>**‘돈이 만들어지는 시스템’**을 설계합니다.</p>
+<p>예를 들어 여러분은 피아노를 가르치는 학원 선생님입니다.</p>
+<p>한 명마다 피아노 치는 것을 봐줘야 하고, 모든 과정에 나의 시간과 노력이 계속 투입되어야 한다면, 이는 직장인처럼 돈을 좇는 방식입니다.</p>
+<p>이 방식은 부자가 되기엔 한계가 있습니다. 만화 나루토처럼 그림자 분신술을 쓰지 않는 이상 힘들죠.</p>
+<p>대신, 여러분은 **‘문제 해결 과정’**을 <strong>시스템화</strong>합니다.</p>
+<p>피아노 강의를 찍고 SNS 콘텐츠가 고객을 대신 모으게 만들고 한 달에 수십 명에게 판매합니다. 내가 잘 때도 돈이 벌리게 끔 세팅하는 것입니다.</p>
+<p>똑같은 직업, 똑같은 고생을 하더라도, <strong>결과가 100배 차이</strong>가 나는 것은 재능 때문이 아닙니다.</p>
+<p>핵심은 문제 해결 과정을 시스템화하고, 이를 실제 수익으로 연결하는 것입니다.</p>
+<p>유튜브는 이 시스템을 만드는 데 가장 좋은 방법입니다.</p>
+<p>콘텐츠 덕분에 고객이 직접 찾아오고, 설득되고, 구매 페이지로 이동해 <strong>내 상품을 구매하는 과정</strong>을 자동으로 만들 수 있습니다.</p>
+<p>콘텐츠 유입 세팅을 잘 해두면 유튜브 채널은 나만의 <strong>24시간 영업사원</strong> 역할을 해내죠.</p>
+<p>“SNS 중에 유튜브가 꼭 아니어도 되지 않나요?”</p>
+<p>다른 플랫폼도 가능합니다.</p>
+<p>하지만 현재 유튜브가 제일 수익화하기 좋은 플랫폼입니다.</p>
+<p>한 달 이용자가 약 4,600만 명으로 대한민국 사람은 다 모여있습니다.</p>
+<p>그리고 유튜브를 먼저 배우게 되면 인스타, 스레드, 틱톡, 블로그 같은 플랫폼은 훨씬 수월해집니다.</p>
+<p>롱폼 콘텐츠는 블로그, 뉴스레터와 맞닿아있고,</p>
+<p>쇼츠는 인스타, 틱톡, 스레드에 맞닿아 있기 때문입니다.</p>
+<p>여러분이 <strong>유튜브 수익화 시스템</strong>을 만든다는 것은 누구도 빼앗을 수 없는 자신만의 **‘가치’**로 돈벌이를 만든다는 뜻입니다.</p>
+<p>이제 <strong>월 1,000만 원</strong>을 꾸준히 만들어내는 <strong>유튜브 수익화 시스템의 정체</strong>를 알려드리겠습니다.</p>
+<hr/>
+<h3 id="월-1000만-원을-만드는-공식-1">월 1,000만 원을 만드는 공식<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#월-1000만-원을-만드는-공식-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<hr/>
+<p>여러분이 버는 돈은 아래 <strong>단순한 공식</strong>으로 표현됩니다.</p>
+<p><strong>수익 = 얼마 짜리 상품을(객단가) X 몇 개 파는가(판매량)</strong></p>
+<p>직장인은 **한정된 시간(24시간)**이라는 판매량을 고정된 **가격(시급)**에 파는 것입니다.</p>
+<p>24시간 그 이상의 **‘판매량’**을 늘릴 수가 없습니다.</p>
+<p>시급도 회사에 정해진 규칙에 따라야 합니다.</p>
+<p>그래서 우리는 **‘가격’과 ‘판매량’**을 높일 수 있는 <strong>시스템의 영역</strong>으로 들어와야 합니다.</p>
+<p>이걸 기반으로, 유튜브 수익화 시스템은 아래 간단한 공식으로 이루어집니다.</p>
+<p><strong>월 수익</strong> = ①객단가(상품 가격) x ②마진율 x ③구매 전환율(설득력) x ④트래픽(조회수)</p>
+<p><strong>① 객단가:</strong> 상품 하나를 팔았을 때 발생하는 매출.</p>
+<p><strong>② 마진율:</strong> 매출에서 원가를 제외하고 순수하게 남는 이익의 비율.</p>
+<p><strong>③ 구매 전환율:</strong> 여러분의 콘텐츠를 본 사람 중 실제 구매로 이어진 비율.</p>
+<p><strong>④ 트래픽(조회수):</strong> 여러분의 콘텐츠를 본 시청자 수.</p>
+<p>이해를 돕기 위해, 월 1,000만 원에 가까운 월 900만 원을 목표로 잡아보겠습니다.</p>
+<p><strong>1단계 (하루 목표):</strong> 한 달 900만 원을 벌려면, 먼저 하루 목표를 30만 원으로 잡아야 합니다.</p>
+<p><strong>2단계 (상품 이익):</strong> 10만 원짜리 상품을 팔 때 마진율이 30% 라면, 한 개당 순수하게 약 3만 원이 남습니다.</p>
+<p><strong>3단계 (판매 수량):</strong> 하루 목표 30만 원을 채우려면, 3만 원 남는 상품을 10개 팔아야 합니다.</p>
+<p><strong>4단계 (방문자 수):</strong> 영상 1000명이 볼 때 5명이 산다고 가정하면(구매 전환율 0.5%), 하루 10개를 팔기 위해서는 하루 2,000회의 조회수가 필요합니다.</p>
+<p><strong>즉, 하루 순수익 30만 원</strong> = 객단가 10만 원 X 마진율 30% X 구매 전환율 0.5% X 하루 조회수 2,000회</p>
+<p>여러분은 이제 깨달으셨나요?</p>
+<p>“월 1,000만 원을 위해 500만 조회수가 필요한 것이 아니었구나!”</p>
+<p>하루 2,000회면 됩니다.</p>
+<p>유튜브는 조회수 수익이 아니라 **‘비즈니스 방식’**으로 해야 제대로 돈을 벌 수 있습니다.</p>
+<p>그리고 이 방식은 조회수 수익처럼 하루 벌어 하루 사는 방식이 아닌,</p>
+<p>내 채널, 사업이 같이 크고 성장하는 방식입니다.</p>
+<p>사업이기 때문에 추후 **엑싯(매각)**도 가능합니다.</p>
+<p>여러분도 이 **4가지 요소(객단가, 마진율, 전환율, 조회수)**를 잘 조합하고 개선하면 충분히 <strong>월 1,000만 원</strong>이라는 목표에 도달할 수 있습니다.</p>
+<p>아마 이 지점에서, 이런 생각들이 머릿속에 떠오를 수 있습니다.</p>
+<ul>
+<li>
+<p>“10만 원짜리 상품을 구할 방법이 없어”</p>
+</li>
+<li>
+<p>“마진율 30%을 어떻게 구하지?”</p>
+</li>
+<li>
+<p>“구매 전환율 0.5%? 나는 설득하는 능력이 없어”</p>
+</li>
+<li>
+<p>“하루 조회수 2,000회를 어떻게 만들지?”</p>
+</li>
+</ul>
+<p>이 장애물은 포기할 이유가 아니라, 극복만 하면 돈이 벌리는 시작점이 됩니다.</p>
+<p><strong>월 1,000만 원</strong>을 달성하기 위해 장애물을 어떻게 해결해야 하는지 알아봅시다</p>
+<hr/>
+<h3 id="나의-강점을-살리기-1">나의 강점을 살리기<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#나의-강점을-살리기-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<hr/>
+<p>사업에 재능이 있는 사람이 아니라면, 대부분은 <strong>4가지 변수</strong>를 다 잘하지 않습니다.</p>
+<p>그리고 그럴 필요도 없습니다.</p>
+<p>중요한 것은 내가 버는 수익의 결과가 ‘곱셈’으로 연결되어 있다는 사실입니다.</p>
+<p>여러분은 남들보다 뛰어난 ‘강점’을 가지고 있습니다. 자신이 모를 뿐이죠.</p>
+<p>아래 강점 체크리스트를 통해 내 강점을 확인해 보시길 바랍니다.</p>
+<p>(참고로 여러분의 강점은 실제로 유튜브를 시작해 영상 제작을 해보아야 알 수 있습니다.)</p>
+<h4 id="1-객단가와-마진율에-강점이-있는-사람의-특징-1">1. 객단가와 마진율에 강점이 있는 사람의 특징<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#1-객단가와-마진율에-강점이-있는-사람의-특징-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>나는 직접 제품을 생산할 수 있는가? 또는 디지털 제품인가?</li>
+<li>좋은 제품을 공급받을 수 있는 인맥이 있는가?</li>
+<li>공급사에게 기세를 가지고 어필할 자신이 있는가?</li>
+<li>공급사와 유리한 조건으로 협상할 수 있는 능력이 있는가?</li>
+</ol>
+<p>여러분이 마진율을 30%가 아닌 50%로 만들 수 있다면,</p>
+<p>하루 필요 판매량이 약 절반인 6개로 줄어듭니다.</p>
+<p>즉, 구매전환율과 조회수의 부담을 극적으로 낮추게 되죠</p>
+<h4 id="2-구매-전환율에-강점이-있는-사람-특징-1">2. 구매 전환율에 강점이 있는 사람 특징<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#2-구매-전환율에-강점이-있는-사람-특징-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>자신이 말이나 영상으로 사람을 설득하는 데 재능이 있는가?</li>
+<li>구매 전환율을 0.5%가 아닌 1%로 올릴 수 있다면, 필요한 조회수 역시 절반인 1,000회로 줄어듭니다.</li>
+</ol>
+<h4 id="3-조회수에-강점이-있는-사람-특징-1">3. 조회수에 강점이 있는 사람 특징<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#3-조회수에-강점이-있는-사람-특징-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>나는 다른 건 몰라도 사람들 눈길을 끄는 썸네일을 만드는 데 자신이 있는가?</li>
+<li>시청자를 끝까지 붙잡아두는 원고 능력이 있는가? 그렇다면 조회수를 2,000회가 아닌 5,000, 10,000회로 만들어서 다른 변수(객단가, 마진율, 구매전환율)의 부족함을 보완할 수 있습니다.</li>
+</ol>
+<h4 id="4-영상-제작-속도에-강점이-있는-사람-특징-1">4. 영상 제작 속도에 강점이 있는 사람 특징<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#4-영상-제작-속도에-강점이-있는-사람-특징-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>영상 1개의 퀄리티가 조금 낮더라도 남들보다 영상 제작을 더 많이 할 수 있는가?</li>
+<li>조회수 700회짜리 콘텐츠를 하루에 3개 발행해서 2,000회를 채울 수 있습니다.</li>
+</ol>
+<p>이처럼 자신의 강점이 무엇이냐에 따라 전략은 무궁무진하게 달라집니다.</p>
+<p>비즈니스 PT에선 여러분의 강점을 트레이너가 함께 체크해 드리지만,</p>
+<p>만약 혼자 한다면 직접 유튜블 하며 강점을 찾으시면 되겠습니다.</p>
+<p>서울 거주 <strong>94년생 주부</strong>분은 SNS 경험조차 전혀 없었지만, 가족 중 좋은 제품을 공급해 줄 사람이 있어 해당 강점을 살려 유튜브를 통해 <strong>1,400만 원 매출</strong>을 발생시켰습니다.</p>
+<p>천안 거주 <strong>20대 남성</strong>분은 조회수가 강점이 있는 상태에서 약점인 구매전환율을 개선해서 <strong>2억 매출</strong>을 발생시켰습니다.</p>
+<p>만약 여러분이 콘텐츠 조회수 만드는 것이 막막하다면, 여기를 클릭해 뷰트랩 카카오톡 채널에서 .**‘조회수 수직 상승 썸네일 공식 19가지 PDF’**를 받아보세요. 친구 추가 시 즉시 제공됩니다.</p>
+<p>“이제 월 1,000만 원이 어떻게 되는지 알겠습니다. 근데 무엇을 팔아야 할까요?”</p>
+<p>여기에 대한 답을 드리겠습니다.</p>
+<p><img src="https://viewtrap.com/assets/letter_3-ec3edbaf.png" alt="Image 9: letter_3"/></p>
+<p><img src="https://viewtrap.com/assets/letter_1-7ff2d648.png" alt="Image 10: letter_4"/></p>
+<p>&lt;사진: 비즈니스 PT 회원 매출 발생 사례></p>
+<hr/>
+<h3 id="상품이-없어도-수익화-시작할-수-있는-이유-1">상품이 없어도 수익화 시작할 수 있는 이유<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#상품이-없어도-수익화-시작할-수-있는-이유-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<hr/>
+<p>사실 여러분이 현재 상품이 없거나, 전문가가 아니어도 수익화를 시작하고 돈을 벌 수 있습니다.</p>
+<p><strong>90년생 주부</strong>는 구독자 0명으로 시작한 채널로 <strong>1억 7천만 원</strong>의 매출을 발생시켰습니다.</p>
+<p>사업 경험도 없었고 상품 없이 시작했지만, 고객을 먼저 모으고 이후 상품을 마련해 발생시킨 매출입니다.</p>
+<p><strong>87년생 남성</strong>은 부업으로 시작한 채널로 <strong>1억 2천만 원 매출</strong>을 발생시켰습니다.</p>
+<p>마찬가지로 러닝 채널로 고객을 먼저 모으고, 이후 상품을 마련해 발생시킨 매출입니다.</p>
+<p>여러분 <strong>월 1,000만 원</strong>은 막연한 꿈이 아닙니다.</p>
+<p>올바른 전략을 배우고 실천하면 충분히 달성할 수 있는 프로젝트입니다.</p>
+<p>그럼에도 많은 분들이 상품 기획을 어려워하고, 조회수 자체를 만들기 어려워하고,</p>
+<p>상품 구매를 설득하는 콘텐츠를 만들기 어려워합니다.</p>
+<p>이 어려움에 대한 명확한 해결책을 드리겠습니다.</p>
+<p><img src="https://viewtrap.com/assets/letter_1-e97e7fc1.png" alt="Image 11: letter_5"/></p>
+<p><img src="https://viewtrap.com/assets/letter_1-eb00baf1.png" alt="Image 12: letter_6"/></p>
+<p>&lt;사진: 비즈니스 PT 회원 매출 발생 사례></p>
+<p>아래 유튜브 수익화 무료 강의를 통해 2026년 평범한 사람이 돈을 버는 구체적인 시작 방법을 알려드리겠습니다.</p>
+<p>비즈니스 PT 대기 신청 하시면 무료 강의가 즉시 제공됩니다.</p>
+<p>여러분은 상품 기획은 어떻게 해야 하는지, 실제 비즈니스 구축 순서가 무엇인 지 알 게 됩니다.</p>
+<p>2026년, 유튜브를 통해 경제적 자립을 만들어 보고 싶다면 아래에서 대기 신청을 하고 무료 강의를 시청하세요.</p>
+<p>비즈니스 PT는 여러분이 나만의 유튜브 수익 구조를 만들도록 돕는 곳입니다.</p>
+<p>여러분에게 담당 1:1 트레이너가 배정되어 매주 실천 독려를 받게 됩니다. 강제 실천 환경을 제공받는 것입니다.</p>
+<p>그리고 대표 강사 주언규PD 강의와 실행 강의, 총 250강 이상을 시청하며 수익화 전략을 완전히 전수 받습니다.</p>
+<p>비즈니스 PT의 수익화 무료 강의를 들어보시고 첫 트레이닝도 받아보시길 권합니다.</p>
+<p>첫 트레이닝 불만족 시 100% 환불됩니다.</p>
+<p>그러니 오프라인 센터에 오셔서 비즈니스PT의 진짜 가치를 경험해 보시는 것을 추천합니다.</p>
+<p>지금 대기 신청만 해도 ‘수익화 무료 강의’ 바로 시청 가능합니다.</p>
+<hr/>
+<p>대기 신청만 하셔도, 비즈니스 PT 무료 강의를 받아보실 수 있습니다. 직접 경험해보세요.</p>
+<hr/>
+<p><em>원문: <a href="https://viewtrap.com/business/waiting/260619" class="external">https://viewtrap.com/business/waiting/260619<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></em></p></article><hr/><div class="page-footer"><div class="backlinks"><h3>백링크</h3><ul id="list-1" class="overflow"><li><a href="../garden/20260805-funnel-content-is-its-own-proof" class="internal">이 칼럼은 자기가 가르치는 전환율 공식의 실행 사례이며, 그래서 매출과 순이익의 척도 바꿔치기를 읽어야 한다</a></li><li><a href="../garden/20260805-job-title-is-a-rented-identity" class="internal">직함은 회사에서 빌려 입은 정체성이고, 시장이 값을 매기는 것은 해결한 문제뿐이다</a></li><li><a href="../garden/20260805-monthly-income-is-a-multiplication-problem" class="internal">수익이 곱셈 구조라면 잘하는 한 변수가 못하는 세 변수를 대신 갚는다</a></li><li><a href="../wiki/concepts/20260805-youtube-revenue-multiplicative-model" class="internal">유튜브 수익화 4변수 곱셈 모델</a></li><li><a href="../wiki/entities/20260805-business-pt-viewtrap" class="internal">비즈니스 PT (뷰트랩)</a></li><li class="overflow-end"></li></ul></div><div class="giscus" data-repo="dataofmen/quartz-wiki" data-repo-id="R_kgDOSOxrZA" data-category="General" data-category-id="DIC_kwDOSOxrZM4C-Edy" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-input-position="bottom" data-light-theme="light" data-dark-theme="dark" data-theme-url="https://dataofmen.github.io/static/giscus" data-lang="ko"></div></div></div><div class="right sidebar"><div class="graph desktop-only"><h3>그래프 뷰</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                  s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                  c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                  C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                  c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                  v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                  s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                  C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                  S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                  s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                  s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.5.2</a> © 2026</p><ul></ul></footer></div></div></body><script type="application/javascript" data-persist="true">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module" data-persist="true">function E(a,e){if(!a)return;function t(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function n(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}a?.addEventListener("click",t),window.addCleanup(()=>a?.removeEventListener("click",t)),document.addEventListener("keydown",n),window.addCleanup(()=>document.removeEventListener("keydown",n))}function f(a){for(;a.firstChild;)a.removeChild(a.firstChild)}var m=class{constructor(e,t){this.container=e;this.content=t;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),t=this.onMouseMove.bind(this),n=this.onMouseUp.bind(this),o=this.onTouchStart.bind(this),r=this.onTouchMove.bind(this),i=this.onTouchEnd.bind(this),s=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",t),document.addEventListener("mouseup",n),this.container.addEventListener("touchstart",o,{passive:!1}),document.addEventListener("touchmove",r,{passive:!1}),document.addEventListener("touchend",i),window.addEventListener("resize",s),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",t),()=>document.removeEventListener("mouseup",n),()=>this.container.removeEventListener("touchstart",o),()=>document.removeEventListener("touchmove",r),()=>document.removeEventListener("touchend",i),()=>window.removeEventListener("resize",s))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let t=this.createButton("+",()=>this.zoom(.1)),n=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(n),e.appendChild(o),e.appendChild(t),this.container.appendChild(e)}createButton(e,t){let n=document.createElement("button");return n.textContent=e,n.className="mermaid-control-button",n.addEventListener("click",t),window.addCleanup(()=>n.removeEventListener("click",t)),n}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}onTouchStart(e){if(e.touches.length!==1)return;this.isDragging=!0;let t=e.touches[0];this.startPan={x:t.clientX-this.currentPan.x,y:t.clientY-this.currentPan.y}}onTouchMove(e){if(!this.isDragging||e.touches.length!==1)return;e.preventDefault();let t=e.touches[0];this.currentPan={x:t.clientX-this.startPan.x,y:t.clientY-this.startPan.y},this.updateTransform()}onTouchEnd(){this.isDragging=!1}zoom(e){let t=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),n=this.content.getBoundingClientRect(),o=n.width/2,r=n.height/2,i=t-this.scale;this.currentPan.x-=o*i,this.currentPan.y-=r*i,this.scale=t,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){let t=this.content.querySelector("svg").getBoundingClientRect(),n=t.width/this.scale,o=t.height/this.scale;this.scale=1,this.currentPan={x:(this.container.clientWidth-n)/2,y:(this.container.clientHeight-o)/2},this.updateTransform()}},T=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],y;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;y||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let t=y.default,n=new WeakMap;for(let r of e)n.set(r,r.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let c=n.get(s);c&&(s.innerHTML=c)}let r=T.reduce((s,c)=>(s[c]=window.getComputedStyle(document.documentElement).getPropertyValue(c),s),{}),i=document.documentElement.getAttribute("saved-theme")==="dark";t.initialize({startOnLoad:!1,securityLevel:"loose",theme:i?"dark":"base",themeVariables:{fontFamily:r["--codeFont"],primaryColor:r["--light"],primaryTextColor:r["--darkgray"],primaryBorderColor:r["--tertiary"],lineColor:r["--darkgray"],secondaryColor:r["--secondary"],tertiaryColor:r["--tertiary"],clusterBkg:r["--light"],edgeLabelBackground:r["--highlight"]}}),await t.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let r=0;r<e.length;r++){let v=function(){let g=l.querySelector("#mermaid-space"),h=l.querySelector(".mermaid-content");if(!h)return;f(h);let w=i.querySelector("svg").cloneNode(!0);h.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new m(g,h)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},i=e[r],s=i.parentElement,c=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(c),L=c.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),E(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../postscript.js" type="module" data-persist="true"></script></html>

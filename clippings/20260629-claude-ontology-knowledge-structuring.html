@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr"><head><title>Claudeに「オントロジー」を持たせたら、コスト半分・3倍速になるかも</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto Sans KR:wght@400;700&amp;family=Noto Sans KR:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="dataofmen"/><meta property="og:title" content="Claudeに「オントロジー」を持たせたら、コスト半分・3倍速になるかも"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="Claudeに「オントロジー」を持たせたら、コスト半分・3倍速になるかも"/><meta name="twitter:description" content="Title: Claudeに「オントロジー」を持たせたら、コスト半分・3倍速になるかも URL Source: zenn.dev/takupeso/articles/claude-ontology-knowledge-structuring Markdown Content: Komlock lab VPoE阿部(@takupeso)です。 ClaudeCodeに既存設計・コードに関するナレッジを渡すとき、僕はずっと同じやり方をしていました。@でファイルを指定し、CLAUDE.mdにルールを足し、.claudeを整備していました。 これももちろん有効な手法です。ただ、AIの調子でアウトプットの..."/><meta property="og:description" content="Title: Claudeに「オントロジー」を持たせたら、コスト半分・3倍速になるかも URL Source: zenn.dev/takupeso/articles/claude-ontology-knowledge-structuring Markdown Content: Komlock lab VPoE阿部(@takupeso)です。 ClaudeCodeに既存設計・コードに関するナレッジを渡すとき、僕はずっと同じやり方をしていました。@でファイルを指定し、CLAUDE.mdにルールを足し、.claudeを整備していました。 これももちろん有効な手法です。ただ、AIの調子でアウトプットの..."/><meta property="og:image:alt" content="Title: Claudeに「オントロジー」を持たせたら、コスト半分・3倍速になるかも URL Source: zenn.dev/takupeso/articles/claude-ontology-knowledge-structuring Markdown Content: Komlock lab VPoE阿部(@takupeso)です。 ClaudeCodeに既存設計・コードに関するナレッジを渡すとき、僕はずっと同じやり方をしていました。@でファイルを指定し、CLAUDE.mdにルールを足し、.claudeを整備していました。 これももちろん有効な手法です。ただ、AIの調子でアウトプットの..."/><meta property="og:image" content="https://dataofmen.github.io/static/og-image.png"/><meta property="og:image:url" content="https://dataofmen.github.io/static/og-image.png"/><meta name="twitter:image" content="https://dataofmen.github.io/static/og-image.png"/><meta property="og:image:type" content="image/.png"/><meta property="twitter:domain" content="dataofmen.github.io"/><meta property="og:url" content="https://dataofmen.github.io/clippings/20260629-claude-ontology-knowledge-structuring"/><meta property="twitter:url" content="https://dataofmen.github.io/clippings/20260629-claude-ontology-knowledge-structuring"/><link rel="icon" href="../static/icon.png"/><meta name="description" content="Title: Claudeに「オントロジー」を持たせたら、コスト半分・3倍速になるかも URL Source: zenn.dev/takupeso/articles/claude-ontology-knowledge-structuring Markdown Content: Komlock lab VPoE阿部(@takupeso)です。 ClaudeCodeに既存設計・コードに関するナレッジを渡すとき、僕はずっと同じやり方をしていました。@でファイルを指定し、CLAUDE.mdにルールを足し、.claudeを整備していました。 これももちろん有効な手法です。ただ、AIの調子でアウトプットの..."/><meta name="generator" content="Quartz"/><link href="../index.css" rel="stylesheet" type="text/css" data-persist="true"/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiL2hvbWUvcnVubmVyL3dvcmsvcXVhcnR6LXdpa2kvcXVhcnR6LXdpa2kvcXVhcnR6L2NvbXBvbmVudHMvc3R5bGVzIiwic291cmNlcyI6WyJtZXJtYWlkLmlubGluZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFHRjtFQUNFOzs7QUFLRjtFQUNFO0VBQ0E7OztBQUlKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFOztBQUdGO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFJSjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTs7QUFJRjtFQUNFO0VBQ0E7RUFDQSIsInNvdXJjZXNDb250ZW50IjpbIi5leHBhbmQtYnV0dG9uIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbG9hdDogcmlnaHQ7XG4gIHBhZGRpbmc6IDAuNHJlbTtcbiAgbWFyZ2luOiAwLjNyZW07XG4gIHJpZ2h0OiAwOyAvLyBOT1RFOiByaWdodCB3aWxsIGJlIHNldCBpbiBtZXJtYWlkLmlubGluZS50c1xuICBjb2xvcjogdmFyKC0tZ3JheSk7XG4gIGJvcmRlci1jb2xvcjogdmFyKC0tZGFyayk7XG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWxpZ2h0KTtcbiAgYm9yZGVyOiAxcHggc29saWQ7XG4gIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgb3BhY2l0eTogMDtcbiAgdHJhbnNpdGlvbjogMC4ycztcblxuICAmID4gc3ZnIHtcbiAgICBmaWxsOiB2YXIoLS1saWdodCk7XG4gICAgZmlsdGVyOiBjb250cmFzdCgwLjMpO1xuICB9XG5cbiAgJjpob3ZlciB7XG4gICAgY3Vyc29yOiBwb2ludGVyO1xuICAgIGJvcmRlci1jb2xvcjogdmFyKC0tc2Vjb25kYXJ5KTtcbiAgfVxuXG4gICY6Zm9jdXMge1xuICAgIG91dGxpbmU6IDA7XG4gIH1cbn1cblxucHJlIHtcbiAgJjpob3ZlciA+IC5leHBhbmQtYnV0dG9uIHtcbiAgICBvcGFjaXR5OiAxO1xuICAgIHRyYW5zaXRpb246IDAuMnM7XG4gIH1cbn1cblxuI21lcm1haWQtY29udGFpbmVyIHtcbiAgcG9zaXRpb246IGZpeGVkO1xuICBjb250YWluOiBsYXlvdXQ7XG4gIHotaW5kZXg6IDk5OTtcbiAgbGVmdDogMDtcbiAgdG9wOiAwO1xuICB3aWR0aDogMTAwdnc7XG4gIGhlaWdodDogMTAwdmg7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIGRpc3BsYXk6IG5vbmU7XG4gIGJhY2tkcm9wLWZpbHRlcjogYmx1cig0cHgpO1xuICBiYWNrZ3JvdW5kOiByZ2JhKDAsIDAsIDAsIDAuNSk7XG5cbiAgJi5hY3RpdmUge1xuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgfVxuXG4gICYgPiAjbWVybWFpZC1zcGFjZSB7XG4gICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1saWdodCk7XG4gICAgYm9yZGVyLXJhZGl1czogNXB4O1xuICAgIHBvc2l0aW9uOiBmaXhlZDtcbiAgICB0b3A6IDUwJTtcbiAgICBsZWZ0OiA1MCU7XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGUoLTUwJSwgLTUwJSk7XG4gICAgaGVpZ2h0OiA4MHZoO1xuICAgIHdpZHRoOiA4MHZ3O1xuICAgIG92ZXJmbG93OiBoaWRkZW47XG5cbiAgICAmID4gLm1lcm1haWQtY29udGVudCB7XG4gICAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgICB0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7XG4gICAgICB0cmFuc2l0aW9uOiB0cmFuc2Zvcm0gMC4xcyBlYXNlO1xuICAgICAgb3ZlcmZsb3c6IHZpc2libGU7XG4gICAgICBtaW4taGVpZ2h0OiAyMDBweDtcbiAgICAgIG1pbi13aWR0aDogMjAwcHg7XG5cbiAgICAgIHByZSB7XG4gICAgICAgIG1hcmdpbjogMDtcbiAgICAgICAgYm9yZGVyOiBub25lO1xuICAgICAgfVxuXG4gICAgICBzdmcge1xuICAgICAgICBtYXgtd2lkdGg6IG5vbmU7XG4gICAgICAgIGhlaWdodDogYXV0bztcbiAgICAgIH1cbiAgICB9XG5cbiAgICAmID4gLm1lcm1haWQtY29udHJvbHMge1xuICAgICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgICAgYm90dG9tOiAyMHB4O1xuICAgICAgcmlnaHQ6IDIwcHg7XG4gICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgZ2FwOiA4cHg7XG4gICAgICBwYWRkaW5nOiA4cHg7XG4gICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1saWdodCk7XG4gICAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgICAgYm9yZGVyLXJhZGl1czogNnB4O1xuICAgICAgYm94LXNoYWRvdzogMCAycHggNHB4IHJnYmEoMCwgMCwgMCwgMC4xKTtcbiAgICAgIHotaW5kZXg6IDI7XG5cbiAgICAgIC5tZXJtYWlkLWNvbnRyb2wtYnV0dG9uIHtcbiAgICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICAgICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gICAgICAgIHdpZHRoOiAzMnB4O1xuICAgICAgICBoZWlnaHQ6IDMycHg7XG4gICAgICAgIHBhZGRpbmc6IDA7XG4gICAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0KTtcbiAgICAgICAgY29sb3I6IHZhcigtLWRhcmspO1xuICAgICAgICBib3JkZXItcmFkaXVzOiA0cHg7XG4gICAgICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICAgICAgZm9udC1zaXplOiAxNnB4O1xuICAgICAgICBmb250LWZhbWlseTogdmFyKC0tYm9keUZvbnQpO1xuICAgICAgICB0cmFuc2l0aW9uOiBhbGwgMC4ycyBlYXNlO1xuXG4gICAgICAgICY6aG92ZXIge1xuICAgICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIH1cblxuICAgICAgICAmOmFjdGl2ZSB7XG4gICAgICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKDFweCk7XG4gICAgICAgIH1cblxuICAgICAgICAvLyBTdHlsZSB0aGUgcmVzZXQgYnV0dG9uIGRpZmZlcmVudGx5XG4gICAgICAgICY6bnRoLWNoaWxkKDIpIHtcbiAgICAgICAgICB3aWR0aDogYXV0bztcbiAgICAgICAgICBwYWRkaW5nOiAwIDEycHg7XG4gICAgICAgICAgZm9udC1zaXplOiAxNHB4O1xuICAgICAgICB9XG4gICAgICB9XG4gICAgfVxuICB9XG59XG4iXX0= */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../prescript.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://dataofmen.github.io/index.xml"/></head><body data-slug="clippings/20260629-claude-ontology-knowledge-structuring"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"></div><div class="center"><div class="page-header"><header><h2 class="page-title"><a href="..">dataofmen</a></h2><nav class="nav-links"><a href="/wiki" class="nav-link">wiki</a><a href="/garden" class="nav-link">garden</a><a href="/clippings" class="nav-link">clippings</a></nav><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 1rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>검색</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="검색어를 입력하세요" placeholder="검색어를 입력하세요"/><div class="search-layout" data-preview="true"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="다크 모드"><title>다크 모드</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="라이트 모드"><title>라이트 모드</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div></div></header><div class="popover-hint"><h1 class="article-title">Claudeに「オントロジー」を持たせたら、コスト半分・3倍速になるかも</h1><p show-comma="true" class="content-meta"><time datetime="2026-06-29T00:00:00.000Z">2026년 6월 29일</time><span>23 min read</span></p><ul class="tags"><li><a href="../tags/claude" class="internal tag-link">claude</a></li><li><a href="../tags/ontology" class="internal tag-link">ontology</a></li><li><a href="../tags/knowledge-structuring" class="internal tag-link">knowledge-structuring</a></li></ul><div class="toc"><button type="button" class="toc-header" aria-controls="toc-59" aria-expanded="true"><h3>목차</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-0" class="toc-content overflow"><li class="depth-0"><a href="#資料を並べても精度が上がらない理由" data-for="資料を並べても精度が上がらない理由">資料を並べても精度が上がらない理由</a></li><li class="depth-0"><a href="#オントロジーとは何か" data-for="オントロジーとは何か">オントロジーとは何か</a></li><li class="depth-0"><a href="#関係が精度を上げる仕組みとragとの違い" data-for="関係が精度を上げる仕組みとragとの違い">関係が精度を上げる仕組みとRAGとの違い</a></li><li class="depth-0"><a href="#claude-codeでオントロジーを使うメリット" data-for="claude-codeでオントロジーを使うメリット">Claude Codeでオントロジーを使うメリット</a></li><li class="depth-1"><a href="#トークン消費が減る" data-for="トークン消費が減る">トークン消費が減る</a></li><li class="depth-1"><a href="#幻覚ハルシネーションが減る" data-for="幻覚ハルシネーションが減る">幻覚（ハルシネーション）が減る</a></li><li class="depth-0"><a href="#claude-codeにオントロジーを導入するべきライン" data-for="claude-codeにオントロジーを導入するべきライン">Claude Codeにオントロジーを導入するべきライン</a></li><li class="depth-1"><a href="#効く状況" data-for="効く状況">効く状況</a></li><li class="depth-1"><a href="#ハンズオンコードベースからグラフを作りトークン消費量が減るか確かめる" data-for="ハンズオンコードベースからグラフを作りトークン消費量が減るか確かめる">ハンズオン：コードベースからグラフを作り、トークン消費量が減るか確かめる</a></li><li class="depth-0"><a href="#まとめ" data-for="まとめ">まとめ</a></li><li class="depth-1"><a href="#参考リンク" data-for="参考リンク">参考リンク</a></li><li class="overflow-end"></li></ul></div></div></div><article class="popover-hint"><p>Title: Claudeに「オントロジー」を持たせたら、コスト半分・3倍速になるかも</p>
+<p>URL Source: <a href="https://zenn.dev/takupeso/articles/claude-ontology-knowledge-structuring" class="external">https://zenn.dev/takupeso/articles/claude-ontology-knowledge-structuring<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<p>Markdown Content:
+Komlock lab VPoE阿部(<a href="https://x.com/takupesoo" class="external">@takupeso<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>)です。</p>
+<p>ClaudeCodeに既存設計・コードに関するナレッジを渡すとき、僕はずっと同じやり方をしていました。<code>@</code>でファイルを指定し、CLAUDE.mdにルールを足し、<code>.claude</code>を整備していました。</p>
+<p>これももちろん有効な手法です。ただ、AIの調子でアウトプットの精度にブレが出ます。同じナレッジを渡しても、関連する事実をうまく結びつけてくれる日もあれば、そうでない日もあります。もっと安定して効く情報整理の手法はないのかな、と思っていました。</p>
+<p>そこで「オントロジー」について調べてみました。情報整理の文脈でたまに聞くものの、正体も導入方法も曖昧なままだった概念です。</p>
+<p>調べてわかったのは、ブレの原因が「量」ではなく「形」にあるということでした。<code>@</code>指定もMarkdownの箇条書きも、結局は<strong>資料をフラットに並べているだけ</strong>。Claudeは一枚ずつのファイルは読めても、概念どうしの関係は書いていないので、毎回そこを推測することになります。この推測のブレが、アウトプットのブレの一因でした。</p>
+<h2 id="資料を並べても精度が上がらない理由">資料を並べても精度が上がらない理由<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#資料を並べても精度が上がらない理由" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p><code>@</code>でのファイル指定、CLAUDE.mdの箇条書き、<code>.claude</code>の整備。これらに共通するのは、情報を置いたり、ラベルを貼ったりする操作だということです。<code>order-service.md</code>というファイルに仕様を書いて置く。CLAUDE.mdに「APIは<code>src/api/</code>配下」と書く。どれも、モノがどこにあって何という名前か、を決めています。</p>
+<p>ところが、ここには概念どうしの関係が抜けがちです。<code>order-service.md</code>と<code>payment-service.md</code>に、注文と決済それぞれの仕様が丁寧に書いてあったとします。それでも、「この2つがどう連携しているか」までは書かれていないことが往々にあります。連携まで全部書くとキリがないからです。Claudeは両方のファイルを読めますが、繋がりが書かれていなければ、その場の推測任せになります。</p>
+<p>足りないのは、次の一点です。</p>
+<ul>
+<li>ある（できている）: モノの保存、名前、分類、検索</li>
+<li>ない（できていない）: モノとモノの<strong>関係</strong>、その関係を辿ること</li>
+</ul>
+<p>人間なら「注文サービスが決済サービスを呼んでいるなら、決済が落ちたとき注文も巻き込まれる」と自然に繋ぎます。これは頭の中に依存関係のネットワークがあるからです。フラットに並べた資料には、このネットワークが存在しません。</p>
+<p>この「関係の構造」を明示的に持たせる方法が、オントロジーです。</p>
+<h2 id="オントロジーとは何か">オントロジーとは何か<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#オントロジーとは何か" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>オントロジーは情報科学の用語で、一言で言えばある領域の概念と、概念どうしの関係を明示的に定義したものです。この定義で広く知られるGruber（知識共有の研究者）は、オントロジーを「概念化の明示的な仕様」と表現しました。</p>
+<p>堅い定義だけだと掴みにくいので、構成要素に分解します。オントロジーは次の5つでできています。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>要素</th><th>意味</th><th>バックエンドでの例</th></tr></thead><tbody><tr><td>クラス</td><td>概念の型</td><td><code>マイクロサービス</code>という種類</td></tr><tr><td>インスタンス</td><td>クラスの具体例</td><td><code>注文サービス</code>, <code>決済サービス</code></td></tr><tr><td>プロパティ</td><td>要素が持つ属性</td><td><code>決済サービス</code>は外部APIに依存する</td></tr><tr><td>関係</td><td>要素どうしの繋がり</td><td><code>注文サービス</code>は<code>決済サービス</code>を呼び出す</td></tr><tr><td>制約</td><td>成り立つ条件</td><td>サービスはDBを直接共有しない</td></tr></tbody></table></div>
+<p>この中で、タグやフォルダと決定的に違うのが<strong>関係</strong>です。関係には種類があります。<code>is-a</code>（〜の一種）、<code>part-of</code>（〜の一部）、<code>calls</code>（〜を呼び出す）、<code>depends-on</code>（〜に依存する）など、どう繋がっているかを型として持てます。</p>
+<p>注文サービスと決済サービスの依存関係を、グラフにしてみます。</p>
+<p>ファイルを並べただけの状態と比べてみると、違いがはっきりします。フラットな資料は、点（ファイル）が散らばっているだけです。オントロジーは、点と点が型のついた線で繋がったグラフになります。</p>
+<p>ここで「タグも複数貼れるし関係っぽいのでは」と思うかもしれません。タグは多次元のラベルにはなりますが、<code>#order #payment</code>と並べても、2つがどういう関係かは表現できません。フォルダや<strong>タクソノミー</strong>（分類体系。生物の界・門・綱のように、モノを親子の階層に整理したもの。フォルダ構造もこの一種）も同じで、こちらは親子の縦方向だけ。「決済 > Stripe連携」とは言えても、「注文サービスは決済サービスを呼ぶ」という横の関係は持てません。</p>
+<p>整理方法ごとに、関係の扱い方を見比べてみます。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>整理方法</th><th>構造</th><th>関係の表現</th><th>Claudeでの扱い</th></tr></thead><tbody><tr><td>タグ/フォルダ</td><td>ラベル・一軸の階層</td><td>持たない</td><td>関係はモデルが推測するしかない</td></tr><tr><td>タクソノミー</td><td>親子の階層</td><td>上位下位のみ</td><td>縦の階層は辿れるが横の関係は推測</td></tr><tr><td>オントロジー</td><td>多軸のネットワーク</td><td>is-a, calls, depends-on などを型で明示</td><td>書かれた関係を推測せず辿れる</td></tr></tbody></table></div>
+<p>タグやフラットな資料とオントロジーの違いは、関係を<strong>モデルに推測させるか、あらかじめ確定させておくか</strong>です。</p>
+<p><code>order-service.md</code>と<code>payment-service.md</code>を別々に渡すと、Claudeは「たぶん呼び出し関係だろう」と推測します。当たることもあれば、外すこともあります。この推測のはずれが、幻覚（もっともらしい嘘）の一因です。オントロジーは「注文サービスは決済サービスを<code>calls</code>する」と関係そのものを確定させておきます。だからモデルは推測せず、書かれた線を辿るだけで済みます。</p>
+<p>「注文サービスは決済サービスを呼ぶ」「決済サービスはStripeに依存する」が書いてあれば、「注文サービスはStripeに依存する」まで取りこぼさず辿れます。答えがぶれません。</p>
+<h2 id="関係が精度を上げる仕組みとragとの違い">関係が精度を上げる仕組みとRAGとの違い<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#関係が精度を上げる仕組みとragとの違い" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>関係を持たせると、なぜClaudeの出力が安定するのか。</p>
+<p>一番効くのは、幻覚の抑制です。関係を自由な文章ではなく、定義済みの型（<code>is-a</code>や<code>part-of</code>）から選ぶ形にすると、Claudeはあり得ない関係を作りにくくなります。選択肢が絞られるぶん、もっともらしい嘘の余地が狭まります。</p>
+<p>次に効くのが、渡す文脈の密度です。グラフ構造があると、あるエンティティから関係を1〜2ホップ（関係を1〜2回たどること）進むだけで、本当に関連する事実だけを集められます。ドキュメントを丸ごと渡してノイズに埋もれさせる代わりに、関連ノードだけを濃く渡せます。</p>
+<p>もう一つ、多ホップの推論も通るようになります。「注文サービスは決済サービスを呼ぶ」「決済サービスはStripeに依存する」を辿れば、「注文サービスはStripeに依存する」までたどり着きます。関係が線で結ばれているから、複数ステップの問いにも答えられます。Stripeの障害が誰に響くかを、関係を辿るだけで割り出せます。</p>
+<p>ここで気になるのが、RAG（外部データを検索してAIに渡す技術）との違いです。僕も最初は「ベクトル検索で関連文書を引けば十分では」と思っていました。でも、両者は引き方の原理が違います。</p>
+<p>RAGは「意味の近さ」で文書の断片を引きます。依頼に関連する特定の情報を探し当てるのは得意ですが、文書をまたいだ関係や、複数ステップの推論は苦手です。チャンク（分割された断片）に切るので、関係の情報が分断されやすくなります。</p>
+<p>オントロジーは「関係を辿る」検索です。エンティティ間の繋がりが明示されているので、横断的な問いや比較に強くなります。用途を表で見比べると、得意分野がきれいに分かれます。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>質問のタイプ</th><th>RAG（ベクトル検索）</th><th>オントロジー（グラフ）</th></tr></thead><tbody><tr><td>単一の事実を引く</td><td>得意</td><td>ほどほど</td></tr><tr><td>複数文書をまたぐ集約</td><td>苦手</td><td>得意</td></tr><tr><td>エンティティの比較</td><td>ほどほど</td><td>得意</td></tr><tr><td>関係を辿る多ホップ推論</td><td>苦手</td><td>得意</td></tr></tbody></table></div>
+<p>この2つは敵対するものではなく、組み合わせると効きます。ベクトル検索で起点を見つけ、グラフで関係を辿ります。この合わせ技がGraphRAGと呼ばれる手法です。MicrosoftのGraphRAGの研究では、従来のベクトルRAGに比べて回答の包括性と多様性で優位という評価が報告されています。</p>
+<p>すべてをオントロジーにする必要はありません。曖昧な検索はRAGに任せ、構造が効くところ（用語の関係、依存関係、設計の制約）にオントロジーを足します。この使い分けが現実解になりそうです。</p>
+<h2 id="claude-codeでオントロジーを使うメリット">Claude Codeでオントロジーを使うメリット<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#claude-codeでオントロジーを使うメリット" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Claude Codeでオントロジーというと難しく聞こえますが、実体は単純です。コードベースの関係（どのファイルがどれを呼び、何に依存するか）を、エージェントが使える形のグラフにすることです。厳密な意味のオントロジー（型や制約をスキーマとして人が定義したもの）ではなく、コードの関係を表した依存グラフですが、「関係を明示してAIに渡す」という発想は同じです。</p>
+<h3 id="トークン消費が減る">トークン消費が減る<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#トークン消費が減る" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>一番分かりやすい効果です。関係グラフがあると、Claudeは関連ファイルを丸ごと読まずに、必要なシンボルと関係だけを辿れます。Aider（ターミナルで動くOSSのAIペアプログラミングCLI。コードベースの依存を地図化する「repo map」で知られる）は「実装の全体を見せる必要はない。使えるだけ理解できればいい」として、重要な識別子だけを渡す設計になっています。</p>
+<p>削減幅の報告も大きいです。Claude Code に知識グラフを足してトークンを平均6.8倍（最大49倍）削減したというベンチマークや、コードグラフMCPで複数リポジトリ平均59%削減・ツール呼び出し70%削減という測定があります。数値はリポジトリと質問の種類で大きく振れますが、関連だけを濃く渡す方向に効くのは一貫しています。</p>
+<h3 id="幻覚ハルシネーションが減る">幻覚（ハルシネーション）が減る<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#幻覚ハルシネーションが減る" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>もう一つが幻覚の抑制です。前提として、コーディングエージェントは関連の薄い情報を大量に抱えるほど焦点がぼけて精度が落ちます。これはコンテキストの汚染と呼ばれ、マルチターンのタスクでは精度が40〜60%下がるという指摘もあります。</p>
+<p>オントロジーは、この汚染を一定防げます。関係で絞った事実だけを渡せるので、無関係なファイルでClaudeを迷わせずに済むからです。関係が書いてあれば、Claudeは推測しなくて済みます。検証できるデータを辿るぶん、当て推量による幻覚が減る、という報告もあります。</p>
+<h2 id="claude-codeにオントロジーを導入するべきライン">Claude Codeにオントロジーを導入するべきライン<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#claude-codeにオントロジーを導入するべきライン" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>メリットがあるとはいえ、全員が入れるべきではありません。効く状況と、そうでない状況がはっきりしています。</p>
+<h3 id="効く状況">効く状況<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#効く状況" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>大きい・多ファイルのコードベース。数百〜数千ファイルになると、関連を毎回探させるコストが大きく、グラフの索引が効きます。逆に小さいプロジェクトでは効果が小さく、ノイズになりがちです。</li>
+<li>アーキテクチャや呼び出し階層をまたぐ問いが多い。「どこから呼ばれているか」「変更の影響範囲は」を頻繁に聞くなら、関係グラフの価値が出ます。</li>
+<li>長いマルチターンの作業やチームでの長期運用。会話が長引くほどコンテキストは汚れやすく、構造化した索引で精度を保てます。索引を共有すればチームのROIも上がります。</li>
+</ul>
+<h3 id="ハンズオンコードベースからグラフを作りトークン消費量が減るか確かめる">ハンズオン：コードベースからグラフを作り、トークン消費量が減るか確かめる<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#ハンズオンコードベースからグラフを作りトークン消費量が減るか確かめる" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>MCP（Anthropicが公開したオープン標準）の公式リファレンス実装にある memory サーバを触ってみましょう。entities（ノード）と relations（関係）、observations（事実）でできた、永続的なナレッジグラフをClaudeに足せます。流れは「導入 → コードからグラフを作る → グラフ有り/無しでトークンを比べる」の3ステップです。</p>
+<h4 id="1-導入">1. 導入<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#1-導入" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<pre><code>claude mcp add --transport stdio memory -- npx -y @modelcontextprotocol/server-memory
+</code></pre>
+<p>このコマンドで memory サーバが Claude Code に登録され、以降は<strong>手元（ローカル）のサブプロセスとして起動</strong>します。<code>--transport stdio</code> はローカル実行を指す指定で、クラウドには繋がりません。グラフのデータも手元の <code>memory.jsonl</code> に保存されます。</p>
+<h4 id="2-コードベースからグラフを作る">2. コードベースからグラフを作る<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#2-コードベースからグラフを作る" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>Claudeにリポジトリを解析させ、構造をグラフとして記録させます。</p>
+<pre><code>このリポジトリの主要なモジュール・サービスと、その依存・呼び出し関係を調べて、
+memory に entities（種類つき）と relations（呼ぶ・依存する など）として記録して。
+各要素の役割は observations に短く添えて。
+</code></pre>
+<p>Claudeがコードを一度読み込み、<code>create_entities</code> / <code>create_relations</code> / <code>add_observations</code> を呼んで、ローカルの <code>memory.jsonl</code> にグラフを作ります。<code>read_graph</code> で中身を確認できます。</p>
+<h4 id="3-グラフ有り無しでトークンを比べる">3. グラフ有り・無しでトークンを比べる<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#3-グラフ有り無しでトークンを比べる" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>比較はセッションを分けて行います。同じ問いを別々のセッションで一度ずつ投げ、それぞれ <code>/usage</code>（そのセッションのトークン量）を見ます。同じセッションで続けて聞くと使用量が混ざるので、必ず別セッションにします。<code>/context</code> を使うと、何がコンテキストを食っているかも見えます。</p>
+<p>使うのは、ふだんトークンを多く食う「広い問い」です。たとえばアーキテクチャ全体の把握。</p>
+<p>セッション①（グラフを使わない）で聞きます。</p>
+<pre><code>memory は使わず、コードを読んで答えて。
+このリポジトリのアーキテクチャを説明して。主要なモジュールと、その依存・呼び出し関係を整理して。
+</code></pre>
+<p>Claudeは多数のファイルを grep して読み込みます。答えが出たら <code>/usage</code> でトークン量を控えます。</p>
+<p>セッション②（新しいセッションで、グラフを使う）で、同じことを聞きます。</p>
+<pre><code>memory のグラフを使って答えて。
+このリポジトリのアーキテクチャを説明して。主要なモジュールと、その依存・呼び出し関係を整理して。
+</code></pre>
+<p>Claudeは <code>search_nodes</code> と <code>read_graph</code> でグラフから答え、ファイルはほとんど開きません。2つの <code>/usage</code> を比べると、広い構造の問いほどグラフ側のトークンが少なくなります。</p>
+<p>実際に手元のリポジトリで、同じ「アーキテクチャを説明して」を投げて比べてみました。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>指標</th><th>グラフなし</th><th>グラフあり</th></tr></thead><tbody><tr><td>コスト</td><td>$1.26</td><td>$0.62</td></tr><tr><td>API応答時間</td><td>2分7秒</td><td>44秒</td></tr><tr><td>キャッシュ読取トークン</td><td>764.7k</td><td>118.1k</td></tr></tbody></table></div>
+<p>入力プロンプトはほぼ同じなのに、コストは約半分、応答は約3倍速になりました。差を生んだのはキャッシュ読取（読み込んだコンテキスト量）で、764.7k から 118.1k へ激減しています。グラフがファイルの読み込みを肩代わりしたぶんです。これは1リポジトリでの一例なので、効果は規模と問いの種類で変わります。自分の <code>/usage</code> で確かめてみてください。</p>
+<h2 id="まとめ">まとめ<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#まとめ" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>オントロジーの正体、効果、使いどころを順にまとめます。</p>
+<ul>
+<li><strong>正体</strong>: オントロジーは概念を関係で繋いだ構造。タグやフォルダが「並べる」だけなのに対し、関係を型として明示するので、モデルが推測せず辿れる</li>
+<li><strong>効果</strong>: 関係があると幻覚が減り、関連事実を濃く渡せて、多ホップ推論が通る。曖昧な検索が得意なRAGとは効き方が違い、組み合わせると強い</li>
+<li><strong>Claude Codeでの使いどころ</strong>: 大きく複雑なコードベースで、関係を辿る問いが多いときに効く（トークン削減・幻覚抑制）</li>
+</ul>
+<p>オントロジーは派手な技術ではありません。やっていることは「コードの関係を、Claudeが辿れる形で持たせる」だけです。効くかどうかは、コードベースの規模と問いの種類で変わります。ハンズオンを実施して、トークン消費量が明らかに減っているのであれば、レポジトリに導入を検討しても良さそうです。</p>
+<h3 id="参考リンク">参考リンク<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#参考リンク" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><a href="https://tomgruber.org/writing/definition-of-ontology/" class="external">Definition of Ontology（Tom Gruber 本人による定義・Encyclopedia of Database Systems）<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://www.w3.org/TR/owl2-primer/" class="external">OWL 2 Web Ontology Language Primer（W3C 勧告）<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://arxiv.org/abs/2404.16130" class="external">From Local to Global: A Graph RAG Approach（arXiv:2404.16130）<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://platform.claude.com/cookbook/capabilities-knowledge-graph-guide" class="external">Knowledge Graph Construction with Claude（Anthropic 公式 Cookbook）<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://aider.chat/2023/10/22/repomap.html" class="external">Building a better repository map with tree sitter（Aider）<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://martinfowler.com/articles/exploring-gen-ai/context-engineering-coding-agents.html" class="external">Context Engineering for Coding Agents（Birgitta Böckeler / martinfowler.com）<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://github.com/modelcontextprotocol/servers/tree/main/src/memory" class="external">Memory（公式MCPリファレンスサーバ・Knowledge Graph）<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://github.com/colbymchenry/codegraph" class="external">CodeGraph（自動コードグラフMCP・サードパーティ）<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+</ul>
+<hr/>
+<p><em>원문: <a href="https://zenn.dev/takupeso/articles/claude-ontology-knowledge-structuring" class="external">https://zenn.dev/takupeso/articles/claude-ontology-knowledge-structuring<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></em></p></article><hr/><div class="page-footer"><div class="backlinks"><h3>백링크</h3><ul id="list-1" class="overflow"><li><a href="../garden/20260629-graphrag-pays-off-first-in-impact-radius-questions" class="internal">GraphRAG의 실용적 가치는 검색보다 영향 범위 질문에서 먼저 드러난다</a></li><li><a href="../garden/20260629-relations-matter-more-than-more-documents-for-agents" class="internal">지식은 많이 주는 것보다 관계를 정해주는 것이 에이전트를 더 똑똑하게 만든다</a></li><li><a href="../wiki/concepts/20260629-ontology-as-relation-index-for-coding-agents" class="internal">코딩 에이전트를 위한 관계 인덱스로서의 온톨로지</a></li><li><a href="../wiki/entities/20260629-mcp-memory-server" class="internal">MCP Memory Server</a></li><li class="overflow-end"></li></ul></div><div class="giscus" data-repo="dataofmen/quartz-wiki" data-repo-id="R_kgDOSOxrZA" data-category="General" data-category-id="DIC_kwDOSOxrZM4C-Edy" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-input-position="bottom" data-light-theme="light" data-dark-theme="dark" data-theme-url="https://dataofmen.github.io/static/giscus" data-lang="ko"></div></div></div><div class="right sidebar"><div class="graph desktop-only"><h3>그래프 뷰</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                  s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                  c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                  C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                  c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                  v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                  s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                  C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                  S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                  s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                  s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.5.2</a> © 2026</p><ul></ul></footer></div></div></body><script type="application/javascript" data-persist="true">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module" data-persist="true">function E(a,e){if(!a)return;function t(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function n(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}a?.addEventListener("click",t),window.addCleanup(()=>a?.removeEventListener("click",t)),document.addEventListener("keydown",n),window.addCleanup(()=>document.removeEventListener("keydown",n))}function f(a){for(;a.firstChild;)a.removeChild(a.firstChild)}var m=class{constructor(e,t){this.container=e;this.content=t;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),t=this.onMouseMove.bind(this),n=this.onMouseUp.bind(this),o=this.onTouchStart.bind(this),r=this.onTouchMove.bind(this),i=this.onTouchEnd.bind(this),s=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",t),document.addEventListener("mouseup",n),this.container.addEventListener("touchstart",o,{passive:!1}),document.addEventListener("touchmove",r,{passive:!1}),document.addEventListener("touchend",i),window.addEventListener("resize",s),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",t),()=>document.removeEventListener("mouseup",n),()=>this.container.removeEventListener("touchstart",o),()=>document.removeEventListener("touchmove",r),()=>document.removeEventListener("touchend",i),()=>window.removeEventListener("resize",s))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let t=this.createButton("+",()=>this.zoom(.1)),n=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(n),e.appendChild(o),e.appendChild(t),this.container.appendChild(e)}createButton(e,t){let n=document.createElement("button");return n.textContent=e,n.className="mermaid-control-button",n.addEventListener("click",t),window.addCleanup(()=>n.removeEventListener("click",t)),n}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}onTouchStart(e){if(e.touches.length!==1)return;this.isDragging=!0;let t=e.touches[0];this.startPan={x:t.clientX-this.currentPan.x,y:t.clientY-this.currentPan.y}}onTouchMove(e){if(!this.isDragging||e.touches.length!==1)return;e.preventDefault();let t=e.touches[0];this.currentPan={x:t.clientX-this.startPan.x,y:t.clientY-this.startPan.y},this.updateTransform()}onTouchEnd(){this.isDragging=!1}zoom(e){let t=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),n=this.content.getBoundingClientRect(),o=n.width/2,r=n.height/2,i=t-this.scale;this.currentPan.x-=o*i,this.currentPan.y-=r*i,this.scale=t,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){let t=this.content.querySelector("svg").getBoundingClientRect(),n=t.width/this.scale,o=t.height/this.scale;this.scale=1,this.currentPan={x:(this.container.clientWidth-n)/2,y:(this.container.clientHeight-o)/2},this.updateTransform()}},T=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],y;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;y||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let t=y.default,n=new WeakMap;for(let r of e)n.set(r,r.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let c=n.get(s);c&&(s.innerHTML=c)}let r=T.reduce((s,c)=>(s[c]=window.getComputedStyle(document.documentElement).getPropertyValue(c),s),{}),i=document.documentElement.getAttribute("saved-theme")==="dark";t.initialize({startOnLoad:!1,securityLevel:"loose",theme:i?"dark":"base",themeVariables:{fontFamily:r["--codeFont"],primaryColor:r["--light"],primaryTextColor:r["--darkgray"],primaryBorderColor:r["--tertiary"],lineColor:r["--darkgray"],secondaryColor:r["--secondary"],tertiaryColor:r["--tertiary"],clusterBkg:r["--light"],edgeLabelBackground:r["--highlight"]}}),await t.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let r=0;r<e.length;r++){let v=function(){let g=l.querySelector("#mermaid-space"),h=l.querySelector(".mermaid-content");if(!h)return;f(h);let w=i.querySelector("svg").cloneNode(!0);h.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new m(g,h)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},i=e[r],s=i.parentElement,c=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(c),L=c.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),E(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../postscript.js" type="module" data-persist="true"></script></html>
