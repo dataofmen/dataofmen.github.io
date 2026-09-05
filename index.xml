@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+    <channel>
+      <title>dataofmen</title>
+      <link>https://dataofmen.github.io</link>
+      <description>최근 10 건 on dataofmen</description>
+      <generator>Quartz -- quartz.jzhao.xyz</generator>
+      <item>
+    <title>20260830-overnight-ai-research</title>
+    <link>https://dataofmen.github.io/clippings/20260830-overnight-ai-research</link>
+    <guid>https://dataofmen.github.io/clippings/20260830-overnight-ai-research</guid>
+    <description><![CDATA[ Overnight AI Trading Research - 20260830 [01:00 KST] The Loop-Gain Matrix: Coupled Rebalancing Feedback and the Blind Spots of Scalar Stability Monitoring URL: arxiv.org/abs/2608.22768v1 Source Type: paper Domain: microstructure | execution | risk-sizing | reflexivity Trading Relevance: 10 Time Hori... ]]></description>
+    <pubDate>Sat, 05 Sep 2026 14:24:41 GMT</pubDate>
+  </item><item>
+    <title>위키 (Wiki)</title>
+    <link>https://dataofmen.github.io/wiki/</link>
+    <guid>https://dataofmen.github.io/wiki/</guid>
+    <description><![CDATA[ 기계와 인간을 위한 정제된 지식의 저장소입니다. ]]></description>
+    <pubDate>Sat, 05 Sep 2026 14:24:41 GMT</pubDate>
+  </item><item>
+    <title>dataofmen wiki</title>
+    <link>https://dataofmen.github.io/</link>
+    <guid>https://dataofmen.github.io/</guid>
+    <description><![CDATA[ 🗺️ 지식 지형도 (Atlas) 지식은 분류함에 갇히는 대신, 서로 연결되며 거대한 네트워크를 형성합니다. 아래는 현재 수많은 노트 중에서도 가장 많은 인용을 주고받으며 생태계의 중심 역할을 하는 “빅 허브(Big Hubs)” 노트들입니다. ]]></description>
+    <pubDate>Sat, 05 Sep 2026 14:24:36 GMT</pubDate>
+  </item><item>
+    <title>에이전트의 진화는 더 큰 모델보다 축적된 스킬에서 온다</title>
+    <link>https://dataofmen.github.io/garden/20260830-agent-evolution-comes-from-persistent-skills</link>
+    <guid>https://dataofmen.github.io/garden/20260830-agent-evolution-comes-from-persistent-skills</guid>
+    <description><![CDATA[ WikiSkill 요약에서 중요한 지점은 “스킬”이 더 이상 프롬프트 장식이나 편의 기능이 아니라 성능을 옮기는 저장 매체로 등장한다는 점이다. ]]></description>
+    <pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>에이전트에게 더 많은 기억보다 먼저 작은 지도가 필요하다</title>
+    <link>https://dataofmen.github.io/garden/20260830-agents-need-map-before-memory</link>
+    <guid>https://dataofmen.github.io/garden/20260830-agents-need-map-before-memory</guid>
+    <description><![CDATA[ 회사 브레인의 핵심은 많은 맥락을 한 번에 넣는 것이 아니라, 에이전트가 어떤 맥락을 언제 가져와야 하는지 알게 만드는 것이다. 오래된 캠페인, 느슨한 회의록, 승인된 결정이 같은 무게로 들어오면 모델은 “역사”와 “정책”을 구분하지 못한다. ]]></description>
+    <pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>권한을 가진 AI는 정답률보다 거부와 복구 능력으로 평가해야 한다</title>
+    <link>https://dataofmen.github.io/garden/20260830-ai-agents-need-refusal-and-recovery-metrics</link>
+    <guid>https://dataofmen.github.io/garden/20260830-ai-agents-need-refusal-and-recovery-metrics</guid>
+    <description><![CDATA[ 이번 브리핑에서 권한 정책 논문과 모델 보안 스캐너 논문은 같은 문제를 다른 층위에서 말한다. 에이전트가 실제 권한을 갖는 순간, 평가는 “맞혔는가”만으로 끝나지 않는다. ]]></description>
+    <pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>대형 베팅은 방향이 맞아도 전환 마찰에서 실패한다</title>
+    <link>https://dataofmen.github.io/garden/20260830-big-bets-fail-at-conversion-friction</link>
+    <guid>https://dataofmen.github.io/garden/20260830-big-bets-fail-at-conversion-friction</guid>
+    <description><![CDATA[ 이 클리핑의 가장 중요한 메시지는 “맞는 방향”과 “좋은 거래”가 다르다는 점이다. SOXL, MSTU, BTC, MSTR, AI 인프라처럼 thesis가 강한 대상일수록 위험은 오히려 thesis 밖에서 온다. ]]></description>
+    <pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>회사 브레인은 아카이브가 아니라 검토된 수정 루프다</title>
+    <link>https://dataofmen.github.io/garden/20260830-company-brain-is-reviewed-correction-loop</link>
+    <guid>https://dataofmen.github.io/garden/20260830-company-brain-is-reviewed-correction-loop</guid>
+    <description><![CDATA[ 회사 브레인을 만든다는 말은 보통 회의록, 문서, 슬랙, 고객 콜을 한곳에 모으는 일로 오해된다. 하지만 이 글의 중요한 전환은 브레인의 단위를 “문서”가 아니라 “수정이 어디로 귀속되는가”로 둔다는 점이다. ]]></description>
+    <pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>확신은 감사 추적을 통과한 뒤에만 사이즈가 된다</title>
+    <link>https://dataofmen.github.io/garden/20260830-confidence-needs-audit-before-sizing</link>
+    <guid>https://dataofmen.github.io/garden/20260830-confidence-needs-audit-before-sizing</guid>
+    <description><![CDATA[ AI 리서치와 퀀트 모델이 매력적인 이유는 확신을 빠르게 만든다는 점이다. 문제는 확신의 속도가 검증의 속도보다 빠를 때다. ]]></description>
+    <pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>AI 영상은 AI답지 않아야 하는 것이 아니라 볼 이유가 있어야 살아남는다</title>
+    <link>https://dataofmen.github.io/garden/20260901-ai-video-needs-viewing-reason</link>
+    <guid>https://dataofmen.github.io/garden/20260901-ai-video-needs-viewing-reason</guid>
+    <description><![CDATA[ AI 영상의 실패 원인은 대개 “AI 티가 난다”가 아니라 “시청자가 머물 이유가 없다”에 있다. 이 클리핑이 흥미로운 지점은 AI 영상의 자연스러움을 기술 품질이 아니라 기획의 마찰 없음으로 정의한다는 점이다. ]]></description>
+    <pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate>
+  </item>
+    </channel>
+  </rss>
