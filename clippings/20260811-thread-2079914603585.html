@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr"><head><title>유튜브 썸네일 제작 완벽 가이드 (조회수 18만 썸네일 따라하기)</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto Sans KR:wght@400;700&amp;family=Noto Sans KR:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="dataofmen"/><meta property="og:title" content="유튜브 썸네일 제작 완벽 가이드 (조회수 18만 썸네일 따라하기)"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="유튜브 썸네일 제작 완벽 가이드 (조회수 18만 썸네일 따라하기)"/><meta name="twitter:description" content="유튜브 썸네일 제작 완벽 가이드 (조회수 18만 썸네일 따라하기) 오늘은 “이 글 하나로 유튜브 썸네일 만들기는 종결한다”는 마음으로 제가 가진 모든 노하우를 털어놓으려고 합니다."/><meta property="og:description" content="유튜브 썸네일 제작 완벽 가이드 (조회수 18만 썸네일 따라하기) 오늘은 “이 글 하나로 유튜브 썸네일 만들기는 종결한다”는 마음으로 제가 가진 모든 노하우를 털어놓으려고 합니다."/><meta property="og:image:alt" content="유튜브 썸네일 제작 완벽 가이드 (조회수 18만 썸네일 따라하기) 오늘은 “이 글 하나로 유튜브 썸네일 만들기는 종결한다”는 마음으로 제가 가진 모든 노하우를 털어놓으려고 합니다."/><meta property="og:image" content="https://dataofmen.github.io/static/og-image.png"/><meta property="og:image:url" content="https://dataofmen.github.io/static/og-image.png"/><meta name="twitter:image" content="https://dataofmen.github.io/static/og-image.png"/><meta property="og:image:type" content="image/.png"/><meta property="twitter:domain" content="dataofmen.github.io"/><meta property="og:url" content="https://dataofmen.github.io/clippings/20260811-thread-2079914603585"/><meta property="twitter:url" content="https://dataofmen.github.io/clippings/20260811-thread-2079914603585"/><link rel="icon" href="../static/icon.png"/><meta name="description" content="유튜브 썸네일 제작 완벽 가이드 (조회수 18만 썸네일 따라하기) 오늘은 “이 글 하나로 유튜브 썸네일 만들기는 종결한다”는 마음으로 제가 가진 모든 노하우를 털어놓으려고 합니다."/><meta name="generator" content="Quartz"/><link href="../index.css" rel="stylesheet" type="text/css" data-persist="true"/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiL2hvbWUvcnVubmVyL3dvcmsvcXVhcnR6LXdpa2kvcXVhcnR6LXdpa2kvcXVhcnR6L2NvbXBvbmVudHMvc3R5bGVzIiwic291cmNlcyI6WyJtZXJtYWlkLmlubGluZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFHRjtFQUNFOzs7QUFLRjtFQUNFO0VBQ0E7OztBQUlKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFOztBQUdGO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFJSjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTs7QUFJRjtFQUNFO0VBQ0E7RUFDQSIsInNvdXJjZXNDb250ZW50IjpbIi5leHBhbmQtYnV0dG9uIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbG9hdDogcmlnaHQ7XG4gIHBhZGRpbmc6IDAuNHJlbTtcbiAgbWFyZ2luOiAwLjNyZW07XG4gIHJpZ2h0OiAwOyAvLyBOT1RFOiByaWdodCB3aWxsIGJlIHNldCBpbiBtZXJtYWlkLmlubGluZS50c1xuICBjb2xvcjogdmFyKC0tZ3JheSk7XG4gIGJvcmRlci1jb2xvcjogdmFyKC0tZGFyayk7XG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWxpZ2h0KTtcbiAgYm9yZGVyOiAxcHggc29saWQ7XG4gIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgb3BhY2l0eTogMDtcbiAgdHJhbnNpdGlvbjogMC4ycztcblxuICAmID4gc3ZnIHtcbiAgICBmaWxsOiB2YXIoLS1saWdodCk7XG4gICAgZmlsdGVyOiBjb250cmFzdCgwLjMpO1xuICB9XG5cbiAgJjpob3ZlciB7XG4gICAgY3Vyc29yOiBwb2ludGVyO1xuICAgIGJvcmRlci1jb2xvcjogdmFyKC0tc2Vjb25kYXJ5KTtcbiAgfVxuXG4gICY6Zm9jdXMge1xuICAgIG91dGxpbmU6IDA7XG4gIH1cbn1cblxucHJlIHtcbiAgJjpob3ZlciA+IC5leHBhbmQtYnV0dG9uIHtcbiAgICBvcGFjaXR5OiAxO1xuICAgIHRyYW5zaXRpb246IDAuMnM7XG4gIH1cbn1cblxuI21lcm1haWQtY29udGFpbmVyIHtcbiAgcG9zaXRpb246IGZpeGVkO1xuICBjb250YWluOiBsYXlvdXQ7XG4gIHotaW5kZXg6IDk5OTtcbiAgbGVmdDogMDtcbiAgdG9wOiAwO1xuICB3aWR0aDogMTAwdnc7XG4gIGhlaWdodDogMTAwdmg7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIGRpc3BsYXk6IG5vbmU7XG4gIGJhY2tkcm9wLWZpbHRlcjogYmx1cig0cHgpO1xuICBiYWNrZ3JvdW5kOiByZ2JhKDAsIDAsIDAsIDAuNSk7XG5cbiAgJi5hY3RpdmUge1xuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgfVxuXG4gICYgPiAjbWVybWFpZC1zcGFjZSB7XG4gICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1saWdodCk7XG4gICAgYm9yZGVyLXJhZGl1czogNXB4O1xuICAgIHBvc2l0aW9uOiBmaXhlZDtcbiAgICB0b3A6IDUwJTtcbiAgICBsZWZ0OiA1MCU7XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGUoLTUwJSwgLTUwJSk7XG4gICAgaGVpZ2h0OiA4MHZoO1xuICAgIHdpZHRoOiA4MHZ3O1xuICAgIG92ZXJmbG93OiBoaWRkZW47XG5cbiAgICAmID4gLm1lcm1haWQtY29udGVudCB7XG4gICAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgICB0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7XG4gICAgICB0cmFuc2l0aW9uOiB0cmFuc2Zvcm0gMC4xcyBlYXNlO1xuICAgICAgb3ZlcmZsb3c6IHZpc2libGU7XG4gICAgICBtaW4taGVpZ2h0OiAyMDBweDtcbiAgICAgIG1pbi13aWR0aDogMjAwcHg7XG5cbiAgICAgIHByZSB7XG4gICAgICAgIG1hcmdpbjogMDtcbiAgICAgICAgYm9yZGVyOiBub25lO1xuICAgICAgfVxuXG4gICAgICBzdmcge1xuICAgICAgICBtYXgtd2lkdGg6IG5vbmU7XG4gICAgICAgIGhlaWdodDogYXV0bztcbiAgICAgIH1cbiAgICB9XG5cbiAgICAmID4gLm1lcm1haWQtY29udHJvbHMge1xuICAgICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgICAgYm90dG9tOiAyMHB4O1xuICAgICAgcmlnaHQ6IDIwcHg7XG4gICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgZ2FwOiA4cHg7XG4gICAgICBwYWRkaW5nOiA4cHg7XG4gICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1saWdodCk7XG4gICAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgICAgYm9yZGVyLXJhZGl1czogNnB4O1xuICAgICAgYm94LXNoYWRvdzogMCAycHggNHB4IHJnYmEoMCwgMCwgMCwgMC4xKTtcbiAgICAgIHotaW5kZXg6IDI7XG5cbiAgICAgIC5tZXJtYWlkLWNvbnRyb2wtYnV0dG9uIHtcbiAgICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICAgICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gICAgICAgIHdpZHRoOiAzMnB4O1xuICAgICAgICBoZWlnaHQ6IDMycHg7XG4gICAgICAgIHBhZGRpbmc6IDA7XG4gICAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0KTtcbiAgICAgICAgY29sb3I6IHZhcigtLWRhcmspO1xuICAgICAgICBib3JkZXItcmFkaXVzOiA0cHg7XG4gICAgICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICAgICAgZm9udC1zaXplOiAxNnB4O1xuICAgICAgICBmb250LWZhbWlseTogdmFyKC0tYm9keUZvbnQpO1xuICAgICAgICB0cmFuc2l0aW9uOiBhbGwgMC4ycyBlYXNlO1xuXG4gICAgICAgICY6aG92ZXIge1xuICAgICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIH1cblxuICAgICAgICAmOmFjdGl2ZSB7XG4gICAgICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKDFweCk7XG4gICAgICAgIH1cblxuICAgICAgICAvLyBTdHlsZSB0aGUgcmVzZXQgYnV0dG9uIGRpZmZlcmVudGx5XG4gICAgICAgICY6bnRoLWNoaWxkKDIpIHtcbiAgICAgICAgICB3aWR0aDogYXV0bztcbiAgICAgICAgICBwYWRkaW5nOiAwIDEycHg7XG4gICAgICAgICAgZm9udC1zaXplOiAxNHB4O1xuICAgICAgICB9XG4gICAgICB9XG4gICAgfVxuICB9XG59XG4iXX0= */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../prescript.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://dataofmen.github.io/index.xml"/></head><body data-slug="clippings/20260811-thread-2079914603585"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"></div><div class="center"><div class="page-header"><header><h2 class="page-title"><a href="..">dataofmen</a></h2><nav class="nav-links"><a href="/wiki" class="nav-link">wiki</a><a href="/garden" class="nav-link">garden</a><a href="/clippings" class="nav-link">clippings</a></nav><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 1rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>검색</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="검색어를 입력하세요" placeholder="검색어를 입력하세요"/><div class="search-layout" data-preview="true"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="다크 모드"><title>다크 모드</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="라이트 모드"><title>라이트 모드</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div></div></header><div class="popover-hint"><h1 class="article-title">유튜브 썸네일 제작 완벽 가이드 (조회수 18만 썸네일 따라하기)</h1><p show-comma="true" class="content-meta"><time datetime="2026-08-11T00:00:00.000Z">2026년 8월 11일</time><span>13 min read</span></p><ul class="tags"><li><a href="../tags/thread" class="internal tag-link">thread</a></li><li><a href="../tags/x.com" class="internal tag-link">x.com</a></li><li><a href="../tags/fdfb07" class="internal tag-link">fdfb07</a></li><li><a href="../tags/d80138" class="internal tag-link">d80138</a></li><li><a href="../tags/46FD0D" class="internal tag-link">46FD0D</a></li><li><a href="../tags/11e9ed" class="internal tag-link">11e9ed</a></li></ul></div></div><article class="popover-hint"><h1 id="유튜브-썸네일-제작-완벽-가이드-조회수-18만-썸네일-따라하기">유튜브 썸네일 제작 완벽 가이드 (조회수 18만 썸네일 따라하기)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#유튜브-썸네일-제작-완벽-가이드-조회수-18만-썸네일-따라하기" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>오늘은 “이 글 하나로 유튜브 썸네일 만들기는 종결한다”는 마음으로 제가 가진 모든 노하우를 털어놓으려고 합니다.</p>
+<p>우선, 제가 한 달 만에 수익창출을 달성했던 3번째 채널의 카테고리가 궁금하셨죠?</p>
+<p>바로 ‘해외감동사연’ 카테고리입니다. 흔히 말하는 ‘국뽕/감동’ 사연으로, 특히 시니어 층이 정말 좋아하는 카테고리 중 하나죠</p>
+<p>요즘은 AI가 썸네일을 잘 만들어주지만, AI가 만든 결과물이 2% 아쉬울 때나 “이번 영상은 제대로 힘을 줘서 클릭률을 폭발시키고 싶다!” 할 때는 직접 만드는 기술이 반드시 필요합니다.</p>
+<p>저는 오직 ‘미리캔버스 무료 버전’만 사용해서 썸네일을 만들고 있습니다. 굳이 유료 결제를 하지 않아도, ‘월 천만 원 수익을 버는 썸네일’을 만들기엔 충분하거든요.</p>
+<p>실제로 오늘 함께 만들어볼 스타일의 썸네일로 조회수 18만 회를 기록했습니다. 이 영상 단 하나로 약 100만 원의 수익을 냈고, 수익창출 조건까지 한 번에 달성했어요.</p>
+<p>영상 한두 개로 수익창출 조건 달성이 가능한 이유.</p>
+<p>유튜브 롱폼의 수익창출 조건은 ‘12개월 이내 시청시간 4,000시간 + 구독자 1,000명 + 영상 3개 이상 업로드’입니다.</p>
+<p>이 영상 하나로, 시청시간 + 구독자를 모두 달성했어요.</p>
+<p>18만 조회수까지 나와야만 수익창출이 가능할까요?</p>
+<p>아닙니다. 8만 조회수로도 충분합니다.</p>
+<p>실제로 8만 조회수 영상 하나만으로도 시청시간과 구독자가 채워져 수익창출 조건을 달성할 수 있습니다.</p>
+<p>물론 조회수마다 구독자 차이는 있습니다.</p>
+<p>(‘이 조회수가 나오면 이정도 구독자가 모인다’ 와 같은 정답은 없습니다)</p>
+<p>심지어 3만 5천 조회수가 나온 다른 영상은 시청시간이 6,600시간, 구독자가 456명이나 모였습니다. 구독자 1,000명의 절반 가까이를 영상 하나로 채운 셈이죠.</p>
+<p>내가 만든 영상들이 당장 조회수가 안 나오고 구독자가 안 모인다고 낙담할 필요 없습니다. 잘 만든 썸네일로 무장한 영상 한두 개만 터지면 수익창출 조건은 의외로 쉽게 달성 가능합니다.</p>
+<p>그럼 이제, 18만 조회수를 기록한 썸네일을 직접 만들어볼까요?</p>
+<p>(해외감동사연뿐만 아니라 모든 카테고리에 동일하게 적용할 수 있습니다!)</p>
+<p>🎨 미리캔버스 무료로 100% 활용하는 썸네일 제작 5단계</p>
+<p>STEP 1. 기본 규격 및 레이아웃 설정</p>
+<p>미리캔버스에 로그인합니다.</p>
+<p>[디자인 만들기] → [유튜브 썸네일 (1280x720)]을 선택합니다.</p>
+<ol start="3">
+<li>해외감동사연 썸네일의 기본 구조는 보통 3가지 영역으로 나뉩니다.</li>
+</ol>
+<p>상단: 썸네일 제목 및 부제목 영역</p>
+<p>중앙: 메인 이미지 영역</p>
+<p>하단: 마무리 문구 및 국기 영역</p>
+<p>STEP 2. 상단 타이틀 영역 &amp; 폰트 찾기</p>
+<p>상단 검은색 배경 만들기: [요소] → [기본 도형] → [네모] 클릭 후 상단에 배치, 색상을 검정색으로 변경합니다.</p>
+<ol start="2">
+<li>폰트 분석 꿀팁 (폰트폰트 활용)</li>
+</ol>
+<p>벤치마킹하고 싶은 썸네일의 폰트나 색상을 모를 땐 폰트폰트(fontfont.app) 사이트를 활용해 보세요!</p>
+<p>썸네일 이미지를 업로드하면 어떤 폰트인지 바로 찾아줍니다. (제가 실제로 사용한 메인 폰트인 ‘G마켓 산스’를 찾아주고 있네요!)</p>
+<p>STEP 3. 텍스트 입력 및 컬러 적용</p>
+<p>제목과 부제목을 입력한 뒤, 자간과 장평을 조절해 시청자 눈에 잘 띄도록 가독성을 높여줍니다.</p>
+<p>(잘 만든 썸네일을 불러온 뒤 비교하면서 만들면 더 편합니다!)</p>
+<p>💡 클릭률을 높이는 핵심 컬러 코드</p>
+<p>노란색 (메인): <a href=".././tags/fdfb07" class="tag-link internal alias" data-slug="tags/fdfb07">fdfb07</a></p>
+<p>외곽 빨강색 (강조): <a href=".././tags/d80138" class="tag-link internal alias" data-slug="tags/d80138">d80138</a></p>
+<p>연두색 (포인트): <a href=".././tags/46FD0D" class="tag-link internal alias" data-slug="tags/46FD0D">46FD0D</a></p>
+<p>하늘색 (서브): <a href=".././tags/11e9ed" class="tag-link internal alias" data-slug="tags/11e9ed">11e9ed</a></p>
+<p>이 외에도 스포이드를 활용해서 따라서 사용할 수 있습니다.</p>
+<ol start="2">
+<li>부제목에서 특정 키워드(예: 13조 돈 뜯으려다)만 마우스로 드래그한 뒤 외곽선과 색상을 변경해 줍니다</li>
+</ol>
+<p>STEP 4. 이미지 자연스럽게 합성하기</p>
+<p>AI로 생성한 인물/상황 이미지를 불러옵니다.</p>
+<p>이미지 클릭 - 속성 - 필터 - 직접 조정 클릭 후 밝기, 대비, 채도를 수정합니다.</p>
+<p>무료 기능인 배경 제거 및 화질 개선을 사용해서 더 다양한 이미지를 만들 수 있어요!</p>
+<p>하루에 5번까지 무료로 가능해서 저는 필요에 따라 사용하고 있습니다.</p>
+<p>이미지 모서리 잡고 늘리기: 반드시 모서리를 잡고 드래그해야 비율이 깨지지 않습니다.</p>
+<ol start="4">
+<li>
+<p>레이어 순서 변경: 특정 이미지가 다른 요소를 가린다면 [우클릭] → [순서] → [뒤로 보내기]를 활용합니다.</p>
+</li>
+<li>
+<p>여백 자르기: 이미지를 클릭 후 [속성] → [자르기]로 불필요한 여백을 제거합니다.</p>
+</li>
+</ol>
+<p>✨ 세로 연결선 자연스럽게 지우기 (핵심!)</p>
+<p>두 이미지가 만나는 중간 세로선이 어색하다면?</p>
+<p>왼쪽 이미지 선택 → [그라데이션 마스크] → 방향 90 / 범위 2% 설정! 경계선이 아주 자연스럽게 녹아듭니다.</p>
+<p>STEP 5. 하단 마무리 문구 및 국기 추가</p>
+<p>하단 문구를 작성합니다. (폰트는 ‘수성돋움체’ 등을 추천하며, 취향에 맞게 가독성 좋은 폰트를 선택해 주세요.)</p>
+<ol start="2">
+<li>[요소] → [일러스트]에서 ‘태극기’를 검색해 추가합니다.</li>
+</ol>
+<p>주의: 왕관 표시가 붙은 유료 요소 대신 무료 태극기를 선택하세요. 오직 무료 요소만으로도 훌륭한 퀄리티가 나옵니다!</p>
+<p>🎁 [보너스 팁] 유료 결제 없이 프레임&amp;테두리 만들기 (꼼수 노하우)</p>
+<p>최근 조회수 13만 회 이상을 기록한 썸네일들을 보면 ‘특정 이미지를 네모 상자 안에 넣고 연두색 테두리를 두르는 스타일’이 자주 보입니다.</p>
+<p>미리캔버스에서 이 테두리를 이쁘게 만들려다 유료 결제의 유혹에 빠지기 쉬운데요, 무료로 해결하는 꼼수가 있습니다!</p>
+<p>[요소] → [프레임] 검색 후 마음에 드는 프레임을 선택합니다. (네모, 원)</p>
+<p>프레임 안에 이미지를 드래그해 넣고, 더블클릭해서 크기를 조절합니다.</p>
+<ol start="3">
+<li>요소에서 화살표, 원까지 사용하여 마무리 해줍니다.</li>
+</ol>
+<p>무료로 두꺼운 테두리 만드는 꼼수</p>
+<ol>
+<li>
+<p>[요소] → [사각형]을 하나 생성하여 원하는 테두리 색상(예: 연두색)으로 변경합니다.</p>
+</li>
+<li>
+<p>그 위에 만든 이미지 프레임을 올려놓고, 뒤에 있는 사각형 크기를 프레임보다 살짝 크게 맞춥니다.</p>
+</li>
+<li>
+<p>돈 한 푼 안 들이고 깔끔한 강조 테두리가 완성됩니다!</p>
+</li>
+</ol>
+<p>📝 마치며: 채널 운영에 대한 솔직한 후기</p>
+<p>‘해외감동사연’은 제가 3번째로 운영했던 채널이고, 한 달 만에 수익창출을 가져다준 고마운 카테고리입니다. 여전히 조회수가 아주 잘 나오기도 하구요!</p>
+<p>다만, 저는 시청자층(시니어) 분석 과정에서 실제 인물(예: 트럼프 등)이 등장할 때 일부 시청자분들이 “진짜 일어난 일”로 오해할 소지가 있다는 점이 마음이 걸려 이 카테고리를 중단하게 되었습니다.</p>
+<p>(영상 설명란에 ‘픽션/가상 사연’임을 명시하긴 했지만 제 소심한 성격 탓이기도 합니다 😅)</p>
+<p>하지만 이런 식으로, 실제 인물을 쓰지 않는 창작 감동 사연으로도 얼마든지 높은 조회수를 올리는 채널들이 많습니다!</p>
+<p>법적/윤리적 가이드라인(가상 사연 명시)만 잘 지키신다면 해외감동사연 카테고리는 여전히 매력적이라고 생각해요!</p>
+<p>오늘 알려드린 미리캔버스 썸네일 공식을 활용하시면, 해외감동사연뿐만 아니라 어떤 카테고리의 썸네일도 자유자재로 만드실 수 있습니다!</p>
+<p>실제로 제가 현재 운영 중인 4번째 채널이자 월 1,000만 원 수익을 올리고 있는 카테고리 역시 똑같은 방식으로 썸네일을 제작하고 있거든요.</p>
+<p>요즘 ‘경제학’ 카테고리처럼 100% AI로 제작된 영상들이 조회수가 잘 나오는 것을 보면, 앞으로 썸네일 역시 AI 제작 비중이 더 커질 것은 분명합니다.</p>
+<p>하지만 이렇게 직접 썸네일의 기본 원리와 제작법을 한 번 배워두시면, AI 이미지를 보정하거나 디테일을 더할 때 등 곳곳에서 엄청나게 유용하게 활용할 수 있습니다.</p>
+<p>망설이지 마시고 꼭 한 번 차근차근 따라서 만들어보세요!</p>
+<hr/>
+<p><em>원문: <a href="https://x.com/anna_creator00/status/2079914603585384937?s=12" class="external">https://x.com/anna_creator00/status/2079914603585384937?s=12<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></em></p></article><hr/><div class="page-footer"><div class="backlinks"><h3>백링크</h3><ul id="list-1" class="overflow"><li><a href="../garden/20260811-self-regulation-precedes-platform-policy" class="internal">잘 되는 카테고리를 스스로 접는 것은 손실이 아니라 플랫폼 정책보다 앞선 리스크 관리다</a></li><li><a href="../garden/20260811-single-hit-video-clears-the-monetization-threshold" class="internal">수익창출의 문턱은 누적으로 넘는 것이 아니라 한 편이 터져서 넘는다</a></li><li><a href="../garden/20260811-thumbnail-taste-is-a-reverse-engineerable-formula" class="internal">썸네일의 감각은 취향이 아니라 역공학 가능한 공식이다</a></li><li><a href="../wiki/concepts/20260811-thumbnail-click-engineering-formula" class="internal">썸네일 클릭 공학 공식</a></li><li><a href="../wiki/entities/20260811-anna-creator" class="internal">안나 (@anna_creator00)</a></li><li><a href="../wiki/entities/20260811-miricanvas" class="internal">미리캔버스 (MiriCanvas)</a></li><li class="overflow-end"></li></ul></div><div class="giscus" data-repo="dataofmen/quartz-wiki" data-repo-id="R_kgDOSOxrZA" data-category="General" data-category-id="DIC_kwDOSOxrZM4C-Edy" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-input-position="bottom" data-light-theme="light" data-dark-theme="dark" data-theme-url="https://dataofmen.github.io/static/giscus" data-lang="ko"></div></div></div><div class="right sidebar"><div class="graph desktop-only"><h3>그래프 뷰</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                  s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                  c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                  C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                  c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                  v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                  s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                  C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                  S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                  s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                  s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.5.2</a> © 2026</p><ul></ul></footer></div></div></body><script type="application/javascript" data-persist="true">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module" data-persist="true">function E(a,e){if(!a)return;function t(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function n(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}a?.addEventListener("click",t),window.addCleanup(()=>a?.removeEventListener("click",t)),document.addEventListener("keydown",n),window.addCleanup(()=>document.removeEventListener("keydown",n))}function f(a){for(;a.firstChild;)a.removeChild(a.firstChild)}var m=class{constructor(e,t){this.container=e;this.content=t;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),t=this.onMouseMove.bind(this),n=this.onMouseUp.bind(this),o=this.onTouchStart.bind(this),r=this.onTouchMove.bind(this),i=this.onTouchEnd.bind(this),s=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",t),document.addEventListener("mouseup",n),this.container.addEventListener("touchstart",o,{passive:!1}),document.addEventListener("touchmove",r,{passive:!1}),document.addEventListener("touchend",i),window.addEventListener("resize",s),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",t),()=>document.removeEventListener("mouseup",n),()=>this.container.removeEventListener("touchstart",o),()=>document.removeEventListener("touchmove",r),()=>document.removeEventListener("touchend",i),()=>window.removeEventListener("resize",s))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let t=this.createButton("+",()=>this.zoom(.1)),n=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(n),e.appendChild(o),e.appendChild(t),this.container.appendChild(e)}createButton(e,t){let n=document.createElement("button");return n.textContent=e,n.className="mermaid-control-button",n.addEventListener("click",t),window.addCleanup(()=>n.removeEventListener("click",t)),n}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}onTouchStart(e){if(e.touches.length!==1)return;this.isDragging=!0;let t=e.touches[0];this.startPan={x:t.clientX-this.currentPan.x,y:t.clientY-this.currentPan.y}}onTouchMove(e){if(!this.isDragging||e.touches.length!==1)return;e.preventDefault();let t=e.touches[0];this.currentPan={x:t.clientX-this.startPan.x,y:t.clientY-this.startPan.y},this.updateTransform()}onTouchEnd(){this.isDragging=!1}zoom(e){let t=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),n=this.content.getBoundingClientRect(),o=n.width/2,r=n.height/2,i=t-this.scale;this.currentPan.x-=o*i,this.currentPan.y-=r*i,this.scale=t,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){let t=this.content.querySelector("svg").getBoundingClientRect(),n=t.width/this.scale,o=t.height/this.scale;this.scale=1,this.currentPan={x:(this.container.clientWidth-n)/2,y:(this.container.clientHeight-o)/2},this.updateTransform()}},T=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],y;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;y||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let t=y.default,n=new WeakMap;for(let r of e)n.set(r,r.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let c=n.get(s);c&&(s.innerHTML=c)}let r=T.reduce((s,c)=>(s[c]=window.getComputedStyle(document.documentElement).getPropertyValue(c),s),{}),i=document.documentElement.getAttribute("saved-theme")==="dark";t.initialize({startOnLoad:!1,securityLevel:"loose",theme:i?"dark":"base",themeVariables:{fontFamily:r["--codeFont"],primaryColor:r["--light"],primaryTextColor:r["--darkgray"],primaryBorderColor:r["--tertiary"],lineColor:r["--darkgray"],secondaryColor:r["--secondary"],tertiaryColor:r["--tertiary"],clusterBkg:r["--light"],edgeLabelBackground:r["--highlight"]}}),await t.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let r=0;r<e.length;r++){let v=function(){let g=l.querySelector("#mermaid-space"),h=l.querySelector(".mermaid-content");if(!h)return;f(h);let w=i.querySelector("svg").cloneNode(!0);h.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new m(g,h)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},i=e[r],s=i.parentElement,c=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(c),L=c.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),E(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../postscript.js" type="module" data-persist="true"></script></html>
