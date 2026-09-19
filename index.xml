@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+    <channel>
+      <title>dataofmen</title>
+      <link>https://dataofmen.github.io</link>
+      <description>최근 10 건 on dataofmen</description>
+      <generator>Quartz -- quartz.jzhao.xyz</generator>
+      <item>
+    <title>20260830-overnight-ai-research</title>
+    <link>https://dataofmen.github.io/clippings/20260830-overnight-ai-research</link>
+    <guid>https://dataofmen.github.io/clippings/20260830-overnight-ai-research</guid>
+    <description><![CDATA[ Overnight AI Trading Research - 20260830 [01:00 KST] The Loop-Gain Matrix: Coupled Rebalancing Feedback and the Blind Spots of Scalar Stability Monitoring URL: arxiv.org/abs/2608.22768v1 Source Type: paper Domain: microstructure | execution | risk-sizing | reflexivity Trading Relevance: 10 Time Hori... ]]></description>
+    <pubDate>Sat, 19 Sep 2026 15:12:02 GMT</pubDate>
+  </item><item>
+    <title>위키 (Wiki)</title>
+    <link>https://dataofmen.github.io/wiki/</link>
+    <guid>https://dataofmen.github.io/wiki/</guid>
+    <description><![CDATA[ 기계와 인간을 위한 정제된 지식의 저장소입니다. ]]></description>
+    <pubDate>Sat, 19 Sep 2026 15:12:02 GMT</pubDate>
+  </item><item>
+    <title>dataofmen wiki</title>
+    <link>https://dataofmen.github.io/</link>
+    <guid>https://dataofmen.github.io/</guid>
+    <description><![CDATA[ 🗺️ 지식 지형도 (Atlas) 지식은 분류함에 갇히는 대신, 서로 연결되며 거대한 네트워크를 형성합니다. 아래는 현재 수많은 노트 중에서도 가장 많은 인용을 주고받으며 생태계의 중심 역할을 하는 “빅 허브(Big Hubs)” 노트들입니다. ]]></description>
+    <pubDate>Sat, 19 Sep 2026 15:11:58 GMT</pubDate>
+  </item><item>
+    <title>@arscontexta (Heinrich)</title>
+    <link>https://dataofmen.github.io/clippings/20260918-arscontexta-heinrich</link>
+    <guid>https://dataofmen.github.io/clippings/20260918-arscontexta-heinrich</guid>
+    <description><![CDATA[ @arscontexta (Heinrich): Article: malleable agent-native IDE for typed knowledge a knowledge base should work like a codebase. ]]></description>
+    <pubDate>Fri, 18 Sep 2026 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>Three SpaceXAI engineers turned GrokBot into a money-making business</title>
+    <link>https://dataofmen.github.io/clippings/20260918-three-spacexai-engin</link>
+    <guid>https://dataofmen.github.io/clippings/20260918-three-spacexai-engin</guid>
+    <description><![CDATA[ Three SpaceXAI engineers turned GrokBot into a money-making business I collected 10 prompts from each - to build it from scratch: 10 GROKBOT PROMPTS - @poteto Turn one general assistant into a meta-bot. ]]></description>
+    <pubDate>Fri, 18 Sep 2026 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>지식 도구를 소유한다는 것은 앱이 사라져도 파일과 규칙이 남는다는 뜻이다</title>
+    <link>https://dataofmen.github.io/garden/20260918-files-outlive-knowledge-tools</link>
+    <guid>https://dataofmen.github.io/garden/20260918-files-outlive-knowledge-tools</guid>
+    <description><![CDATA[ 지식 도구의 소유권은 데이터를 내보낼 수 있다는 한 문장으로 충분하지 않다. 노트만 남고 그것을 해석하던 타입, 스킬, 관계 규칙, 화면 구성이 사라진다면 사고 환경의 상당 부분은 여전히 앱에 잠겨 있다. ]]></description>
+    <pubDate>Fri, 18 Sep 2026 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>지식의 관습은 지시문이 아니라 실행 가능한 검사여야 누적된다</title>
+    <link>https://dataofmen.github.io/garden/20260918-knowledge-conventions-need-executable-checks</link>
+    <guid>https://dataofmen.github.io/garden/20260918-knowledge-conventions-need-executable-checks</guid>
+    <description><![CDATA[ 에이전트에게 노트 작성 규칙을 길게 알려주는 것과 그 규칙이 지켜졌는지 검사하는 것은 서로 다른 일이다. 저장소가 작을 때는 지시문만으로도 그럴듯하게 유지된다. ]]></description>
+    <pubDate>Fri, 18 Sep 2026 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>여러 에이전트를 잇는 것은 하나의 대화가 아니라 합의된 공유 상태다</title>
+    <link>https://dataofmen.github.io/garden/20260918-shared-state-coordinates-agents</link>
+    <guid>https://dataofmen.github.io/garden/20260918-shared-state-coordinates-agents</guid>
+    <description><![CDATA[ 멀티에이전트 협업을 흔히 에이전트끼리 더 많이 대화하게 만드는 문제로 본다. 하지만 대화는 세션마다 갈라지고 컨텍스트가 사라진다. Ars Umbris가 말하는 메타 하네스는 반대 방향을 택한다. ]]></description>
+    <pubDate>Fri, 18 Sep 2026 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>타입이 있는 지식 저장소</title>
+    <link>https://dataofmen.github.io/wiki/concepts/20260918-typed-knowledge-repository</link>
+    <guid>https://dataofmen.github.io/wiki/concepts/20260918-typed-knowledge-repository</guid>
+    <description><![CDATA[ 정의 타입이 있는 지식 저장소는 노트·출처·기록뿐 아니라 객체의 필드, 필수 섹션, 허용되는 참조 관계를 로컬 파일로 선언하고 기계적으로 검사하는 지식 베이스다. 에이전트가 지식을 쓰는 행위에 코드베이스의 타입 검사와 린트에 해당하는 피드백을 부여한다. ]]></description>
+    <pubDate>Fri, 18 Sep 2026 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>아르스 움브리스</title>
+    <link>https://dataofmen.github.io/wiki/entities/20260918-ars-umbris</link>
+    <guid>https://dataofmen.github.io/wiki/entities/20260918-ars-umbris</guid>
+    <description><![CDATA[ 개요 아르스 움브리스(Ars Umbris)는 인간과 에이전트가 타입이 있는 지식을 함께 구축하는, 변경 가능한 에이전트 네이티브 IDE다. ]]></description>
+    <pubDate>Fri, 18 Sep 2026 00:00:00 GMT</pubDate>
+  </item>
+    </channel>
+  </rss>

@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr"><head><title>cathrynlavery/diagram-design</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto Sans KR:wght@400;700&amp;family=Noto Sans KR:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="dataofmen"/><meta property="og:title" content="cathrynlavery/diagram-design"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="cathrynlavery/diagram-design"/><meta name="twitter:description" content="name: cathrynlavery/diagram-design description: 29 editorial diagram types for Claude Code. Self-contained HTML + SVG. No shadows, no Mermaid-slop."/><meta property="og:description" content="name: cathrynlavery/diagram-design description: 29 editorial diagram types for Claude Code. Self-contained HTML + SVG. No shadows, no Mermaid-slop."/><meta property="og:image:alt" content="name: cathrynlavery/diagram-design description: 29 editorial diagram types for Claude Code. Self-contained HTML + SVG. No shadows, no Mermaid-slop."/><meta property="og:image" content="https://dataofmen.github.io/static/og-image.png"/><meta property="og:image:url" content="https://dataofmen.github.io/static/og-image.png"/><meta name="twitter:image" content="https://dataofmen.github.io/static/og-image.png"/><meta property="og:image:type" content="image/.png"/><meta property="twitter:domain" content="dataofmen.github.io"/><meta property="og:url" content="https://dataofmen.github.io/clippings/20260811-cathrynlaverydiagram"/><meta property="twitter:url" content="https://dataofmen.github.io/clippings/20260811-cathrynlaverydiagram"/><link rel="icon" href="../static/icon.png"/><meta name="description" content="name: cathrynlavery/diagram-design description: 29 editorial diagram types for Claude Code. Self-contained HTML + SVG. No shadows, no Mermaid-slop."/><meta name="generator" content="Quartz"/><link href="../index.css" rel="stylesheet" type="text/css" data-persist="true"/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiL2hvbWUvcnVubmVyL3dvcmsvcXVhcnR6LXdpa2kvcXVhcnR6LXdpa2kvcXVhcnR6L2NvbXBvbmVudHMvc3R5bGVzIiwic291cmNlcyI6WyJtZXJtYWlkLmlubGluZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFHRjtFQUNFOzs7QUFLRjtFQUNFO0VBQ0E7OztBQUlKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFOztBQUdGO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFJSjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTs7QUFJRjtFQUNFO0VBQ0E7RUFDQSIsInNvdXJjZXNDb250ZW50IjpbIi5leHBhbmQtYnV0dG9uIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbG9hdDogcmlnaHQ7XG4gIHBhZGRpbmc6IDAuNHJlbTtcbiAgbWFyZ2luOiAwLjNyZW07XG4gIHJpZ2h0OiAwOyAvLyBOT1RFOiByaWdodCB3aWxsIGJlIHNldCBpbiBtZXJtYWlkLmlubGluZS50c1xuICBjb2xvcjogdmFyKC0tZ3JheSk7XG4gIGJvcmRlci1jb2xvcjogdmFyKC0tZGFyayk7XG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWxpZ2h0KTtcbiAgYm9yZGVyOiAxcHggc29saWQ7XG4gIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgb3BhY2l0eTogMDtcbiAgdHJhbnNpdGlvbjogMC4ycztcblxuICAmID4gc3ZnIHtcbiAgICBmaWxsOiB2YXIoLS1saWdodCk7XG4gICAgZmlsdGVyOiBjb250cmFzdCgwLjMpO1xuICB9XG5cbiAgJjpob3ZlciB7XG4gICAgY3Vyc29yOiBwb2ludGVyO1xuICAgIGJvcmRlci1jb2xvcjogdmFyKC0tc2Vjb25kYXJ5KTtcbiAgfVxuXG4gICY6Zm9jdXMge1xuICAgIG91dGxpbmU6IDA7XG4gIH1cbn1cblxucHJlIHtcbiAgJjpob3ZlciA+IC5leHBhbmQtYnV0dG9uIHtcbiAgICBvcGFjaXR5OiAxO1xuICAgIHRyYW5zaXRpb246IDAuMnM7XG4gIH1cbn1cblxuI21lcm1haWQtY29udGFpbmVyIHtcbiAgcG9zaXRpb246IGZpeGVkO1xuICBjb250YWluOiBsYXlvdXQ7XG4gIHotaW5kZXg6IDk5OTtcbiAgbGVmdDogMDtcbiAgdG9wOiAwO1xuICB3aWR0aDogMTAwdnc7XG4gIGhlaWdodDogMTAwdmg7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIGRpc3BsYXk6IG5vbmU7XG4gIGJhY2tkcm9wLWZpbHRlcjogYmx1cig0cHgpO1xuICBiYWNrZ3JvdW5kOiByZ2JhKDAsIDAsIDAsIDAuNSk7XG5cbiAgJi5hY3RpdmUge1xuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgfVxuXG4gICYgPiAjbWVybWFpZC1zcGFjZSB7XG4gICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1saWdodCk7XG4gICAgYm9yZGVyLXJhZGl1czogNXB4O1xuICAgIHBvc2l0aW9uOiBmaXhlZDtcbiAgICB0b3A6IDUwJTtcbiAgICBsZWZ0OiA1MCU7XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGUoLTUwJSwgLTUwJSk7XG4gICAgaGVpZ2h0OiA4MHZoO1xuICAgIHdpZHRoOiA4MHZ3O1xuICAgIG92ZXJmbG93OiBoaWRkZW47XG5cbiAgICAmID4gLm1lcm1haWQtY29udGVudCB7XG4gICAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgICB0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7XG4gICAgICB0cmFuc2l0aW9uOiB0cmFuc2Zvcm0gMC4xcyBlYXNlO1xuICAgICAgb3ZlcmZsb3c6IHZpc2libGU7XG4gICAgICBtaW4taGVpZ2h0OiAyMDBweDtcbiAgICAgIG1pbi13aWR0aDogMjAwcHg7XG5cbiAgICAgIHByZSB7XG4gICAgICAgIG1hcmdpbjogMDtcbiAgICAgICAgYm9yZGVyOiBub25lO1xuICAgICAgfVxuXG4gICAgICBzdmcge1xuICAgICAgICBtYXgtd2lkdGg6IG5vbmU7XG4gICAgICAgIGhlaWdodDogYXV0bztcbiAgICAgIH1cbiAgICB9XG5cbiAgICAmID4gLm1lcm1haWQtY29udHJvbHMge1xuICAgICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgICAgYm90dG9tOiAyMHB4O1xuICAgICAgcmlnaHQ6IDIwcHg7XG4gICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgZ2FwOiA4cHg7XG4gICAgICBwYWRkaW5nOiA4cHg7XG4gICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1saWdodCk7XG4gICAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgICAgYm9yZGVyLXJhZGl1czogNnB4O1xuICAgICAgYm94LXNoYWRvdzogMCAycHggNHB4IHJnYmEoMCwgMCwgMCwgMC4xKTtcbiAgICAgIHotaW5kZXg6IDI7XG5cbiAgICAgIC5tZXJtYWlkLWNvbnRyb2wtYnV0dG9uIHtcbiAgICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICAgICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gICAgICAgIHdpZHRoOiAzMnB4O1xuICAgICAgICBoZWlnaHQ6IDMycHg7XG4gICAgICAgIHBhZGRpbmc6IDA7XG4gICAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0KTtcbiAgICAgICAgY29sb3I6IHZhcigtLWRhcmspO1xuICAgICAgICBib3JkZXItcmFkaXVzOiA0cHg7XG4gICAgICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICAgICAgZm9udC1zaXplOiAxNnB4O1xuICAgICAgICBmb250LWZhbWlseTogdmFyKC0tYm9keUZvbnQpO1xuICAgICAgICB0cmFuc2l0aW9uOiBhbGwgMC4ycyBlYXNlO1xuXG4gICAgICAgICY6aG92ZXIge1xuICAgICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIH1cblxuICAgICAgICAmOmFjdGl2ZSB7XG4gICAgICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKDFweCk7XG4gICAgICAgIH1cblxuICAgICAgICAvLyBTdHlsZSB0aGUgcmVzZXQgYnV0dG9uIGRpZmZlcmVudGx5XG4gICAgICAgICY6bnRoLWNoaWxkKDIpIHtcbiAgICAgICAgICB3aWR0aDogYXV0bztcbiAgICAgICAgICBwYWRkaW5nOiAwIDEycHg7XG4gICAgICAgICAgZm9udC1zaXplOiAxNHB4O1xuICAgICAgICB9XG4gICAgICB9XG4gICAgfVxuICB9XG59XG4iXX0= */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../prescript.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://dataofmen.github.io/index.xml"/></head><body data-slug="clippings/20260811-cathrynlaverydiagram"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"></div><div class="center"><div class="page-header"><header><h2 class="page-title"><a href="..">dataofmen</a></h2><nav class="nav-links"><a href="/wiki" class="nav-link">wiki</a><a href="/garden" class="nav-link">garden</a><a href="/clippings" class="nav-link">clippings</a></nav><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 1rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>검색</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="검색어를 입력하세요" placeholder="검색어를 입력하세요"/><div class="search-layout" data-preview="true"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="다크 모드"><title>다크 모드</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="라이트 모드"><title>라이트 모드</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div></div></header><div class="popover-hint"><h1 class="article-title">cathrynlavery/diagram-design</h1><p show-comma="true" class="content-meta"><time datetime="2026-08-11T00:00:00.000Z">2026년 8월 11일</time><span>9 min read</span></p><div class="toc"><button type="button" class="toc-header" aria-controls="toc-106" aria-expanded="true"><h3>목차</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-0" class="toc-content overflow"><li class="depth-1"><a href="#namecathrynlaverydiagram-designdescription29-editorial-diagram-types-for-claude-code-self-contained-html--svg-no-shadows-no-mermaid-slop" data-for="namecathrynlaverydiagram-designdescription29-editorial-diagram-types-for-claude-code-self-contained-html--svg-no-shadows-no-mermaid-slop">name:	cathrynlavery/diagram-design
+description:	29 editorial diagram types for Claude Code. Self-contained HTML + SVG. No shadows, no Mermaid-slop.</a></li><li class="depth-0"><a href="#diagram-design" data-for="diagram-design">Diagram Design</a></li><li class="depth-1"><a href="#why-i-built-it" data-for="why-i-built-it">Why I built it</a></li><li class="depth-1"><a href="#what-it-makes" data-for="what-it-makes">What it makes</a></li><li class="depth-1"><a href="#install" data-for="install">Install</a></li><li class="depth-2"><a href="#alternative-install-as-a-plugin" data-for="alternative-install-as-a-plugin">Alternative: install as a plugin</a></li><li class="depth-1"><a href="#onboarding--make-it-look-like-your-brand" data-for="onboarding--make-it-look-like-your-brand">Onboarding — make it look like your brand</a></li><li class="depth-2"><a href="#the-flow" data-for="the-flow">The flow</a></li><li class="depth-2"><a href="#what-gets-extracted" data-for="what-gets-extracted">What gets extracted</a></li><li class="depth-2"><a href="#contrast-checks-happen-automatically" data-for="contrast-checks-happen-automatically">Contrast checks happen automatically</a></li><li class="depth-2"><a href="#manual-override" data-for="manual-override">Manual override</a></li><li class="depth-2"><a href="#first-run-gate" data-for="first-run-gate">First-run gate</a></li><li class="depth-1"><a href="#quickstart" data-for="quickstart">Quickstart</a></li><li class="depth-1"><a href="#export-to-png--svg" data-for="export-to-png--svg">Export to PNG / SVG</a></li><li class="depth-1"><a href="#architecture" data-for="architecture">Architecture</a></li><li class="depth-2"><a href="#contributing--skin-lint" data-for="contributing--skin-lint">Contributing / skin lint</a></li><li class="depth-2"><a href="#what-loads-when" data-for="what-loads-when">What loads when</a></li><li class="depth-1"><a href="#the-design-system-in-one-paragraph" data-for="the-design-system-in-one-paragraph">The design system (in one paragraph)</a></li><li class="depth-1"><a href="#primitives" data-for="primitives">Primitives</a></li><li class="depth-1"><a href="#when-not-to-use-this-skill" data-for="when-not-to-use-this-skill">When not to use this skill</a></li><li class="depth-1"><a href="#about" data-for="about">About</a></li><li class="overflow-end"></li></ul></div></div></div><article class="popover-hint"><h2 id="namecathrynlaverydiagram-designdescription29-editorial-diagram-types-for-claude-code-self-contained-html--svg-no-shadows-no-mermaid-slop">name:	cathrynlavery/diagram-design
+description:	29 editorial diagram types for Claude Code. Self-contained HTML + SVG. No shadows, no Mermaid-slop.<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#namecathrynlaverydiagram-designdescription29-editorial-diagram-types-for-claude-code-self-contained-html--svg-no-shadows-no-mermaid-slop" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h1 id="diagram-design">Diagram Design<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#diagram-design" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p><strong>Editorial diagrams your designer won’t hate.</strong></p>
+<p><img src="../docs/screenshots/architecture.png" alt="Content site architecture"/></p>
+<p><img src="../docs/screenshots/loop.png" alt="The self-improving loop"/></p>
+<p><em>New in 2.0 — the Loop: flywheels with a shared-memory hub. The dashed lines are the write-backs.</em></p>
+<p>27 types. One Claude Code skill. Your brand in 60 seconds — the skill reads your website and maps colors + fonts to every diagram.</p>
+<p>No Figma. No generic rounded boxes. No 30-minute color-picking sessions.</p>
+<hr/>
+<h2 id="why-i-built-it">Why I built it<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#why-i-built-it" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>I write at <a href="https://littlemight.com?utm_source=diagram-design&amp;utm_medium=readme&amp;utm_campaign=github&amp;utm_content=intro" class="external">littlemight.com<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> (and run <a href="https://bestself.co?utm_source=diagram-design&amp;utm_medium=readme&amp;utm_campaign=github&amp;utm_content=intro" class="external">BestSelf.co<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> on the side). Every time I needed a diagram — an architecture sketch, a flowchart, a pyramid of what matters most — I’d ask Claude and get back a generic rounded-box thing that looked nothing like the rest of the site. I’d either fight with Figma for 30 minutes or just skip the diagram.</p>
+<p>So I built a Claude Code skill for it. Twenty-seven types, editorial quality, matches your brand in 60 seconds by reading your website.</p>
+<blockquote>
+<p><em>The highest-quality move is usually deletion.</em> Every node earns its place. The accent color is reserved for the 1–2 things the reader should look at first. Target density: 4/10.</p>
+</blockquote>
+<hr/>
+<h2 id="what-it-makes">What it makes<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#what-it-makes" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>All 27 diagrams ship in three variants: minimal light, minimal dark, and full-editorial. Open any of them directly in a browser — no build step, no JS, no external images.</p>
+<div class="table-container"><table><tbody><tr><td width="33%" style="text-align:center;"><img src="../docs/screenshots/architecture.png" alt="Architecture"/><br/><b>Architecture</b><br/><sub>Components + connections</sub></td><td width="33%" style="text-align:center;"><img src="../docs/screenshots/flowchart.png" alt="Flowchart"/><br/><b>Flowchart</b><br/><sub>Decision logic</sub></td><td width="33%" style="text-align:center;"><img src="../docs/screenshots/sequence.png" alt="Sequence"/><br/><b>Sequence</b><br/><sub>Messages over time</sub></td></tr><tr><td style="text-align:center;"><img src="../docs/screenshots/state.png" alt="State machine"/><br/><b>State machine</b><br/><sub>States + transitions</sub></td><td style="text-align:center;"><img src="../docs/screenshots/er.png" alt="ER"/><br/><b>ER / data model</b><br/><sub>Entities + fields</sub></td><td style="text-align:center;"><img src="../docs/screenshots/timeline.png" alt="Timeline"/><br/><b>Timeline</b><br/><sub>Events on an axis</sub></td></tr><tr><td style="text-align:center;"><img src="../docs/screenshots/swimlane.png" alt="Swimlane"/><br/><b>Swimlane</b><br/><sub>Cross-functional flow</sub></td><td style="text-align:center;"><img src="../docs/screenshots/quadrant.png" alt="Quadrant"/><br/><b>Quadrant</b><br/><sub>Two-axis positioning</sub></td><td style="text-align:center;"><img src="../docs/screenshots/nested.png" alt="Nested"/><br/><b>Nested</b><br/><sub>Hierarchy by containment</sub></td></tr><tr><td style="text-align:center;"><img src="../docs/screenshots/tree.png" alt="Tree"/><br/><b>Tree</b><br/><sub>Parent → children</sub></td><td style="text-align:center;"><img src="../docs/screenshots/org-chart.png" alt="Org chart"/><br/><b>Org chart</b><br/><sub>Ownership + routing</sub></td><td style="text-align:center;"><img src="../docs/screenshots/venn.png" alt="Venn"/><br/><b>Venn</b><br/><sub>Set overlap</sub></td></tr><tr><td style="text-align:center;"><img src="../docs/screenshots/layers.png" alt="Layers"/><br/><b>Layer stack</b><br/><sub>Stacked abstractions</sub></td><td style="text-align:center;"><img src="../docs/screenshots/pyramid.png" alt="Pyramid"/><br/><b>Pyramid / funnel</b><br/><sub>Ranked hierarchy or drop-off</sub></td><td style="text-align:center;"><img src="../docs/screenshots/quadrant-consultant.png" alt="Consultant 2×2"/><br/><b>Consultant 2×2</b><br/><sub>Scenario matrix · named cells</sub></td></tr><tr><td style="text-align:center;"><img src="../docs/screenshots/radar.png" alt="Radar"/><br/><b>Radar / Spider</b><br/><sub>Multi-axis comparison</sub></td><td style="text-align:center;"><img src="../docs/screenshots/loop.png" alt="Loop"/><br/><b>Loop</b><br/><sub>Flywheel · stations around a hub</sub></td><td style="text-align:center;"><img src="../docs/screenshots/it-state.png" alt="IT current-state"/><br/><b>IT current-state</b><br/><sub>Legacy landscape · modernization</sub></td></tr><tr><td style="text-align:center;"><img src="../docs/screenshots/high-level.png" alt="High-Level"/><br/><b>High-Level</b><br/><sub>End-to-end stack on a cluster</sub></td><td style="text-align:center;"><img src="../docs/screenshots/bar.png" alt="Bar chart"/><br/><b>Bar chart</b><br/><sub>Categorical comparison</sub></td><td style="text-align:center;"><img src="../docs/screenshots/line.png" alt="Line chart"/><br/><b>Line chart</b><br/><sub>Trends over time</sub></td></tr><tr><td style="text-align:center;"><img src="../docs/screenshots/gantt.png" alt="Gantt"/><br/><b>Gantt</b><br/><sub>Tasks and phases on a timeline</sub></td><td style="text-align:center;"><img src="../docs/screenshots/scatter.png" alt="Scatter plot"/><br/><b>Scatter plot</b><br/><sub>Distribution and correlation</sub></td><td style="text-align:center;"><img src="../docs/screenshots/process.png" alt="Process"/><br/><b>Process</b><br/><sub>Multi-actor sequential workflow</sub></td></tr><tr><td style="text-align:center;"><img src="../docs/screenshots/medallion.png" alt="Medallion"/><br/><b>Medallion</b><br/><sub>Multi-tier data storage</sub></td><td style="text-align:center;"><img src="../docs/screenshots/data-flow.png" alt="Data flow"/><br/><b>Data flow</b><br/><sub>Role-scoped pipeline steps</sub></td><td style="text-align:center;"><img src="../docs/screenshots/dp-integration.png" alt="DP integration"/><br/><b>DP integration</b><br/><sub>Sources → core → consumers</sub></td></tr><tr><td style="text-align:center;"><img src="../docs/screenshots/dp-security-matrix.png" alt="DP security matrix"/><br/><b>DP security matrix</b><br/><sub>Per-role access permissions</sub></td><td></td><td></td></tr></tbody></table></div>
+<p><strong>Browse the live gallery:</strong> open <a href="../skills/diagram-design/assets/" class="internal" data-slug="skills/diagram-design/assets/index"><code>skills/diagram-design/assets/index.html</code></a> in your browser to flip through all 27 diagrams with light / dark / full-editorial tabs.</p>
+<hr/>
+<h2 id="install">Install<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#install" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="bash" data-theme="github-light github-dark"><code data-language="bash" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># Clone the repo somewhere, then symlink the inner skill into Claude Code's skills dir</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">git</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> clone</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> git@github.com:cathrynlavery/diagram-design.git</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> ~/code/diagram-design</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">ln</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> -s</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> ~/code/diagram-design/skills/diagram-design</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> ~/.claude/skills/diagram-design</span></span></code></pre></figure>
+<p>The real skill lives at <code>skills/diagram-design/</code> inside the repo (so the same tree works as a Claude Code plugin, a Codex plugin, and a standalone skill). The symlink points Claude Code at that inner directory.</p>
+<p>Restart Claude Code. The skill registers as <code>diagram-design</code> and activates whenever you ask Claude to make a diagram.</p>
+<h3 id="alternative-install-as-a-plugin">Alternative: install as a plugin<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#alternative-install-as-a-plugin" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Quicker to install — but the skill lives in the plugin cache, so edits to <code>references/style-guide.md</code> don’t survive plugin updates. Pick this if you just want to try it out; use the clone route above if you plan to customize the style guide by hand.</p>
+<p><strong>Claude Code:</strong></p>
+<pre><code>/plugin marketplace add cathrynlavery/diagram-design
+/plugin install diagram-design@diagram-design
+</code></pre>
+<p><strong>Claude Cowork:</strong> Customize → Directory → Plugins → <strong>+</strong> → paste <code>cathrynlavery/diagram-design</code> → Sync, then install from the Personal list.</p>
+<p><strong>Codex:</strong></p>
+<pre><code>npx skills add https://github.com/cathrynlavery/diagram-design --skill diagram-design
+</code></pre>
+<hr/>
+<h2 id="onboarding--make-it-look-like-your-brand">Onboarding — make it look like <em>your</em> brand<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#onboarding--make-it-look-like-your-brand" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>The whole point: ship editorial-quality diagrams in <strong>your</strong> colors and typography, not a generic template.</p>
+<p>Out of the box, diagrams render in a clean <strong>jet-black + atomic-tangerine</strong> palette (white-smoke paper, jet-black ink, atomic-tangerine accent, blue-slate muted, silver hairlines). Good enough to screenshot straight away. But 60 seconds of onboarding is better — the skill will pull your brand from your website and apply it across every diagram.</p>
+<h3 id="the-flow">The flow<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#the-flow" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<pre><code>You:     &quot;onboard diagram-design to https://yoursite.com&quot;
+Claude:  → fetches the homepage
+         → extracts the dominant palette + font stack
+         → maps detected values to semantic roles:
+             paper, ink, muted, accent, link
+         → shows a proposed diff
+         → writes your tokens to references/style-guide.md
+You:     &quot;yes, apply it&quot;
+</code></pre>
+<p>Every new diagram now uses your colors. Your website’s paper color becomes the diagram background. Your CTA color becomes the focal accent. Your body font stack becomes the node label family.</p>
+<h3 id="what-gets-extracted">What gets extracted<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#what-gets-extracted" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Detected from your site</th><th>Becomes</th></tr></thead><tbody><tr><td><code>&lt;body></code> background</td><td><code>paper</code> token</td></tr><tr><td>Primary text color</td><td><code>ink</code> token</td></tr><tr><td>Secondary / caption text</td><td><code>muted</code> token</td></tr><tr><td>Cards or containers</td><td><code>paper-2</code> token</td></tr><tr><td>Most-used brand color (CTA, link, heading)</td><td><code>accent</code> token</td></tr><tr><td><code>&lt;h1></code> font family</td><td><code>title</code> font</td></tr><tr><td><code>&lt;body></code> font family</td><td><code>node-name</code> font</td></tr><tr><td><code>&lt;code></code> / <code>&lt;pre></code> font</td><td><code>sublabel</code> font</td></tr></tbody></table></div>
+<h3 id="contrast-checks-happen-automatically">Contrast checks happen automatically<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#contrast-checks-happen-automatically" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Before writing tokens, the skill verifies WCAG AA contrast on <code>ink</code> over <code>paper</code>. If your site has a color that fails contrast at diagram sizes (9–12px), it proposes an adjusted value and explains why.</p>
+<h3 id="manual-override">Manual override<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#manual-override" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Prefer to set tokens by hand? Open <a href="../skills/diagram-design/references/style-guide" class="internal" data-slug="skills/diagram-design/references/style-guide"><code>skills/diagram-design/references/style-guide.md</code></a> and edit the table. Everything downstream reads from there — all 27 diagrams, the annotation primitive, and the gallery all inherit semantic role names (<code>accent</code>, not <code>#eb6c36</code>).</p>
+<h3 id="first-run-gate">First-run gate<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#first-run-gate" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>The skill won’t silently ship default-skinned diagrams into a branded project. On first use in a new project, it checks if <code>style-guide.md</code> has been customized. If not, it pauses and asks:</p>
+<blockquote>
+<p><em>“This is your first diagram in this project. The style guide is still at the default. Want to run onboarding, paste tokens manually, or proceed with default?”</em></p>
+</blockquote>
+<p>See <a href="../skills/diagram-design/references/onboarding" class="internal" data-slug="skills/diagram-design/references/onboarding"><code>skills/diagram-design/references/onboarding.md</code></a> for the full spec.</p>
+<hr/>
+<h2 id="quickstart">Quickstart<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#quickstart" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="bash" data-theme="github-light github-dark"><code data-language="bash" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># Open the gallery to see all 27 diagrams</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">open</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> ~/.claude/skills/diagram-design/assets/index.html</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># In Claude Code, just ask:</span></span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># &quot;Make me an architecture diagram of my app: frontend, backend, database, Redis cache.&quot;</span></span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># &quot;I need a quadrant showing Q2 projects by impact vs effort.&quot;</span></span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># &quot;Give me a sequence of a bearer call with token refresh on 401.&quot;</span></span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># (branching refresh uses the ALT combined-fragment grammar in type-sequence.md;</span></span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">#  see assets/example-sequence-oauth.html — not a full authorize-code handshake)</span></span></code></pre></figure>
+<p>Claude will pick the right type, build the HTML, and save it. You can also start from a template directly:</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="bash" data-theme="github-light github-dark"><code data-language="bash" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">cp</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> assets/template.html</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> my-diagram.html</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">        # minimal light</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">cp</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> assets/template-full.html</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> my-diagram.html</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">   # editorial with summary cards</span></span></code></pre></figure>
+<hr/>
+<h2 id="export-to-png--svg">Export to PNG / SVG<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#export-to-png--svg" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Diagrams ship as self-contained HTML, but you can export the diagram itself for Figma, slides, or social cards. Use the slash command:</p>
+<pre><code>/diagram-design:export path/to/diagram.html
+/diagram-design:export path/to/diagram.html --svg-only
+/diagram-design:export path/to/diagram.html --png-only --scale=3
+</code></pre>
+<p>Or just ask in natural language:</p>
+<pre><code>&quot;Export this diagram as SVG and PNG.&quot;
+&quot;Save my-diagram.html as PNG.&quot;
+</code></pre>
+<ul>
+<li><strong>SVG</strong> — extracts the <code>&lt;svg></code> node and injects Google Fonts so it renders standalone in browsers, Figma, and Illustrator.</li>
+<li><strong>PNG</strong> — rasterizes the diagram via Playwright at 2× by default. One-time setup: <code>pip install playwright &amp;&amp; playwright install chromium</code>.</li>
+</ul>
+<p>Both formats are diagram-only — editorial cards and headers from <code>-full</code> variants aren’t included. For a screenshot of the full editorial layout, use your browser’s print-to-PDF or full-page screenshot. See <a href="../skills/diagram-design/references/export" class="internal" data-slug="skills/diagram-design/references/export"><code>skills/diagram-design/references/export.md</code></a> for the full procedure.</p>
+<hr/>
+<h2 id="architecture">Architecture<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#architecture" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Progressive disclosure. <code>SKILL.md</code> is a lean index — it tells Claude how to pick a type and where to look for detail. Every type lives in its own reference file, loaded only when relevant.</p>
+<pre><code>diagram-design/
+├── SKILL.md                         — top-level: philosophy, selection guide, checklist
+├── references/                      — loaded only when a type or primitive is chosen
+│   ├── style-guide.md               — single source of truth for colors + fonts
+│   ├── onboarding.md                — the URL-to-tokens flow
+│   ├── type-architecture.md
+│   ├── type-flowchart.md
+│   ├── type-sequence.md
+│   ├── type-state.md
+│   ├── type-er.md
+│   ├── type-timeline.md
+│   ├── type-swimlane.md
+│   ├── type-quadrant.md
+│   ├── type-nested.md
+│   ├── type-tree.md
+│   ├── type-org-chart.md
+│   ├── type-layers.md
+│   ├── type-venn.md
+│   ├── type-pyramid.md
+│   ├── primitive-annotation.md      — italic-serif editorial callouts
+│   ├── primitive-sketchy.md         — hand-drawn SVG filter variant
+│   └── primitive-terminal.md        — charcoal-black CLI-window variant
+├── assets/
+│   ├── index.html                   — live gallery, tabbed
+│   ├── template*.html               — scaffolds for new diagrams
+│   ├── example-&lt;type>.html          — 3 variants × 27 types
+│   ├── example-loop-terminal.html   — terminal-variant flagship
+│   ├── example-quadrant-consultant.html  — consultant-special 2×2 scenario matrix
+│   └── example-sequence-oauth*.html — sequence special: bearer + ALT refresh
+└── docs/screenshots/                — the images in this README
+</code></pre>
+<p>This keeps Claude’s working context tight (only load what you need) and makes the skill easy to extend — drop a new <code>type-&lt;name>.md</code> and wire it into the selection guide. The skill ships with 34 reference files covering every diagram type, primitive, and utility.</p>
+<h3 id="contributing--skin-lint">Contributing / skin lint<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#contributing--skin-lint" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Before submitting a new example, run <code>python3 scripts/lint-skin.py &lt;your-new-example.html></code>.
+The repository-wide check <code>python3 scripts/lint-skin.py --all --baseline</code> must stay green.</p>
+<h3 id="what-loads-when">What loads when<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#what-loads-when" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>The top-level <code>SKILL.md</code> is always in context. Everything else is pulled in only when relevant — this is what keeps the skill fast even with 34 reference files.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>You ask for…</th><th>Claude loads</th></tr></thead><tbody><tr><td>”Make me a flowchart”</td><td><code>SKILL.md</code> + <code>references/type-flowchart.md</code></td></tr><tr><td>”Build an architecture diagram”</td><td><code>SKILL.md</code> + <code>references/type-architecture.md</code></td></tr><tr><td>”Onboard this skill to my site”</td><td><code>SKILL.md</code> + <code>references/onboarding.md</code> + <code>references/style-guide.md</code></td></tr><tr><td>”Add an editorial callout to this diagram”</td><td><code>SKILL.md</code> + <code>references/primitive-annotation.md</code></td></tr><tr><td>”Give me a hand-drawn version”</td><td><code>SKILL.md</code> + <code>references/primitive-sketchy.md</code></td></tr><tr><td>”Give me a terminal / CLI-window version”</td><td><code>SKILL.md</code> + <code>references/primitive-terminal.md</code></td></tr><tr><td>Routine diagram-making (any of the 27 diagrams)</td><td>Only <code>SKILL.md</code> + that one type’s reference</td></tr></tbody></table></div>
+<p>No matter how many types exist, Claude only reads the one you need. Add a new type tomorrow and nothing else changes.</p>
+<hr/>
+<h2 id="the-design-system-in-one-paragraph">The design system (in one paragraph)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#the-design-system-in-one-paragraph" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>One accent color, 1–2 focal elements per diagram. Three font families: Instrument Serif (title + italic callouts), Geist sans (node names), Geist Mono (technical sublabels). 1px hairline borders, no shadows, max border-radius 10px. Every coord, width, and gap divisible by 4 — non-negotiable, it’s what keeps the diagrams from feeling AI-generated. Mono is for technical content (ports, URLs, field types), not a blanket “dev” aesthetic. Coral-tinted focal nodes draw the eye to the 1–2 things that matter. Full spec in <a href="../skills/diagram-design/SKILL#5-design-system" class="internal" data-slug="skills/diagram-design/SKILL"><code>SKILL.md</code></a>.</p>
+<hr/>
+<h2 id="primitives">Primitives<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#primitives" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><strong>Annotation callout</strong> — italic Instrument Serif + dashed Bézier leader, for editorial asides that sit in the margins. See <a href="../skills/diagram-design/references/primitive-annotation" class="internal" data-slug="skills/diagram-design/references/primitive-annotation"><code>skills/diagram-design/references/primitive-annotation.md</code></a>.</li>
+<li><strong>Sketchy filter</strong> — SVG turbulence + displacement map for a hand-drawn variant. Good for essays, not for technical docs. See <a href="../skills/diagram-design/references/primitive-sketchy" class="internal" data-slug="skills/diagram-design/references/primitive-sketchy"><code>skills/diagram-design/references/primitive-sketchy.md</code></a>.</li>
+<li><strong>Icon set</strong> — 55 monochrome IT/cloud icons (laptop, phone, user, server, database, Docker, Kubernetes, AWS, Azure, GitHub, Postgres…) for richer architecture and sequence diagrams. Stroked icons from <a href="https://tabler.io/icons" class="external">Tabler Icons<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> (MIT); brand silhouettes from <a href="https://simpleicons.org" class="external">Simple Icons<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> (CC0). Each icon uses <code>currentColor</code> so it inherits the editorial skin or your onboarded brand. See <a href="../skills/diagram-design/references/primitive-icons" class="internal" data-slug="skills/diagram-design/references/primitive-icons"><code>skills/diagram-design/references/primitive-icons.md</code></a>; browse the <a href="../skills/diagram-design/assets/icons" class="internal alias" data-slug="skills/diagram-design/assets/icons">gallery</a>. Regenerate with <code>python scripts/build-icons.py</code>.</li>
+</ul>
+<hr/>
+<h2 id="when-not-to-use-this-skill">When <em>not</em> to use this skill<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#when-not-to-use-this-skill" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><strong>Quick unicode diagrams</strong> for tweets or terminal output → wiretext-style skill.</li>
+<li><strong>Lists of anything</strong> → a table or bullets.</li>
+<li><strong>Before/after comparisons</strong> → a table.</li>
+<li><strong>One-shape “diagrams”</strong> — a single box with a label → just write the sentence.</li>
+</ul>
+<p>Before drawing, ask: <em>would a reader learn more from this than from a well-written paragraph?</em> If no, don’t draw.</p>
+<hr/>
+<h2 id="about">About<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#about" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Made by <strong>Cathryn Lavery</strong> — founder of <a href="https://bestself.co?utm_source=diagram-design&amp;utm_medium=readme&amp;utm_campaign=github&amp;utm_content=bio" class="external">BestSelf.co<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>. I write about AI, entrepreneurship, and designing nice-looking things at <a href="https://littlemight.com?utm_source=diagram-design&amp;utm_medium=readme&amp;utm_campaign=github&amp;utm_content=bio" class="external">littlemight.com<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> — blog + newsletter.</p>
+<p>If this is useful, <strong>star the repo</strong> and come <a href="https://x.com/cathrynlavery" class="external">say hi on X<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>.</p>
+<hr/>
+<p><em>원문: <a href="https://github.com/cathrynlavery/diagram-design" class="external">https://github.com/cathrynlavery/diagram-design<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></em></p></article><hr/><div class="page-footer"><div class="backlinks"><h3>백링크</h3><ul id="list-1" class="overflow"><li><a href="../garden/20260811-ai-slop-look-is-a-constraint-deficit" class="internal">AI가 만든 티는 미감의 부족이 아니라 제약의 부재에서 나온다</a></li><li><a href="../garden/20260811-brand-becomes-reusable-when-it-is-tokenized" class="internal">브랜드는 토큰으로 환원되는 순간 비로소 자동화 가능한 자산이 된다</a></li><li><a href="../garden/20260811-skill-scalability-is-decided-by-load-timing" class="internal">스킬의 확장성은 파일 개수가 아니라 로딩 시점이 결정한다</a></li><li><a href="../wiki/concepts/20260811-editorial-diagram-skill-system" class="internal">에디토리얼 다이어그램 스킬 — 토큰·제약·점진적 공개로 구성한 생성 시스템</a></li><li><a href="../wiki/entities/20260811-cathryn-lavery" class="internal">Cathryn Lavery</a></li><li><a href="../wiki/entities/20260811-diagram-design-skill" class="internal">diagram-design (Claude Code 스킬)</a></li><li class="overflow-end"></li></ul></div><div class="giscus" data-repo="dataofmen/quartz-wiki" data-repo-id="R_kgDOSOxrZA" data-category="General" data-category-id="DIC_kwDOSOxrZM4C-Edy" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-input-position="bottom" data-light-theme="light" data-dark-theme="dark" data-theme-url="https://dataofmen.github.io/static/giscus" data-lang="ko"></div></div></div><div class="right sidebar"><div class="graph desktop-only"><h3>그래프 뷰</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                  s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                  c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                  C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                  c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                  v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                  s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                  C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                  S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                  s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                  s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.5.2</a> © 2026</p><ul></ul></footer></div></div></body><script type="application/javascript" data-persist="true">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module" data-persist="true">function E(a,e){if(!a)return;function t(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function n(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}a?.addEventListener("click",t),window.addCleanup(()=>a?.removeEventListener("click",t)),document.addEventListener("keydown",n),window.addCleanup(()=>document.removeEventListener("keydown",n))}function f(a){for(;a.firstChild;)a.removeChild(a.firstChild)}var m=class{constructor(e,t){this.container=e;this.content=t;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),t=this.onMouseMove.bind(this),n=this.onMouseUp.bind(this),o=this.onTouchStart.bind(this),r=this.onTouchMove.bind(this),i=this.onTouchEnd.bind(this),s=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",t),document.addEventListener("mouseup",n),this.container.addEventListener("touchstart",o,{passive:!1}),document.addEventListener("touchmove",r,{passive:!1}),document.addEventListener("touchend",i),window.addEventListener("resize",s),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",t),()=>document.removeEventListener("mouseup",n),()=>this.container.removeEventListener("touchstart",o),()=>document.removeEventListener("touchmove",r),()=>document.removeEventListener("touchend",i),()=>window.removeEventListener("resize",s))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let t=this.createButton("+",()=>this.zoom(.1)),n=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(n),e.appendChild(o),e.appendChild(t),this.container.appendChild(e)}createButton(e,t){let n=document.createElement("button");return n.textContent=e,n.className="mermaid-control-button",n.addEventListener("click",t),window.addCleanup(()=>n.removeEventListener("click",t)),n}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}onTouchStart(e){if(e.touches.length!==1)return;this.isDragging=!0;let t=e.touches[0];this.startPan={x:t.clientX-this.currentPan.x,y:t.clientY-this.currentPan.y}}onTouchMove(e){if(!this.isDragging||e.touches.length!==1)return;e.preventDefault();let t=e.touches[0];this.currentPan={x:t.clientX-this.startPan.x,y:t.clientY-this.startPan.y},this.updateTransform()}onTouchEnd(){this.isDragging=!1}zoom(e){let t=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),n=this.content.getBoundingClientRect(),o=n.width/2,r=n.height/2,i=t-this.scale;this.currentPan.x-=o*i,this.currentPan.y-=r*i,this.scale=t,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){let t=this.content.querySelector("svg").getBoundingClientRect(),n=t.width/this.scale,o=t.height/this.scale;this.scale=1,this.currentPan={x:(this.container.clientWidth-n)/2,y:(this.container.clientHeight-o)/2},this.updateTransform()}},T=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],y;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;y||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let t=y.default,n=new WeakMap;for(let r of e)n.set(r,r.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let c=n.get(s);c&&(s.innerHTML=c)}let r=T.reduce((s,c)=>(s[c]=window.getComputedStyle(document.documentElement).getPropertyValue(c),s),{}),i=document.documentElement.getAttribute("saved-theme")==="dark";t.initialize({startOnLoad:!1,securityLevel:"loose",theme:i?"dark":"base",themeVariables:{fontFamily:r["--codeFont"],primaryColor:r["--light"],primaryTextColor:r["--darkgray"],primaryBorderColor:r["--tertiary"],lineColor:r["--darkgray"],secondaryColor:r["--secondary"],tertiaryColor:r["--tertiary"],clusterBkg:r["--light"],edgeLabelBackground:r["--highlight"]}}),await t.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let r=0;r<e.length;r++){let v=function(){let g=l.querySelector("#mermaid-space"),h=l.querySelector(".mermaid-content");if(!h)return;f(h);let w=i.querySelector("svg").cloneNode(!0);h.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new m(g,h)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},i=e[r],s=i.parentElement,c=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(c),L=c.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),E(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../postscript.js" type="module" data-persist="true"></script></html>

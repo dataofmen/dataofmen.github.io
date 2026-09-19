@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr"><head><title>Eval Engineering: build the gate that lets your agents merge without you (full 6-step…</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto Sans KR:wght@400;700&amp;family=Noto Sans KR:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="dataofmen"/><meta property="og:title" content="Eval Engineering: build the gate that lets your agents merge without you (full 6-step…"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="Eval Engineering: build the gate that lets your agents merge without you (full 6-step…"/><meta name="twitter:description" content="Eval Engineering: build the gate that lets your agents merge without you (full 6-step course) The end state is easy to describe."/><meta property="og:description" content="Eval Engineering: build the gate that lets your agents merge without you (full 6-step course) The end state is easy to describe."/><meta property="og:image:alt" content="Eval Engineering: build the gate that lets your agents merge without you (full 6-step course) The end state is easy to describe."/><meta property="og:image" content="https://dataofmen.github.io/static/og-image.png"/><meta property="og:image:url" content="https://dataofmen.github.io/static/og-image.png"/><meta name="twitter:image" content="https://dataofmen.github.io/static/og-image.png"/><meta property="og:image:type" content="image/.png"/><meta property="twitter:domain" content="dataofmen.github.io"/><meta property="og:url" content="https://dataofmen.github.io/clippings/20260809-eval-engineering-bui"/><meta property="twitter:url" content="https://dataofmen.github.io/clippings/20260809-eval-engineering-bui"/><link rel="icon" href="../static/icon.png"/><meta name="description" content="Eval Engineering: build the gate that lets your agents merge without you (full 6-step course) The end state is easy to describe."/><meta name="generator" content="Quartz"/><link href="../index.css" rel="stylesheet" type="text/css" data-persist="true"/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiL2hvbWUvcnVubmVyL3dvcmsvcXVhcnR6LXdpa2kvcXVhcnR6LXdpa2kvcXVhcnR6L2NvbXBvbmVudHMvc3R5bGVzIiwic291cmNlcyI6WyJtZXJtYWlkLmlubGluZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFHRjtFQUNFOzs7QUFLRjtFQUNFO0VBQ0E7OztBQUlKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFOztBQUdGO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFJSjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTs7QUFJRjtFQUNFO0VBQ0E7RUFDQSIsInNvdXJjZXNDb250ZW50IjpbIi5leHBhbmQtYnV0dG9uIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbG9hdDogcmlnaHQ7XG4gIHBhZGRpbmc6IDAuNHJlbTtcbiAgbWFyZ2luOiAwLjNyZW07XG4gIHJpZ2h0OiAwOyAvLyBOT1RFOiByaWdodCB3aWxsIGJlIHNldCBpbiBtZXJtYWlkLmlubGluZS50c1xuICBjb2xvcjogdmFyKC0tZ3JheSk7XG4gIGJvcmRlci1jb2xvcjogdmFyKC0tZGFyayk7XG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWxpZ2h0KTtcbiAgYm9yZGVyOiAxcHggc29saWQ7XG4gIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgb3BhY2l0eTogMDtcbiAgdHJhbnNpdGlvbjogMC4ycztcblxuICAmID4gc3ZnIHtcbiAgICBmaWxsOiB2YXIoLS1saWdodCk7XG4gICAgZmlsdGVyOiBjb250cmFzdCgwLjMpO1xuICB9XG5cbiAgJjpob3ZlciB7XG4gICAgY3Vyc29yOiBwb2ludGVyO1xuICAgIGJvcmRlci1jb2xvcjogdmFyKC0tc2Vjb25kYXJ5KTtcbiAgfVxuXG4gICY6Zm9jdXMge1xuICAgIG91dGxpbmU6IDA7XG4gIH1cbn1cblxucHJlIHtcbiAgJjpob3ZlciA+IC5leHBhbmQtYnV0dG9uIHtcbiAgICBvcGFjaXR5OiAxO1xuICAgIHRyYW5zaXRpb246IDAuMnM7XG4gIH1cbn1cblxuI21lcm1haWQtY29udGFpbmVyIHtcbiAgcG9zaXRpb246IGZpeGVkO1xuICBjb250YWluOiBsYXlvdXQ7XG4gIHotaW5kZXg6IDk5OTtcbiAgbGVmdDogMDtcbiAgdG9wOiAwO1xuICB3aWR0aDogMTAwdnc7XG4gIGhlaWdodDogMTAwdmg7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIGRpc3BsYXk6IG5vbmU7XG4gIGJhY2tkcm9wLWZpbHRlcjogYmx1cig0cHgpO1xuICBiYWNrZ3JvdW5kOiByZ2JhKDAsIDAsIDAsIDAuNSk7XG5cbiAgJi5hY3RpdmUge1xuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgfVxuXG4gICYgPiAjbWVybWFpZC1zcGFjZSB7XG4gICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1saWdodCk7XG4gICAgYm9yZGVyLXJhZGl1czogNXB4O1xuICAgIHBvc2l0aW9uOiBmaXhlZDtcbiAgICB0b3A6IDUwJTtcbiAgICBsZWZ0OiA1MCU7XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGUoLTUwJSwgLTUwJSk7XG4gICAgaGVpZ2h0OiA4MHZoO1xuICAgIHdpZHRoOiA4MHZ3O1xuICAgIG92ZXJmbG93OiBoaWRkZW47XG5cbiAgICAmID4gLm1lcm1haWQtY29udGVudCB7XG4gICAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgICB0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7XG4gICAgICB0cmFuc2l0aW9uOiB0cmFuc2Zvcm0gMC4xcyBlYXNlO1xuICAgICAgb3ZlcmZsb3c6IHZpc2libGU7XG4gICAgICBtaW4taGVpZ2h0OiAyMDBweDtcbiAgICAgIG1pbi13aWR0aDogMjAwcHg7XG5cbiAgICAgIHByZSB7XG4gICAgICAgIG1hcmdpbjogMDtcbiAgICAgICAgYm9yZGVyOiBub25lO1xuICAgICAgfVxuXG4gICAgICBzdmcge1xuICAgICAgICBtYXgtd2lkdGg6IG5vbmU7XG4gICAgICAgIGhlaWdodDogYXV0bztcbiAgICAgIH1cbiAgICB9XG5cbiAgICAmID4gLm1lcm1haWQtY29udHJvbHMge1xuICAgICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgICAgYm90dG9tOiAyMHB4O1xuICAgICAgcmlnaHQ6IDIwcHg7XG4gICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgZ2FwOiA4cHg7XG4gICAgICBwYWRkaW5nOiA4cHg7XG4gICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1saWdodCk7XG4gICAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgICAgYm9yZGVyLXJhZGl1czogNnB4O1xuICAgICAgYm94LXNoYWRvdzogMCAycHggNHB4IHJnYmEoMCwgMCwgMCwgMC4xKTtcbiAgICAgIHotaW5kZXg6IDI7XG5cbiAgICAgIC5tZXJtYWlkLWNvbnRyb2wtYnV0dG9uIHtcbiAgICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICAgICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gICAgICAgIHdpZHRoOiAzMnB4O1xuICAgICAgICBoZWlnaHQ6IDMycHg7XG4gICAgICAgIHBhZGRpbmc6IDA7XG4gICAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0KTtcbiAgICAgICAgY29sb3I6IHZhcigtLWRhcmspO1xuICAgICAgICBib3JkZXItcmFkaXVzOiA0cHg7XG4gICAgICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICAgICAgZm9udC1zaXplOiAxNnB4O1xuICAgICAgICBmb250LWZhbWlseTogdmFyKC0tYm9keUZvbnQpO1xuICAgICAgICB0cmFuc2l0aW9uOiBhbGwgMC4ycyBlYXNlO1xuXG4gICAgICAgICY6aG92ZXIge1xuICAgICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIH1cblxuICAgICAgICAmOmFjdGl2ZSB7XG4gICAgICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKDFweCk7XG4gICAgICAgIH1cblxuICAgICAgICAvLyBTdHlsZSB0aGUgcmVzZXQgYnV0dG9uIGRpZmZlcmVudGx5XG4gICAgICAgICY6bnRoLWNoaWxkKDIpIHtcbiAgICAgICAgICB3aWR0aDogYXV0bztcbiAgICAgICAgICBwYWRkaW5nOiAwIDEycHg7XG4gICAgICAgICAgZm9udC1zaXplOiAxNHB4O1xuICAgICAgICB9XG4gICAgICB9XG4gICAgfVxuICB9XG59XG4iXX0= */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../prescript.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://dataofmen.github.io/index.xml"/></head><body data-slug="clippings/20260809-eval-engineering-bui"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"></div><div class="center"><div class="page-header"><header><h2 class="page-title"><a href="..">dataofmen</a></h2><nav class="nav-links"><a href="/wiki" class="nav-link">wiki</a><a href="/garden" class="nav-link">garden</a><a href="/clippings" class="nav-link">clippings</a></nav><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 1rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>검색</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="검색어를 입력하세요" placeholder="검색어를 입력하세요"/><div class="search-layout" data-preview="true"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="다크 모드"><title>다크 모드</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="라이트 모드"><title>라이트 모드</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div></div></header><div class="popover-hint"><h1 class="article-title">Eval Engineering: build the gate that lets your agents merge without you (full 6-step…</h1><p show-comma="true" class="content-meta"><time datetime="2026-08-09T00:00:00.000Z">2026년 8월 09일</time><span>9 min read</span></p><ul class="tags"><li><a href="../tags/thread" class="internal tag-link">thread</a></li><li><a href="../tags/x.com" class="internal tag-link">x.com</a></li></ul></div></div><article class="popover-hint"><h1 id="eval-engineering-build-the-gate-that-lets-your-agents-merge-without-you-full-6-step-course">Eval Engineering: build the gate that lets your agents merge without you (full 6-step course)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#eval-engineering-build-the-gate-that-lets-your-agents-merge-without-you-full-6-step-course" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>The end state is easy to describe. An agent finishes a change, opens it, and it goes in without a human reading it.</p>
+<p>Not because anyone decided to trust the model. Because a gate read the evidence and had a rule for it.</p>
+<p>Almost nobody has that gate, and the reason is not courage.</p>
+<p>The evidence it would need to read does not exist yet in most systems.</p>
+<p>Here is what has to be true before you can open it, in six steps.</p>
+<p>Step 1 - the score you are reading is partly about your judge</p>
+<p>Automated evaluation started from a solid result.</p>
+<p>Zheng and colleagues at UC Berkeley showed in 2023 that GPT-4 agreed with human raters over 80% of the time, roughly the rate at which humans agree with each other. The industry moved to API calls almost overnight.</p>
+<p>What the follow-up work found is that judges respond to things other than the content in front of them.</p>
+<p>Frontier judges systematically inflate scores for outputs from their own model family.</p>
+<p>In one 2026 benchmark, GPT-5.2 and Gemini 3.1 Pro handed 75 to 84% win rates to their own families. Claude Opus 4.7 went the other way and under-rated its own family at 10.6 to 41.2%.</p>
+<p>On ArenaHard the measured bias across judges spans from -38% to +90%.</p>
+<p>The same benchmark ran one set of outputs past two different judges. Under one, the model scored 93.3%. Under the other, the identical outputs scored 39.5%.</p>
+<p>Verbosity bias runs alongside it: judges reward length whether or not the extra words carry information.</p>
+<p>None of this makes the method useless. It makes the setup load-bearing, and three rules cover most of it:</p>
+<p>Judge from a different model family than the one generating. Same family means shared blind spots.</p>
+<p>For anything high-stakes, use a panel of judges from different vendors instead of one. Averaging across families is what breaks correlated errors.</p>
+<p>Anything objectively checkable goes to code, not to a judge. Did the test pass, does the file exist, did the state change.</p>
+<p>A gate fed by a biased judge is worse than no gate.</p>
+<p>It launders a guess into a number and then acts on it.</p>
+<p>Step 2 - a verdict that does not change the run is a report</p>
+<p>Most teams stop one step short.</p>
+<p>They get a number, put it on a dashboard, and the dashboard changes nobody’s behavior.</p>
+<p>The shift that matured in 2026 is running evals inside the agent rather than after it. Pre-production evaluations get promoted into production guardrails, and the score controls what the agent may do next: which tools it can reach, whether a handoff is accepted, whether the run escalates to a person.</p>
+<p>That is the difference between a thermometer and a thermostat.</p>
+<p>Each verdict maps to a structural action on the run in progress.</p>
+<p>Low grounding rejects the handoff.</p>
+<p>A schema failure blocks the edge.</p>
+<p>A suspected fabrication quarantines that branch instead of letting it merge into the main thread.</p>
+<p>Verified completion is the only thing allowed to end the run.</p>
+<p>An agent that stops calling tools has ended its turn. That is not the same as finishing the task, and only an external check knows the difference.</p>
+<p>This is the first thing the gate reuses. A system where verdicts already steer runs has verdicts worth reading at merge time.</p>
+<p>Step 3 - grade the path, not just the answer</p>
+<p>Grading only the final response is how an agent reaches a correct answer through a broken sequence and nobody notices for a month.</p>
+<p>Agent evaluation splits into three levels and you need all three.</p>
+<p>End to end asks whether the task succeeded.</p>
+<p>Trajectory level asks whether the path was sound, which is where loops, redundant calls and wasted steps surface.</p>
+<p>Component level asks which retriever, tool or sub-agent broke. It is the only level that tells you where to go and fix something.</p>
+<p>Three metrics are enough to start.</p>
+<p>Faithfulness, meaning the answer is grounded in what the tools actually returned rather than in what the model filled in when a tool came back empty.</p>
+<p>Tool parameter accuracy, meaning right tool with right arguments.</p>
+<p>Task completion, judged against a real signal rather than the agent’s own claim.</p>
+<p>Faithfulness is the one that hides. An agent that writes cleanly and invents an exchange rate scores well on every quality metric on your board, and the invention only surfaces when a customer acts on it.</p>
+<p>For the gate, trajectory matters more than the final answer.</p>
+<p>A change that arrived through a clean path is a different risk from an identical change that arrived after forty steps of thrashing, even when the diff looks the same.</p>
+<p>Step 4 - your best tests are already in your logs</p>
+<p>Tests you invent at a desk protect you from failures you already imagined.</p>
+<p>The expensive ones are sitting in your traces right now, with a timestamp on them.</p>
+<p>Pull a small set of complete runs and pick them so working and broken behavior sit next to each other:</p>
+<p>A request that finished cleanly, as your baseline for what working looks like.</p>
+<p>A request the user rephrased or corrected, because the correction is a free label.</p>
+<p>A run where a tool returned empty, or got called twice with identical arguments.</p>
+<p>A run where something external timed out, where the only thing tested is how your agent behaves when the world says no.</p>
+<p>Write each one up in four lines: what the agent did, what worked and what did not, whether the cause was your agent or a dependency, and which capability the eval should protect.</p>
+<p>Attribution is where people lose a week.</p>
+<p>The same lookup twice with identical arguments is a loop in your agent.</p>
+<p>A rate limit coming back is somebody else’s problem, and it only becomes your eval if your agent was supposed to recover from it.</p>
+<p>Two rules keep this honest.</p>
+<p>The trace tells you what your agent did, never what it should have done, so the answer key comes from tests, records, policy or a person.</p>
+<p>And test the verifier before trusting it. Feed it one clearly correct result and one plausible wrong one. If either goes the wrong way, the rubric is broken, not the agent.</p>
+<p>Every failure converted this way is something the gate cannot be surprised by twice.</p>
+<p>Step 5 - pin the judge or lose the month</p>
+<p>Judges are software with versions.</p>
+<p>A judge that silently upgrades makes every score before and after incomparable.</p>
+<p>The failure is quiet. The judge bumps a minor version one month and a major version the next, your suite keeps producing numbers, and those numbers stopped meaning the same thing weeks ago.</p>
+<p>Pin the version and log it with every score.</p>
+<p>Write the rubric as one line, in the form of pass if the independently observable outcome happened, rather than a bundle of proxy scores.</p>
+<p>And never reward the shape of an answer. No points for length, keyword presence, citation count or similarity to a reference.</p>
+<p>That last one is not a style preference.</p>
+<p>Optimize hard enough against a judge and the agent learns to look right instead of be right, which turns your defense into an attack surface. Goodhart’s law with a model in the loop.</p>
+<p>One more thing worth knowing before you lean on self-review.</p>
+<p>Huang and colleagues at DeepMind showed at ICLR 2024 that intrinsic self-correction, asking a model to review and revise its own work with no external grounding, does not reliably help and often makes things worse.</p>
+<p>The grounding has to come from outside the model.</p>
+<p>Size the suite so it survives contact.</p>
+<p>The 2026 working guidance is at least 500 cases before trusting an aggregate number, and a run short enough that nobody plans around it.</p>
+<p>A suite that takes longer than a coffee break becomes a quarterly ritual.</p>
+<p>Step 6 - open the gate on blast radius, not on confidence</p>
+<p>Here is where most write-ups go wrong.</p>
+<p>They build a confidence score, set a threshold, and let anything above it through.</p>
+<p>Confidence is the weakest variable in that decision.</p>
+<p>The strong one is what happens if the change is wrong.</p>
+<p>Sort work by how expensive the mistake is to undo, and gate each lane differently:</p>
+<p>Reversible and contained. A copy change, a test, an isolated function with coverage. One bad merge costs a revert. This lane can open first.</p>
+<p>Reversible but wide. A shared utility, a schema addition, anything a dozen callers touch. Gate this on the deterministic checks plus a clean trajectory.</p>
+<p>Hard to reverse. Migrations, deletions, anything that writes to production data or moves money. This lane does not open, regardless of score.</p>
+<p>Inside an open lane the gate reads evidence, not opinions.</p>
+<p>Deterministic results first, because no model is involved: tests, types, schema, sandbox execution.</p>
+<p>Then the eval trajectory for this agent version.</p>
+<p>Then the history, meaning how often work from this agent on this surface has been rolled back before.</p>
+<p>The model’s own assessment is the one input the gate should weight least, because it is the only one the model can influence.</p>
+<p>Turn it on carefully.</p>
+<p>Run in shadow first, where the gate scores every change and merges none of them, until you have enough real traffic to compare against.</p>
+<p>Track how often the gate and the human reviewer disagree, and keep it closed while that number is meaningfully above zero.</p>
+<p>And keep one warning in view. A suite can go entirely green while the product it guards falls apart, because the tests converge on the tests rather than on the spec.</p>
+<p>Green is evidence, not proof.</p>
+<p>The honest version of what you are building is not trust in the agent.</p>
+<p>It is a constraint tight enough that trust stops being the question.</p>
+<p>Three lines hold the discipline.</p>
+<p>Measure the path, not only the answer it landed on.</p>
+<p>A verdict that does not change what runs next is a report.</p>
+<p>Any failure you do not turn into a permanent test, you will meet again.</p>
+<p>The model on your card statement is a rental. The examiner around it is the only part you keep.</p>
+<p>Follow me for more on agent internals, and subscribe to my Telegram channel:</p>
+<p><a href="https://t.me/+75nMf005jRpjMDU1" class="external">https://t.me/+75nMf005jRpjMDU1<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<hr/>
+<p><em>원문: <a href="https://x.com/hanakoxbt/status/2083540339147567268?s=20" class="external">https://x.com/hanakoxbt/status/2083540339147567268?s=20<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></em></p></article><hr/><div class="page-footer"><div class="backlinks"><h3>백링크</h3><ul id="list-1" class="overflow"><li><a href="../garden/20260809-judge-is-a-versioned-participant-not-an-instrument" class="internal">LLM 심판은 중립적 계측기가 아니라 편향과 버전을 가진 참가자다</a></li><li><a href="../garden/20260809-open-the-gate-on-blast-radius-not-confidence" class="internal">게이트는 확신이 아니라 되돌리는 비용으로 열어야 한다</a></li><li><a href="../garden/20260809-verdict-that-does-not-steer-the-run-is-a-report" class="internal">실행 중인 런을 바꾸지 못하는 판정은 평가가 아니라 보고서다</a></li><li><a href="../wiki/concepts/20260809-eval-gate-for-agent-merge" class="internal">에이전트 자동 머지 게이트 (Eval Gate)</a></li><li><a href="../wiki/entities/20260809-hanako" class="internal">Hanako (@hanakoxbt)</a></li><li class="overflow-end"></li></ul></div><div class="giscus" data-repo="dataofmen/quartz-wiki" data-repo-id="R_kgDOSOxrZA" data-category="General" data-category-id="DIC_kwDOSOxrZM4C-Edy" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-input-position="bottom" data-light-theme="light" data-dark-theme="dark" data-theme-url="https://dataofmen.github.io/static/giscus" data-lang="ko"></div></div></div><div class="right sidebar"><div class="graph desktop-only"><h3>그래프 뷰</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                  s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                  c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                  C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                  c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                  v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                  s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                  C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                  S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                  s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                  s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.5.2</a> © 2026</p><ul></ul></footer></div></div></body><script type="application/javascript" data-persist="true">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module" data-persist="true">function E(a,e){if(!a)return;function t(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function n(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}a?.addEventListener("click",t),window.addCleanup(()=>a?.removeEventListener("click",t)),document.addEventListener("keydown",n),window.addCleanup(()=>document.removeEventListener("keydown",n))}function f(a){for(;a.firstChild;)a.removeChild(a.firstChild)}var m=class{constructor(e,t){this.container=e;this.content=t;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),t=this.onMouseMove.bind(this),n=this.onMouseUp.bind(this),o=this.onTouchStart.bind(this),r=this.onTouchMove.bind(this),i=this.onTouchEnd.bind(this),s=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",t),document.addEventListener("mouseup",n),this.container.addEventListener("touchstart",o,{passive:!1}),document.addEventListener("touchmove",r,{passive:!1}),document.addEventListener("touchend",i),window.addEventListener("resize",s),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",t),()=>document.removeEventListener("mouseup",n),()=>this.container.removeEventListener("touchstart",o),()=>document.removeEventListener("touchmove",r),()=>document.removeEventListener("touchend",i),()=>window.removeEventListener("resize",s))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let t=this.createButton("+",()=>this.zoom(.1)),n=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(n),e.appendChild(o),e.appendChild(t),this.container.appendChild(e)}createButton(e,t){let n=document.createElement("button");return n.textContent=e,n.className="mermaid-control-button",n.addEventListener("click",t),window.addCleanup(()=>n.removeEventListener("click",t)),n}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}onTouchStart(e){if(e.touches.length!==1)return;this.isDragging=!0;let t=e.touches[0];this.startPan={x:t.clientX-this.currentPan.x,y:t.clientY-this.currentPan.y}}onTouchMove(e){if(!this.isDragging||e.touches.length!==1)return;e.preventDefault();let t=e.touches[0];this.currentPan={x:t.clientX-this.startPan.x,y:t.clientY-this.startPan.y},this.updateTransform()}onTouchEnd(){this.isDragging=!1}zoom(e){let t=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),n=this.content.getBoundingClientRect(),o=n.width/2,r=n.height/2,i=t-this.scale;this.currentPan.x-=o*i,this.currentPan.y-=r*i,this.scale=t,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){let t=this.content.querySelector("svg").getBoundingClientRect(),n=t.width/this.scale,o=t.height/this.scale;this.scale=1,this.currentPan={x:(this.container.clientWidth-n)/2,y:(this.container.clientHeight-o)/2},this.updateTransform()}},T=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],y;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;y||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let t=y.default,n=new WeakMap;for(let r of e)n.set(r,r.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let c=n.get(s);c&&(s.innerHTML=c)}let r=T.reduce((s,c)=>(s[c]=window.getComputedStyle(document.documentElement).getPropertyValue(c),s),{}),i=document.documentElement.getAttribute("saved-theme")==="dark";t.initialize({startOnLoad:!1,securityLevel:"loose",theme:i?"dark":"base",themeVariables:{fontFamily:r["--codeFont"],primaryColor:r["--light"],primaryTextColor:r["--darkgray"],primaryBorderColor:r["--tertiary"],lineColor:r["--darkgray"],secondaryColor:r["--secondary"],tertiaryColor:r["--tertiary"],clusterBkg:r["--light"],edgeLabelBackground:r["--highlight"]}}),await t.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let r=0;r<e.length;r++){let v=function(){let g=l.querySelector("#mermaid-space"),h=l.querySelector(".mermaid-content");if(!h)return;f(h);let w=i.querySelector("svg").cloneNode(!0);h.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new m(g,h)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},i=e[r],s=i.parentElement,c=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(c),L=c.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),E(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../postscript.js" type="module" data-persist="true"></script></html>
