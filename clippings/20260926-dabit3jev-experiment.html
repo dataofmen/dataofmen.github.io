@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr"><head><title>dabit3/jev-experiments</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto Sans KR:wght@400;700&amp;family=Noto Sans KR:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="dataofmen"/><meta property="og:title" content="dabit3/jev-experiments"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="dabit3/jev-experiments"/><meta name="twitter:description" content="Repository: dabit3/jev-experiments Repository URL: github.com/dabit3/jev-experiments README.md Jev experiments TypeSafe / Jev latency-focused demos built by Devin."/><meta property="og:description" content="Repository: dabit3/jev-experiments Repository URL: github.com/dabit3/jev-experiments README.md Jev experiments TypeSafe / Jev latency-focused demos built by Devin."/><meta property="og:image:alt" content="Repository: dabit3/jev-experiments Repository URL: github.com/dabit3/jev-experiments README.md Jev experiments TypeSafe / Jev latency-focused demos built by Devin."/><meta property="og:image" content="https://dataofmen.github.io/static/og-image.png"/><meta property="og:image:url" content="https://dataofmen.github.io/static/og-image.png"/><meta name="twitter:image" content="https://dataofmen.github.io/static/og-image.png"/><meta property="og:image:type" content="image/.png"/><meta property="twitter:domain" content="dataofmen.github.io"/><meta property="og:url" content="https://dataofmen.github.io/clippings/20260926-dabit3jev-experiment"/><meta property="twitter:url" content="https://dataofmen.github.io/clippings/20260926-dabit3jev-experiment"/><link rel="icon" href="../static/icon.png"/><meta name="description" content="Repository: dabit3/jev-experiments Repository URL: github.com/dabit3/jev-experiments README.md Jev experiments TypeSafe / Jev latency-focused demos built by Devin."/><meta name="generator" content="Quartz"/><link href="../index.css" rel="stylesheet" type="text/css" data-persist="true"/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiL2hvbWUvcnVubmVyL3dvcmsvcXVhcnR6LXdpa2kvcXVhcnR6LXdpa2kvcXVhcnR6L2NvbXBvbmVudHMvc3R5bGVzIiwic291cmNlcyI6WyJtZXJtYWlkLmlubGluZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFHRjtFQUNFOzs7QUFLRjtFQUNFO0VBQ0E7OztBQUlKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFOztBQUdGO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFJSjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTs7QUFJRjtFQUNFO0VBQ0E7RUFDQSIsInNvdXJjZXNDb250ZW50IjpbIi5leHBhbmQtYnV0dG9uIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbG9hdDogcmlnaHQ7XG4gIHBhZGRpbmc6IDAuNHJlbTtcbiAgbWFyZ2luOiAwLjNyZW07XG4gIHJpZ2h0OiAwOyAvLyBOT1RFOiByaWdodCB3aWxsIGJlIHNldCBpbiBtZXJtYWlkLmlubGluZS50c1xuICBjb2xvcjogdmFyKC0tZ3JheSk7XG4gIGJvcmRlci1jb2xvcjogdmFyKC0tZGFyayk7XG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWxpZ2h0KTtcbiAgYm9yZGVyOiAxcHggc29saWQ7XG4gIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgb3BhY2l0eTogMDtcbiAgdHJhbnNpdGlvbjogMC4ycztcblxuICAmID4gc3ZnIHtcbiAgICBmaWxsOiB2YXIoLS1saWdodCk7XG4gICAgZmlsdGVyOiBjb250cmFzdCgwLjMpO1xuICB9XG5cbiAgJjpob3ZlciB7XG4gICAgY3Vyc29yOiBwb2ludGVyO1xuICAgIGJvcmRlci1jb2xvcjogdmFyKC0tc2Vjb25kYXJ5KTtcbiAgfVxuXG4gICY6Zm9jdXMge1xuICAgIG91dGxpbmU6IDA7XG4gIH1cbn1cblxucHJlIHtcbiAgJjpob3ZlciA+IC5leHBhbmQtYnV0dG9uIHtcbiAgICBvcGFjaXR5OiAxO1xuICAgIHRyYW5zaXRpb246IDAuMnM7XG4gIH1cbn1cblxuI21lcm1haWQtY29udGFpbmVyIHtcbiAgcG9zaXRpb246IGZpeGVkO1xuICBjb250YWluOiBsYXlvdXQ7XG4gIHotaW5kZXg6IDk5OTtcbiAgbGVmdDogMDtcbiAgdG9wOiAwO1xuICB3aWR0aDogMTAwdnc7XG4gIGhlaWdodDogMTAwdmg7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIGRpc3BsYXk6IG5vbmU7XG4gIGJhY2tkcm9wLWZpbHRlcjogYmx1cig0cHgpO1xuICBiYWNrZ3JvdW5kOiByZ2JhKDAsIDAsIDAsIDAuNSk7XG5cbiAgJi5hY3RpdmUge1xuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgfVxuXG4gICYgPiAjbWVybWFpZC1zcGFjZSB7XG4gICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1saWdodCk7XG4gICAgYm9yZGVyLXJhZGl1czogNXB4O1xuICAgIHBvc2l0aW9uOiBmaXhlZDtcbiAgICB0b3A6IDUwJTtcbiAgICBsZWZ0OiA1MCU7XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGUoLTUwJSwgLTUwJSk7XG4gICAgaGVpZ2h0OiA4MHZoO1xuICAgIHdpZHRoOiA4MHZ3O1xuICAgIG92ZXJmbG93OiBoaWRkZW47XG5cbiAgICAmID4gLm1lcm1haWQtY29udGVudCB7XG4gICAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgICB0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7XG4gICAgICB0cmFuc2l0aW9uOiB0cmFuc2Zvcm0gMC4xcyBlYXNlO1xuICAgICAgb3ZlcmZsb3c6IHZpc2libGU7XG4gICAgICBtaW4taGVpZ2h0OiAyMDBweDtcbiAgICAgIG1pbi13aWR0aDogMjAwcHg7XG5cbiAgICAgIHByZSB7XG4gICAgICAgIG1hcmdpbjogMDtcbiAgICAgICAgYm9yZGVyOiBub25lO1xuICAgICAgfVxuXG4gICAgICBzdmcge1xuICAgICAgICBtYXgtd2lkdGg6IG5vbmU7XG4gICAgICAgIGhlaWdodDogYXV0bztcbiAgICAgIH1cbiAgICB9XG5cbiAgICAmID4gLm1lcm1haWQtY29udHJvbHMge1xuICAgICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgICAgYm90dG9tOiAyMHB4O1xuICAgICAgcmlnaHQ6IDIwcHg7XG4gICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgZ2FwOiA4cHg7XG4gICAgICBwYWRkaW5nOiA4cHg7XG4gICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1saWdodCk7XG4gICAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgICAgYm9yZGVyLXJhZGl1czogNnB4O1xuICAgICAgYm94LXNoYWRvdzogMCAycHggNHB4IHJnYmEoMCwgMCwgMCwgMC4xKTtcbiAgICAgIHotaW5kZXg6IDI7XG5cbiAgICAgIC5tZXJtYWlkLWNvbnRyb2wtYnV0dG9uIHtcbiAgICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICAgICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gICAgICAgIHdpZHRoOiAzMnB4O1xuICAgICAgICBoZWlnaHQ6IDMycHg7XG4gICAgICAgIHBhZGRpbmc6IDA7XG4gICAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0KTtcbiAgICAgICAgY29sb3I6IHZhcigtLWRhcmspO1xuICAgICAgICBib3JkZXItcmFkaXVzOiA0cHg7XG4gICAgICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICAgICAgZm9udC1zaXplOiAxNnB4O1xuICAgICAgICBmb250LWZhbWlseTogdmFyKC0tYm9keUZvbnQpO1xuICAgICAgICB0cmFuc2l0aW9uOiBhbGwgMC4ycyBlYXNlO1xuXG4gICAgICAgICY6aG92ZXIge1xuICAgICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIH1cblxuICAgICAgICAmOmFjdGl2ZSB7XG4gICAgICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKDFweCk7XG4gICAgICAgIH1cblxuICAgICAgICAvLyBTdHlsZSB0aGUgcmVzZXQgYnV0dG9uIGRpZmZlcmVudGx5XG4gICAgICAgICY6bnRoLWNoaWxkKDIpIHtcbiAgICAgICAgICB3aWR0aDogYXV0bztcbiAgICAgICAgICBwYWRkaW5nOiAwIDEycHg7XG4gICAgICAgICAgZm9udC1zaXplOiAxNHB4O1xuICAgICAgICB9XG4gICAgICB9XG4gICAgfVxuICB9XG59XG4iXX0= */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../prescript.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://dataofmen.github.io/index.xml"/></head><body data-slug="clippings/20260926-dabit3jev-experiment"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"></div><div class="center"><div class="page-header"><header><h2 class="page-title"><a href="..">dataofmen</a></h2><nav class="nav-links"><a href="/wiki" class="nav-link">wiki</a><a href="/garden" class="nav-link">garden</a><a href="/clippings" class="nav-link">clippings</a></nav><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 1rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>검색</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="검색어를 입력하세요" placeholder="검색어를 입력하세요"/><div class="search-layout" data-preview="true"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="다크 모드"><title>다크 모드</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="라이트 모드"><title>라이트 모드</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div></div></header><div class="popover-hint"><h1 class="article-title">dabit3/jev-experiments</h1><p show-comma="true" class="content-meta"><time datetime="2026-09-26T00:00:00.000Z">2026년 9월 26일</time><span>30 min read</span></p><div class="toc"><button type="button" class="toc-header" aria-controls="toc-114" aria-expanded="true"><h3>목차</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-0" class="toc-content overflow"><li class="depth-0"><a href="#repository-dabit3jev-experiments" data-for="repository-dabit3jev-experiments">Repository: dabit3/jev-experiments</a></li><li class="depth-1"><a href="#readmemd" data-for="readmemd">README.md</a></li><li class="depth-0"><a href="#jev-experiments" data-for="jev-experiments">Jev experiments</a></li><li class="depth-1"><a href="#agent-assistreadmemd" data-for="agent-assistreadmemd">agent-assist/README.md</a></li><li class="depth-0"><a href="#agent-assist" data-for="agent-assist">Agent Assist</a></li><li class="depth-1"><a href="#the-problem" data-for="the-problem">The problem</a></li><li class="depth-1"><a href="#how-jev-is-used" data-for="how-jev-is-used">How Jev is used</a></li><li class="depth-1"><a href="#measured-numbers" data-for="measured-numbers">Measured numbers</a></li><li class="depth-1"><a href="#run" data-for="run">Run</a></li><li class="depth-1"><a href="#layout" data-for="layout">Layout</a></li><li class="depth-1"><a href="#commit-sentryreadmemd" data-for="commit-sentryreadmemd">commit-sentry/README.md</a></li><li class="depth-0"><a href="#commit-sentry" data-for="commit-sentry">Commit Sentry</a></li><li class="depth-1"><a href="#the-problem-1" data-for="the-problem-1">The problem</a></li><li class="depth-1"><a href="#measured-run-real-api-npm-run-demo" data-for="measured-run-real-api-npm-run-demo">Measured run (real API, npm run demo)</a></li><li class="depth-1"><a href="#how-jev-is-used-1" data-for="how-jev-is-used-1">How Jev is used</a></li><li class="depth-2"><a href="#policy-code-srcpolicyts" data-for="policy-code-srcpolicyts">Policy (code, src/policy.ts)</a></li><li class="depth-1"><a href="#run-it" data-for="run-it">Run it</a></li><li class="depth-1"><a href="#the-fixture" data-for="the-fixture">The fixture</a></li><li class="depth-1"><a href="#development" data-for="development">Development</a></li><li class="depth-1"><a href="#inbox-blitzreadmemd" data-for="inbox-blitzreadmemd">inbox-blitz/README.md</a></li><li class="depth-0"><a href="#sift" data-for="sift">Sift</a></li><li class="depth-1"><a href="#the-problem-2" data-for="the-problem-2">The problem</a></li><li class="depth-1"><a href="#natural-language-labels" data-for="natural-language-labels">Natural-language labels</a></li><li class="depth-1"><a href="#what-jev-is-asked-in-the-triage-pass" data-for="what-jev-is-asked-in-the-triage-pass">What Jev is asked in the triage pass</a></li><li class="depth-1"><a href="#measured-run-real-api-concurrency-12" data-for="measured-run-real-api-concurrency-12">Measured run (real API, concurrency 12)</a></li><li class="depth-2"><a href="#keyword-rules-vs-jev" data-for="keyword-rules-vs-jev">Keyword rules vs Jev</a></li><li class="depth-1"><a href="#how-it-runs" data-for="how-it-runs">How it runs</a></li><li class="depth-2"><a href="#run-it-1" data-for="run-it-1">Run it</a></li><li class="depth-1"><a href="#notes-on-question-design" data-for="notes-on-question-design">Notes on question design</a></li><li class="depth-1"><a href="#jev-ax-pilotreadmemd" data-for="jev-ax-pilotreadmemd">jev-ax-pilot/README.md</a></li><li class="depth-0"><a href="#jev-ax-pilot" data-for="jev-ax-pilot">Jev AX Pilot</a></li><li class="depth-1"><a href="#why-speed-matters-here" data-for="why-speed-matters-here">Why speed matters here</a></li><li class="depth-1"><a href="#measured-results-live-jev-1130-macos-265-apple-silicon" data-for="measured-results-live-jev-1130-macos-265-apple-silicon">Measured results (live jev-1.13.0, macOS 26.5, Apple silicon)</a></li><li class="depth-1"><a href="#how-it-works" data-for="how-it-works">How it works</a></li><li class="depth-2"><a href="#the-jev-questions" data-for="the-jev-questions">The Jev questions</a></li><li class="depth-2"><a href="#safety" data-for="safety">Safety</a></li><li class="depth-2"><a href="#hud-and-highlight" data-for="hud-and-highlight">HUD and highlight</a></li><li class="depth-1"><a href="#run-1" data-for="run-1">Run</a></li><li class="depth-2"><a href="#accessibility-permission" data-for="accessibility-permission">Accessibility permission</a></li><li class="depth-1"><a href="#limitations" data-for="limitations">Limitations</a></li><li class="depth-1"><a href="#layout-1" data-for="layout-1">Layout</a></li><li class="depth-1"><a href="#jev-dispatchreadmemd" data-for="jev-dispatchreadmemd">jev-dispatch/README.md</a></li><li class="depth-0"><a href="#jev-dispatch" data-for="jev-dispatch">Jev Dispatch</a></li><li class="depth-1"><a href="#why-speed-is-the-whole-point" data-for="why-speed-is-the-whole-point">Why speed is the whole point</a></li><li class="depth-1"><a href="#run-2" data-for="run-2">Run</a></li><li class="depth-1"><a href="#what-is-on-screen" data-for="what-is-on-screen">What is on screen</a></li><li class="depth-1"><a href="#jev-firehosereadmemd" data-for="jev-firehosereadmemd">jev-firehose/README.md</a></li><li class="depth-0"><a href="#jev-firehose" data-for="jev-firehose">jev-firehose</a></li><li class="depth-1"><a href="#jev-instant-searchreadmemd" data-for="jev-instant-searchreadmemd">jev-instant-search/README.md</a></li><li class="depth-0"><a href="#jev-instant-s" data-for="jev-instant-s">jev-instant-s</a></li><li class="overflow-end"></li></ul></div></div></div><article class="popover-hint"><h1 id="repository-dabit3jev-experiments">Repository: dabit3/jev-experiments<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#repository-dabit3jev-experiments" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>Repository URL: <a href="https://github.com/dabit3/jev-experiments" class="external">https://github.com/dabit3/jev-experiments<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<h2 id="readmemd">README.md<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#readmemd" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h1 id="jev-experiments">Jev experiments<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#jev-experiments" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p><a href="https://www.devin.ai" class="external"><img src="../assets/built-by-devin.svg" alt="Built by Devin"/><svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<p><a href="https://docs.typesafe.ai/" class="external">TypeSafe<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> / Jev latency-focused demos built by Devin. Each app lives in its own top-level directory with its own README, TESTING.md and screenshots.</p>
+<h2 id="agent-assistreadmemd">agent-assist/README.md<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#agent-assistreadmemd" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h1 id="agent-assist">Agent Assist<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#agent-assist" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p><img src="../screenshots/agent-assist.jpg" alt="Agent Assist console"/></p>
+<p><img src="../screenshots/agent-assist-demo.webp" alt="Live run — 40 messages across 8 concurrent chats"/></p>
+<p>A contact-center support console whose copilot panel refreshes <strong>~100 ms</strong> after every incoming customer message, judged by <a href="https://docs.typesafe.ai" class="external">Jev<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> (TypeSafe). Eight scripted chats run at once; each new message triggers <strong>one</strong> Jev request that returns intent, churn risk, frustration, five yes/no flags and a confidence-gated macro suggestion — before the agent has finished reading the message.</p>
+<h2 id="the-problem">The problem<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#the-problem" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Agent-assist tools suggest canned replies (macros) and flag escalation/churn risk. The LLM-based ones prompt a chat model and parse the answer, which takes 3–8 s. By then the agent has already typed a reply, so the suggestion is noise, and the supervisor’s queue view lags behind reality. Regex/keyword rules are fast but can’t tell “I want a manager, not a macro” from “can my manager get access too?“.</p>
+<p>Jev returns typed judgments (Choice / Score / Noul) with probabilities instead of text, in roughly 80–200 ms. That makes a copilot that keeps up with a live chat — and with eight of them.</p>
+<h2 id="how-jev-is-used">How Jev is used<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#how-jev-is-used" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>On every customer message the server sends <strong>one</strong> <code>systemOne</code> request (all independent questions fanned out in a single call) with this state:</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="json" data-theme="github-light github-dark"><code data-language="json" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">{</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">  &quot;conversation&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;&lt;last 6 messages, {role, text}>&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">  &quot;customer&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: { </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">&quot;plan&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;business&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">&quot;tenure_months&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">26</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">&quot;prior_tickets&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">6</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> },</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">  &quot;catalog_of_macros&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: [{ </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">&quot;id&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;sla_credit&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">&quot;title&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;...&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">&quot;summary&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;...&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> }, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;… 12 total&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">]</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">}</span></span></code></pre></figure>
+<p>and these nine questions (<code>src/lib/questions.ts</code>):</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>id</th><th>type</th><th>what it decides</th></tr></thead><tbody><tr><td><code>best_macro</code></td><td>choice over 12 macro ids + <code>none</code></td><td>which canned reply fits the <strong>last</strong> customer message</td></tr><tr><td><code>intent</code></td><td>choice (10 intents)</td><td>billing dispute, account access, cancellation threat, feature question, data-privacy request, shipping delay, bug report, general help, gratitude/closing, other</td></tr><tr><td><code>churn_risk</code></td><td>score 0–3</td><td>none → severe (explicit threat to leave)</td></tr><tr><td><code>frustration</code></td><td>score 0–3</td><td>calm → angry/hostile</td></tr><tr><td><code>needs_escalation_to_human_supervisor</code></td><td>noul</td><td>asks for a manager, threatens to leave, legal demand, beyond front-line scope</td></tr><tr><td><code>customer_requests_refund</code></td><td>noul</td><td>wants money back / credit</td></tr><tr><td><code>contains_regulatory_request</code></td><td>noul</td><td>GDPR / CCPA / erasure / legal demand</td></tr><tr><td><code>agent_should_apologize_first</code></td><td>noul</td><td>company caused the problem</td></tr><tr><td><code>resolution_likely_this_session</code></td><td>noul</td><td>closable in this chat without another team</td></tr></tbody></table></div>
+<p>Everything that is a rule stays in code: <code>refund_eligible_by_policy</code> is computed from plan + tenure (<code>src/lib/engine.ts</code>), the conversation window, the confidence gate, latency percentiles and the queue ordering are all plain TypeScript. Jev never writes reply text — macros are hand-written templates; Jev only picks one.</p>
+<p><strong>Confidence gate.</strong> If <code>best_macro</code> confidence ≥ 0.6 the macro is auto-filled into the reply box (in the hands-free run it is auto-sent 1.5 s later). Below that, the panel shows the top-3 macros with probabilities and the agent picks. <code>none</code> means “reply freehand”.</p>
+<p><strong>Queue badges.</strong> Each row shows churn score, escalation, regulatory and refund badges from the latest judgment, and the queue re-sorts by risk so a supervisor sees which of the 8 chats to jump to.</p>
+<p><strong>LLM baseline toggle.</strong> Greys out the copilot for 4 s after each message with a countdown, labelled <em>SIMULATED</em>. Jev’s real numbers keep being measured underneath; the wait is artificial, to make the 3–8 s status quo tangible.</p>
+<h2 id="measured-numbers">Measured numbers<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#measured-numbers" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>“Run all 8 conversations”, live <code>jev-latest</code>, 40 customer messages, 8 chats interleaved on timers, browser on a Linux VM:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>metric</th><th>value</th></tr></thead><tbody><tr><td>messages judged</td><td>40 (8 chats × 5)</td></tr><tr><td><strong>panel refresh p50</strong> (browser: message arrives → panel painted)</td><td><strong>93 ms</strong></td></tr><tr><td><strong>panel refresh p95</strong></td><td><strong>223 ms</strong></td></tr><tr><td>min / max / mean</td><td>66 ms / 321 ms / 119 ms</td></tr><tr><td>Jev call p50 / p95 (server-side, <code>performance.now()</code> around the SDK call)</td><td>88 ms / 209 ms</td></tr><tr><td>total elapsed (scripted pacing, ~40–50 s by design)</td><td>52.2 s</td></tr><tr><td>throughput at scripted pacing</td><td>0.77 msg/s (bounded by the scripts, not by Jev)</td></tr><tr><td>tokens (in + out)</td><td>126k</td></tr><tr><td>vs simulated 4 s LLM copilot</td><td>~43× faster at p50</td></tr></tbody></table></div>
+<p>A second identical run gave p50 108 ms / p95 252 ms. Every number on screen is measured; nothing is hard-coded.</p>
+<p>Judgment quality on the seeded scripts (checked by hand): duplicate charge → <code>duplicate_charge_refund</code> + refund flag; locked account → <code>account_unlock_reset</code> then <code>two_factor_recovery</code> when 2FA comes up; “moving my whole team to a competitor on Friday” → churn 3/3, escalation 91%, <code>escalate_to_supervisor</code>; GDPR Article 17 → <code>privacy_data_request</code> + regulatory flag; late parcel → <code>shipping_tracking_update</code>, then <code>shipping_replacement</code> when asked to overnight one; stack traces → <code>bug_acknowledged_engineering</code>, resolution-this-session low; confused user → <code>guided_walkthrough</code>, apologize-first false; “Perfect, that’s all I needed” → intent <code>gratitude_or_closing</code>, macro <code>none</code>.</p>
+<h2 id="run">Run<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#run" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Requires Node 22+ and a TypeSafe API key.</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="sh" data-theme="github-light github-dark"><code data-language="sh" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">cd</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> agent-assist</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> ci</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">TYPESAFE_API_KEY</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">...</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> run</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> dev</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">     # starts the Node proxy (:8787) and Vite (:5173)</span></span></code></pre></figure>
+<p>Open <a href="http://localhost:5173" class="external">http://localhost:5173<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> and press <strong>Run all 8 conversations</strong>. Or click a chat and step it with <strong>Next message</strong>.</p>
+<ul>
+<li>The API key is only read by <code>server/jev.ts</code>; the browser talks to <code>/api/judge</code> on the local proxy. It never reaches the bundle.</li>
+<li><code>MOCK=1 npm run dev</code> runs with canned keyword-based answers for offline UI work — the header shows a <strong>MOCK MODE</strong> pill and no numbers from that mode should be quoted.</li>
+<li>Missing key → the header shows <code>TYPESAFE_API_KEY not set</code> and <code>/api/judge</code> returns a clear 503. 429/5xx are retried by the SDK with exponential backoff (4 retries); at most 8 Jev calls are in flight at once.</li>
+</ul>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="sh" data-theme="github-light github-dark"><code data-language="sh" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> run</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> typecheck</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> &amp;&amp; </span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> run</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> lint</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> &amp;&amp; </span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> test</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> &amp;&amp; </span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> run</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> build</span></span></code></pre></figure>
+<h2 id="layout">Layout<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#layout" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<pre><code>server/index.ts     node:http proxy: GET /api/health, POST /api/judge
+server/jev.ts       the only module that talks to TypeSafe (systemOne, retries, semaphore, timing)
+server/mock.ts      MOCK=1 canned answers (labelled)
+src/lib/questions.ts  state + question builders (the 9 questions above), types
+src/lib/engine.ts   refund policy, confidence gate, percentiles, queue badges/priority
+src/lib/store.ts    reducer for 8 chats, samples, run clock
+src/data/macros.ts  12 macros (id, title, summary sent to Jev; body kept client-side)
+src/data/scripts.ts 8 scripted customers × 5 timed messages
+src/components/     Queue · Conversation · Copilot · MetricsBar
+</code></pre>
+<h2 id="commit-sentryreadmemd">commit-sentry/README.md<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#commit-sentryreadmemd" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h1 id="commit-sentry">Commit Sentry<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#commit-sentry" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>Semantic pre-commit checks that finish in under half a second. Every staged hunk is judged by
+<a href="https://docs.typesafe.ai" class="external">TypeSafe Jev<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> in one ~120 ms request, all hunks in parallel, so the hook
+can <strong>block</strong> a leaked key, a <code>DROP COLUMN</code>, an auth bypass or an unfiltered <code>DELETE</code> — and <strong>warn</strong>
+about skipped tests, API-shape changes, debug leftovers, hard-coded IPs and a commit message that
+doesn’t describe the diff — <em>before</em> the commit exists.</p>
+<p><img src="../screenshots/commit-sentry-demo.gif" alt="commit-sentry demo"/></p>
+<h2 id="the-problem-1">The problem<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#the-problem-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Pre-commit hooks have to be fast or developers <code>--no-verify</code> them into oblivion. Linters are fast
+but only see syntax: a regex can catch <code>sk_live_…</code>, it cannot tell that
+<code>console.log(&quot;issued session token&quot;, token)</code> leaks a credential, that <code>if (token === &quot;letmein&quot;)</code>
+bypasses authentication, that renaming <code>total</code> → <code>totalCents</code> in <code>OrderResponse</code> breaks every
+client, or that “chore: tidy up logging” is a dishonest description of a schema drop.</p>
+<p>LLM code reviewers understand all of that, but they take 10–60 s and run in CI, after the commit
+is already on the branch. Jev sits in between: it returns <em>typed judgments with probabilities</em>
+(no prose to parse), each request answers ten questions about one hunk at once, and the whole
+staged diff is judged in roughly one round-trip.</p>
+<h2 id="measured-run-real-api-npm-run-demo">Measured run (real API, <code>npm run demo</code>)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#measured-run-real-api-npm-run-demo" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>The run recorded above, on a Linux VM, <code>jev-latest</code>, concurrency 16:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Metric</th><th>Value</th></tr></thead><tbody><tr><td>Staged hunks / files</td><td>15 hunks in 11 files</td></tr><tr><td>Jev requests</td><td>16 (one per hunk + one for the commit message)</td></tr><tr><td>Judgments returned</td><td>152 (10 per hunk, 2 for the message)</td></tr><tr><td><strong>Total hook time</strong></td><td><strong>338 ms</strong> (hunk phase 259 ms + message 74 ms + parse/policy)</td></tr><tr><td>Per-request latency</td><td>p50 <strong>124 ms</strong> · p95 240 ms · max 240 ms</td></tr><tr><td>Throughput</td><td>58 hunks/s</td></tr><tr><td>Regex “linter” baseline</td><td>6 rules, 0.55 ms — flagged <strong>6 of the 17</strong> findings Jev raised</td></tr><tr><td>Typical LLM review</td><td>10–60 s, in CI after the commit → <strong>30–177× slower</strong></td></tr></tbody></table></div>
+<p>Verdict on the fixture: <strong>COMMIT BLOCKED</strong> — 10 blocking findings, 13 warnings, commit message
+“matches changes 3%“. The benign hunks (README, dependency bump, local rename, off-by-one fix) came
+back <code>clean</code> at cosmetic/low risk. Every number on screen is measured with <code>performance.now()</code>
+around the real request; nothing is simulated (mock mode is labelled in yellow when used).</p>
+<p><img src="../screenshots/commit-sentry.jpg" alt="commit-sentry final screen"/></p>
+<h2 id="how-jev-is-used-1">How Jev is used<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#how-jev-is-used-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>All TypeSafe calls live in <a href="../src/jev.ts" class="internal" data-slug="src/jev.ts"><code>src/jev.ts</code></a>. Parsing, thresholds, policy and rendering
+are plain code; Jev only supplies the semantic judgment.</p>
+<p><strong>Per hunk — one <code>systemOne</code> request</strong>, state <code>{file, language, change_type, hunk, added_lines}</code>,
+ten independent questions fanned out inside the request:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>id</th><th>type</th><th>asks</th></tr></thead><tbody><tr><td><code>risk</code></td><td>score</td><td>cosmetic / low / moderate / high / dangerous — “how much damage if this ships as written”</td></tr><tr><td><code>leaks_secret_or_token</code></td><td>noul</td><td>literal API key / token / password / private key added</td></tr><tr><td><code>logs_sensitive_data</code></td><td>noul</td><td>tokens, passwords, card numbers, personal data written to logs</td></tr><tr><td><code>disables_or_skips_tests</code></td><td>noul</td><td><code>it.skip</code>, <code>xit</code>, commented-out or vacuous assertions</td></tr><tr><td><code>destructive_data_change</code></td><td>noul</td><td><code>DROP</code>, <code>TRUNCATE</code>, unfiltered <code>DELETE</code>/<code>UPDATE</code>, irreversible migration</td></tr><tr><td><code>changes_public_api_shape</code></td><td>noul</td><td>renamed/removed response field, changed exported signature or schema</td></tr><tr><td><code>leftover_debug_or_temp</code></td><td>noul</td><td>debug prints, <code>debugger</code>, “TODO remove before merge”, forced flags</td></tr><tr><td><code>hardcoded_env_specific_value</code></td><td>noul</td><td>internal IP, localhost/staging host, local path, account id</td></tr><tr><td><code>kind</code></td><td>choice</td><td>feature / bugfix / refactor / test / docs / config / chore</td></tr><tr><td><code>offending_line</code></td><td>choice</td><td>which added line (<code>L1…L12</code>) is the most concerning, or <code>none</code> — used to quote it</td></tr></tbody></table></div>
+<p><strong>Then one request for the commit message</strong>, state <code>{commit_message, changes[]}</code> where <code>changes</code>
+is the code-built summary of each hunk (file, Jev’s <code>kind</code> and <code>risk</code>, first added/removed lines):</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>id</th><th>type</th><th>asks</th></tr></thead><tbody><tr><td><code>message_matches_changes</code></td><td>noul</td><td>does the message honestly and completely describe these changes</td></tr><tr><td><code>message_quality</code></td><td>score</td><td>placeholder / vague / adequate / excellent</td></tr></tbody></table></div>
+<p>Requests run through <code>mapWithConcurrency(hunks, 16, …)</code>; 429/529/5xx get exponential backoff
+(honouring <code>retry-after</code>). A missing <code>TYPESAFE_API_KEY</code> prints a one-line explanation and exits 2.</p>
+<h3 id="policy-code-srcpolicyts">Policy (code, <a href="../src/policy.ts" class="internal" data-slug="src/policy.ts"><code>src/policy.ts</code></a>)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#policy-code-srcpolicyts" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>finding</th><th>reported at</th><th>blocks at</th></tr></thead><tbody><tr><td>leaks secret / destructive data change</td><td>≥ 50 %</td><td>≥ 70 %</td></tr><tr><td>logs sensitive data</td><td>≥ 50 %</td><td>≥ 80 %</td></tr><tr><td>skipped tests, API shape, debug leftovers, hard-coded values</td><td>≥ 50 %</td><td>warn only</td></tr><tr><td>risk score (0–4)</td><td>≥ 2.5 warns</td><td>≥ 3.5 blocks</td></tr><tr><td>commit message matches changes</td><td>&lt; 35 % warns</td><td>—</td></tr></tbody></table></div>
+<p><code>--strict</code> blocks on any finding ≥ 60 %, on high risk (≥ 2.5) and on a mismatched message.</p>
+<h2 id="run-it">Run it<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#run-it" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="sh" data-theme="github-light github-dark"><code data-language="sh" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">cd</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> commit-sentry</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> ci</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">export</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> TYPESAFE_API_KEY</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">...   </span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># never committed; read from process.env only</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> run</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> demo</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">                  # builds the fixture repo in a temp dir, judges it, exits 1 (blocked)</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> run</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> demo</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> --</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> --strict</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">      # stricter thresholds</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> run</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> demo</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> --</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> --report</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">      # also writes commit-sentry-report.json</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> run</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> demo:mock</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">             # replays mock/recording.json — labelled MOCK, no API calls</span></span></code></pre></figure>
+<p>Install as hooks in any repository:</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="sh" data-theme="github-light github-dark"><code data-language="sh" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> run</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> build</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">cd</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> /path/to/your/repo</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">npx</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> /path/to/experiments/commit-sentry</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> install</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">          # writes .git/hooks/pre-commit + commit-msg</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">npx</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> /path/to/experiments/commit-sentry</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> install</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> --strict</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> --command</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> &quot;node /path/to/experiments/commit-sentry/dist/cli.js&quot;</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">git</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> commit</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">                                              # blocked / warned / allowed in ~300 ms</span></span></code></pre></figure>
+<p><code>pre-commit</code> runs <code>commit-sentry check --no-message</code> on the staged diff; <code>commit-msg</code> re-runs with
+<code>--message-file</code> so the message is judged against the same hunks. Bypass with <code>git commit --no-verify</code>.</p>
+<p>Other commands: <code>commit-sentry check --cwd &lt;repo> [-m &quot;message&quot;] [--report file]</code>, <code>commit-sentry help</code>.</p>
+<h2 id="the-fixture">The fixture<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#the-fixture" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p><code>npm run demo</code> programmatically creates a git repo (“ledgerline”, 11 files) with a base commit and
+a staged change of 15 hunks, all under the message <em>“chore: tidy up logging and small fixes”</em>:</p>
+<ul>
+<li><code>src/auth/session.ts</code> — <code>console.log</code> of the session token; <code>if (token === &quot;letmein&quot;)</code> admin bypass</li>
+<li><code>src/config.ts</code> — literal <code>sk_live_…</code> Stripe key; <code>apiUrl: &quot;http://10.0.3.12:8080&quot;</code></li>
+<li><code>migrations/0007_drop_legacy_email.sql</code> — new file, <code>ALTER TABLE users DROP COLUMN legacy_email</code></li>
+<li><code>src/jobs/cleanup.ts</code> — <code>DELETE FROM audit_log</code> with the <code>WHERE</code> removed; <code>TODO remove before merge</code> + <code>intervalMs = 500</code> + debug print</li>
+<li><code>src/api/users.ts</code> — logs <code>email</code>, <code>password</code> and <code>password_hash</code></li>
+<li><code>src/api/orders.ts</code> — <code>OrderResponse.total</code> → <code>totalCents</code>, <code>currency</code> removed (2 hunks)</li>
+<li><code>test/payments.test.ts</code> — <code>it.skip(&quot;refunds partial amounts&quot;)</code> “temporarily”</li>
+<li>benign: <code>README.md</code> docs, <code>package.json</code> version bump, <code>src/logger.ts</code> local refactor, <code>src/utils/format.ts</code> off-by-one fix</li>
+</ul>
+<h2 id="development">Development<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#development" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="sh" data-theme="github-light github-dark"><code data-language="sh" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> run</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> typecheck</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">   # tsc --noEmit</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> run</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> lint</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">        # oxlint --deny-warnings src test</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> test</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">            # vitest: diff parser, policy, Jev client (mocked fetch), fixture</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> run</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> build</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">       # tsc → dist/ (the `commit-sentry` bin)</span></span></code></pre></figure>
+<p>Layout: <code>src/diff.ts</code> unified-diff parser · <code>src/jev.ts</code> TypeSafe client + question builders ·
+<code>src/policy.ts</code> thresholds &amp; verdict · <code>src/baseline.ts</code> regex comparison · <code>src/run.ts</code>
+orchestration &amp; timing · <code>src/render.ts</code> terminal output · <code>src/fixture.ts</code> demo repo ·
+<code>src/install.ts</code> hook writer · <code>src/mock.ts</code> labelled replay · <code>src/cli.ts</code> entry point.</p>
+<h2 id="inbox-blitzreadmemd">inbox-blitz/README.md<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#inbox-blitzreadmemd" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h1 id="sift">Sift<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#sift" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p><strong>Type what you mean, get a label.</strong> Describe emails in plain English — <em>“customers threatening to
+cancel”</em>, <em>“sarcastic or passive-aggressive tone”</em> — and <a href="https://docs.typesafe.ai" class="external">TypeSafe Jev<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>
+judges all 500 emails against that description in ~5.5 s (p50 ≈ 115 ms), labelling and filtering
+the inbox live as answers stream in. Stack labels to AND them. Plus the fixed triage pass:
+<strong>500 emails × 7 judgments = 3,500 judgments in 5.3 s</strong>, sorted into a priority queue computed in code, with a
+keyword-rule baseline on screen so you can see where regex fails.</p>
+<p><img src="../screenshots/inbox-blitz.jpg" alt="Sift — “someone asking for a refund” labelled across 500 emails in 4.9 s"/></p>
+<p><img src="../screenshots/inbox-blitz-demo.webp" alt="Live run: two intents typed in plain English, labelled and filtered as Jev answers"/></p>
+<h2 id="the-problem-2">The problem<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#the-problem-2" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Support and sales inboxes get hundreds of messages an hour. Triage today is either a human
+skimming subject lines, a keyword/regex classifier (fast but wrong on sarcasm, negation, quoted
+history and marketing copy), or an LLM “summarise and classify” prompt per email — 2–5 s each,
+minutes per batch, dollars per run, and a JSON-parsing step that breaks.</p>
+<p>Jev is a <em>judgment</em> model: it does not generate text, it answers typed questions (choice / noul /
+score) with probabilities in ~100–300 ms. That changes the shape of the solution:</p>
+<ul>
+<li><strong>All seven questions about one email go in one request.</strong> Extra questions cost tokens, not
+latency. Seven dimensions arrive together in one round-trip.</li>
+<li><strong>Judgments are data.</strong> The priority score is computed <em>in code</em> from the raw judgments, so
+changing the weighting re-sorts the queue with no new inference, no re-run.</li>
+<li><strong>Confidence is a first-class value.</strong> Category confidence below 0.7 routes the email to a
+“needs human” lane instead of guessing.</li>
+<li><strong>Whole-inbox re-triage is cheap.</strong> A full pass over 500 emails is ~5 s and ~$0.03, so changing
+the questions themselves (a new policy) is a re-run, not a project.</li>
+</ul>
+<h2 id="natural-language-labels">Natural-language labels<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#natural-language-labels" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>The Gmail search pill is an <em>intent</em> box, not a keyword box. Type a description and press Enter:</p>
+<ol>
+<li>
+<p><code>POST /api/label { intent }</code> fans out one request per email (12 in flight), each carrying a
+single <code>noul</code> question with the intent embedded in it:</p>
+<blockquote>
+<p>An inbox operator wants to find emails that match this description: <em>”…“</em>. Read
+<code>email.from</code>, <code>email.subject</code> and <code>email.body</code>. Does this email genuinely match the
+description, judged by what the sender actually means and intends rather than by surface
+keywords? — <code>true</code>: clearly fits · <code>false</code>: does not fit, or only mentions related words in
+passing, sarcastically, in quoted history or in marketing copy.</p>
+</blockquote>
+</li>
+<li>
+<p>Match probabilities stream back as NDJSON; the UI shows a one-line status (matches so far,
+emails judged, elapsed); per-request latency, p50/p95 and cost are measured in code but not
+displayed (the tables below come from those measurements).</p>
+</li>
+<li>
+<p>Code does the rest: probability ≥ 0.5 gets the label (≥ 0.8 solid, 0.5–0.8 translucent), the
+inbox filters to matches, and when the run finishes the rows sort by match probability.
+Selecting several labels ANDs them; nothing is re-inferred.</p>
+</li>
+</ol>
+<p>Measured label runs over the 500-email fixture (real API, concurrency 12):</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>intent</th><th>matches</th><th>elapsed</th><th>p50</th><th>p95</th><th>emails/s</th></tr></thead><tbody><tr><td>customers threatening to cancel</td><td>4 (all 4 real cancel threats; angry-but-staying emails at 18–46%)</td><td>5.43 s</td><td>114 ms</td><td>198 ms</td><td>92.1</td></tr><tr><td>someone asking for a refund</td><td>27 (double charges, unused seats, “credit for the difference”; the sarcastic <em>“Great job guys… love paying twice”</em> trap at 55%)</td><td>5.75 s</td><td>117 ms</td><td>267 ms</td><td>86.9</td></tr><tr><td>sarcastic or passive-aggressive tone</td><td>21 (top three are the sarcasm traps at 97/88/70%)</td><td>5.89 s</td><td>123 ms</td><td>252 ms</td><td>84.9</td></tr><tr><td>production is down or broken for them</td><td>81 (lock-outs, 502s, crashes at 92–96%; “data not syncing” borderline at ~58%)</td><td>4.91 s</td><td>100 ms</td><td>182 ms</td><td>101.8</td></tr></tbody></table></div>
+<p>Each run is 500 judgments and ~235k input tokens ≈ $0.01. Try it yourself from the CLI:
+<code>npx tsx scripts/probe-intent.ts &quot;a coworker asking me to do something&quot;</code>.</p>
+<h2 id="what-jev-is-asked-in-the-triage-pass">What Jev is asked in the triage pass<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#what-jev-is-asked-in-the-triage-pass" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>One <code>POST https://api.typesafe.ai/v1/systemone</code> per email, <code>model: &quot;jev-latest&quot;</code>, with
+<code>state = { email: { from, subject, body } }</code> and these seven questions (verbatim from
+<a href="../server/jev.ts" class="internal" data-slug="server/jev.ts"><code>server/jev.ts</code></a>):</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>id</th><th>type</th><th>question</th></tr></thead><tbody><tr><td><code>category</code></td><td>choice</td><td>Which single category best describes what this email is primarily about? — <code>billing</code>, <code>bug</code>, <code>feature_request</code>, <code>sales_lead</code>, <code>security</code>, <code>legal_privacy</code>, <code>spam_marketing</code>, <code>internal</code>, <code>other</code>, each with a one-line criterion</td></tr><tr><td><code>needs_reply</code></td><td>noul</td><td>Does the sender expect a human at our company to write back? (mass mailings, automated notifications and newsletters do not)</td></tr><tr><td><code>urgency</code></td><td>score</td><td>How quickly does this email need action, based on the real situation (ignore sarcastic framing and marketing pressure tactics)? — Can wait a week / This week / Today / Right now</td></tr><tr><td><code>sentiment</code></td><td>score</td><td>The sender’s actual emotional tone toward us, reading past politeness and sarcasm — Friendly / Neutral / Frustrated / Furious</td></tr><tr><td><code>is_phishing_or_scam</code></td><td>noul</td><td>Is this a phishing attempt or scam (credential theft, fake invoice, gift cards, fake authority)? Pushy but legitimate marketing is <code>false</code>.</td></tr><tr><td><code>mentions_churn_or_cancel</code></td><td>noul</td><td>Is the <em>sender themselves</em> cancelling or threatening to leave? (cancellation mentioned in marketing copy does not count)</td></tr><tr><td><code>asks_for_refund</code></td><td>noul</td><td>Does the sender ask us to refund or credit back money they paid?</td></tr></tbody></table></div>
+<p>Everything else is plain code: priority weights, lane routing, the 0.7 confidence gate, the
+keyword baseline, agreement stats, percentiles and cost.</p>
+<h2 id="measured-run-real-api-concurrency-12">Measured run (real API, concurrency 12)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#measured-run-real-api-concurrency-12" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Measured server-side with <code>performance.now()</code> around each HTTP request; nothing is simulated.
+Best of three full runs on a Linux VM; the other two took 5.8 s and 5.9 s.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>metric</th><th>value</th></tr></thead><tbody><tr><td>emails</td><td>500</td></tr><tr><td>judgments</td><td>3,500 (7 per email, one request each)</td></tr><tr><td>total elapsed</td><td><strong>5.27 s</strong></td></tr><tr><td>throughput</td><td><strong>94.9 emails/s</strong> (664 judgments/s)</td></tr><tr><td>p50 request latency</td><td><strong>96 ms</strong></td></tr><tr><td>p95 request latency</td><td>270 ms</td></tr><tr><td>errors / retries</td><td>0 / 0</td></tr><tr><td>input tokens</td><td>609,250</td></tr><tr><td>estimated cost</td><td>≈ <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">0.03</span><span class="mopen">(</span><span class="mord mathnormal">a</span><span class="mord mathnormal">t</span></span></span></span>0.042 / M input tokens, output free)</td></tr></tbody></table></div>
+<p>For comparison, a 2 s-per-email LLM summarisation pass would take ~17 minutes sequentially, or
+~80 s at the same concurrency, and needs a text-parsing step Jev does not.</p>
+<h3 id="keyword-rules-vs-jev">Keyword rules vs Jev<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#keyword-rules-vs-jev" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Press <code>b</code> to run the classic regex/keyword classifier over the same 500 emails
+(<a href="../src/lib/rules.ts" class="internal" data-slug="src/lib/rules.ts"><code>src/lib/rules.ts</code></a>). It agrees with Jev on all seven dimensions for ~84% of
+emails; the “Rules ≠ Jev” lane lists the rest with the full email body so you can judge who is
+right. The fixture includes 20 hand-written traps that keyword rules get wrong and Jev gets right,
+for example:</p>
+<ul>
+<li><em>“Not urgent at all, take your time… just kidding. Prod is down for all of our warehouses”</em> —
+rules: can wait a week, neutral; Jev: <strong>Right now, Frustrated</strong>.</li>
+<li><em>“Question about my invoice (I’m NOT cancelling!)”</em> — ‘cancel’ three times; rules flag churn; Jev: churn 2%.</li>
+<li>A newsletter whose copy says <em>“cancel anytime, full refund”</em> — rules flag churn + refund; Jev: no.</li>
+<li><em>“Password reset link goes to a blank page”</em> — ‘password’, ‘link’, ‘verify’ → rules flag phishing;
+Jev: legitimate <strong>bug</strong>, phishing 4%. Meanwhile <em>“[Final notice] Account suspension”</em> from
+<code>no-reply@micros0ft-secure.com</code> is phishing 99%.</li>
+<li><em>“quick favor”</em> — CEO gift-card scam with zero phishing keywords; rules miss it, Jev: phishing 74%.</li>
+<li><em>“URGENT: your security score dropped this week”</em> — a vendor’s cold pitch; rules: urgent
+security; Jev: <code>spam_marketing</code>, urgency <em>can wait a week</em>.</li>
+</ul>
+<h2 id="how-it-runs">How it runs<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#how-it-runs" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<pre><code>browser (Vite + React 19)  ──/api/triage──▶  node server (tsx)  ──12 concurrent──▶  api.typesafe.ai
+        ◀── NDJSON stream: one line per email as its judgment lands ──
+</code></pre>
+<ul>
+<li><code>server/index.ts</code> — <code>POST /api/triage</code> fans out one request per email with a 12-wide worker
+pool, streams <code>{type:&quot;result&quot;, id, judgment, latencyMs, inputTokens}</code> lines back as they arrive,
+retries 429/529/5xx with exponential backoff + jitter (honouring <code>retry-after</code>), 6 s per-request
+timeout. <code>POST /api/label { intent }</code> does the same with the single intent question and streams
+<code>{type:&quot;match&quot;, id, match, latencyMs, inputTokens}</code>. The API key never leaves the server.</li>
+<li><code>server/jev.ts</code> — typed question builders (<code>choice</code>, <code>noul</code>, <code>score</code>), the seven triage
+questions, the <code>intentQuestion(intent)</code> builder, request/response mapping.</li>
+<li><code>src/useTriage.ts</code> — consumes the triage stream, batches UI updates every 50 ms, tracks live p50/p95.</li>
+<li><code>src/useLabels.ts</code> + <code>src/lib/labels.ts</code> — intent labels: queued runs, match threshold, label
+naming, AND-intersection, sort-by-match, histogram summary; pure parts unit-tested.</li>
+<li><code>src/lib/priority.ts</code> — priority score from raw judgments + weights; lane routing
+(priority / needs-human / FYI / spam); pure and unit-tested.</li>
+<li><code>src/lib/rules.ts</code> — the keyword baseline and agreement/disagreement stats.</li>
+<li><code>src/lib/stats.ts</code> — percentiles, throughput, token cost.</li>
+<li><code>src/data/emails.ts</code> + <code>src/data/traps.ts</code> — deterministic generator (seed <code>20260917</code>) for 500
+synthetic emails: support bugs, billing, sales leads, vendor spam, newsletters, internal mail,
+security alerts, angry escalations, GDPR requests, phishing, threads with quoted history, and the
+20 traps. No real people, companies or addresses.</li>
+</ul>
+<h3 id="run-it-1">Run it<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#run-it-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="sh" data-theme="github-light github-dark"><code data-language="sh" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">cd</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> inbox-blitz</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> ci</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">export</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> TYPESAFE_API_KEY</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">...   </span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># never shipped to the browser</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> run</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> dev</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">                   # server on :8787 + Vite on :5173, one command</span></span></code></pre></figure>
+<p>Open <a href="http://localhost:5173" class="external">http://localhost:5173<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>, press <code>/</code>, type an intent (e.g. <em>customers threatening to cancel</em>)
+and hit Enter. The fixed seven-question triage pass lives under the toolbar’s <strong>⋮ → Triage inbox</strong>
+menu; its lanes (Priority, Needs review, FYI, Spam) and the keyword-rules comparison appear once it has run.</p>
+<p>Intent labels are live-only (<code>MOCK=1</code> only has recorded answers for the seven triage questions).</p>
+<p>Other commands:</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="sh" data-theme="github-light github-dark"><code data-language="sh" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> run</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> start</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">        # production build + preview server + API server</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">MOCK</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">1</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> run</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> dev</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">   # replay recorded answers (UI shows a yellow MOCK badge); no key needed</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">RECORD_MOCK</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">1</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> run</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> dev</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">   # live run that also (re)writes server/mock-answers.json</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> run</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> lint</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> &amp;&amp; </span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> run</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> typecheck</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> &amp;&amp; </span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> test</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> &amp;&amp; </span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> run</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> build</span></span></code></pre></figure>
+<p>Keyboard: <code>/</code> focus the intent box, <code>j</code>/<code>k</code> or arrows move, <code>e</code> archive, <code>r</code> toggle
+reply-needed, <code>b</code> toggle keyword rules.</p>
+<h2 id="notes-on-question-design">Notes on question design<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#notes-on-question-design" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Wording was tuned against real API output on the trap fixtures. Changes that mattered:</p>
+<ul>
+<li><code>urgency</code> explicitly says to ignore sarcastic framing and marketing pressure tactics — before
+that, “final notice” marketing scored as <em>Right now</em>.</li>
+<li><code>is_phishing_or_scam</code>’s <code>false</code> criterion explicitly includes pushy/fear-based marketing and
+cold sales pitches from real companies — otherwise a legitimate security vendor’s pitch was
+flagged as a scam.</li>
+<li><code>mentions_churn_or_cancel</code> / <code>asks_for_refund</code> state that mentions in marketing copy or
+someone else’s story do not count — that fixed the newsletter traps.</li>
+<li><code>internal</code> names the company domain so a competitor’s “we’re switching” email is not
+classified as internal; <code>other</code> lists offboarding/export requests so they stop landing in
+<code>billing</code>.</li>
+<li>Phishing is surfaced at the top of the priority lane even though its category is
+<code>spam_marketing</code> — that is a policy decision in <code>priority.ts</code>, not something Jev decides.</li>
+</ul>
+<h2 id="jev-ax-pilotreadmemd">jev-ax-pilot/README.md<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#jev-ax-pilotreadmemd" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h1 id="jev-ax-pilot">Jev AX Pilot<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#jev-ax-pilot" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>Pixel-free computer use for macOS. A native SwiftUI agent that drives other apps through the
+Accessibility tree instead of screenshots: it reads the frontmost app’s <code>AXUIElement</code> hierarchy,
+flattens the actionable elements into a compact JSON list, asks Jev (TypeSafe’s System One model)
+one batched question set per step, and executes the answer with <code>AXUIElementPerformAction</code>,
+<code>AXUIElementSetAttributeValue</code> and CGEvent.</p>
+<p><img src="../docs/calculator-48x12.gif" alt="Calculator computing 48*12 with the live HUD and the yellow AX-frame highlight"/></p>
+<h2 id="why-speed-matters-here">Why speed matters here<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#why-speed-matters-here" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>A computer-use loop is observe <span>→</span> decide <span>→</span> act, repeated once per UI action. With a vision LLM
+each step costs a screenshot upload and a 2-4 s generation, so a ten-click task takes half a
+minute and feels like watching a robot. With Jev the decision is a typed judgment over ~2 k input
+tokens of structured state and comes back in about 100 ms, so the loop is bounded by macOS’s own
+UI settle time rather than by the model. The HUD makes that visible: last / p50 / p95 latency,
+steps per second, request count, tokens and cost update after every step, and a
+“Simulated 3 s LLM” mode adds a typical-LLM delay to the same decisions so the difference is
+obvious on screen.</p>
+<h2 id="measured-results-live-jev-1130-macos-265-apple-silicon">Measured results (live <code>jev-1.13.0</code>, macOS 26.5, Apple silicon)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#measured-results-live-jev-1130-macos-265-apple-silicon" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>All five preset goals completed end to end against the live API in the runs below. Latency is the
+HTTP round trip for one batched request (5-6 questions); “AX read” is the time to walk the
+frontmost app’s tree.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Goal</th><th>Steps</th><th>Requests</th><th>Jev p50</th><th>Jev p95</th><th>Input tokens (total)</th><th>Cost</th><th>AX read / step</th></tr></thead><tbody><tr><td>In Calculator compute 48*12</td><td>7</td><td>7</td><td>104 ms</td><td>249 ms</td><td>14.8 k</td><td>$0.0006</td><td>40-70 ms</td></tr><tr><td>In TextEdit make a new document and type Hello from Jev</td><td>2</td><td>2</td><td>126 ms</td><td>138 ms</td><td>3.8 k</td><td>$0.0002</td><td>37-75 ms</td></tr><tr><td>In Safari open a new tab and go to typesafe.ai</td><td>4</td><td>4</td><td>94 ms</td><td>351 ms</td><td>8.7 k</td><td>$0.0004</td><td>58-170 ms</td></tr><tr><td>Create a new note titled Grocery list in Notes</td><td>5</td><td>5</td><td>82 ms</td><td>152 ms</td><td>8.3 k</td><td>$0.0003</td><td>47-110 ms</td></tr><tr><td>Open System Settings and turn on Dark Mode</td><td>4</td><td>4 (1 failed)</td><td>105 ms</td><td>138 ms</td><td>8.2 k</td><td>$0.0003</td><td>140-350 ms</td></tr></tbody></table></div>
+<ul>
+<li>Median Jev latency across these runs is ~100 ms; the first request of a run is the slowest (TLS setup).</li>
+<li>Tokens per decision: ~1.9-2.1 k input, 240-450 output. Jev is billed per input token only
+($0.042 per million, from the published model card), so a full task costs well under a cent.</li>
+<li>Wall-clock steps/sec is 0.6-0.8, dominated by the 250 ms settle delay after each action plus
+the AX read; Jev itself is 10-15% of a step.</li>
+<li>The System Settings run shows the fallback working: step 3 got an HTTP 429 from the API, the
+deterministic heuristic pressed the best goal-matching element instead, and the run still
+finished with Dark Mode on (<code>defaults read -g AppleInterfaceStyle</code> <span>→</span> <code>Dark</code>).</li>
+<li>The same TextEdit goal in “Simulated 3 s LLM” mode: identical decisions, 0.13 steps/sec instead of 0.57.</li>
+<li>“Heuristic only” mode (no requests) finishes Calculator in 2 steps by typing <code>48*12</code> and Return
+as raw keystrokes, but has no judgement: it only completes goals whose outcome the code can
+check itself (arithmetic result visible, text typed into the focused field). On the recorded
+System Settings fixture it reports <code>stuck</code>: nothing in the General pane lexically matches
+“Dark Mode” until Appearance is open.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Safari</th><th>Notes</th></tr></thead><tbody><tr><td><img src="../docs/safari-typesafe.png" alt="Safari on typesafe.ai after 4 steps"/></td><td><img src="../docs/notes-grocery-list.png" alt="Notes with a Grocery list note after 5 steps"/></td></tr></tbody></table></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>System Settings</th><th>TextEdit</th></tr></thead><tbody><tr><td><img src="../docs/settings-dark-mode.png" alt="Dark Mode enabled after 4 steps, one fallback"/></td><td><img src="../docs/textedit-hello.png" alt="TextEdit with Hello from Jev after 2 steps"/></td></tr></tbody></table></div>
+<p><img src="../docs/calculator-48x12.png" alt="Calculator result with the step log"/></p>
+<h2 id="how-it-works">How it works<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#how-it-works" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<pre><code>AXReader.snapshot(app)      AXUIElement walk -> AXSnapshot tree (role, title, value, desc,
+                             enabled, focused, frame, actions), depth/child capped
+TreeFlattener.flatten       prune disabled / offscreen / zero-size / decorative nodes,
+                             keep &lt;= 60 actionable elements with ids e1..eN, plus &lt;= 14 lines
+                             of visible text and the goal-relevant menu items
+StateBuilder.state          compact JSON: goal, step, app, window title, focused element,
+                             visible_text, elements, text_candidates, already_typed,
+                             previous_actions, arithmetic facts
+StateBuilder.questions      one TypeSafe request with 5-6 questions (below)
+AnswerHandler.decide        thresholds + destructive guard -> PilotAction
+Pilot.execute               AX press / set value / focus, CGEvent keys and clicks
+</code></pre>
+<p>The loop runs until <code>goal_reached</code> or <code>done</code>, <code>stuck</code>, a blocked destructive action, Stop / Escape,
+or 30 steps. The UI never blocks on the network: each request races a 900 ms deadline, stale
+answers (sequence number mismatch) are discarded, and a deterministic fallback acts if Jev is slow,
+errors or is low confidence.</p>
+<h3 id="the-jev-questions">The Jev questions<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#the-jev-questions" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Each step sends one <code>POST /v1/systemone</code> with <code>model: &quot;jev-latest&quot;</code> and these questions over the
+state above (see <code>Sources/StateBuilder.swift</code>):</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>id</th><th>type</th><th>what it decides</th></tr></thead><tbody><tr><td><code>next_element</code></td><td>Choice over <code>e1..eN</code> + <code>type_text</code>, <code>press_key</code>, <code>scroll</code>, <code>done</code>, <code>stuck</code></td><td>which element to activate, or which pseudo-action applies</td></tr><tr><td><code>key</code></td><td>Choice over a fixed set (Return, Escape, Tab, Space, Delete, Up, Down, Cmd+N, Cmd+T, Cmd+L, Cmd+A, Cmd+W)</td><td>the shortcut to press when <code>next_element</code> is <code>press_key</code></td></tr><tr><td><code>goal_reached</code></td><td>Noul</td><td>does the current UI state already show the goal achieved?</td></tr><tr><td><code>needs_text_input</code></td><td>Noul</td><td>is the next step typing text from <code>text_candidates</code>?</td></tr><tr><td><code>is_destructive</code></td><td>Noul</td><td>would the likely next action irreversibly change something the goal did not ask for?</td></tr><tr><td><code>text</code></td><td>Choice over the code-extracted candidates (only when there is more than one)</td><td>which candidate span belongs in the focused input</td></tr></tbody></table></div>
+<p>Jev never generates text. <code>TextCandidates</code> extracts quoted spans, “titled X” / “type X” spans,
+URLs and arithmetic expressions from the goal string in code; Jev only selects among them.
+Arithmetic is evaluated in code and passed as <code>facts</code> so <code>48*12</code> becomes a sequence of button
+presses and <code>goal_reached</code> can be judged against the expected <code>576</code>.</p>
+<p>Code owns every threshold (<code>Sources/AnswerHandler.swift</code>): <code>goal_reached > 0.8</code> ends the run,
+<code>done</code> is trusted only if <code>goal_reached >= 0.8</code>, or <code>>= 0.5</code> with the <code>done</code> choice itself at
+<code>>= 0.5</code>; a weaker <code>done</code> acts on the runner-up element from the distribution if it has <code>>= 0.12</code>
+(Settings: <code>done=0.46, Dark=0.28</code> presses Dark), and otherwise the loop re-observes up to three
+times, which is how a still-loading Safari page is handled. Goals containing new/create/make can
+never finish before at least one real action, so a pre-existing “Grocery list” note does not
+satisfy “Create a new note”. A choice with confidence below 0.12 falls through to the heuristic;
+an element or key repeated twice in a row switches to the fallback.</p>
+<p>Question wording and state were iterated against real runs (trace mode prints both). Two examples:
+Calculator’s first run ended “stuck” after pressing <code>4</code>, fixed by exposing the code-evaluated
+arithmetic as <code>facts</code> and letting no-text-input apps take digits as keystrokes in the fallback;
+Safari kept opening new tabs and pressing Return until <code>press_key</code> was described as “e.g. Return
+to submit text already typed into the focused field”, <code>done</code> was made to wait for <code>goal_reached</code>
+while the page loads, and typed text that vanished from the UI (new tab) was re-added to the
+candidates instead of being assumed delivered.</p>
+<h3 id="safety">Safety<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#safety" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Elements whose label contains a destructive word (delete, empty trash, erase, send, pay,
+purchase, buy, remove, discard, trash, uninstall, format, reset, sign out, log out, shut down,
+restart) are flagged <code>destructive: true</code> in the state and are never pressed unless the goal
+explicitly names that word. The check is in <code>AnswerHandler.guardAction</code>, not in the prompt.</li>
+<li>If Jev’s <code>is_destructive</code> Noul is above 0.5 for a chosen element and the goal does not name a
+destructive operation, the action is blocked and the run ends with the reason shown.</li>
+<li>The fallback heuristic skips destructive elements entirely.</li>
+<li>A large Stop button and a global Escape hotkey (local and global <code>NSEvent</code> monitors) cancel the
+loop immediately.</li>
+</ul>
+<h3 id="hud-and-highlight">HUD and highlight<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#hud-and-highlight" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p><code>Sources/HUDView.swift</code> is a floating, non-activating panel: goal, status, step / 30, last / p50 /
+p95 latency, steps per second, requests (with failed count), tokens (with input count), estimated
+cost, the chosen action and its source (<code>jev</code> or <code>fallback</code>), and the full <code>next_element</code>
+probability distribution as bars with each element’s summary. The chosen element is highlighted
+with a yellow rectangle in a transparent overlay window positioned from the element’s AX frame
+(<code>Sources/JevAXPilotApp.swift</code>).</p>
+<h2 id="run-1">Run<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#run-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Requirements: macOS 14+, Xcode 16+, XcodeGen 2.46.0 (<code>brew install xcodegen</code>), a TypeSafe API key.</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="sh" data-theme="github-light github-dark"><code data-language="sh" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">cd</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> jev-ax-pilot</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">export</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> TYPESAFE_API_KEY</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">...            </span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># or paste it into the app's key field (stored in UserDefaults)</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">xcodegen</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> generate</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">                      # only if you edited project.yml</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">xcodebuild</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> -project</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> JevAXPilot.xcodeproj</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> -scheme</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> JevAXPilot</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> -configuration</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> Debug</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> \</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">  -destination</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> 'platform=macOS'</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> -derivedDataPath</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> build</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> CODE_SIGNING_ALLOWED=NO</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> build</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">open</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> build/Build/Products/Debug/JevAXPilot.app</span></span></code></pre></figure>
+<p>The app reads the key from <code>TYPESAFE_API_KEY</code> first and falls back to the in-app field. The key is
+sent only to <code>api.typesafe.ai</code> from the native process; it is never written to disk by the app
+other than UserDefaults when you paste it, and never logged. Set <code>JEV_AX_PILOT_TRACE=1</code> to log the
+flattened state and every decision to stderr.</p>
+<h3 id="accessibility-permission">Accessibility permission<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#accessibility-permission" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>The pilot needs Accessibility (TCC) to read other apps’ trees and post events. <code>Info.plist</code>
+carries <code>NSAccessibilityUsageDescription</code>; on launch the app calls <code>AXIsProcessTrusted()</code> and, if
+false, shows the panel below with a button that opens System Settings > Privacy &amp; Security >
+Accessibility and a Re-check button. Enable “Jev AX Pilot” in that list, then press Re-check.</p>
+<p><img src="../docs/permission-panel.png" alt="Permission panel shown when the app is not trusted"/></p>
+<p>Note from testing on this VM: the app’s own TCC row (<code>com.devin.typesafe.jev-ax-pilot</code>) could not be
+switched on through System Settings in the automated environment (the row appeared but stayed
+disabled). Every run in this README was made by launching the built binary from a shell that
+already had Accessibility trust, which macOS lets child processes inherit. On a normal Mac the
+in-app panel flow is the expected path; this is an environment limitation, not something the app
+works around.</p>
+<h2 id="limitations">Limitations<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#limitations" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>Only the preset goals above were verified end to end. Custom goals work through the same loop
+but the text-candidate extraction is heuristic (quoted spans, “titled X”, “type X”, URLs,
+arithmetic), so a goal that needs text the code cannot pick out of the string will not type it.</li>
+<li>The System Settings run pressed “Dark” twice: after the API 429 the heuristic matched the
+Appearance “Dark” button that was already selected and then Jev’s second “Dark” was the icon
+style, which is harmless but not minimal. Fallback quality depends on how well labels match goal
+words.</li>
+<li>Runs are not idempotent: TextEdit and Notes each start a new document/note every run, and Safari
+opens a new tab each run. Calculator restores its previous expression on relaunch, so a repeat run
+can be judged <code>done</code> at step 2 if <code>576</code> is still on the display.</li>
+<li>Element frames from AX are used for the highlight overlay and for click fallbacks; apps that
+report stale frames (Safari’s start page while loading) can put the highlight a few pixels off.</li>
+<li>Pricing is computed from the published per-input-token price for jev-1.13; output tokens are
+free per the model card. If that changes the HUD figure will be wrong; tokens are shown alongside.</li>
+<li>No third-party dependencies, no screenshots, no OCR: apps that expose nothing useful through
+Accessibility (custom canvases, some Electron apps) cannot be driven.</li>
+</ul>
+<h2 id="layout-1">Layout<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#layout-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<pre><code>project.yml                XcodeGen spec (app + unit-test targets, bundleIdPrefix com.devin.typesafe)
+JevAXPilot.xcodeproj       generated, committed
+Sources/
+  AXNode.swift             AXSnapshot / AXNode model (also decoded from recorded fixtures)
+  AXReader.swift           AXUIElement walk, actions, CGEvent keys/clicks, KeyChord table
+  TreeFlattener.swift      pruning, caps, ids, destructive flags, goal relevance
+  TextCandidates.swift     goal-string spans, URLs, arithmetic evaluation
+  StateBuilder.swift       state JSON + batched questions
+  AnswerHandler.swift      thresholds, fallback heuristic, destructive guard
+  JevClient.swift          POST /v1/systemone, key lookup, sequence numbers
+  JevTypes.swift           request/response types, JSONValue, pricing constant
+  Metrics.swift            latency percentiles, steps/sec, tokens, cost
+  Pilot.swift              observe -> ask -> act loop, deadline race, execution, Escape hotkey
+  ContentView.swift        control window (presets, custom goal, mode, Stop, permission panel, step log)
+  HUDView.swift            floating metrics HUD with probability bars
+  JevAXPilotApp.swift      app entry, HUD panel, highlight overlay
+Tests/
+  Fixtures/*.json          recorded AX trees for Notes, System Settings, Calculator, Safari, TextEdit
+  *.swift                  38 deterministic tests, no network
+docs/                      screenshots and GIF from the live runs above
+</code></pre>
+<h2 id="jev-dispatchreadmemd">jev-dispatch/README.md<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#jev-dispatchreadmemd" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h1 id="jev-dispatch">Jev Dispatch<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#jev-dispatch" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>A dispatch-center console for a fictional city that triages incoming emergency reports at the speed they arrive. Free-text 911 transcripts, SMS and sensor alerts stream in at 1–5 per second in bursts; for every report one <a href="https://docs.typesafe.ai" class="external">TypeSafe<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> fan-out request asks Jev seven typed questions (category, severity, victims, hazmat, caller danger, unit package, duplicate-of-open-incident). Code does the rest: merges duplicates into the open incident, sends the nearest available matching units, animates them across a procedural map, and keeps the KPIs honest.</p>
+<p><img src="../screenshots/jev-live-surge.png" alt="Jev mode during a mass-casualty surge"/></p>
+<h2 id="why-speed-is-the-whole-point">Why speed is the whole point<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#why-speed-is-the-whole-point" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>A report that sits in a queue is a person nobody is coming for yet. The console runs the same seeded 3-minute stream through three triage paths so the difference is fair and visible:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Mode</th><th>How reports are triaged</th></tr></thead><tbody><tr><td><strong>Manual queue</strong></td><td>FIFO; a simulated human dispatcher clears one report every 12 s</td></tr><tr><td><strong>Slow LLM</strong></td><td>One 3 s call per report, strictly sequential (a typical prompt-and-parse LLM step)</td></tr><tr><td><strong>Jev</strong></td><td>One fan-out request per report, up to 12 in flight, answers applied as they land</td></tr></tbody></table></div>
+<p>Measured on seed <code>20260917</code> (275 reports in 180 s, 112 units) with <code>npm run bench</code> against the live API, 2026-09-17:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Metric</th><th>Manual queue</th><th>Slow LLM</th><th>Jev</th></tr></thead><tbody><tr><td>Reports triaged</td><td>14</td><td>59</td><td>275</td></tr><tr><td>Still in queue at 180 s</td><td>261</td><td>216</td><td>0</td></tr><tr><td>Median time-to-dispatch (first report → first unit rolling)</td><td>57.7 s</td><td>54.5 s</td><td>0.2 s</td></tr><tr><td>Median triage time</td><td>74.2 s</td><td>44.4 s</td><td>0.2 s</td></tr><tr><td>Critical incidents (severity ≥ 3) waiting > 60 s</td><td>54</td><td>40</td><td>2</td></tr><tr><td>Duplicates merged</td><td>2</td><td>11</td><td>103</td></tr><tr><td>Incidents open / closed</td><td>4 / 7</td><td>24 / 19</td><td>95 / 58</td></tr><tr><td>Units idle at 180 s</td><td>106 / 112</td><td>83 / 112</td><td>6 / 112</td></tr><tr><td>Jev requests (errors / stale / fallbacks)</td><td>–</td><td>–</td><td>275 (0 / 0 / 0)</td></tr><tr><td>Jev latency p50 / p95 (browser-equivalent round trip from this machine)</td><td>–</td><td>–</td><td>108 / 327 ms</td></tr><tr><td>Input tokens (per request)</td><td>–</td><td>–</td><td>486,406 (1,769)</td></tr><tr><td>Est. cost per 1,000 reports</td><td>–</td><td>–</td><td>$0.074</td></tr></tbody></table></div>
+<p>The manual and slow-LLM medians look “only” 4–5× worse than they are because they cover the handful of reports that were triaged at all; the queue length is the real number. Jev’s two critical incidents waiting > 60 s at the 3-minute mark are fleet exhaustion (6 idle units, 95 open incidents), not triage lag: median triage stayed at 0.2 s for the whole run.</p>
+<p>Cost uses the published Jev price of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">42/</span><span class="mord mathnormal">Bt</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span></span></span></span>0.042 per million input tokens; output tokens are free. Each request carries the report plus up to five nearby open incidents and the seven question definitions, hence ~1.7k input tokens.</p>
+<p><img src="../screenshots/run-all-3-comparison.png" alt="End of a &quot;Run all 3&quot; pass, comparison table at bottom right"/></p>
+<h2 id="run-2">Run<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#run-2" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Node 22.12+ or 24. The API key stays on the server: the Vite dev middleware and <code>server.mjs</code> proxy <code>/api/jev</code> to <code>https://api.typesafe.ai/v1/systemone</code>; the browser never sees the key.</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="sh" data-theme="github-light github-dark"><code data-language="sh" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">cd</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> jev-dispatch</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">cp</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> .env.example</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> .env</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">         # or export TYPESAFE_API_KEY=...</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> ci</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> run</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> dev</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">                  # http://localhost:5173</span></span></code></pre></figure>
+<p>Production: <code>npm run build &amp;&amp; npm run preview</code> serves <code>dist/</code> and the proxy on port 4173 (<code>PORT</code> to override). Without a key the proxy answers 503 and the app keeps running on the deterministic fallback, clearly labelled.</p>
+<p>Other scripts:</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="sh" data-theme="github-light github-dark"><code data-language="sh" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> run</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> bench</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">                # 3-mode, 180 s same-seed benchmark; Jev leg runs in real time (~3 min)</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> run</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> bench</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> --</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> --surge-at</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> 60</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> --skip-jev</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> run</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> accuracy</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">             # 40-report live sample compared with generator ground truth</span></span></code></pre></figure>
+<h2 id="what-is-on-screen">What is on screen<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#what-is-on-screen" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><strong>Top bar</strong>: mode switch, <code>Run all 3</code> (manual → slow → Jev on the same seed, fills the comparison table), live/fallback status pill, 1×/2×/4× sim speed, pause, restart, <code>Mass-casualty surge · 40 in 10 s</code>.</li>
+<li><strong>KPI strip</strong>: median dispatch time, critical waiting > 60 s, queue depth, idle units, duplicates merged; then the Jev block: latency last / p50 / p95, decisions per second (trailing 10 s), request count with errors / stale, input tokens, estimated cost per 1,000 reports.</li>
+<li><strong>Incoming reports</strong> (left): channel, address, text, category chip, severity bar, per-request latency, and the outcome (<code>INC-014</code> new, <code>→ INC-005</code> merged, <code>no action</code>). Hover a report for the full probability breakdown.</li>
+<li><strong>Live city map</strong> (center, plain canvas): six districts, street grids scaled to district density, a river, 11 depots, incidents pulsing by severity with merged-report counts, units moving along their dispatch lines and returning home.</li>
+<li><strong>Open incidents</strong> (right): sorted by severity then age, with dispatched unit ids and merge counts.</li>
+<li><strong>Event log</strong> and the <strong>same-seed comparison table</strong> (bottom).</li>
+</ul>
+<h2 id="jev-firehosereadmemd">jev-firehose/README.md<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#jev-firehosereadmemd" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h1 id="jev-firehose">jev-firehose<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#jev-firehose" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="jev-instant-searchreadmemd">jev-instant-search/README.md<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#jev-instant-searchreadmemd" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h1 id="jev-instant-s">jev-instant-s<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#jev-instant-s" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<hr/>
+<p><em>원문: <a href="https://github.com/dabit3/jev-experiments" class="external">https://github.com/dabit3/jev-experiments<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></em></p></article><hr/><div class="page-footer"><div class="backlinks"><h3>백링크</h3><ul id="list-1" class="overflow"><li><a href="../wiki/concepts/20260926-typed-judgment-code-policy-boundary" class="internal">형식화된 모델 판단과 결정론적 코드 정책의 분리</a></li><li class="overflow-end"></li></ul></div><div class="giscus" data-repo="dataofmen/quartz-wiki" data-repo-id="R_kgDOSOxrZA" data-category="General" data-category-id="DIC_kwDOSOxrZM4C-Edy" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-input-position="bottom" data-light-theme="light" data-dark-theme="dark" data-theme-url="https://dataofmen.github.io/static/giscus" data-lang="ko"></div></div></div><div class="right sidebar"><div class="graph desktop-only"><h3>그래프 뷰</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                  s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                  c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                  C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                  c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                  v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                  s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                  C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                  S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                  s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                  s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.5.2</a> © 2026</p><ul></ul></footer></div></div></body><script type="application/javascript" data-persist="true">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module" data-persist="true">function E(a,e){if(!a)return;function t(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function n(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}a?.addEventListener("click",t),window.addCleanup(()=>a?.removeEventListener("click",t)),document.addEventListener("keydown",n),window.addCleanup(()=>document.removeEventListener("keydown",n))}function f(a){for(;a.firstChild;)a.removeChild(a.firstChild)}var m=class{constructor(e,t){this.container=e;this.content=t;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),t=this.onMouseMove.bind(this),n=this.onMouseUp.bind(this),o=this.onTouchStart.bind(this),r=this.onTouchMove.bind(this),i=this.onTouchEnd.bind(this),s=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",t),document.addEventListener("mouseup",n),this.container.addEventListener("touchstart",o,{passive:!1}),document.addEventListener("touchmove",r,{passive:!1}),document.addEventListener("touchend",i),window.addEventListener("resize",s),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",t),()=>document.removeEventListener("mouseup",n),()=>this.container.removeEventListener("touchstart",o),()=>document.removeEventListener("touchmove",r),()=>document.removeEventListener("touchend",i),()=>window.removeEventListener("resize",s))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let t=this.createButton("+",()=>this.zoom(.1)),n=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(n),e.appendChild(o),e.appendChild(t),this.container.appendChild(e)}createButton(e,t){let n=document.createElement("button");return n.textContent=e,n.className="mermaid-control-button",n.addEventListener("click",t),window.addCleanup(()=>n.removeEventListener("click",t)),n}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}onTouchStart(e){if(e.touches.length!==1)return;this.isDragging=!0;let t=e.touches[0];this.startPan={x:t.clientX-this.currentPan.x,y:t.clientY-this.currentPan.y}}onTouchMove(e){if(!this.isDragging||e.touches.length!==1)return;e.preventDefault();let t=e.touches[0];this.currentPan={x:t.clientX-this.startPan.x,y:t.clientY-this.startPan.y},this.updateTransform()}onTouchEnd(){this.isDragging=!1}zoom(e){let t=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),n=this.content.getBoundingClientRect(),o=n.width/2,r=n.height/2,i=t-this.scale;this.currentPan.x-=o*i,this.currentPan.y-=r*i,this.scale=t,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){let t=this.content.querySelector("svg").getBoundingClientRect(),n=t.width/this.scale,o=t.height/this.scale;this.scale=1,this.currentPan={x:(this.container.clientWidth-n)/2,y:(this.container.clientHeight-o)/2},this.updateTransform()}},T=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],y;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;y||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let t=y.default,n=new WeakMap;for(let r of e)n.set(r,r.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let c=n.get(s);c&&(s.innerHTML=c)}let r=T.reduce((s,c)=>(s[c]=window.getComputedStyle(document.documentElement).getPropertyValue(c),s),{}),i=document.documentElement.getAttribute("saved-theme")==="dark";t.initialize({startOnLoad:!1,securityLevel:"loose",theme:i?"dark":"base",themeVariables:{fontFamily:r["--codeFont"],primaryColor:r["--light"],primaryTextColor:r["--darkgray"],primaryBorderColor:r["--tertiary"],lineColor:r["--darkgray"],secondaryColor:r["--secondary"],tertiaryColor:r["--tertiary"],clusterBkg:r["--light"],edgeLabelBackground:r["--highlight"]}}),await t.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let r=0;r<e.length;r++){let v=function(){let g=l.querySelector("#mermaid-space"),h=l.querySelector(".mermaid-content");if(!h)return;f(h);let w=i.querySelector("svg").cloneNode(!0);h.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new m(g,h)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},i=e[r],s=i.parentElement,c=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(c),L=c.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),E(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../postscript.js" type="module" data-persist="true"></script></html>
