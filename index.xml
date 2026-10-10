@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+    <channel>
+      <title>dataofmen</title>
+      <link>https://dataofmen.github.io</link>
+      <description>최근 10 건 on dataofmen</description>
+      <generator>Quartz -- quartz.jzhao.xyz</generator>
+      <item>
+    <title>20260830-overnight-ai-research</title>
+    <link>https://dataofmen.github.io/clippings/20260830-overnight-ai-research</link>
+    <guid>https://dataofmen.github.io/clippings/20260830-overnight-ai-research</guid>
+    <description><![CDATA[ Overnight AI Trading Research - 20260830 [01:00 KST] The Loop-Gain Matrix: Coupled Rebalancing Feedback and the Blind Spots of Scalar Stability Monitoring URL: arxiv.org/abs/2608.22768v1 Source Type: paper Domain: microstructure | execution | risk-sizing | reflexivity Trading Relevance: 10 Time Hori... ]]></description>
+    <pubDate>Sat, 10 Oct 2026 16:48:26 GMT</pubDate>
+  </item><item>
+    <title>위키 (Wiki)</title>
+    <link>https://dataofmen.github.io/wiki/</link>
+    <guid>https://dataofmen.github.io/wiki/</guid>
+    <description><![CDATA[ 기계와 인간을 위한 정제된 지식의 저장소입니다. ]]></description>
+    <pubDate>Sat, 10 Oct 2026 16:48:25 GMT</pubDate>
+  </item><item>
+    <title>dataofmen wiki</title>
+    <link>https://dataofmen.github.io/</link>
+    <guid>https://dataofmen.github.io/</guid>
+    <description><![CDATA[ 🗺️ 지식 지형도 (Atlas) 지식은 분류함에 갇히는 대신, 서로 연결되며 거대한 네트워크를 형성합니다. 아래는 현재 수많은 노트 중에서도 가장 많은 인용을 주고받으며 생태계의 중심 역할을 하는 “빅 허브(Big Hubs)” 노트들입니다. ]]></description>
+    <pubDate>Sat, 10 Oct 2026 16:48:21 GMT</pubDate>
+  </item><item>
+    <title>@29meat_ai (にく):</title>
+    <link>https://dataofmen.github.io/clippings/20260926-29meat-ai</link>
+    <guid>https://dataofmen.github.io/clippings/20260926-29meat-ai</guid>
+    <description><![CDATA[ @29meat_ai (にく): Article: 海外AIガチ勢のCodex × Jev活用の教科書【最新版】 必要なファイルを調べ、コードを書き、テストをして、問題があれば直す。その途中で何度も呼び戻されるより、完成したものを確認する方が助かります。 でも、任せる範囲を広げることと、途中にあるすべての判断を同じAIへ集めることは、必ずしも同じではありません。 「この依頼には、どのモデルを使う？」「次に読むべき情報はどれ？」「この結論を出すだけの証拠はそろった？」 コードを書く仕事の周囲には、こうした選択や確認があります。そこだけを別の判断役へ渡し、Codexには調査や実装を続けてもらう。 ... ]]></description>
+    <pubDate>Sat, 26 Sep 2026 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>dabit3/jev-experiments</title>
+    <link>https://dataofmen.github.io/clippings/20260926-dabit3jev-experiment</link>
+    <guid>https://dataofmen.github.io/clippings/20260926-dabit3jev-experiment</guid>
+    <description><![CDATA[ Repository: dabit3/jev-experiments Repository URL: github.com/dabit3/jev-experiments README.md Jev experiments TypeSafe / Jev latency-focused demos built by Devin. ]]></description>
+    <pubDate>Sat, 26 Sep 2026 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>dataofmen/wiki-pipeline-template</title>
+    <link>https://dataofmen.github.io/clippings/20260926-dataofmenwiki-pipeli</link>
+    <guid>https://dataofmen.github.io/clippings/20260926-dataofmenwiki-pipeli</guid>
+    <description><![CDATA[ name: dataofmen/wiki-pipeline-template description: Information processing pipeline: Telegram → Extract → 6Rs Notes → Quartz Wiki. ]]></description>
+    <pubDate>Sat, 26 Sep 2026 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>LLM-Wiki: 지식이 축적되는 AI 작업 환경 만들기</title>
+    <link>https://dataofmen.github.io/clippings/20260926-llm-wiki-ai</link>
+    <guid>https://dataofmen.github.io/clippings/20260926-llm-wiki-ai</guid>
+    <description><![CDATA[ Title: LLM-Wiki: 지식이 축적되는 AI 작업 환경 만들기 저자: 안준용 (Joon-Yong An), 고려대학교 Last Update: 2026년 8월 5일 들어가며 챗지피티와 대화하면서 몰랐던 것을 배우고, 얻은 답을 공부나 일에 써먹는다. ]]></description>
+    <pubDate>Sat, 26 Sep 2026 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>판단 AI를 추가해도 실행 경계가 없으면 안전장치가 되지 않는다</title>
+    <link>https://dataofmen.github.io/garden/20260926-ai-judge-needs-enforcement-boundary</link>
+    <guid>https://dataofmen.github.io/garden/20260926-ai-judge-needs-enforcement-boundary</guid>
+    <description><![CDATA[ 에이전트 옆에 또 다른 AI 검토자를 붙이면 심리적으로는 안전해 보인다. 그러나 검토자가 위험하다고 말하는 것과 시스템이 작업을 멈추는 것은 전혀 다른 사건이다. 경고가 단지 화면에 표시될 뿐이라면 외부 전송이나 되돌리기 어려운 변경은 그대로 실행될 수 있다. ]]></description>
+    <pubDate>Sat, 26 Sep 2026 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>AI 위키의 목적은 판단을 대신하는 것이 아니라 판단의 주체성을 보존하는 데 있다</title>
+    <link>https://dataofmen.github.io/garden/20260926-ai-wiki-must-preserve-epistemic-agency</link>
+    <guid>https://dataofmen.github.io/garden/20260926-ai-wiki-must-preserve-epistemic-agency</guid>
+    <description><![CDATA[ AI 위키가 잘 작동한다는 말은 많은 자료를 요약해 준다는 뜻만은 아니다. 더 중요한 기준은 연구자가 무엇을 알고 있다고 판단했는지, 그 판단을 어떤 근거로 내렸는지, 새로운 증거 때문에 왜 생각을 바꾸었는지를 다시 추적할 수 있느냐는 것이다. ]]></description>
+    <pubDate>Sat, 26 Sep 2026 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>LLM-Wiki는 대화 기록을 지속적인 작업 기억으로 바꾼다</title>
+    <link>https://dataofmen.github.io/wiki/concepts/20260926-llm-wiki-as-operational-memory</link>
+    <guid>https://dataofmen.github.io/wiki/concepts/20260926-llm-wiki-as-operational-memory</guid>
+    <description><![CDATA[ 정의 LLM-Wiki는 AI와의 대화 및 외부 자료에서 얻은 지식을 폴더와 Markdown 문서에 누적하는 지속적인 작업 기억이다. 사람은 보존 기준과 정리 규칙을 정하고, AI 에이전트는 그 규칙에 따라 문서를 생성·갱신하며 이후 질문에서 기존 지식을 다시 사용한다. ]]></description>
+    <pubDate>Sat, 26 Sep 2026 00:00:00 GMT</pubDate>
+  </item>
+    </channel>
+  </rss>
