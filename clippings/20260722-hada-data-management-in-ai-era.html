@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr"><head><title>AI 시대의 데이터 관리</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto Sans KR:wght@400;700&amp;family=Noto Sans KR:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="dataofmen"/><meta property="og:title" content="AI 시대의 데이터 관리"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="AI 시대의 데이터 관리"/><meta name="twitter:description" content="AI 시대의 데이터 관리 Source: GeekNews topic 31681 Fetched via: ultimate-fetcher --json → Jina 요약 생성형 AI 시대의 데이터 관리는 기술 지원 업무가 아니라 전략적 핵심 기능으로 격상된다."/><meta property="og:description" content="AI 시대의 데이터 관리 Source: GeekNews topic 31681 Fetched via: ultimate-fetcher --json → Jina 요약 생성형 AI 시대의 데이터 관리는 기술 지원 업무가 아니라 전략적 핵심 기능으로 격상된다."/><meta property="og:image:alt" content="AI 시대의 데이터 관리 Source: GeekNews topic 31681 Fetched via: ultimate-fetcher --json → Jina 요약 생성형 AI 시대의 데이터 관리는 기술 지원 업무가 아니라 전략적 핵심 기능으로 격상된다."/><meta property="og:image" content="https://dataofmen.github.io/static/og-image.png"/><meta property="og:image:url" content="https://dataofmen.github.io/static/og-image.png"/><meta name="twitter:image" content="https://dataofmen.github.io/static/og-image.png"/><meta property="og:image:type" content="image/.png"/><meta property="twitter:domain" content="dataofmen.github.io"/><meta property="og:url" content="https://dataofmen.github.io/clippings/20260722-hada-data-management-in-ai-era"/><meta property="twitter:url" content="https://dataofmen.github.io/clippings/20260722-hada-data-management-in-ai-era"/><link rel="icon" href="../static/icon.png"/><meta name="description" content="AI 시대의 데이터 관리 Source: GeekNews topic 31681 Fetched via: ultimate-fetcher --json → Jina 요약 생성형 AI 시대의 데이터 관리는 기술 지원 업무가 아니라 전략적 핵심 기능으로 격상된다."/><meta name="generator" content="Quartz"/><link href="../index.css" rel="stylesheet" type="text/css" data-persist="true"/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiL2hvbWUvcnVubmVyL3dvcmsvcXVhcnR6LXdpa2kvcXVhcnR6LXdpa2kvcXVhcnR6L2NvbXBvbmVudHMvc3R5bGVzIiwic291cmNlcyI6WyJtZXJtYWlkLmlubGluZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFHRjtFQUNFOzs7QUFLRjtFQUNFO0VBQ0E7OztBQUlKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFOztBQUdGO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFJSjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTs7QUFJRjtFQUNFO0VBQ0E7RUFDQSIsInNvdXJjZXNDb250ZW50IjpbIi5leHBhbmQtYnV0dG9uIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbG9hdDogcmlnaHQ7XG4gIHBhZGRpbmc6IDAuNHJlbTtcbiAgbWFyZ2luOiAwLjNyZW07XG4gIHJpZ2h0OiAwOyAvLyBOT1RFOiByaWdodCB3aWxsIGJlIHNldCBpbiBtZXJtYWlkLmlubGluZS50c1xuICBjb2xvcjogdmFyKC0tZ3JheSk7XG4gIGJvcmRlci1jb2xvcjogdmFyKC0tZGFyayk7XG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWxpZ2h0KTtcbiAgYm9yZGVyOiAxcHggc29saWQ7XG4gIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgb3BhY2l0eTogMDtcbiAgdHJhbnNpdGlvbjogMC4ycztcblxuICAmID4gc3ZnIHtcbiAgICBmaWxsOiB2YXIoLS1saWdodCk7XG4gICAgZmlsdGVyOiBjb250cmFzdCgwLjMpO1xuICB9XG5cbiAgJjpob3ZlciB7XG4gICAgY3Vyc29yOiBwb2ludGVyO1xuICAgIGJvcmRlci1jb2xvcjogdmFyKC0tc2Vjb25kYXJ5KTtcbiAgfVxuXG4gICY6Zm9jdXMge1xuICAgIG91dGxpbmU6IDA7XG4gIH1cbn1cblxucHJlIHtcbiAgJjpob3ZlciA+IC5leHBhbmQtYnV0dG9uIHtcbiAgICBvcGFjaXR5OiAxO1xuICAgIHRyYW5zaXRpb246IDAuMnM7XG4gIH1cbn1cblxuI21lcm1haWQtY29udGFpbmVyIHtcbiAgcG9zaXRpb246IGZpeGVkO1xuICBjb250YWluOiBsYXlvdXQ7XG4gIHotaW5kZXg6IDk5OTtcbiAgbGVmdDogMDtcbiAgdG9wOiAwO1xuICB3aWR0aDogMTAwdnc7XG4gIGhlaWdodDogMTAwdmg7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIGRpc3BsYXk6IG5vbmU7XG4gIGJhY2tkcm9wLWZpbHRlcjogYmx1cig0cHgpO1xuICBiYWNrZ3JvdW5kOiByZ2JhKDAsIDAsIDAsIDAuNSk7XG5cbiAgJi5hY3RpdmUge1xuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgfVxuXG4gICYgPiAjbWVybWFpZC1zcGFjZSB7XG4gICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1saWdodCk7XG4gICAgYm9yZGVyLXJhZGl1czogNXB4O1xuICAgIHBvc2l0aW9uOiBmaXhlZDtcbiAgICB0b3A6IDUwJTtcbiAgICBsZWZ0OiA1MCU7XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGUoLTUwJSwgLTUwJSk7XG4gICAgaGVpZ2h0OiA4MHZoO1xuICAgIHdpZHRoOiA4MHZ3O1xuICAgIG92ZXJmbG93OiBoaWRkZW47XG5cbiAgICAmID4gLm1lcm1haWQtY29udGVudCB7XG4gICAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgICB0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7XG4gICAgICB0cmFuc2l0aW9uOiB0cmFuc2Zvcm0gMC4xcyBlYXNlO1xuICAgICAgb3ZlcmZsb3c6IHZpc2libGU7XG4gICAgICBtaW4taGVpZ2h0OiAyMDBweDtcbiAgICAgIG1pbi13aWR0aDogMjAwcHg7XG5cbiAgICAgIHByZSB7XG4gICAgICAgIG1hcmdpbjogMDtcbiAgICAgICAgYm9yZGVyOiBub25lO1xuICAgICAgfVxuXG4gICAgICBzdmcge1xuICAgICAgICBtYXgtd2lkdGg6IG5vbmU7XG4gICAgICAgIGhlaWdodDogYXV0bztcbiAgICAgIH1cbiAgICB9XG5cbiAgICAmID4gLm1lcm1haWQtY29udHJvbHMge1xuICAgICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgICAgYm90dG9tOiAyMHB4O1xuICAgICAgcmlnaHQ6IDIwcHg7XG4gICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgZ2FwOiA4cHg7XG4gICAgICBwYWRkaW5nOiA4cHg7XG4gICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1saWdodCk7XG4gICAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgICAgYm9yZGVyLXJhZGl1czogNnB4O1xuICAgICAgYm94LXNoYWRvdzogMCAycHggNHB4IHJnYmEoMCwgMCwgMCwgMC4xKTtcbiAgICAgIHotaW5kZXg6IDI7XG5cbiAgICAgIC5tZXJtYWlkLWNvbnRyb2wtYnV0dG9uIHtcbiAgICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICAgICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gICAgICAgIHdpZHRoOiAzMnB4O1xuICAgICAgICBoZWlnaHQ6IDMycHg7XG4gICAgICAgIHBhZGRpbmc6IDA7XG4gICAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0KTtcbiAgICAgICAgY29sb3I6IHZhcigtLWRhcmspO1xuICAgICAgICBib3JkZXItcmFkaXVzOiA0cHg7XG4gICAgICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICAgICAgZm9udC1zaXplOiAxNnB4O1xuICAgICAgICBmb250LWZhbWlseTogdmFyKC0tYm9keUZvbnQpO1xuICAgICAgICB0cmFuc2l0aW9uOiBhbGwgMC4ycyBlYXNlO1xuXG4gICAgICAgICY6aG92ZXIge1xuICAgICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIH1cblxuICAgICAgICAmOmFjdGl2ZSB7XG4gICAgICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKDFweCk7XG4gICAgICAgIH1cblxuICAgICAgICAvLyBTdHlsZSB0aGUgcmVzZXQgYnV0dG9uIGRpZmZlcmVudGx5XG4gICAgICAgICY6bnRoLWNoaWxkKDIpIHtcbiAgICAgICAgICB3aWR0aDogYXV0bztcbiAgICAgICAgICBwYWRkaW5nOiAwIDEycHg7XG4gICAgICAgICAgZm9udC1zaXplOiAxNHB4O1xuICAgICAgICB9XG4gICAgICB9XG4gICAgfVxuICB9XG59XG4iXX0= */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../prescript.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://dataofmen.github.io/index.xml"/></head><body data-slug="clippings/20260722-hada-data-management-in-ai-era"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"></div><div class="center"><div class="page-header"><header><h2 class="page-title"><a href="..">dataofmen</a></h2><nav class="nav-links"><a href="/wiki" class="nav-link">wiki</a><a href="/garden" class="nav-link">garden</a><a href="/clippings" class="nav-link">clippings</a></nav><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 1rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>검색</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="검색어를 입력하세요" placeholder="검색어를 입력하세요"/><div class="search-layout" data-preview="true"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="다크 모드"><title>다크 모드</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="라이트 모드"><title>라이트 모드</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div></div></header><div class="popover-hint"><h1 class="article-title">AI 시대의 데이터 관리</h1><p show-comma="true" class="content-meta"><time datetime="2026-07-22T00:00:00.000Z">2026년 7월 22일</time><span>15 min read</span></p><div class="toc"><button type="button" class="toc-header" aria-controls="toc-91" aria-expanded="true"><h3>목차</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-0" class="toc-content overflow"><li class="depth-0"><a href="#ai-시대의-데이터-관리" data-for="ai-시대의-데이터-관리">AI 시대의 데이터 관리</a></li><li class="depth-1"><a href="#요약" data-for="요약">요약</a></li><li class="depth-1"><a href="#원문" data-for="원문">원문</a></li><li class="depth-1"><a href="#애플리케이션-개발-업무에서-시작된-데이터-관리" data-for="애플리케이션-개발-업무에서-시작된-데이터-관리">애플리케이션 개발 업무에서 시작된 데이터 관리</a></li><li class="depth-1"><a href="#트랜잭션-처리와-데이터베이스-전문-역할의-등장" data-for="트랜잭션-처리와-데이터베이스-전문-역할의-등장">트랜잭션 처리와 데이터베이스 전문 역할의 등장</a></li><li class="depth-1"><a href="#데이터-무결성-문제와-데이터-웨어하우스" data-for="데이터-무결성-문제와-데이터-웨어하우스">데이터 무결성 문제와 데이터 웨어하우스</a></li><li class="depth-1"><a href="#데이터-모델과-정형-데이터-환경" data-for="데이터-모델과-정형-데이터-환경">데이터 모델과 정형 데이터 환경</a></li><li class="depth-1"><a href="#정형-데이터-관리자의-업무" data-for="정형-데이터-관리자의-업무">정형 데이터 관리자의 업무</a></li><li class="depth-1"><a href="#비정형텍스트-데이터의-확대" data-for="비정형텍스트-데이터의-확대">비정형/텍스트 데이터의 확대</a></li><li class="depth-1"><a href="#텍스트-환경의-온톨로지와-분류체계" data-for="텍스트-환경의-온톨로지와-분류체계">텍스트 환경의 온톨로지와 분류체계</a></li><li class="depth-1"><a href="#llm-입력-텍스트의-선별과-정제" data-for="llm-입력-텍스트의-선별과-정제">LLM 입력 텍스트의 선별과 정제</a></li><li class="depth-1"><a href="#eldm과-정형비정형-데이터의-연결" data-for="eldm과-정형비정형-데이터의-연결">ELDM과 정형/비정형 데이터의 연결</a></li><li class="depth-1"><a href="#외부-텍스트-수집과-지속적인-유지보수" data-for="외부-텍스트-수집과-지속적인-유지보수">외부 텍스트 수집과 지속적인 유지보수</a></li><li class="depth-1"><a href="#llm에-대한-간접-통제" data-for="llm에-대한-간접-통제">LLM에 대한 간접 통제</a></li><li class="depth-1"><a href="#기업-조직에서-데이터-관리-역할의-변화" data-for="기업-조직에서-데이터-관리-역할의-변화">기업 조직에서 데이터 관리 역할의 변화</a></li><li class="depth-1"><a href="#물리적-중앙집중에서-의미론적-중앙집중으로" data-for="물리적-중앙집중에서-의미론적-중앙집중으로">물리적 중앙집중에서 의미론적 중앙집중으로</a></li><li class="overflow-end"></li></ul></div></div></div><article class="popover-hint"><h1 id="ai-시대의-데이터-관리">AI 시대의 데이터 관리<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#ai-시대의-데이터-관리" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p><strong>Source:</strong> <a href="https://news.hada.io/topic?id=31681" class="external">GeekNews topic 31681<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a><br/>
+<strong>Fetched via:</strong> <code>ultimate-fetcher --json</code> → Jina</p>
+<h2 id="요약">요약<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#요약" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>생성형 AI 시대의 데이터 관리는 기술 지원 업무가 아니라 전략적 핵심 기능으로 격상된다. 정형 데이터에서는 데이터 모델과 데이터베이스를 직접 통제했지만, LLM 환경에서는 입력 텍스트를 선별·정제하고 ontology/taxonomy를 ELDM과 결합하는 간접 통제가 중요해진다. 데이터가 물리적으로 분산될수록 기업 차원의 의미와 정의를 중앙에서 유지하는 semantic centralization이 필요하다.</p>
+<h2 id="원문">원문<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#원문" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Title: AI 시대의 데이터 관리</p>
+<p>URL Source: <a href="https://news.hada.io/topic?id=31681" class="external">https://news.hada.io/topic?id=31681<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<p>Published Time: 2026-07-22T09:37:01+09:00</p>
+<p>Markdown Content:</p>
+<ul>
+<li>생성형 AI가 신뢰할 수 있는 데이터로 작동하지 않으면 분석 결과도 신뢰하기 어려워지면서, 데이터 관리는 기술 지원 업무에서 <strong>전략적 핵심 기능</strong>으로 격상됨</li>
+<li>초기 애플리케이션 개발자가 데이터 구조까지 맡던 단계에서 데이터베이스 설계자/관리자, CIO, CDO로 역할이 분화됐으며, 데이터 무결성과 기업 전체의 일관된 이해가 주요 과제가 됨</li>
+<li>정형 데이터에서는 데이터 모델과 데이터베이스를 직접 수정하지만, 생성형 AI 환경에서는 LLM에 들어가는 텍스트를 선별하고 정제하는 방식으로 <strong>간접 통제</strong>함</li>
+<li>비정형 텍스트에는 전통적인 데이터 모델 대신 <strong>온톨로지/분류체계</strong>가 필요하며, 이를 기업 논리 데이터 모델(ELDM)과 결합하고 지속적으로 갱신해야 함</li>
+<li>데이터가 여러 시스템/PC/인터넷에 분산되면서 물리적 중앙집중은 불가능해졌고, 기업 차원의 의미를 ELDM으로 통합하는 <strong>의미론적 중앙집중</strong>이 중요해짐</li>
+</ul>
+<hr/>
+<h2 id="애플리케이션-개발-업무에서-시작된-데이터-관리">애플리케이션 개발 업무에서 시작된 데이터 관리<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#애플리케이션-개발-업무에서-시작된-데이터-관리" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>초기 컴퓨터 시스템에서는 애플리케이션 개발자가 요구사항 수집, 방법론 준수, 프로그래밍, 테스트와 함께 시스템이 사용할 데이터와 그 구조도 정의함</li>
+<li>데이터 설계는 독립적인 기업 기능이 아니라 개발 과정에 포함된 여러 작업 중 하나였음</li>
+</ul>
+<h2 id="트랜잭션-처리와-데이터베이스-전문-역할의-등장">트랜잭션 처리와 데이터베이스 전문 역할의 등장<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#트랜잭션-처리와-데이터베이스-전문-역할의-등장" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>트랜잭션 처리 시스템이 확산되면서 응답 시간, 시스템 가용성, 트랜잭션 실행 무결성을 데이터베이스 설계에 반영해야 했음</li>
+<li>이러한 요구를 전문적으로 다루는 <strong>데이터베이스 설계자</strong>가 등장하면서 데이터 관리가 독립된 업무로 인식되기 시작함</li>
+<li>트랜잭션 처리 데이터베이스가 급증하자 여러 데이터베이스를 통제하고 조정하는 <strong>데이터베이스 관리자</strong>가 필요해짐</li>
+</ul>
+<h2 id="데이터-무결성-문제와-데이터-웨어하우스">데이터 무결성 문제와 데이터 웨어하우스<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#데이터-무결성-문제와-데이터-웨어하우스" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>서로 연결된 수많은 애플리케이션에 동일한 데이터 요소가 반복 저장되면서, 위치마다 서로 다른 값을 갖는 문제가 발생함</li>
+<li>기업의 문제는 데이터를 보유하는 것에서 어떤 데이터를 믿어야 하는지를 판단하는 것으로 바뀜</li>
+<li>애플리케이션과 기술을 추가하는 것만으로는 무결성 문제가 해결되지 않았으며, 오히려 문제를 확대하고 가속함</li>
+<li>기술적 수정이 아니라 운영 데이터와 분석 데이터를 분리하는 <strong>아키텍처적 해결책</strong>이 필요해졌고, 그 결과 데이터 웨어하우스가 등장함</li>
+</ul>
+<h2 id="데이터-모델과-정형-데이터-환경">데이터 모델과 정형 데이터 환경<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#데이터-모델과-정형-데이터-환경" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>운영 데이터를 분석 데이터와 데이터 웨어하우스로 변환하려면 현재 존재하거나 앞으로 필요할 데이터 유형을 추상화한 <strong>데이터 모델</strong>이 필요함</li>
+<li>운영 시스템과 데이터 웨어하우스는 각 레코드의 형식은 같고 내용만 달라지는 정형 데이터 환경으로 구성됨</li>
+<li>애플리케이션, 데이터베이스, 트랜잭션 처리 데이터베이스의 정형 데이터는 데이터베이스 관리 시스템(DBMS)으로 관리됨</li>
+<li>트랜잭션 시스템의 장애가 ATM, 항공 예약 시스템과 같은 실제 업무와 고객에게 직접 영향을 주면서 정확하고 안정적인 시스템과 데이터 관리의 가치가 높아짐</li>
+</ul>
+<h2 id="정형-데이터-관리자의-업무">정형 데이터 관리자의 업무<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#정형-데이터-관리자의-업무" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>
+<p>데이터 모델을 구축한 뒤 경제 상황, 경쟁, 기술, 법률, 시장 변화에 맞춰 지속적으로 유지하고 수정함</p>
+</li>
+<li>
+<p>데이터베이스 설계에서는 정규화 원칙을 따르되, 트랜잭션 처리 성능을 위해 필요한 수준의 비정규화를 적용함</p>
+<ul>
+<li>데이터 관리자는 <strong>정규화와 비정규화</strong> 사이에서 시스템의 목표와 성능 요구를 조정함</li>
+</ul>
+</li>
+<li>
+<p>데이터 모델을 기반으로 데이터베이스를 정의하는 DDL을 작성함</p>
+</li>
+<li>
+<p>트랜잭션 처리 장비가 언제 용량 한계에 도달할지를 예측하는 용량 계획을 수행함</p>
+</li>
+<li>
+<p>데이터베이스 활동과 데이터 증가량을 지속적으로 감시함</p>
+</li>
+<li>
+<p>문제가 발견되면 해당 데이터 모델이나 데이터베이스에 직접 접근해 수정하는 <strong>직접 통제</strong> 방식을 사용함</p>
+</li>
+</ul>
+<h2 id="비정형텍스트-데이터의-확대">비정형/텍스트 데이터의 확대<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#비정형텍스트-데이터의-확대" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>기업에는 정형 데이터뿐 아니라 광범위한 비정형/텍스트 데이터가 존재하며, 기업 데이터의 최대 90%가 텍스트라는 추정도 있음</li>
+<li>중요한 기업 정보 상당수가 텍스트 형태로 존재하므로 데이터 관리 조직이 이를 함께 관리해야 함</li>
+<li>정형 데이터와 텍스트 데이터는 구조와 관리 방법이 근본적으로 다름</li>
+</ul>
+<h2 id="텍스트-환경의-온톨로지와-분류체계">텍스트 환경의 온톨로지와 분류체계<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#텍스트-환경의-온톨로지와-분류체계" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>텍스트 환경에는 전통적인 정형 데이터 모델을 그대로 적용하기 어려움</li>
+<li>정형 데이터에서 데이터 모델이 맡는 역할을 텍스트 환경에서는 <strong>온톨로지/분류체계(ontology/taxonomy)</strong> 가 수행함</li>
+<li>두 모델은 대응되는 역할을 하지만 구조와 관리 기법은 크게 다름</li>
+<li>정형 데이터 모델링과 관리 기술을 텍스트에 그대로 적용하는 것은 적합하지 않으며, 실질적인 성과도 거의 내지 못함</li>
+</ul>
+<h2 id="llm-입력-텍스트의-선별과-정제">LLM 입력 텍스트의 선별과 정제<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#llm-입력-텍스트의-선별과-정제" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>생성형 AI 환경에서 가장 중요한 데이터 관리 업무는 원문 텍스트가 LLM에 들어가기 전에 검토하는 것임</li>
+<li>기업 업무와 관련 없는 불필요한 텍스트가 LLM에 유입되지 않도록 제거해야 함</li>
+<li>불필요한 텍스트를 제거하면 쿼리를 실행할 때마다 처리해야 할 데이터가 줄어 <strong>비용을 절감</strong>할 수 있음</li>
+<li>업무 관련 텍스트만 남기면 LLM이 무엇을 표현하고 다루는지 범위가 명확해짐</li>
+</ul>
+<h2 id="eldm과-정형비정형-데이터의-연결">ELDM과 정형/비정형 데이터의 연결<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#eldm과-정형비정형-데이터의-연결" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>생성형 AI 환경의 데이터 관리자는 온톨로지/분류체계를 기업 전체의 <strong>ELDM(Enterprise Logical Data Model)</strong> 과 결합해야 함</li>
+<li>ELDM은 전통적인 정형 데이터 모델과 텍스트 환경의 온톨로지/분류체계를 통합하는 데 사용됨</li>
+<li>기업의 업무 요구가 바뀌면 온톨로지/분류체계도 함께 갱신해야 함</li>
+</ul>
+<h2 id="외부-텍스트-수집과-지속적인-유지보수">외부 텍스트 수집과 지속적인 유지보수<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#외부-텍스트-수집과-지속적인-유지보수" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>인터넷과 같은 출처에서 넓은 범위의 원문 텍스트를 먼저 선택해야 함</li>
+<li>이후 선택된 텍스트에서 기업 업무와 관련된 데이터를 다시 추리는 2단계 선별 과정이 이어짐</li>
+<li>업무 환경과 세계 상황이 계속 변하므로 온톨로지/분류체계를 지속적으로 감시하고 관리해야 함</li>
+<li>변화한 조건과 분류체계가 서로 일치하도록 반복적인 유지보수가 필요함</li>
+</ul>
+<h2 id="llm에-대한-간접-통제">LLM에 대한 간접 통제<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#llm에-대한-간접-통제" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>정형 데이터 관리자는 데이터 모델과 데이터베이스를 직접 변경할 수 있지만, 생성형 AI 환경에서는 LLM 자체를 같은 방식으로 직접 통제하지 못함</li>
+<li>생성형 AI의 결과를 통제하는 수단은 LLM에 <strong>어떤 텍스트를 입력할지 관리하는 것</strong>임</li>
+<li>따라서 생성형 AI 데이터 관리는 직접 수정이 아니라 입력 데이터의 선택과 정제를 통한 간접 통제에 가까움</li>
+</ul>
+<h2 id="기업-조직에서-데이터-관리-역할의-변화">기업 조직에서 데이터 관리 역할의 변화<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#기업-조직에서-데이터-관리-역할의-변화" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>초기에는 데이터 관리가 시스템 개발자가 수행하는 여러 작업 중 하나였으며 별도의 기업 조직이나 직무가 없었음</li>
+<li>트랜잭션 처리가 중요해지면서 데이터베이스 설계가 독립적인 업무로 분리되고 데이터베이스 설계자 역할이 생김</li>
+<li>데이터베이스가 급증하고 관리할 데이터 요소가 늘어나면서 데이터베이스 관리자 역할이 확대됨</li>
+<li>여러 시스템의 데이터가 일치하지 않는 문제가 커지면서 기업 차원의 정보 통합을 담당하는 <strong>CIO(Chief Information Officer)</strong> 가 등장함</li>
+<li>정형 데이터와 텍스트 데이터를 통합해 기업 데이터를 전체적으로 이해할 필요가 생기면서 <strong>CDO(Chief Data Officer)</strong> 역할로 발전함</li>
+<li>데이터 형태가 다양해질수록 관리의 복잡성과 중요성, 활용 기회와 과제가 함께 증가함</li>
+</ul>
+<h2 id="물리적-중앙집중에서-의미론적-중앙집중으로">물리적 중앙집중에서 의미론적 중앙집중으로<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#물리적-중앙집중에서-의미론적-중앙집중으로" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>기업 전체에서 데이터와 그 의미를 일관되게 이해하려면 중앙화된 데이터 이해 체계가 필요함</li>
+<li>초기 컴퓨팅에서 중앙집중은 데이터베이스를 대형 메인프레임에 모으는 <strong>물리적 중앙집중</strong>을 뜻했음</li>
+<li>이후 데이터가 개인용 컴퓨터, 인터넷, 기업 시스템 등 여러 위치로 분산되면서 물리적 중앙집중은 불가능해짐</li>
+<li>데이터가 분산될수록 인터넷과 기업 내부에서 같은 대상을 같은 의미로 이해하도록 조정할 필요는 더 커짐</li>
+<li>중앙집중의 대상은 데이터가 저장된 위치에서 데이터의 <strong>의미와 정의</strong>로 이동함</li>
+<li>ELDM은 데이터가 여러 물리적 위치에 존재하더라도 기업 차원의 공통 데이터 의미를 중앙에서 유지하는 수단으로 사용됨</li>
+</ul></article><hr/><div class="page-footer"><div class="backlinks"><h3>백링크</h3><ul id="list-1" class="overflow"><li><a href="../garden/20260722-ai-data-management-is-input-control" class="internal">AI 데이터 관리는 모델 통제가 아니라 입력 통제다</a></li><li><a href="../garden/20260722-centralization-moves-from-storage-to-meaning" class="internal">중앙집중의 대상은 저장 위치에서 의미로 이동한다</a></li><li><a href="../garden/20260722-ontology-is-the-data-model-for-text-heavy-companies" class="internal">텍스트가 많은 회사에서 ontology는 데이터 모델의 역할을 한다</a></li><li><a href="../wiki/concepts/20260722-generative-ai-data-management" class="internal">Generative AI Data Management</a></li><li><a href="../wiki/concepts/20260722-llm-input-governance" class="internal">LLM Input Governance</a></li><li><a href="../wiki/concepts/20260722-ontology-taxonomy-for-text-data" class="internal">Ontology Taxonomy for Text Data</a></li><li><a href="../wiki/concepts/20260722-semantic-centralization" class="internal">Semantic Centralization</a></li><li class="overflow-end"></li></ul></div><div class="giscus" data-repo="dataofmen/quartz-wiki" data-repo-id="R_kgDOSOxrZA" data-category="General" data-category-id="DIC_kwDOSOxrZM4C-Edy" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-input-position="bottom" data-light-theme="light" data-dark-theme="dark" data-theme-url="https://dataofmen.github.io/static/giscus" data-lang="ko"></div></div></div><div class="right sidebar"><div class="graph desktop-only"><h3>그래프 뷰</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                  s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                  c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                  C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                  c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                  v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                  s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                  C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                  S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                  s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                  s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.5.2</a> © 2026</p><ul></ul></footer></div></div></body><script type="application/javascript" data-persist="true">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module" data-persist="true">function E(a,e){if(!a)return;function t(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function n(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}a?.addEventListener("click",t),window.addCleanup(()=>a?.removeEventListener("click",t)),document.addEventListener("keydown",n),window.addCleanup(()=>document.removeEventListener("keydown",n))}function f(a){for(;a.firstChild;)a.removeChild(a.firstChild)}var m=class{constructor(e,t){this.container=e;this.content=t;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),t=this.onMouseMove.bind(this),n=this.onMouseUp.bind(this),o=this.onTouchStart.bind(this),r=this.onTouchMove.bind(this),i=this.onTouchEnd.bind(this),s=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",t),document.addEventListener("mouseup",n),this.container.addEventListener("touchstart",o,{passive:!1}),document.addEventListener("touchmove",r,{passive:!1}),document.addEventListener("touchend",i),window.addEventListener("resize",s),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",t),()=>document.removeEventListener("mouseup",n),()=>this.container.removeEventListener("touchstart",o),()=>document.removeEventListener("touchmove",r),()=>document.removeEventListener("touchend",i),()=>window.removeEventListener("resize",s))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let t=this.createButton("+",()=>this.zoom(.1)),n=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(n),e.appendChild(o),e.appendChild(t),this.container.appendChild(e)}createButton(e,t){let n=document.createElement("button");return n.textContent=e,n.className="mermaid-control-button",n.addEventListener("click",t),window.addCleanup(()=>n.removeEventListener("click",t)),n}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}onTouchStart(e){if(e.touches.length!==1)return;this.isDragging=!0;let t=e.touches[0];this.startPan={x:t.clientX-this.currentPan.x,y:t.clientY-this.currentPan.y}}onTouchMove(e){if(!this.isDragging||e.touches.length!==1)return;e.preventDefault();let t=e.touches[0];this.currentPan={x:t.clientX-this.startPan.x,y:t.clientY-this.startPan.y},this.updateTransform()}onTouchEnd(){this.isDragging=!1}zoom(e){let t=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),n=this.content.getBoundingClientRect(),o=n.width/2,r=n.height/2,i=t-this.scale;this.currentPan.x-=o*i,this.currentPan.y-=r*i,this.scale=t,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){let t=this.content.querySelector("svg").getBoundingClientRect(),n=t.width/this.scale,o=t.height/this.scale;this.scale=1,this.currentPan={x:(this.container.clientWidth-n)/2,y:(this.container.clientHeight-o)/2},this.updateTransform()}},T=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],y;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;y||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let t=y.default,n=new WeakMap;for(let r of e)n.set(r,r.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let c=n.get(s);c&&(s.innerHTML=c)}let r=T.reduce((s,c)=>(s[c]=window.getComputedStyle(document.documentElement).getPropertyValue(c),s),{}),i=document.documentElement.getAttribute("saved-theme")==="dark";t.initialize({startOnLoad:!1,securityLevel:"loose",theme:i?"dark":"base",themeVariables:{fontFamily:r["--codeFont"],primaryColor:r["--light"],primaryTextColor:r["--darkgray"],primaryBorderColor:r["--tertiary"],lineColor:r["--darkgray"],secondaryColor:r["--secondary"],tertiaryColor:r["--tertiary"],clusterBkg:r["--light"],edgeLabelBackground:r["--highlight"]}}),await t.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let r=0;r<e.length;r++){let v=function(){let g=l.querySelector("#mermaid-space"),h=l.querySelector(".mermaid-content");if(!h)return;f(h);let w=i.querySelector("svg").cloneNode(!0);h.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new m(g,h)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},i=e[r],s=i.parentElement,c=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(c),L=c.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),E(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../postscript.js" type="module" data-persist="true"></script></html>

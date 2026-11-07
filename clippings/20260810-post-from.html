@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr"><head><title>AI 투자의 제1원칙 (이효석아카데미 커뮤니티 포스트)</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto Sans KR:wght@400;700&amp;family=Noto Sans KR:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="dataofmen"/><meta property="og:title" content="AI 투자의 제1원칙 (이효석아카데미 커뮤니티 포스트)"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="AI 투자의 제1원칙 (이효석아카데미 커뮤니티 포스트)"/><meta name="twitter:description" content="AI 투자의 제1원칙 아시겠지만 저는 정말 집요하게 AI를 고민해왔습니다. 그런데 이번 주말에는 다시 처음으로 돌아가 정말 진지하게 이 질문 하나를 붙잡고 고민해봤습니다! “AI 투자를 할 때 딱 하나만 알아야 한다면 그게 뭘까?” 오늘은 그 답을 정리해보려고 합니다."/><meta property="og:description" content="AI 투자의 제1원칙 아시겠지만 저는 정말 집요하게 AI를 고민해왔습니다. 그런데 이번 주말에는 다시 처음으로 돌아가 정말 진지하게 이 질문 하나를 붙잡고 고민해봤습니다! “AI 투자를 할 때 딱 하나만 알아야 한다면 그게 뭘까?” 오늘은 그 답을 정리해보려고 합니다."/><meta property="og:image:alt" content="AI 투자의 제1원칙 아시겠지만 저는 정말 집요하게 AI를 고민해왔습니다. 그런데 이번 주말에는 다시 처음으로 돌아가 정말 진지하게 이 질문 하나를 붙잡고 고민해봤습니다! “AI 투자를 할 때 딱 하나만 알아야 한다면 그게 뭘까?” 오늘은 그 답을 정리해보려고 합니다."/><meta property="og:image" content="https://dataofmen.github.io/static/og-image.png"/><meta property="og:image:url" content="https://dataofmen.github.io/static/og-image.png"/><meta name="twitter:image" content="https://dataofmen.github.io/static/og-image.png"/><meta property="og:image:type" content="image/.png"/><meta property="twitter:domain" content="dataofmen.github.io"/><meta property="og:url" content="https://dataofmen.github.io/clippings/20260810-post-from"/><meta property="twitter:url" content="https://dataofmen.github.io/clippings/20260810-post-from"/><link rel="icon" href="../static/icon.png"/><meta name="description" content="AI 투자의 제1원칙 아시겠지만 저는 정말 집요하게 AI를 고민해왔습니다. 그런데 이번 주말에는 다시 처음으로 돌아가 정말 진지하게 이 질문 하나를 붙잡고 고민해봤습니다! “AI 투자를 할 때 딱 하나만 알아야 한다면 그게 뭘까?” 오늘은 그 답을 정리해보려고 합니다."/><meta name="generator" content="Quartz"/><link href="../index.css" rel="stylesheet" type="text/css" data-persist="true"/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiL2hvbWUvcnVubmVyL3dvcmsvcXVhcnR6LXdpa2kvcXVhcnR6LXdpa2kvcXVhcnR6L2NvbXBvbmVudHMvc3R5bGVzIiwic291cmNlcyI6WyJtZXJtYWlkLmlubGluZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFHRjtFQUNFOzs7QUFLRjtFQUNFO0VBQ0E7OztBQUlKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFOztBQUdGO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFJSjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTs7QUFJRjtFQUNFO0VBQ0E7RUFDQSIsInNvdXJjZXNDb250ZW50IjpbIi5leHBhbmQtYnV0dG9uIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbG9hdDogcmlnaHQ7XG4gIHBhZGRpbmc6IDAuNHJlbTtcbiAgbWFyZ2luOiAwLjNyZW07XG4gIHJpZ2h0OiAwOyAvLyBOT1RFOiByaWdodCB3aWxsIGJlIHNldCBpbiBtZXJtYWlkLmlubGluZS50c1xuICBjb2xvcjogdmFyKC0tZ3JheSk7XG4gIGJvcmRlci1jb2xvcjogdmFyKC0tZGFyayk7XG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWxpZ2h0KTtcbiAgYm9yZGVyOiAxcHggc29saWQ7XG4gIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgb3BhY2l0eTogMDtcbiAgdHJhbnNpdGlvbjogMC4ycztcblxuICAmID4gc3ZnIHtcbiAgICBmaWxsOiB2YXIoLS1saWdodCk7XG4gICAgZmlsdGVyOiBjb250cmFzdCgwLjMpO1xuICB9XG5cbiAgJjpob3ZlciB7XG4gICAgY3Vyc29yOiBwb2ludGVyO1xuICAgIGJvcmRlci1jb2xvcjogdmFyKC0tc2Vjb25kYXJ5KTtcbiAgfVxuXG4gICY6Zm9jdXMge1xuICAgIG91dGxpbmU6IDA7XG4gIH1cbn1cblxucHJlIHtcbiAgJjpob3ZlciA+IC5leHBhbmQtYnV0dG9uIHtcbiAgICBvcGFjaXR5OiAxO1xuICAgIHRyYW5zaXRpb246IDAuMnM7XG4gIH1cbn1cblxuI21lcm1haWQtY29udGFpbmVyIHtcbiAgcG9zaXRpb246IGZpeGVkO1xuICBjb250YWluOiBsYXlvdXQ7XG4gIHotaW5kZXg6IDk5OTtcbiAgbGVmdDogMDtcbiAgdG9wOiAwO1xuICB3aWR0aDogMTAwdnc7XG4gIGhlaWdodDogMTAwdmg7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIGRpc3BsYXk6IG5vbmU7XG4gIGJhY2tkcm9wLWZpbHRlcjogYmx1cig0cHgpO1xuICBiYWNrZ3JvdW5kOiByZ2JhKDAsIDAsIDAsIDAuNSk7XG5cbiAgJi5hY3RpdmUge1xuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgfVxuXG4gICYgPiAjbWVybWFpZC1zcGFjZSB7XG4gICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1saWdodCk7XG4gICAgYm9yZGVyLXJhZGl1czogNXB4O1xuICAgIHBvc2l0aW9uOiBmaXhlZDtcbiAgICB0b3A6IDUwJTtcbiAgICBsZWZ0OiA1MCU7XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGUoLTUwJSwgLTUwJSk7XG4gICAgaGVpZ2h0OiA4MHZoO1xuICAgIHdpZHRoOiA4MHZ3O1xuICAgIG92ZXJmbG93OiBoaWRkZW47XG5cbiAgICAmID4gLm1lcm1haWQtY29udGVudCB7XG4gICAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgICB0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7XG4gICAgICB0cmFuc2l0aW9uOiB0cmFuc2Zvcm0gMC4xcyBlYXNlO1xuICAgICAgb3ZlcmZsb3c6IHZpc2libGU7XG4gICAgICBtaW4taGVpZ2h0OiAyMDBweDtcbiAgICAgIG1pbi13aWR0aDogMjAwcHg7XG5cbiAgICAgIHByZSB7XG4gICAgICAgIG1hcmdpbjogMDtcbiAgICAgICAgYm9yZGVyOiBub25lO1xuICAgICAgfVxuXG4gICAgICBzdmcge1xuICAgICAgICBtYXgtd2lkdGg6IG5vbmU7XG4gICAgICAgIGhlaWdodDogYXV0bztcbiAgICAgIH1cbiAgICB9XG5cbiAgICAmID4gLm1lcm1haWQtY29udHJvbHMge1xuICAgICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgICAgYm90dG9tOiAyMHB4O1xuICAgICAgcmlnaHQ6IDIwcHg7XG4gICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgZ2FwOiA4cHg7XG4gICAgICBwYWRkaW5nOiA4cHg7XG4gICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1saWdodCk7XG4gICAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgICAgYm9yZGVyLXJhZGl1czogNnB4O1xuICAgICAgYm94LXNoYWRvdzogMCAycHggNHB4IHJnYmEoMCwgMCwgMCwgMC4xKTtcbiAgICAgIHotaW5kZXg6IDI7XG5cbiAgICAgIC5tZXJtYWlkLWNvbnRyb2wtYnV0dG9uIHtcbiAgICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICAgICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gICAgICAgIHdpZHRoOiAzMnB4O1xuICAgICAgICBoZWlnaHQ6IDMycHg7XG4gICAgICAgIHBhZGRpbmc6IDA7XG4gICAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0KTtcbiAgICAgICAgY29sb3I6IHZhcigtLWRhcmspO1xuICAgICAgICBib3JkZXItcmFkaXVzOiA0cHg7XG4gICAgICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICAgICAgZm9udC1zaXplOiAxNnB4O1xuICAgICAgICBmb250LWZhbWlseTogdmFyKC0tYm9keUZvbnQpO1xuICAgICAgICB0cmFuc2l0aW9uOiBhbGwgMC4ycyBlYXNlO1xuXG4gICAgICAgICY6aG92ZXIge1xuICAgICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIH1cblxuICAgICAgICAmOmFjdGl2ZSB7XG4gICAgICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKDFweCk7XG4gICAgICAgIH1cblxuICAgICAgICAvLyBTdHlsZSB0aGUgcmVzZXQgYnV0dG9uIGRpZmZlcmVudGx5XG4gICAgICAgICY6bnRoLWNoaWxkKDIpIHtcbiAgICAgICAgICB3aWR0aDogYXV0bztcbiAgICAgICAgICBwYWRkaW5nOiAwIDEycHg7XG4gICAgICAgICAgZm9udC1zaXplOiAxNHB4O1xuICAgICAgICB9XG4gICAgICB9XG4gICAgfVxuICB9XG59XG4iXX0= */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../prescript.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://dataofmen.github.io/index.xml"/></head><body data-slug="clippings/20260810-post-from"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"></div><div class="center"><div class="page-header"><header><h2 class="page-title"><a href="..">dataofmen</a></h2><nav class="nav-links"><a href="/wiki" class="nav-link">wiki</a><a href="/garden" class="nav-link">garden</a><a href="/clippings" class="nav-link">clippings</a></nav><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 1rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>검색</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="검색어를 입력하세요" placeholder="검색어를 입력하세요"/><div class="search-layout" data-preview="true"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="다크 모드"><title>다크 모드</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="라이트 모드"><title>라이트 모드</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div></div></header><div class="popover-hint"><h1 class="article-title">AI 투자의 제1원칙 (이효석아카데미 커뮤니티 포스트)</h1><p show-comma="true" class="content-meta"><time datetime="2026-08-10T00:00:00.000Z">2026년 8월 10일</time><span>24 min read</span></p><ul class="tags"><li><a href="../tags/ai" class="internal tag-link">ai</a></li><li><a href="../tags/investing" class="internal tag-link">investing</a></li><li><a href="../tags/youtube" class="internal tag-link">youtube</a></li><li><a href="../tags/확실함" class="internal tag-link">확실함</a></li><li><a href="../tags/간절함" class="internal tag-link">간절함</a></li><li><a href="../tags/은행" class="internal tag-link">은행</a></li><li><a href="../tags/숫자" class="internal tag-link">숫자</a></li></ul><div class="toc"><button type="button" class="toc-header" aria-controls="toc-105" aria-expanded="true"><h3>목차</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-0" class="toc-content overflow"><li class="depth-0"><a href="#ai-투자의-제1원칙" data-for="ai-투자의-제1원칙">AI 투자의 제1원칙</a></li><li class="depth-1"><a href="#1-ai-투자의-제1원칙은-변동성입니다" data-for="1-ai-투자의-제1원칙은-변동성입니다">1. AI 투자의 제1원칙은 ‘변동성’입니다</a></li><li class="depth-1"><a href="#2-빅테크는-은행이-됐습니다" data-for="2-빅테크는-은행이-됐습니다">2. 빅테크는 은행이 됐습니다</a></li><li class="depth-1"><a href="#3-치킨집-회수-기간-3년의-의미" data-for="3-치킨집-회수-기간-3년의-의미">3. 치킨집 회수 기간 3년의 의미</a></li><li class="depth-1"><a href="#4-치킨을-사-먹는-사람들--그리고-5층-케이크" data-for="4-치킨을-사-먹는-사람들--그리고-5층-케이크">4. 치킨을 사 먹는 사람들 — 그리고 5층 케이크</a></li><li class="depth-1"><a href="#5-그래서-지금-봐야-할-회사-앤트로픽" data-for="5-그래서-지금-봐야-할-회사-앤트로픽">5. 그래서 지금 봐야 할 회사: 앤트로픽</a></li><li class="depth-1"><a href="#6-진짜-버블은-아직-시작도-안-했습니다" data-for="6-진짜-버블은-아직-시작도-안-했습니다">6. 진짜 버블은 아직 시작도 안 했습니다</a></li><li class="depth-1"><a href="#7-마지막-변수-오픈웨이트-그리고-다시-컴퓨팅" data-for="7-마지막-변수-오픈웨이트-그리고-다시-컴퓨팅">7. 마지막 변수: 오픈웨이트, 그리고 다시 컴퓨팅</a></li><li class="depth-1"><a href="#정리하겠습니다" data-for="정리하겠습니다">정리하겠습니다</a></li><li class="overflow-end"></li></ul></div></div></div><article class="popover-hint"><h1 id="ai-투자의-제1원칙">AI 투자의 제1원칙<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#ai-투자의-제1원칙" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>아시겠지만
+저는 정말 집요하게
+AI를 고민해왔습니다.</p>
+<p>그런데 이번 주말에는
+다시 처음으로 돌아가
+정말 진지하게 이 질문 하나를
+붙잡고 고민해봤습니다!</p>
+<p>“AI 투자를 할 때
+딱 하나만 알아야 한다면
+그게 뭘까?”</p>
+<p>오늘은 그 답을 정리해보려고 합니다.
+조금 길지만, 끝까지 읽어보시면
+지금 시장에서 벌어지는 일들이
+하나의 그림으로 연결되실 겁니다.</p>
+<hr/>
+<h2 id="1-ai-투자의-제1원칙은-변동성입니다">1. AI 투자의 제1원칙은 ‘변동성’입니다<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#1-ai-투자의-제1원칙은-변동성입니다" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>제 1원칙은 “변동성”입니다.</p>
+<p>지난 7월,
+국내 시장에서
+우리는 어마어마한 변동성을
+경험했습니다.</p>
+<p>힘들죠. 안 좋죠.
+그러면 이런 생각을 하시는 분들이
+계실 겁니다.</p>
+<p>“나는 변동성이 싫으니까
+변동성 낮은 AI 투자하고 싶어.”</p>
+<p>그런데 죄송하지만,
+그러면 AI 투자를 못 하는 겁니다.
+변동성은 AI 이야기가 끝날 때까지
+계속될 거니까요.</p>
+<p>왜 그런지 이유를 따져보면
+결국 두 단어로 요약됩니다.</p>
+<p><a href=".././tags/확실함" class="tag-link internal alias" data-slug="tags/확실함">확실함</a> <a href=".././tags/간절함" class="tag-link internal alias" data-slug="tags/간절함">간절함</a></p>
+<p>레버리지는 언제 쓰고 싶어질까요?
+내가 돈을 벌 수 있다고 ”확신“할 때 씁니다.
+컴퓨팅을 사겠다는 사람이
+저기까지 줄을 서 있는 게
+눈에 보이니까 투자하는 겁니다.</p>
+<p>AI가 세상을 바꾸고,
+개인의 생활을 바꾸고,
+기업의 이익을 바꾼다는 건
+이제 모든 면에서 ”확실한 이야기“가 됐습니다.</p>
+<p>가야 할 길이 확실하니까,
+레버리지를 쓸 수밖에 없는 거예요.</p>
+<p>그런데 확실하기만 하면 안 됩니다.
+“뭐, 저거 아니어도 나는 괜찮아”라고 생각하면
+레버리지까지는 안 쓰거든요.</p>
+<p>그래서 두 번째 조건이 간절함입니다.
+그리고 지금은 모든 경제 주체가 간절합니다.</p>
+<ol>
+<li>투자자
+개인 투자자들은 왜 레버리지를 그렇게 많이 썼을까요?
+그 배경에는 엄청난 “두려움”이 있습니다.</li>
+</ol>
+<p>“AI 시대가 되면
+나는 어차피 일해서
+돈을 벌 수 없다며?
+그럼 지금이라도
+투자해야 하잖아.”</p>
+<p>이렇게 강력한 FOMO가
+개인에게는 간절함이 됩니다.</p>
+<ol start="2">
+<li>기업
+기업은 왜 과잉투자 이야기가
+나올 정도로 투자를 할까요?</li>
+</ol>
+<p>여기에도 두려움이 있습니다.
+“이 AI 레이스에서 지면
+우리 회사는 망한다”는 두려움 말입니다.</p>
+<p>너무 확실한 기술이니까,
+투자를 안 해서 늦으면
+그게 곧 죽음인 겁니다.</p>
+<ol start="3">
+<li>정부
+미국 정부 입장에서 보면,
+중국과의 패권 전쟁이 걸려 있습니다.
+이 게임을 중국에 내주면
+패권을 잃을 수도 있다는 두려움.
+네.. 정부도 간절합니다.</li>
+</ol>
+<p>개인, 기업, 정부 할 것 없이
+전부 확실하고
+전부 간절합니다.</p>
+<p>그러면 전부 레버리지를 씁니다.
+그리고 레버리지가 쌓인 시장은
+필연적으로 흔들립니다.</p>
+<p>급하게 갔다가,
+아닌가 싶어 뒤로 왔다가,
+다시 급하게 가는 일이
+반복되는 거죠.</p>
+<p>언제까지?
+AI에 진짜 버블이 생겨서 터지기 전까지,
+이 변동성은 절대 끝나지 않을 겁니다.</p>
+<hr/>
+<h2 id="2-빅테크는-은행이-됐습니다">2. 빅테크는 은행이 됐습니다<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#2-빅테크는-은행이-됐습니다" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>“메타가 회사채를 발행했는데
+금리가 되게 높았다면서요.
+알파벳도 그렇고,
+빅테크들이 이렇게
+빚을 내면서 투자하는 게
+지속 가능한가요?”</p>
+<p>이 질문에 답하려면
+레버리지가 본업인 회사를 먼저 봐야 합니다.
+어디일까요?</p>
+<p><a href=".././tags/은행" class="tag-link internal alias" data-slug="tags/은행">은행</a> 입니다.</p>
+<p>은행의 구조는 단순합니다.
+여러분이 예금을 하면,
+은행 입장에서 그건 조달입니다.</p>
+<p>그 돈으로 대출을 해주면,
+그게 운용이구요.</p>
+<p>조달 금리를 낮추고
+운용 금리를 높이면
+은행은 돈을 법니다.</p>
+<p>자, 여기서 질문.
+조달 금리가 2%이고
+운용 금리가 5%라면,
+은행은 이걸 얼마나 해야 할까요?</p>
+<p>정답은 무한대입니다.</p>
+<p>내 돈은 하나도 안 들어가는데
+3%씩 남으니까요.
+그래서 정부가 은행업을 허가제로 묶어놓고,
+“예금의 8배, 10배까지만 해”라고
+규제로 막아놓는 겁니다.</p>
+<p>안 막으면 무조건
+무한대로 가게 되어 있는 게
+레버리지의 본질이거든요.</p>
+<p>이제 ‘은행’ 자리에 ‘빅테크’를 넣어보세요.
+똑같습니다.</p>
+<p>빅테크도 조달을 합니다.
+채권을 발행하고(“돈 좀 빌려주세요”),
+유상증자를 합니다(“주식 줄 테니 돈 좀 주세요”).</p>
+<p>그렇게 조달한 돈으로
+AI 데이터센터를 짓습니다.
+그게 운용입니다.
+그러면 남는 질문은 딱 하나예요.</p>
+<p>“조달 금리가 5~6%인데,
+데이터센터를 운용하면
+얼마를 벌 수 있는데?”</p>
+<p>채권 금리가 올랐다,
+CDS프리미람이 올랐다,
+이런 뉴스가 전부 이 질문으로 수렴합니다.</p>
+<p>만약 운용 수익률이
+조달 금리에 가까워지면 어떻게 될까요?</p>
+<p>은행으로 치면
+예금 금리가 대출 금리를 따라잡는 상황입니다.</p>
+<p>그 순간 대출을 회수해야 하고,
+레버리징이 디레버리징으로 바뀌고,
+그게 바로 버블이 터지는 순간입니다.</p>
+<p>그래서 이번 빅테크 실적 시즌에서
+제일 중요했던 질문은 이거였습니다.</p>
+<p>“너희, 데이터센터에서
+기대하는 수익률이
+도대체 얼마야?</p>
+<p>얼마나 높다고 생각하길래
+그렇게 투자하는 거야?”</p>
+<hr/>
+<h2 id="3-치킨집-회수-기간-3년의-의미">3. 치킨집 회수 기간 3년의 의미<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#3-치킨집-회수-기간-3년의-의미" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>그런데 이번에
+그 질문에 답을 할 수 있는
+근거가 될 숫자가 나왔습니다.</p>
+<p>아마존이 결정적인 역할을 했는데,
+아마존이 말한 숫자는 딱 하나였습니다.</p>
+<p>3년</p>
+<p>“For servers and networking equipment, on average, it takes a little less than 3 years to break even on that investment.”
+“서버와 네트워크 장비에 투자한 금액은 평균적으로 3년이 조금 안 돼 break-even에 도달한다.”</p>
+<p>치킨집에 비유해서
+생각해봅시다.</p>
+<p>치킨집 차리는 데 3억이 듭니다.
+인테리어도 하고 설비도 사야 하니까요.
+그런데 이 치킨집이
+1년에 1억씩 이익을 냅니다.
+그러면 투자금 회수에 몇 년 걸리죠?
+네~! 3년입니다.</p>
+<p>정확한 계산은 아니지만
+러프하게 생각해보면
+아마존이
+AI 데이터센터 사업에
+기대하는 수익률은
+30%는 가볍게 넘을 것 같네여!</p>
+<p>왜냐하면
+회수기간 3년이면
+1/3 = 33%인데
+아마존은
+데이터센터 하나 지으면
+6~7년은 쓴다고 했거든요</p>
+<p>다시 말하지면
+정확한 계산은 아닙니다.</p>
+<p>그런데 너무 활실하게
+조달금리 5~6%는
+귀여운 수준으로 보일만큼
+압도적인 수익률을 보고 있는 거 같습니다</p>
+<p>일론 머스크는 여기서 한술 더 떴습니다.
+“우리는 1년이면 뽑는데?”</p>
+<p>조달 금리 5~6%가 우스워지는,
+30~50% 수준의 수익률이 기대된다면?</p>
+<p>은행 얘기에서 답했던 그대로입니다.</p>
+<p>더 해야죠.
+더 적극적으로 투자해서
+최대한 많은
+데이터센터를
+더 지어야죠.</p>
+<p>안 지으면 바보입니다.
+이 숫자가 나오고 나서
+“이거 부도 나는 거 아니야?” 하던
+CDS 우려가 “아, 안 망하겠는데?”로 바뀐 겁니다.</p>
+<p>그러면 다음 질문은 자연스럽게 이겁니다.
+“그 치킨, 도대체 누가 그렇게 사 먹는데?“</p>
+<hr/>
+<h2 id="4-치킨을-사-먹는-사람들--그리고-5층-케이크">4. 치킨을 사 먹는 사람들 — 그리고 5층 케이크<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#4-치킨을-사-먹는-사람들--그리고-5층-케이크" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>데이터센터라는 치킨집에서
+파는 치킨은 ‘컴퓨팅’입니다.</p>
+<p>“계산하게 해주세요, 돈 낼게요.”
+이게 컴퓨팅이고,
+이걸 사 가는 회사가
+앤트로픽과 오픈AI 같은
+모델 회사들입니다.</p>
+<p>그런데 이 친구들이
+어떻게 주문을 해놨냐면,</p>
+<p>치킨집이 아직 리모델링 중인데
+3년 치 치킨을 미리 다 계약해놨습니다.</p>
+<p>“올해도 먹을 거고
+내년에도 먹을 거니까,
+미리 다 준비해 두세요.”</p>
+<p>이러니 빅테크 입장에서는
+미친 듯이 지을 수밖에요.</p>
+<p>숫자로 보면,
+일런 머스크가 지금 갖고 있는 치킨집이
+1~1.5기가와트 정도인데,
+올해 말까지 2기가와트,
+내년에는 10기가와트를 말하고 있습니다.</p>
+<p>치킨집 하나 조금 넘게 운영하면서
+내년에 열 개를 짓겠다는 겁니다.
+장사가 그만큼 잘될 것 같으니까요.</p>
+<p>여기서 젠슨 황이 말했던
+‘5층 케이크’ 프레임을 꺼내보겠습니다.</p>
+<ol>
+<li>1층: 에너지 — 전기가 있어야 합니다</li>
+<li>2층: 칩 — 엔비디아, 하이닉스</li>
+<li>3층: 인프라 — AI 데이터센터</li>
+<li>4층: 모델 — 앤트로픽, 오픈AI</li>
+<li>5층: 애플리케이션 — 아직 나오지 않은 그 무언가</li>
+</ol>
+<p>돈이 벌리는 층이
+아래에서부터 위로 올라오고 있습니다.</p>
+<p>처음에는
+에너지 회사들이 돈을 벌었고,
+그다음에 칩 회사들이 벌었고,</p>
+<p>지금은 인프라,
+즉 데이터센터가
+떼돈을 버는 구간으로
+넘어 온 것 같습니다.</p>
+<p>그렇다고 아래층이 돈을 못 버느냐?
+아닙니다.
+계속 법니다.</p>
+<p>다만 돈의 중심이
+위로 올라가고 있다는 겁니다.</p>
+<p>다음 차례는 모델이고,
+그 다음이 애플리케이션입니다.</p>
+<p>애플리케이션이 뭔지
+감이 안 오시면
+모바일 혁명을 떠올려보시면 됩니다.</p>
+<p>모바일 시대에
+돈을 제일 많이 번 회사가
+어디였습니까.</p>
+<p>광케이블 깔던 회사가 아니라
+애플, 구글, 페이스북이었습니다.</p>
+<p>인프라가 다 깔리고 난 뒤에,
+그 위에서 서비스를 만들어
+고객에게 판 회사들이
+최후의 승자였습니다.
+(물론 이번엔 다를 수 있지만)</p>
+<p>그러니까 AI는 아직 끝난 게 아닙니다.
+아직 5층은 구경도 못 했으니까요</p>
+<p>그런 서비스는 나오지도 않았어요.
+앤트로픽과 오픈AI도
+당연히 모델만 만들고
+끝낼 생각이 없을 겁니다.</p>
+<p>문제는,
+5층까지 가는 데
+돈이 생각보다 훨씬 많이 든다는 겁니다.</p>
+<p>원래 2~3년이면 될 줄 알았는데
+데이터센터가 더 필요하고
+컴퓨팅이 더 필요합니다.</p>
+<p>그래서 레버리지를 써서라도,
+순환출자 소리를 들어가면서라도
+계속 기를 쓰고 가는 거고요.</p>
+<p>리스크는 명확합니다.
+5층이 나오기 전에
+조달 금리와 운용 수익률이 부딪히면,
+그때 터지는 겁니다.</p>
+<p>그게 지금 시장이 걱정하는 지점입니다.
+하지만, 이번 빅테크 실적으로
+그런 우려는 거의
+대부분 해소되었다고 봅니다</p>
+<h2 id="5-그래서-지금-봐야-할-회사-앤트로픽">5. 그래서 지금 봐야 할 회사: 앤트로픽<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#5-그래서-지금-봐야-할-회사-앤트로픽" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>그러면 우리의 질문도
+한 단계 올라가야 합니다.</p>
+<p>처음 질문은
+“빅테크 돈 잘 벌어?”였습니다.
+현금 떨어진다던데?</p>
+<p>그건 이번 실적으로
+어느 정도 확인이 되었슴니다.</p>
+<p>그러면 다음 질문은 이겁니다.</p>
+<p>“컴퓨팅을 사 가는 애들,
+걔네는 사정이 괜찮아?”</p>
+<p>대표 선수가 둘입니다.</p>
+<p>앤트로픽과 오픈AI.</p>
+<p>여담 하나.
+이번 조정장에서 레오폴드가
+레버리지를 너무 써서 청산당했다는 얘기가 돌았잖아요.</p>
+<p>그런데 그 친구가 청산당하는 순간까지
+끝까지 안 판 회사가 하나 있습니다.</p>
+<p>바로 앤트로픽입니다.
+어쨌든, “죽어도 이건 못 팔겠다”는
+소리가 나오는 회사라는 겁니다.</p>
+<p>숫자를 보시죠.
+앤트로픽의 연환산 매출(ARR)입니다.
+연환산 매출이라는 건,
+이번 달에 1억을 벌었으면
+“이 속도면 1년에 12억이네”라고 환산하는 개념입니다.</p>
+<ul>
+<li>2025년 1월: 10억 달러 첫 돌파</li>
+<li>2026년 1월: 90억 달러 — 1년 만에 9배</li>
+<li>2026년 4월: 300억 달러</li>
+<li>2026년 5월: 470억 달러</li>
+</ul>
+<p>1년 반 만에
+무려 47배입니다.
+47배!!!!!</p>
+<p>매출이 1년에 20%만 늘어도
+대단한 회사라고 하는데,
+47배가 늘었습니다.</p>
+<p>지금 다들
+“이렇게 위험한데 왜 계속 달리는 거야?”라고 묻습니다.</p>
+<p>저도 솔직히 레버리지를
+이렇게까지 써도 되나 싶을 때가 있습니다.</p>
+<p>그런데 그들이 달리는 이유가
+바로 이 <a href=".././tags/숫자" class="tag-link internal alias" data-slug="tags/숫자">숫자</a> 입니다.</p>
+<p>제대로 된 애플리케이션은
+아직 내놓지도 않았는데
+매출이 이 속도로 늘고 있으니까요.</p>
+<p>오픈AI는 적자가 심각하다는 얘기가 나오는 와중에,
+앤트로픽은 이번 분기부터 흑자라는 이야기가 나옵니다.</p>
+<p>흑자가 나면 어떻게 할까요?
+돈을 더 조달해서,
+컴퓨팅을 다 잡아먹고,
+제일 좋은 모델을 계속 만들어서 1등을 지키려고 하겠죠.</p>
+<hr/>
+<h2 id="6-진짜-버블은-아직-시작도-안-했습니다">6. 진짜 버블은 아직 시작도 안 했습니다<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#6-진짜-버블은-아직-시작도-안-했습니다" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>여기서 제가 제일 하고 싶은 이야기가 나옵니다.</p>
+<p>지금까지 주가가 오른 회사들,
+그러니까 인프라를 깔던 회사들은
+정확하게 돈을 번 만큼 올랐습니다.</p>
+<p>하이닉스도 그렇고
+엔비디아도 그렇습니다.</p>
+<p>밸류에이션 멀티플이 오른게 아니라
+이익이 늘어난 만큼만 올랐어요.</p>
+<p>그래서 저는 지금까지의 상승을
+버블이라고 부르기 어렵다고 봅니다.
+실체가 있었으니까요.</p>
+<p>그런데 앤트로픽과 오픈AI는 다릅니다.
+이 회사들은 돈을 버는 만큼 오르는 게 아니라
+꿈을 보고 오를겁니다.</p>
+<p>이익이 아니라 매출의 ‘증가 속도’를 보고
+가격이 매겨질텐데,
+그때부터 버블이 시작될 지도 모릅니다.</p>
+<p>앤트로픽이
+아마 9~10월 사이에
+IPO를 할 겁니다.</p>
+<p>IPO를 한다는 건
+“우리 회사, 이 정도입니다”라고
+숫자를 전부 공개한다는 뜻입니다.</p>
+<p>지금 우리가 미심쩍게 보고 있는
+모든 것들이 그때 숫자로 증명되거나,
+증명에 실패하겠죠.
+그래서 저는 이렇게 생각합니다.</p>
+<p>AI 버블의 본격적인 시작은,
+앤트로픽의 상장부터일 수 있습니다.</p>
+<p>버블이 시작된다는 게
+곧 끝난다는 뜻이 아닙니다.</p>
+<p>오히려 그 반대입니다.
+닷컴도 그랬듯이,
+버블의 본편은 꿈이 상장되는 순간부터
+시작됐으니까요.</p>
+<hr/>
+<h2 id="7-마지막-변수-오픈웨이트-그리고-다시-컴퓨팅">7. 마지막 변수: 오픈웨이트, 그리고 다시 컴퓨팅<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#7-마지막-변수-오픈웨이트-그리고-다시-컴퓨팅" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>제가 걱정하는 게 하나 있습니다.
+중국 업체들입니다.</p>
+<p>키미 K3를 비롯해
+“어? 모델을 왜 이렇게 싸게 잘 만들었지?”
+싶은 것들이 계속 나오면서,</p>
+<p>“모델을 다 공개하자,
+오픈웨이트로 가자”는 주장이
+힘을 얻고 있습니다.</p>
+<p>모델이 공개되면 가격이 떨어지고,
+그러면 앤트로픽 같은 회사가 힘들어집니다.</p>
+<p>그런데 이 주장을
+제일 앞장서서 하는 사람이 누구냐면,
+젠슨 황입니다.</p>
+<p>오픈AI도 일부 모델을
+공개하는 쪽으로 움직이고 있고,
+앤트로픽도 아마 하위 라인업부터는
+조금씩 열기 시작할 것 같습니다.</p>
+<p>그런데 여기서 반전이 생깁니다!
+모델이 다 공개되면 어떻게 될까요?</p>
+<p>모델 앞단에서 &lt;무한 경쟁>이 벌어집니다.
+“어, 공개됐네? 그럼 나도 할 수 있겠는데?”
+하는 플레이어들이 쏟아져 나옵니다.
+그 사람들이 뭘 사러 올까요?</p>
+<p>컴퓨팅입니다.
+지금보다 더 필요해질 겁니다!</p>
+<p>그러니까 AI 사이클이
+제가 볼 때 계속 ‘지연’되고 있는 겁니다.</p>
+<p>“여기서 끝나고 다음 층으로 넘어가나?”
+싶으면</p>
+<p>“아 잠깐, 여기 또 해야 되네”가 반복되면서요.
+인프라의 시대가 끝날 듯 끝나지 않고
+계속 연장되는 구조입니다.</p>
+<hr/>
+<h2 id="정리하겠습니다">정리하겠습니다<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#정리하겠습니다" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>변동성이 지긋지긋하신 분들 많으실 겁니다.
+저도 잘 알고 있습니다.</p>
+<p>하지만 흔들린다는 것과
+끝났다는 것은 다른 이야기입니다.</p>
+<p>흔들려도 시장에 남아 있을 수 있는 크기로,
+같이 오래 살아남아
+AI투자를 계속 해봅시다!!</p>
+<p>읽어주셔서 감사합니다.</p>
+<p>p.s 이효석아카데미는 계속 AI투자를 잘하기 위한 방법론들을 찾고 고민하고 있습니다. 네이버프리미엄콘텐츠 구독자 1위인 이효석아카데미가 이번에 연간구독 할인이벤트를 시작합니다.</p>
+<p>엄청난 할인혜택과 효친클럽 초대, 그리고 PER다이어리까지 선물 받으실 수 있는 1년에 딱 한 번 있는 기회입니다.</p>
+<p>놓치지 말고 신청하세요~!
+<a href="https://naver.me/5ECrAkFJ" class="external">https://naver.me/5ECrAkFJ<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<hr/>
+<p><em>원문: <a href="http://youtube.com/post/UgkxMzgSx88zABQNmJ3_sqNvAxRPLM-Ptify?si=YcjKHYIIXBc7UddJ" class="external">http://youtube.com/post/UgkxMzgSx88zABQNmJ3_sqNvAxRPLM-Ptify<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></em></p></article><hr/><div class="page-footer"><div class="backlinks"><h3>백링크</h3><ul id="list-1" class="overflow"><li><a href="../garden/20260810-bigtech-became-banks-so-spread-decides-the-bubble" class="internal">빅테크는 은행이 되었다 — 버블의 종료 시점을 정하는 것은 심리가 아니라 조달금리와 운용수익률의 스프레드다</a></li><li><a href="../garden/20260810-certainty-and-desperation-force-leverage" class="internal">확실함과 간절함이 동시에 성립하면 모든 주체가 레버리지를 쓴다 — 그래서 AI 투자의 제1원칙은 변동성이다</a></li><li><a href="../garden/20260810-real-bubble-starts-when-dreams-get-listed" class="internal">지금까지의 상승은 버블이 아니었다 — 진짜 버블은 꿈이 상장되는 순간부터 시작된다</a></li><li><a href="../wiki/concepts/20260810-ai-capex-funding-spread" class="internal">AI 캐펙스 스프레드 — 빅테크의 은행화 모델</a></li><li><a href="../wiki/entities/20260810-anthropic" class="internal">Anthropic (앤트로픽)</a></li><li><a href="../wiki/entities/20260810-hyoseok-academy" class="internal">이효석아카데미</a></li><li class="overflow-end"></li></ul></div><div class="giscus" data-repo="dataofmen/quartz-wiki" data-repo-id="R_kgDOSOxrZA" data-category="General" data-category-id="DIC_kwDOSOxrZM4C-Edy" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-input-position="bottom" data-light-theme="light" data-dark-theme="dark" data-theme-url="https://dataofmen.github.io/static/giscus" data-lang="ko"></div></div></div><div class="right sidebar"><div class="graph desktop-only"><h3>그래프 뷰</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                  s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                  c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                  C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                  c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                  v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                  s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                  C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                  S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                  s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                  s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.5.2</a> © 2026</p><ul></ul></footer></div></div></body><script type="application/javascript" data-persist="true">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module" data-persist="true">function E(a,e){if(!a)return;function t(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function n(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}a?.addEventListener("click",t),window.addCleanup(()=>a?.removeEventListener("click",t)),document.addEventListener("keydown",n),window.addCleanup(()=>document.removeEventListener("keydown",n))}function f(a){for(;a.firstChild;)a.removeChild(a.firstChild)}var m=class{constructor(e,t){this.container=e;this.content=t;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),t=this.onMouseMove.bind(this),n=this.onMouseUp.bind(this),o=this.onTouchStart.bind(this),r=this.onTouchMove.bind(this),i=this.onTouchEnd.bind(this),s=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",t),document.addEventListener("mouseup",n),this.container.addEventListener("touchstart",o,{passive:!1}),document.addEventListener("touchmove",r,{passive:!1}),document.addEventListener("touchend",i),window.addEventListener("resize",s),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",t),()=>document.removeEventListener("mouseup",n),()=>this.container.removeEventListener("touchstart",o),()=>document.removeEventListener("touchmove",r),()=>document.removeEventListener("touchend",i),()=>window.removeEventListener("resize",s))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let t=this.createButton("+",()=>this.zoom(.1)),n=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(n),e.appendChild(o),e.appendChild(t),this.container.appendChild(e)}createButton(e,t){let n=document.createElement("button");return n.textContent=e,n.className="mermaid-control-button",n.addEventListener("click",t),window.addCleanup(()=>n.removeEventListener("click",t)),n}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}onTouchStart(e){if(e.touches.length!==1)return;this.isDragging=!0;let t=e.touches[0];this.startPan={x:t.clientX-this.currentPan.x,y:t.clientY-this.currentPan.y}}onTouchMove(e){if(!this.isDragging||e.touches.length!==1)return;e.preventDefault();let t=e.touches[0];this.currentPan={x:t.clientX-this.startPan.x,y:t.clientY-this.startPan.y},this.updateTransform()}onTouchEnd(){this.isDragging=!1}zoom(e){let t=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),n=this.content.getBoundingClientRect(),o=n.width/2,r=n.height/2,i=t-this.scale;this.currentPan.x-=o*i,this.currentPan.y-=r*i,this.scale=t,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){let t=this.content.querySelector("svg").getBoundingClientRect(),n=t.width/this.scale,o=t.height/this.scale;this.scale=1,this.currentPan={x:(this.container.clientWidth-n)/2,y:(this.container.clientHeight-o)/2},this.updateTransform()}},T=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],y;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;y||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let t=y.default,n=new WeakMap;for(let r of e)n.set(r,r.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let c=n.get(s);c&&(s.innerHTML=c)}let r=T.reduce((s,c)=>(s[c]=window.getComputedStyle(document.documentElement).getPropertyValue(c),s),{}),i=document.documentElement.getAttribute("saved-theme")==="dark";t.initialize({startOnLoad:!1,securityLevel:"loose",theme:i?"dark":"base",themeVariables:{fontFamily:r["--codeFont"],primaryColor:r["--light"],primaryTextColor:r["--darkgray"],primaryBorderColor:r["--tertiary"],lineColor:r["--darkgray"],secondaryColor:r["--secondary"],tertiaryColor:r["--tertiary"],clusterBkg:r["--light"],edgeLabelBackground:r["--highlight"]}}),await t.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let r=0;r<e.length;r++){let v=function(){let g=l.querySelector("#mermaid-space"),h=l.querySelector(".mermaid-content");if(!h)return;f(h);let w=i.querySelector("svg").cloneNode(!0);h.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new m(g,h)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},i=e[r],s=i.parentElement,c=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(c),L=c.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),E(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../postscript.js" type="module" data-persist="true"></script></html>
