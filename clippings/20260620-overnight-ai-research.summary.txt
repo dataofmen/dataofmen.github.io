@@ -1,0 +1,7 @@
+- saved_path: /Users/hmkwon/Projects/0004_Wikis/clippings/20260620-overnight-ai-research.md
+- collected_count: 10
+- top_theme: Triple structural stress — credit dispersion at recession levels (Oaktree), MSTR broken equity flywheel at 0.82x mNAV with first BTC sale since 2022, and BTC mining capitulation with 10% difficulty drop
+- top 3 titles:
+  1. MSTR at 0.82x-0.89x mNAV — Structural Break Analysis: Flywheel Broken, Preferred Dividends Compete with BTC
+  2. Oaktree "Dispersion Revisited" — CCC Spreads at Recession Levels, Software in Distress, Private Credit at Inflection
+  3. Stratechery: The Google Capital Company — $80B Equity Raise Signals Compute Demand Far Exceeds Expectations

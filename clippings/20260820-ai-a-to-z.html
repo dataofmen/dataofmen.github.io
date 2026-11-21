@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr"><head><title>AI 롱폼 제작 A to Z (프롬프트 전부 공개)</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto Sans KR:wght@400;700&amp;family=Noto Sans KR:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="dataofmen"/><meta property="og:title" content="AI 롱폼 제작 A to Z (프롬프트 전부 공개)"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="AI 롱폼 제작 A to Z (프롬프트 전부 공개)"/><meta name="twitter:description" content="AI 롱폼 제작 A to Z (프롬프트 전부 공개) “AI 롱폼, 도대체 어디서부터 시작해야 할지 막막하셨죠? AI로 유튜브 영상 만든다는 얘기는 많이 들었는데, 막상 시작하려니 어떤 툴을 써야 할지, 프롬프트는 어떻게 짜야 할지 막막하셨던 분들 많으실 거예요."/><meta property="og:description" content="AI 롱폼 제작 A to Z (프롬프트 전부 공개) “AI 롱폼, 도대체 어디서부터 시작해야 할지 막막하셨죠? AI로 유튜브 영상 만든다는 얘기는 많이 들었는데, 막상 시작하려니 어떤 툴을 써야 할지, 프롬프트는 어떻게 짜야 할지 막막하셨던 분들 많으실 거예요."/><meta property="og:image:alt" content="AI 롱폼 제작 A to Z (프롬프트 전부 공개) “AI 롱폼, 도대체 어디서부터 시작해야 할지 막막하셨죠? AI로 유튜브 영상 만든다는 얘기는 많이 들었는데, 막상 시작하려니 어떤 툴을 써야 할지, 프롬프트는 어떻게 짜야 할지 막막하셨던 분들 많으실 거예요."/><meta property="og:image" content="https://dataofmen.github.io/static/og-image.png"/><meta property="og:image:url" content="https://dataofmen.github.io/static/og-image.png"/><meta name="twitter:image" content="https://dataofmen.github.io/static/og-image.png"/><meta property="og:image:type" content="image/.png"/><meta property="twitter:domain" content="dataofmen.github.io"/><meta property="og:url" content="https://dataofmen.github.io/clippings/20260820-ai-a-to-z"/><meta property="twitter:url" content="https://dataofmen.github.io/clippings/20260820-ai-a-to-z"/><link rel="icon" href="../static/icon.png"/><meta name="description" content="AI 롱폼 제작 A to Z (프롬프트 전부 공개) “AI 롱폼, 도대체 어디서부터 시작해야 할지 막막하셨죠? AI로 유튜브 영상 만든다는 얘기는 많이 들었는데, 막상 시작하려니 어떤 툴을 써야 할지, 프롬프트는 어떻게 짜야 할지 막막하셨던 분들 많으실 거예요."/><meta name="generator" content="Quartz"/><link href="../index.css" rel="stylesheet" type="text/css" data-persist="true"/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiL2hvbWUvcnVubmVyL3dvcmsvcXVhcnR6LXdpa2kvcXVhcnR6LXdpa2kvcXVhcnR6L2NvbXBvbmVudHMvc3R5bGVzIiwic291cmNlcyI6WyJtZXJtYWlkLmlubGluZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFHRjtFQUNFOzs7QUFLRjtFQUNFO0VBQ0E7OztBQUlKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFOztBQUdGO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFJSjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTs7QUFJRjtFQUNFO0VBQ0E7RUFDQSIsInNvdXJjZXNDb250ZW50IjpbIi5leHBhbmQtYnV0dG9uIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbG9hdDogcmlnaHQ7XG4gIHBhZGRpbmc6IDAuNHJlbTtcbiAgbWFyZ2luOiAwLjNyZW07XG4gIHJpZ2h0OiAwOyAvLyBOT1RFOiByaWdodCB3aWxsIGJlIHNldCBpbiBtZXJtYWlkLmlubGluZS50c1xuICBjb2xvcjogdmFyKC0tZ3JheSk7XG4gIGJvcmRlci1jb2xvcjogdmFyKC0tZGFyayk7XG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWxpZ2h0KTtcbiAgYm9yZGVyOiAxcHggc29saWQ7XG4gIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgb3BhY2l0eTogMDtcbiAgdHJhbnNpdGlvbjogMC4ycztcblxuICAmID4gc3ZnIHtcbiAgICBmaWxsOiB2YXIoLS1saWdodCk7XG4gICAgZmlsdGVyOiBjb250cmFzdCgwLjMpO1xuICB9XG5cbiAgJjpob3ZlciB7XG4gICAgY3Vyc29yOiBwb2ludGVyO1xuICAgIGJvcmRlci1jb2xvcjogdmFyKC0tc2Vjb25kYXJ5KTtcbiAgfVxuXG4gICY6Zm9jdXMge1xuICAgIG91dGxpbmU6IDA7XG4gIH1cbn1cblxucHJlIHtcbiAgJjpob3ZlciA+IC5leHBhbmQtYnV0dG9uIHtcbiAgICBvcGFjaXR5OiAxO1xuICAgIHRyYW5zaXRpb246IDAuMnM7XG4gIH1cbn1cblxuI21lcm1haWQtY29udGFpbmVyIHtcbiAgcG9zaXRpb246IGZpeGVkO1xuICBjb250YWluOiBsYXlvdXQ7XG4gIHotaW5kZXg6IDk5OTtcbiAgbGVmdDogMDtcbiAgdG9wOiAwO1xuICB3aWR0aDogMTAwdnc7XG4gIGhlaWdodDogMTAwdmg7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIGRpc3BsYXk6IG5vbmU7XG4gIGJhY2tkcm9wLWZpbHRlcjogYmx1cig0cHgpO1xuICBiYWNrZ3JvdW5kOiByZ2JhKDAsIDAsIDAsIDAuNSk7XG5cbiAgJi5hY3RpdmUge1xuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgfVxuXG4gICYgPiAjbWVybWFpZC1zcGFjZSB7XG4gICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1saWdodCk7XG4gICAgYm9yZGVyLXJhZGl1czogNXB4O1xuICAgIHBvc2l0aW9uOiBmaXhlZDtcbiAgICB0b3A6IDUwJTtcbiAgICBsZWZ0OiA1MCU7XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGUoLTUwJSwgLTUwJSk7XG4gICAgaGVpZ2h0OiA4MHZoO1xuICAgIHdpZHRoOiA4MHZ3O1xuICAgIG92ZXJmbG93OiBoaWRkZW47XG5cbiAgICAmID4gLm1lcm1haWQtY29udGVudCB7XG4gICAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgICB0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7XG4gICAgICB0cmFuc2l0aW9uOiB0cmFuc2Zvcm0gMC4xcyBlYXNlO1xuICAgICAgb3ZlcmZsb3c6IHZpc2libGU7XG4gICAgICBtaW4taGVpZ2h0OiAyMDBweDtcbiAgICAgIG1pbi13aWR0aDogMjAwcHg7XG5cbiAgICAgIHByZSB7XG4gICAgICAgIG1hcmdpbjogMDtcbiAgICAgICAgYm9yZGVyOiBub25lO1xuICAgICAgfVxuXG4gICAgICBzdmcge1xuICAgICAgICBtYXgtd2lkdGg6IG5vbmU7XG4gICAgICAgIGhlaWdodDogYXV0bztcbiAgICAgIH1cbiAgICB9XG5cbiAgICAmID4gLm1lcm1haWQtY29udHJvbHMge1xuICAgICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgICAgYm90dG9tOiAyMHB4O1xuICAgICAgcmlnaHQ6IDIwcHg7XG4gICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgZ2FwOiA4cHg7XG4gICAgICBwYWRkaW5nOiA4cHg7XG4gICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1saWdodCk7XG4gICAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgICAgYm9yZGVyLXJhZGl1czogNnB4O1xuICAgICAgYm94LXNoYWRvdzogMCAycHggNHB4IHJnYmEoMCwgMCwgMCwgMC4xKTtcbiAgICAgIHotaW5kZXg6IDI7XG5cbiAgICAgIC5tZXJtYWlkLWNvbnRyb2wtYnV0dG9uIHtcbiAgICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICAgICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gICAgICAgIHdpZHRoOiAzMnB4O1xuICAgICAgICBoZWlnaHQ6IDMycHg7XG4gICAgICAgIHBhZGRpbmc6IDA7XG4gICAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0KTtcbiAgICAgICAgY29sb3I6IHZhcigtLWRhcmspO1xuICAgICAgICBib3JkZXItcmFkaXVzOiA0cHg7XG4gICAgICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICAgICAgZm9udC1zaXplOiAxNnB4O1xuICAgICAgICBmb250LWZhbWlseTogdmFyKC0tYm9keUZvbnQpO1xuICAgICAgICB0cmFuc2l0aW9uOiBhbGwgMC4ycyBlYXNlO1xuXG4gICAgICAgICY6aG92ZXIge1xuICAgICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIH1cblxuICAgICAgICAmOmFjdGl2ZSB7XG4gICAgICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKDFweCk7XG4gICAgICAgIH1cblxuICAgICAgICAvLyBTdHlsZSB0aGUgcmVzZXQgYnV0dG9uIGRpZmZlcmVudGx5XG4gICAgICAgICY6bnRoLWNoaWxkKDIpIHtcbiAgICAgICAgICB3aWR0aDogYXV0bztcbiAgICAgICAgICBwYWRkaW5nOiAwIDEycHg7XG4gICAgICAgICAgZm9udC1zaXplOiAxNHB4O1xuICAgICAgICB9XG4gICAgICB9XG4gICAgfVxuICB9XG59XG4iXX0= */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../prescript.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://dataofmen.github.io/index.xml"/></head><body data-slug="clippings/20260820-ai-a-to-z"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"></div><div class="center"><div class="page-header"><header><h2 class="page-title"><a href="..">dataofmen</a></h2><nav class="nav-links"><a href="/wiki" class="nav-link">wiki</a><a href="/garden" class="nav-link">garden</a><a href="/clippings" class="nav-link">clippings</a></nav><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 1rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>검색</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="검색어를 입력하세요" placeholder="검색어를 입력하세요"/><div class="search-layout" data-preview="true"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="다크 모드"><title>다크 모드</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="라이트 모드"><title>라이트 모드</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div></div></header><div class="popover-hint"><h1 class="article-title">AI 롱폼 제작 A to Z (프롬프트 전부 공개)</h1><p show-comma="true" class="content-meta"><time datetime="2026-08-20T00:00:00.000Z">2026년 8월 20일</time><span>32 min read</span></p><ul class="tags"><li><a href="../tags/thread" class="internal tag-link">thread</a></li><li><a href="../tags/x.com" class="internal tag-link">x.com</a></li></ul></div></div><article class="popover-hint"><h1 id="ai-롱폼-제작-a-to-z-프롬프트-전부-공개">AI 롱폼 제작 A to Z (프롬프트 전부 공개)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#ai-롱폼-제작-a-to-z-프롬프트-전부-공개" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>“AI 롱폼, 도대체 어디서부터 시작해야 할지 막막하셨죠?</p>
+<p>AI로 유튜브 영상 만든다는 얘기는 많이 들었는데, 막상 시작하려니 어떤 툴을 써야 할지, 프롬프트는 어떻게 짜야 할지 막막하셨던 분들 많으실 거예요.</p>
+<p>이 글 하나면 스크립트 작성부터 이미지·영상 생성, 편집, 썸네일까지 10분짜리 AI 롱폼 한 편을 처음부터 끝까지 만드실 수 있습니다.</p>
+<p>사용한 프롬프트도 전부 공개했으니, 복붙해서 따라오기만 하시면 돼요.</p>
+<p>심리학 채널을 예시로 들었지만, 주제만 바꾸면 어떤 분야든 똑같이 적용할 수 있습니다.</p>
+<ol>
+<li>벤치마킹할 채널 분석하기</li>
+</ol>
+<p>AI 롱폼을 만들 때 가장 먼저 해야 할 일은 잘 되고 있는 채널을 찾아 분석하는 것입니다. 맨땅에서 주제를 짜내는 것보다, 이미 검증된 채널의 성공 공식을 참고하는 게 훨씬 빠르고 안전하거든요.</p>
+<p>제가 선택한 채널: 한눈에 심리학</p>
+<p>개설일: 2025년 12월 21일 (약 5개월 전)</p>
+<p>구독자: 7만 명 돌파</p>
+<p>영상 개수: 33개</p>
+<p>5개월 만에 영상 33개로 구독자 7만 명을 모은 건 정말 잘하고 있는 채널입니다. 그중에서도 제가 주목한 건 조회수 82만을 기록한 영상이에요. 이 영상이 어떤 구조와 후킹 요소를 갖고 있는지 분석해서, 같은 공식으로 새로운 심리학 영상을 만들어볼 겁니다.</p>
+<p>💡 참고: 단순히 주제를 똑같이 베끼는 게 아니라, 구조와 패턴만 참고하고 내용은 완전히 새로 만들어야 합니다. 그래야 저작권에서 안전하고, 독자적인 채널로 키워나갈 수 있어요.</p>
+<ol start="2">
+<li>스크립트 만들기 (대본 작성)</li>
+</ol>
+<p>대본은 AI 롱폼의 뼈대입니다. 이 단계만 잘 잡으면 나머지 작업(이미지, 영상, 편집)은 그냥 끼워 맞추는 일이에요. 그래서 가장 공을 많이 들여야 하는 단계입니다.</p>
+<p>전체 흐름은 이렇습니다:</p>
+<p>원본 영상 스크립트 추출 → 줄거리 분석 → 새 주제 추천받기 → 기승전결 뼈대 만들기 → 5000자 대본 완성</p>
+<p>⚠️ 저작권 주의 : 원본 영상을 그대로 따라하면 저작권에 위반됩니다. 반드시 다른 내용으로 진행해주세요. 대본을 완성한 뒤에는 AI에게 “원본과 얼마나 비슷한지” 물어보고, 최대 20% 정도만 유사하게 조정하는 걸 추천합니다.</p>
+<p>2-1. 원본 영상 스크립트 추출하기</p>
+<p>먼저 1단계에서 골라둔 벤치마킹 영상의 스크립트를 가져옵니다.</p>
+<ol>
+<li>인기 있는 영상을 클릭합니다.</li>
+</ol>
+<p>저는 이 영상을 선택했습니다.</p>
+<ol start="2">
+<li>
+<p>영상 설명란에서 스크롤을 살짝 내리면 ‘스크립트 표시’ 버튼이 있습니다. 버튼을 클릭합니다.</p>
+</li>
+<li>
+<p>전체 스크립트 내용을 복사합니다.</p>
+</li>
+</ol>
+<p>2-2. AI로 줄거리 분석 + 새 주제 10개 추천받기</p>
+<p>복사한 스크립트를 가지고 제미나이, GPT, 클로드 중 사용하시는 AI 툴로 이동합니다. 저는 젠스파크의 제미나이를 사용했어요.</p>
+<ol>
+<li>
+<p>먼저 줄거리를 파악하게 합니다.</p>
+</li>
+<li>
+<p>그다음 같은 주제의 다른 콘텐츠를 추천받습니다.</p>
+</li>
+</ol>
+<p>그러면 이렇게 후킹 요소가 있는 가제목 10개를 추천해줍니다.</p>
+<p>💡 마음에 드는 제목이 없다면 “더 추천해줘”라고 하면 다른 주제를 다시 추천해줍니다.</p>
+<p>저는 7번 “절대 잊어버리지 않는 천재들의 꼼수 암기법 (해마를 자극하는 ‘기억의 궁전’)” 이 마음에 들어서 이걸로 진행할게요.</p>
+<p>2-3. 기승전결 뼈대 만들기</p>
+<p>주제를 정했다면 이제 대본의 뼈대를 잡습니다. 여기서 가장 중요한 건 기승전결 구조를 반드시 요청하는 것이에요. 이 구조 없이 대본을 뽑으면 단조롭고 지루해져서 시청자가 중간에 이탈하기 쉽습니다.</p>
+<p>2-4. 결과가 마음에 안 들 때 — 원본과 비교시키기</p>
+<p>그런데 첫 결과물이 너무 추상적이고 설명조로 나왔어요. “~을 다룹니다”, “~을 설명합니다” 같은 메타 설명만 가득해서 실제 대본으로 쓰기엔 부족했습니다.</p>
+<p>[저의 결과]</p>
+<p><strong>기 (도입): 평범한 뇌를 천재의 뇌로 바꾸는 마법의 열쇠</strong></p>
+<p>시청자들의 일상적인 고충을 건드리며 강렬한 호기심을 유발하는 단계입니다. 밤새워 영어 단어나 역사 연도를 달달 외웠지만, 다음 날 아침이면 거짓말처럼 백지상태가 되어버리는 허탈한 경험을 상기시킵니다. 그리고 세계 기억력 대회에서 수백 개의 무작위 숫자나 카드 팩을 단 몇 분 만에 완벽하게 외우는 ‘기억력 챔피언’들의 이야기를 꺼냅니다. 시청자들은 이들이 타고난 천재일 것이라고 생각하지만, 사실 이들의 뇌를 MRI로 촬영해 보면 일반인과 물리적인 구조가 전혀 다르지 않다는 충격적인 사실을 밝힙니다. 단지 이들은 뇌가 정보를 받아들이는 아주 특별한 ‘꼼수’를 하나 알고 있을 뿐이며, 고대 로마 시대부터 이어져 온 이 비법이 바로 오늘 소개할 ‘기억의 궁전(Method of Loci)‘이라는 점을 강조하며 본격적인 이야기를 시작합니다.</p>
+<p>이럴 땐 그냥 “다시 써줘”보다 원본 대본과 비교하게 만드는 게 훨씬 효과적입니다.</p>
+<p>그러면 AI가 두 대본을 객관적으로 분석해줍니다. 제 경우엔 이런 결과가 나왔어요:</p>
+<p>원본 대본은 ‘완벽한 맞춤형 과외’ 를 받는 듯한 구조 — 강력한 공감 → 과학적 원인 → 5단계 빌드업 → 3일 실천 루틴으로 이어지는 구조.시청자가 느끼는 재미는 예능적 웃음이 아니라 “아, 내가 이래서 공부를 못했구나!” 라는 유레카(깨달음)의 쾌감.</p>
+<p>분석 결과를 보니 원본 구조가 훨씬 좋아 보였습니다. 문제 제기 → 과학적 원인 → 단계별 해결책 → 실천 루틴 흐름을 그대로 가져가되, 기승전결로 재구성하기로 했어요.</p>
+<p>이번엔 훨씬 마음에 들게 나왔습니다.</p>
+<p>💡 꿀팁: AI 결과물이 마음에 안 들면 그냥 “다시”라고 하지 말고, 무엇이 왜 부족한지 비교 분석을 시킨 다음 다시 요청하세요. 결과물 퀄리티가 확 달라집니다.</p>
+<p>2-5. 완성본 요청 + 불필요한 요소 제거</p>
+<p>대본을 읽어봤을 때 마음에 들면 그대로 가시고, 아쉬운 부분이 있다면 구체적으로 어느 부분이 왜 아쉬운지 짚어서 다시 요청하시면 됩니다.</p>
+<p>그런데 보통 AI가 대본을 줄 때 이런 화면 지시문이 함께 붙어 나오는 경우가 있습니다. 이런 건 나레이션에 그대로 들어가면 안 되니까 제거 요청을 합니다.</p>
+<p>이제 깔끔한 나레이션 대본만 남았습니다.</p>
+<p>2-6. 클로드로 분량 확장하기 (5000자 이상)</p>
+<p>여기까지 받은 대본은 분량이 너무 적습니다. 10분짜리 롱폼을 만들려면 최소 5000자 이상은 필요해요. 그래서 클로드로 넘어갑니다.</p>
+<p>💡 왜 클로드로 넘어가는가? 분량이 긴 대본을 자연스럽게 풀어내는 데는 클로드가 강합니다. 제미나이는 구조 짜기와 아이디어 추천에 강하고, 클로드는 긴 글쓰기에 강해서 도구를 바꿔 쓰는 게 효율적입니다.</p>
+<p>클로드가 5000자 이상의 풍성한 대본을 뽑아줍니다. 한 번 읽어보시고 어색한 부분이 없다면 이대로 사용하시면 됩니다.</p>
+<p>📌 2단계 핵심 요약</p>
+<p>원본 영상 스크립트 추출 (유튜브 스크립트 표시 기능)</p>
+<p>제미나이/GPT로 새 주제 10개 추천받기</p>
+<p>마음에 드는 주제로 기승전결 뼈대 요청</p>
+<p>결과가 별로면 원본과 비교 분석시킨 뒤 재요청</p>
+<p>화면 지시문 등 불필요한 요소 제거</p>
+<p>클로드로 넘어가서 5000자 이상으로 확장</p>
+<p>⚠️ 원본과의 유사도는 20% 이내로 유지하세요!</p>
+<ol start="3">
+<li>이미지 만들기</li>
+</ol>
+<p>🛠 사용 도구: 제미나이(스타일 분석 + 프롬프트 생성) + 나노바나나(이미지 생성)</p>
+<p>대본이 완성됐다면 이제 영상에 들어갈 이미지를 만들 차례입니다.</p>
+<p>전체 흐름은 이렇습니다:</p>
+<p>스타일 정하기 → 스타일 프롬프트 추출 → 문장별 이미지 프롬프트 생성 → 테스트 이미지 1장 생성 → 전체 이미지 일괄 생성</p>
+<p>3-1. 어떤 스타일로 갈지 정하기</p>
+<p>먼저 벤치마킹 채널의 영상을 다시 한번 살펴봅니다. 어떤 캐릭터, 어떤 화풍을 쓰는지 파악하기 위해서예요.</p>
+<p>심리학 채널들을 분석해보니 대부분 두 가지 스타일 중 하나를 씁니다:</p>
+<p>💡 심리학 채널 이미지 스타일 두 가지  ① 졸라맨 스타일 — 단순한 캐릭터, 제작 부담 적음, 일관성 유지 쉬움 ② 인간 캐릭터 스타일 — 몰입감 좋음, 표정 표현 풍부, 일관성 유지 다소 어려움</p>
+<p>처음 만드시는 분이라면 졸라맨 스타일을 추천드립니다. 캐릭터가 단순할수록 매 이미지마다 동일하게 유지하기 쉽거든요. 저도 졸라맨으로 진행할게요.</p>
+<p>3-2. 스타일 프롬프트 추출하기</p>
+<p>원하는 스타일이 정해졌다면, 그 스타일을 AI가 이해할 수 있는 프롬프트로 바꿔야 합니다. 직접 영어 프롬프트를 짜는 건 어려우니까, 참고 이미지를 캡처해서 AI에게 분석을 맡기는 게 가장 빠릅니다.</p>
+<p>그러면 제미나이가 스타일 요소를 분해해서 프롬프트 키워드로 정리해줍니다.</p>
+<p>이 키워드 묶음이 앞으로 모든 이미지에 공통으로 들어갈 스타일 베이스입니다. 잘 저장해두세요.</p>
+<p>3-3. 문장별 이미지 프롬프트 한번에 생성하기</p>
+<p>이제 대본의 각 문장에 맞는 개별 프롬프트를 만들 차례입니다. 이게 이 단계에서 가장 중요한 작업이에요.</p>
+<p>💡 핵심 포인트: “각 문장에 맞춰서” 라는 말을 꼭 넣으세요.  이 한 줄이 없으면 AI가 대본 전체를 하나의 이미지로 뭉뚱그려 표현하려 합니다. “각 문장별로”라고 명시해야 문장 수만큼 개별 프롬프트를 뽑아줍니다. 나중에 영상 편집할 때 문장-이미지 매칭이 깔끔해져요. 가끔 문장별로 나오지 않는 경우는 다시 재요청 하시면서 프롬프트를 직접 수정해야합니다.</p>
+<p>이렇게 문장 수만큼 개별 프롬프트가 나옵니다</p>
+<p>3-4. 테스트 이미지 1장 먼저 생성하기</p>
+<p>여기서 바로 모든 이미지를 뽑으면 안 됩니다. 만약 스타일이 마음에 안 들면 수십 장을 다시 만들어야 하거든요.</p>
+<p>먼저 1번 프롬프트만 나노바나나에 넣어서 테스트 이미지 한 장을 생성해봅니다.</p>
+<p>원하는 느낌으로 나왔는지 꼼꼼히 확인하세요. 캐릭터 생김새, 색감, 분위기가 마음에 들면 다음 단계로, 아쉬우면 3-2의 키워드를 조정한 뒤 다시 테스트합니다.</p>
+<p>⚠️ 반드시 체크할 것이미지 비율은 16:9로 설정 (롱폼 영상은 가로형)</p>
+<p>캐릭터 생김새가 내가 의도한 것과 일치하는지</p>
+<p>배경 톤이 일관되게 나올 수 있는 스타일인지</p>
+<p>3-5. 전체 이미지 일괄 생성하기</p>
+<p>테스트 이미지가 마음에 들었다면 이제 나머지 프롬프트를 모두 돌려서 전체 이미지를 생성합니다.</p>
+<p>💡젠스파크</p>
+<p>저는  젠스파크에서 세 가지 AI를 한 화면에서 사용했어요. 프롬프트 생성과 이미지 생성을 같은 창에서 처리할 수 있어 편합니다.</p>
+<p>📌 3단계 핵심 요약</p>
+<p>벤치마킹 채널의 이미지 스타일 분석 (졸라맨 vs 인간 캐릭터)</p>
+<p>참고 이미지 캡처 → 제미나이로 스타일 프롬프트 추출</p>
+<p>추출한 스타일 + 대본 → 문장별 이미지 프롬프트 일괄 생성</p>
+<p>테스트 이미지 1장 먼저 생성해서 스타일 확인</p>
+<p>만족스러우면 나머지 전체 이미지 생성 (비율은 반드시 16:9)</p>
+<ol start="4">
+<li>영상 만들기 (이미지 → 동영상 변환)</li>
+</ol>
+<p>🛠 사용 도구: 제미나이(영상 프롬프트 생성) + 그록(영상 생성)</p>
+<p>이미지가 모두 준비됐다면 이제 그 이미지들을 움직이는 영상으로 바꿀 차례입니다. 정지 이미지만 쓰면 영상이 단조로워 보이거든요. 핵심 장면들은 짧은 영상(6초 ~ 10초 내외)으로 만들어주면 훨씬 풍성한 롱폼이 됩니다. 저는 6초로 만들어볼게요.</p>
+<p>전체 흐름은 이렇습니다:</p>
+<p>영상 프롬프트 일괄 생성 → 그록에 이미지 + 프롬프트 입력 → 6초 영상 생성 → 반복</p>
+<p>💡 이미지를 전부 영상으로 바꿔야 하나요? 그럴 필요 없습니다. 영상 1개당 생성 시간과 비용이 꽤 들기 때문에, 장면 전환이 큰 부분이나 강조하고 싶은 핵심 장면만 영상으로 만들고 나머지는 이미지로 가도 상관없습니다. 벤치마킹 채널을 참고해서 진행하면 됩니다.</p>
+<p>4-1. 영상 프롬프트 일괄 생성하기</p>
+<p>3단계에서 이미지 프롬프트를 만들었던 그 대화창에서 바로 이어서 영상 프롬프트를 요청합니다. 같은 맥락에서 이어가야 이미지와 영상의 흐름이 어색하지 않거든요.</p>
+<p>4-2. 그록에서 영상 생성하기</p>
+<p>프롬프트가 준비됐다면 그록으로 이동합니다. 3단계에서 만든 이미지를 첨부하고, 방금 생성한 영상 프롬프트를 함께 입력하세요.</p>
+<p>생성된 영상을 확인하고, 만족스러우면 다음 장면으로 넘어갑니다. 이런 식으로 필요한 모든 장면의 영상을 만드시면 됩니다.</p>
+<p>⚠️ 체크리스트이미지와 영상의 캐릭터·스타일이 일치하는지</p>
+<p>움직임이 너무 과하지 않고 자연스러운지</p>
+<p>영상 비율이 16:9인지</p>
+<p>📌 4단계 핵심 요약</p>
+<p>3단계 대화창에서 이어서 영상 프롬프트 일괄 생성</p>
+<p>그록에 이미지 + 프롬프트 입력해서 6 ~ 10초 영상 생성</p>
+<ol start="5">
+<li>편집하기 (Vrew로 합치기)</li>
+</ol>
+<p>🛠 사용 도구: Vrew (TTS + 영상 편집)</p>
+<p>이제 만들어둔 이미지와 영상을 하나의 롱폼으로 합칠 차례입니다. 영상 편집 프로그램으로 많이 쓰는 건 캡컷과 Vrew(브루) 두 가지인데, 저는 아티클 작성용이기 때문에 Vrew를 선택했어요.</p>
+<p>💡 TTS 도구 선택 가이드Vrew TTS — 무료, 편집과 통합되어 편함</p>
+<p>일레븐랩스 — 유료, 가장 자연스러운 음성, 영어 강세</p>
+<p>타입캐스트 — 유료, 한국어 음성 퀄리티 최상</p>
+<p>📌 Vrew의 자세한 사용법은 공식 홈페이지에서 직접 확인해주세요. 여기서는 핵심 흐름만 짚어드릴게요.</p>
+<p>5-1. 새 프로젝트 만들기</p>
+<p>Vrew를 실행하고 ‘새로 만들기’ 를 클릭합니다.</p>
+<p>여러 옵션 중 ‘텍스트로 비디오 만들기’ 를 선택합니다. 우리는 이미 대본이 준비되어 있으니까요.</p>
+<p>5-2. 대본 붙여넣기 + 정리</p>
+<p>2단계에서 완성한 대본을 붙여넣고, 불필요한 부분은 지워줍니다.</p>
+<p>정리가 끝나면 다음을 클릭합니다.</p>
+<p>5-3. TTS 성우 목소리 선택</p>
+<p>성우 목록에서 헤드셋 아이콘을 클릭하면 목소리를 미리 들어볼 수 있습니다. 채널 콘셉트와 어울리는 목소리를 골라주세요.</p>
+<p>저는 가현1 로 선택했어요. 차분한 톤이라 심리학 콘텐츠에 잘 어울린다고 생각했</p>
+<p>5-4. 자동 생성 옵션 모두 끄기</p>
+<p>Vrew는 기본적으로 이미지·비디오·배경음악을 자동으로 넣어주는데, 우리는 직접 만든 이미지와 영상이 따로 있으니 모두 ‘사용 안 함’ 으로 설정합니다.</p>
+<p>배경음악도 일단 ‘사용 안 함’으로 두고, 필요하면 나중에 추가하시면 됩니다.</p>
+<p>설정이 끝나면 완료 버튼을 클릭해서 비디오를 생성합니다.</p>
+<p>5-5. 직접 만든 이미지·영상 삽입하기</p>
+<p>아티클 이미지 갯수를 초과하여 하나의 이미지만 사용합니다. 브루에서 사용 방법을 확인해주세요</p>
+<p>이제 핵심 작업입니다. Vrew가 대본을 문장 단위로 끊어서 빈 클립을 만들어줬을 거예요. 여기에 3단계에서 만든 이미지와 4단계에서 만든 영상을 매칭해서 넣습니다.</p>
+<p>영상이나 이미지를 끌어서 가져오면 클립에 추가되고, ‘잘라서 채우기’ 를 클릭하면 화면에 꽉 차게 들어갑니다.</p>
+<p>⚠️ 체크할 것영상의 원본 소리는 꺼주세요 (TTS와 겹치면 안 됩니다)</p>
+<p>한 영상을 어느 문장까지 적용할지는 직접 보면서 조정</p>
+<p>5-6. TTS 음성 다듬기 + 내보내기</p>
+<p>이미지와 영상을 모두 매칭했다면 처음부터 끝까지 한 번 재생해보세요. TTS가 자연스럽게 읽지 못하는 부분이 분명히 있을 거예요.</p>
+<p>띄어쓰기를 잘못 읽는 부분</p>
+<p>외래어 발음이 어색한 부분</p>
+<p>끊어 읽기가 부자연스러운 부분</p>
+<p>이런 곳은 띄어쓰기를 조정하거나 글자를 살짝 바꿔서 다시 생성하시면 됩니다. 이 작업이 영상 퀄리티를 가장 크게 좌우합니다.</p>
+<p>문제가 없다면 내보내기 → 영상 파일(mp4) 로 내보내면 끝입니다.</p>
+<ol start="6">
+<li>썸네일 만들기</li>
+</ol>
+<p>🛠 사용 도구: 제미나이(프롬프트 생성) + 나노바나나 or GPT(이미지 생성) + 미리캔버스(텍스트 편집, 선택)</p>
+<p>영상이 완성됐다면 마지막 관문, 썸네일입니다.</p>
+<p>전체 흐름은 이렇습니다:</p>
+<p>원본 썸네일 분석 → 썸네일 프롬프트 생성 → 이미지 생성 → 제목 텍스트 입히기</p>
+<p>6-1. 원본 썸네일 분석 + 프롬프트 생성</p>
+<p>벤치마킹 채널의 잘 된 영상 썸네일을 캡처해서 첨부한 뒤, 비슷한 느낌으로 프롬프트를 뽑아달라고 요청합니다.</p>
+<p>6-2. 썸네일 이미지 생성</p>
+<p>생성된 프롬프트를 나노바나나 또는 GPT에 넣어서 썸네일 이미지를 만듭니다.</p>
+<p>마음에 들 때까지 몇 번 다시 생성해보세요. 저는 마음에 들어서 바로 사용할게요.</p>
+<p>6-3. 제목 텍스트 입히기</p>
+<p>이미지가 준비됐다면 그 위에 제목 텍스트를 올립니다. 두 가지 방법이 있어요:</p>
+<p>방법 1: 미리캔버스 (추천) 폰트·크기·색상을 직접 조정할 수 있어 자유도가 높습니다. 무료 사용 가능하고, 썸네일 템플릿도 많아요.방법 2: GPT 이미지 생성 텍스트까지 한 번에 만들어주지만, 폰트 선택권이 적고 한글 텍스트가 가끔 깨질 수 있습니다.</p>
+<p>6-4. 제목 문구 다듬기</p>
+<p>대본 주제를 그대로 써도 되지만, AI에게 더 후킹 있는 제목 후보를 받아보시면 좋습니다.</p>
+<p>대본 원제: 절대 잊어버리지 않는 천재들의 꼼수 암기법</p>
+<p>저는 이걸 좀 더 직관적으로 다듬어서 → “한 번 보면 절대 안 까먹는 천재들의 암기법” 으로 정했어요.</p>
+<p>GPT로 만들었더니 이렇게 나왔네요. 저는 마음에 들어서 그대로 사용할게요. 만약 마음에 안든다면 여러번 다시 시도하시면 됩니다.</p>
+<ol start="7">
+<li>마무리</li>
+</ol>
+<p>이렇게 해서 심리학 AI 롱폼 영상 한 편이 완성됐습니다.</p>
+<p>처음 시작할 때는 “이걸 내가 할 수 있을까?” 싶으셨을 텐데, 막상 따라와보니 생각보다 어렵지 않으셨죠? 저도 처음엔 막막했지만, 한 번 흐름을 잡으면 그다음부터는 쉽게 할 수 있는 작업입니다.</p>
+<p>전체 흐름 한눈에 다시 보기</p>
+<p>1️⃣ 벤치마킹 채널 분석     → 잘 되는 채널의 공식 찾기</p>
+<p>2️⃣ 스크립트 만들기        → 제미나이 + 클로드로 5000자 대본</p>
+<p>3️⃣ 이미지 만들기          → 나노바나나로 일관된 캐릭터 생성</p>
+<p>4️⃣ 영상 만들기            → 그록으로 6초 단위 영상 제작</p>
+<p>5️⃣ 편집하기              → Vrew로 TTS + 합치기</p>
+<p>6️⃣ 썸네일 만들기          → 클릭률 90%를 결정하는 마지막 관문</p>
+<p>이 흐름은 심리학뿐 아니라 자기계발, 역사, 경제, 미스터리 등 어떤 주제에도 똑같이 적용됩니다. 주제만 바꿔서 본인만의 채널을 만들어보세요.</p>
+<p>⚠️ 시작하기 전 반드시 알아야 할 것</p>
+<p>여기서 끝내면 안 됩니다. 이 글을 끝까지 읽으신 분들께 가장 중요한 이야기를 드릴게요.</p>
+<p>2025년 7월부터 유튜브는 AI로만 양산된 영상에 대한 단속을 대폭 강화했습니다. 단순히 AI로 생성한 이미지·음성·영상만으로 만든 채널들은 수익화 박탈, 채널 정지 사례가 속출하고 있어요.</p>
+<p>반드시 허위콘텐츠 관련 아티클을 읽어주시고, 사람이 직접 개입했다는 흔적을 남겨서 운영하시는게 가장 안전합니다. (사람이 등장하는게 가장 안전하며, 수익정지 되지 않은 채널들이 어떻게 운영하는지 참고해보세요)</p>
+<p>마지막으로</p>
+<p>만들기만 하는 것으로는 부족합니다.</p>
+<p>수익화에 성공하시려면 결국 분석이 필요해요.</p>
+<p>분석 없이 만들기만 한다면 어쩌다 한두 번 조회수가 잘 나올 순 있어도, 꾸준히 잘 나오긴 어렵습니다. 운으로 한 번 터지는 것과, 계속 터뜨리는 것은 완전히 다른 영역이거든요.</p>
+<p>그러니 반드시 잘되는 채널들을 분석해서 본인의 채널에 적용해보시길 바랍니다.</p>
+<hr/>
+<p><em>원문: <a href="https://x.com/anna_creator00/status/2053756754119286954?s=20" class="external">https://x.com/anna_creator00/status/2053756754119286954?s=20<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></em></p></article><hr/><div class="page-footer"><div class="backlinks"><h3>백링크</h3><ul id="list-1" class="overflow"><li><a href="../garden/20260820-a-to-z-guide-refutes-its-own-six-steps" class="internal">A to Z 가이드의 마지막 문단이 앞의 여섯 단계를 부정한다</a></li><li><a href="../garden/20260820-batch-consistency-is-bought-by-reducing-expressiveness" class="internal">배치 생성의 일관성은 표현력을 깎아서 사는 것이다</a></li><li><a href="../garden/20260820-regeneration-needs-an-evaluator-not-an-instruction" class="internal">재생성 요청에 부족한 것은 지시가 아니라 평가 기준이다</a></li><li><a href="../wiki/concepts/20260820-ai-longform-production-pipeline" class="internal">AI 롱폼 6단계 제작 파이프라인</a></li><li><a href="../wiki/entities/20260820-vrew" class="internal">Vrew (브루)</a></li><li class="overflow-end"></li></ul></div><div class="giscus" data-repo="dataofmen/quartz-wiki" data-repo-id="R_kgDOSOxrZA" data-category="General" data-category-id="DIC_kwDOSOxrZM4C-Edy" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-input-position="bottom" data-light-theme="light" data-dark-theme="dark" data-theme-url="https://dataofmen.github.io/static/giscus" data-lang="ko"></div></div></div><div class="right sidebar"><div class="graph desktop-only"><h3>그래프 뷰</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                  s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                  c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                  C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                  c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                  v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                  s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                  C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                  S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                  s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                  s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.5.2</a> © 2026</p><ul></ul></footer></div></div></body><script type="application/javascript" data-persist="true">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module" data-persist="true">function E(a,e){if(!a)return;function t(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function n(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}a?.addEventListener("click",t),window.addCleanup(()=>a?.removeEventListener("click",t)),document.addEventListener("keydown",n),window.addCleanup(()=>document.removeEventListener("keydown",n))}function f(a){for(;a.firstChild;)a.removeChild(a.firstChild)}var m=class{constructor(e,t){this.container=e;this.content=t;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),t=this.onMouseMove.bind(this),n=this.onMouseUp.bind(this),o=this.onTouchStart.bind(this),r=this.onTouchMove.bind(this),i=this.onTouchEnd.bind(this),s=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",t),document.addEventListener("mouseup",n),this.container.addEventListener("touchstart",o,{passive:!1}),document.addEventListener("touchmove",r,{passive:!1}),document.addEventListener("touchend",i),window.addEventListener("resize",s),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",t),()=>document.removeEventListener("mouseup",n),()=>this.container.removeEventListener("touchstart",o),()=>document.removeEventListener("touchmove",r),()=>document.removeEventListener("touchend",i),()=>window.removeEventListener("resize",s))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let t=this.createButton("+",()=>this.zoom(.1)),n=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(n),e.appendChild(o),e.appendChild(t),this.container.appendChild(e)}createButton(e,t){let n=document.createElement("button");return n.textContent=e,n.className="mermaid-control-button",n.addEventListener("click",t),window.addCleanup(()=>n.removeEventListener("click",t)),n}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}onTouchStart(e){if(e.touches.length!==1)return;this.isDragging=!0;let t=e.touches[0];this.startPan={x:t.clientX-this.currentPan.x,y:t.clientY-this.currentPan.y}}onTouchMove(e){if(!this.isDragging||e.touches.length!==1)return;e.preventDefault();let t=e.touches[0];this.currentPan={x:t.clientX-this.startPan.x,y:t.clientY-this.startPan.y},this.updateTransform()}onTouchEnd(){this.isDragging=!1}zoom(e){let t=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),n=this.content.getBoundingClientRect(),o=n.width/2,r=n.height/2,i=t-this.scale;this.currentPan.x-=o*i,this.currentPan.y-=r*i,this.scale=t,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){let t=this.content.querySelector("svg").getBoundingClientRect(),n=t.width/this.scale,o=t.height/this.scale;this.scale=1,this.currentPan={x:(this.container.clientWidth-n)/2,y:(this.container.clientHeight-o)/2},this.updateTransform()}},T=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],y;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;y||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let t=y.default,n=new WeakMap;for(let r of e)n.set(r,r.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let c=n.get(s);c&&(s.innerHTML=c)}let r=T.reduce((s,c)=>(s[c]=window.getComputedStyle(document.documentElement).getPropertyValue(c),s),{}),i=document.documentElement.getAttribute("saved-theme")==="dark";t.initialize({startOnLoad:!1,securityLevel:"loose",theme:i?"dark":"base",themeVariables:{fontFamily:r["--codeFont"],primaryColor:r["--light"],primaryTextColor:r["--darkgray"],primaryBorderColor:r["--tertiary"],lineColor:r["--darkgray"],secondaryColor:r["--secondary"],tertiaryColor:r["--tertiary"],clusterBkg:r["--light"],edgeLabelBackground:r["--highlight"]}}),await t.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let r=0;r<e.length;r++){let v=function(){let g=l.querySelector("#mermaid-space"),h=l.querySelector(".mermaid-content");if(!h)return;f(h);let w=i.querySelector("svg").cloneNode(!0);h.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new m(g,h)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},i=e[r],s=i.parentElement,c=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(c),L=c.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),E(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../postscript.js" type="module" data-persist="true"></script></html>
