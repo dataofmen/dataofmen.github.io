@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr"><head><title>@29meat_ai (にく):</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto Sans KR:wght@400;700&amp;family=Noto Sans KR:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="dataofmen"/><meta property="og:title" content="@29meat_ai (にく):"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="@29meat_ai (にく):"/><meta name="twitter:description" content="@29meat_ai (にく): Article: 海外AIガチ勢のCodex × Jev活用の教科書【最新版】 必要なファイルを調べ、コードを書き、テストをして、問題があれば直す。その途中で何度も呼び戻されるより、完成したものを確認する方が助かります。 でも、任せる範囲を広げることと、途中にあるすべての判断を同じAIへ集めることは、必ずしも同じではありません。 「この依頼には、どのモデルを使う？」「次に読むべき情報はどれ？」「この結論を出すだけの証拠はそろった？」 コードを書く仕事の周囲には、こうした選択や確認があります。そこだけを別の判断役へ渡し、Codexには調査や実装を続けてもらう。 ..."/><meta property="og:description" content="@29meat_ai (にく): Article: 海外AIガチ勢のCodex × Jev活用の教科書【最新版】 必要なファイルを調べ、コードを書き、テストをして、問題があれば直す。その途中で何度も呼び戻されるより、完成したものを確認する方が助かります。 でも、任せる範囲を広げることと、途中にあるすべての判断を同じAIへ集めることは、必ずしも同じではありません。 「この依頼には、どのモデルを使う？」「次に読むべき情報はどれ？」「この結論を出すだけの証拠はそろった？」 コードを書く仕事の周囲には、こうした選択や確認があります。そこだけを別の判断役へ渡し、Codexには調査や実装を続けてもらう。 ..."/><meta property="og:image:alt" content="@29meat_ai (にく): Article: 海外AIガチ勢のCodex × Jev活用の教科書【最新版】 必要なファイルを調べ、コードを書き、テストをして、問題があれば直す。その途中で何度も呼び戻されるより、完成したものを確認する方が助かります。 でも、任せる範囲を広げることと、途中にあるすべての判断を同じAIへ集めることは、必ずしも同じではありません。 「この依頼には、どのモデルを使う？」「次に読むべき情報はどれ？」「この結論を出すだけの証拠はそろった？」 コードを書く仕事の周囲には、こうした選択や確認があります。そこだけを別の判断役へ渡し、Codexには調査や実装を続けてもらう。 ..."/><meta property="og:image" content="https://dataofmen.github.io/static/og-image.png"/><meta property="og:image:url" content="https://dataofmen.github.io/static/og-image.png"/><meta name="twitter:image" content="https://dataofmen.github.io/static/og-image.png"/><meta property="og:image:type" content="image/.png"/><meta property="twitter:domain" content="dataofmen.github.io"/><meta property="og:url" content="https://dataofmen.github.io/clippings/20260926-29meat-ai"/><meta property="twitter:url" content="https://dataofmen.github.io/clippings/20260926-29meat-ai"/><link rel="icon" href="../static/icon.png"/><meta name="description" content="@29meat_ai (にく): Article: 海外AIガチ勢のCodex × Jev活用の教科書【最新版】 必要なファイルを調べ、コードを書き、テストをして、問題があれば直す。その途中で何度も呼び戻されるより、完成したものを確認する方が助かります。 でも、任せる範囲を広げることと、途中にあるすべての判断を同じAIへ集めることは、必ずしも同じではありません。 「この依頼には、どのモデルを使う？」「次に読むべき情報はどれ？」「この結論を出すだけの証拠はそろった？」 コードを書く仕事の周囲には、こうした選択や確認があります。そこだけを別の判断役へ渡し、Codexには調査や実装を続けてもらう。 ..."/><meta name="generator" content="Quartz"/><link href="../index.css" rel="stylesheet" type="text/css" data-persist="true"/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiL2hvbWUvcnVubmVyL3dvcmsvcXVhcnR6LXdpa2kvcXVhcnR6LXdpa2kvcXVhcnR6L2NvbXBvbmVudHMvc3R5bGVzIiwic291cmNlcyI6WyJtZXJtYWlkLmlubGluZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFHRjtFQUNFOzs7QUFLRjtFQUNFO0VBQ0E7OztBQUlKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFOztBQUdGO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFJSjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTs7QUFJRjtFQUNFO0VBQ0E7RUFDQSIsInNvdXJjZXNDb250ZW50IjpbIi5leHBhbmQtYnV0dG9uIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbG9hdDogcmlnaHQ7XG4gIHBhZGRpbmc6IDAuNHJlbTtcbiAgbWFyZ2luOiAwLjNyZW07XG4gIHJpZ2h0OiAwOyAvLyBOT1RFOiByaWdodCB3aWxsIGJlIHNldCBpbiBtZXJtYWlkLmlubGluZS50c1xuICBjb2xvcjogdmFyKC0tZ3JheSk7XG4gIGJvcmRlci1jb2xvcjogdmFyKC0tZGFyayk7XG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWxpZ2h0KTtcbiAgYm9yZGVyOiAxcHggc29saWQ7XG4gIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgb3BhY2l0eTogMDtcbiAgdHJhbnNpdGlvbjogMC4ycztcblxuICAmID4gc3ZnIHtcbiAgICBmaWxsOiB2YXIoLS1saWdodCk7XG4gICAgZmlsdGVyOiBjb250cmFzdCgwLjMpO1xuICB9XG5cbiAgJjpob3ZlciB7XG4gICAgY3Vyc29yOiBwb2ludGVyO1xuICAgIGJvcmRlci1jb2xvcjogdmFyKC0tc2Vjb25kYXJ5KTtcbiAgfVxuXG4gICY6Zm9jdXMge1xuICAgIG91dGxpbmU6IDA7XG4gIH1cbn1cblxucHJlIHtcbiAgJjpob3ZlciA+IC5leHBhbmQtYnV0dG9uIHtcbiAgICBvcGFjaXR5OiAxO1xuICAgIHRyYW5zaXRpb246IDAuMnM7XG4gIH1cbn1cblxuI21lcm1haWQtY29udGFpbmVyIHtcbiAgcG9zaXRpb246IGZpeGVkO1xuICBjb250YWluOiBsYXlvdXQ7XG4gIHotaW5kZXg6IDk5OTtcbiAgbGVmdDogMDtcbiAgdG9wOiAwO1xuICB3aWR0aDogMTAwdnc7XG4gIGhlaWdodDogMTAwdmg7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIGRpc3BsYXk6IG5vbmU7XG4gIGJhY2tkcm9wLWZpbHRlcjogYmx1cig0cHgpO1xuICBiYWNrZ3JvdW5kOiByZ2JhKDAsIDAsIDAsIDAuNSk7XG5cbiAgJi5hY3RpdmUge1xuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgfVxuXG4gICYgPiAjbWVybWFpZC1zcGFjZSB7XG4gICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1saWdodCk7XG4gICAgYm9yZGVyLXJhZGl1czogNXB4O1xuICAgIHBvc2l0aW9uOiBmaXhlZDtcbiAgICB0b3A6IDUwJTtcbiAgICBsZWZ0OiA1MCU7XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGUoLTUwJSwgLTUwJSk7XG4gICAgaGVpZ2h0OiA4MHZoO1xuICAgIHdpZHRoOiA4MHZ3O1xuICAgIG92ZXJmbG93OiBoaWRkZW47XG5cbiAgICAmID4gLm1lcm1haWQtY29udGVudCB7XG4gICAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgICB0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7XG4gICAgICB0cmFuc2l0aW9uOiB0cmFuc2Zvcm0gMC4xcyBlYXNlO1xuICAgICAgb3ZlcmZsb3c6IHZpc2libGU7XG4gICAgICBtaW4taGVpZ2h0OiAyMDBweDtcbiAgICAgIG1pbi13aWR0aDogMjAwcHg7XG5cbiAgICAgIHByZSB7XG4gICAgICAgIG1hcmdpbjogMDtcbiAgICAgICAgYm9yZGVyOiBub25lO1xuICAgICAgfVxuXG4gICAgICBzdmcge1xuICAgICAgICBtYXgtd2lkdGg6IG5vbmU7XG4gICAgICAgIGhlaWdodDogYXV0bztcbiAgICAgIH1cbiAgICB9XG5cbiAgICAmID4gLm1lcm1haWQtY29udHJvbHMge1xuICAgICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgICAgYm90dG9tOiAyMHB4O1xuICAgICAgcmlnaHQ6IDIwcHg7XG4gICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgZ2FwOiA4cHg7XG4gICAgICBwYWRkaW5nOiA4cHg7XG4gICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1saWdodCk7XG4gICAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgICAgYm9yZGVyLXJhZGl1czogNnB4O1xuICAgICAgYm94LXNoYWRvdzogMCAycHggNHB4IHJnYmEoMCwgMCwgMCwgMC4xKTtcbiAgICAgIHotaW5kZXg6IDI7XG5cbiAgICAgIC5tZXJtYWlkLWNvbnRyb2wtYnV0dG9uIHtcbiAgICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICAgICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gICAgICAgIHdpZHRoOiAzMnB4O1xuICAgICAgICBoZWlnaHQ6IDMycHg7XG4gICAgICAgIHBhZGRpbmc6IDA7XG4gICAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0KTtcbiAgICAgICAgY29sb3I6IHZhcigtLWRhcmspO1xuICAgICAgICBib3JkZXItcmFkaXVzOiA0cHg7XG4gICAgICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICAgICAgZm9udC1zaXplOiAxNnB4O1xuICAgICAgICBmb250LWZhbWlseTogdmFyKC0tYm9keUZvbnQpO1xuICAgICAgICB0cmFuc2l0aW9uOiBhbGwgMC4ycyBlYXNlO1xuXG4gICAgICAgICY6aG92ZXIge1xuICAgICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgICAgIH1cblxuICAgICAgICAmOmFjdGl2ZSB7XG4gICAgICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKDFweCk7XG4gICAgICAgIH1cblxuICAgICAgICAvLyBTdHlsZSB0aGUgcmVzZXQgYnV0dG9uIGRpZmZlcmVudGx5XG4gICAgICAgICY6bnRoLWNoaWxkKDIpIHtcbiAgICAgICAgICB3aWR0aDogYXV0bztcbiAgICAgICAgICBwYWRkaW5nOiAwIDEycHg7XG4gICAgICAgICAgZm9udC1zaXplOiAxNHB4O1xuICAgICAgICB9XG4gICAgICB9XG4gICAgfVxuICB9XG59XG4iXX0= */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../prescript.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://dataofmen.github.io/index.xml"/></head><body data-slug="clippings/20260926-29meat-ai"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"></div><div class="center"><div class="page-header"><header><h2 class="page-title"><a href="..">dataofmen</a></h2><nav class="nav-links"><a href="/wiki" class="nav-link">wiki</a><a href="/garden" class="nav-link">garden</a><a href="/clippings" class="nav-link">clippings</a></nav><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 1rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>검색</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="검색어를 입력하세요" placeholder="검색어를 입력하세요"/><div class="search-layout" data-preview="true"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="다크 모드"><title>다크 모드</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="라이트 모드"><title>라이트 모드</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div></div></header><div class="popover-hint"><h1 class="article-title">@29meat_ai (にく):</h1><p show-comma="true" class="content-meta"><time datetime="2026-09-26T00:00:00.000Z">2026년 9월 26일</time><span>45 min read</span></p><ul class="tags"><li><a href="../tags/thread" class="internal tag-link">thread</a></li><li><a href="../tags/x.com" class="internal tag-link">x.com</a></li></ul></div></div><article class="popover-hint"><p>@29meat_ai (にく):</p>
+<p>Article: 海外AIガチ勢のCodex × Jev活用の教科書【最新版】</p>
+<p>必要なファイルを調べ、コードを書き、テストをして、問題があれば直す。その途中で何度も呼び戻されるより、完成したものを確認する方が助かります。</p>
+<p>でも、任せる範囲を広げることと、途中にあるすべての判断を同じAIへ集めることは、必ずしも同じではありません。</p>
+<p>「この依頼には、どのモデルを使う？」「次に読むべき情報はどれ？」「この結論を出すだけの証拠はそろった？」</p>
+<p>コードを書く仕事の周囲には、こうした選択や確認があります。そこだけを別の判断役へ渡し、Codexには調査や実装を続けてもらう。</p>
+<p>英語で公開されているJevとの連携には、この分業を試す実装が複数あります。</p>
+<p>面白いのは、「Codexより優秀なAIに乗り換える」という話ではないことです。Codexを使い続けながら、どこまでをCodex自身に判断させるかを変えています。</p>
+<p>ただし、接続すれば速くなる、安くなる、安全になる、という単純な話でもありません。</p>
+<p>公開された実装を読むと、判断を間違えたときの戻し方や、通信できないときの扱いまで、開発者ごとの違いが見えてきます。</p>
+<p>この記事では、製品の紹介よりも、その分け方を追います。</p>
+<p>2026年9月20日時点の公式文書、公開リポジトリ（コードや関連資料の保管場所）、実験報告に基づくもので、筆者自身がすべての構成を動かして測定した記事ではありません。</p>
+<p>Codexは、もともと返事だけをする仕組みではありません。</p>
+<p>OpenAIは2025年5月の発表時点でも、ファイルの読み書きやコマンド実行、テストを繰り返しながら作業する仕組みを説明していました。</p>
+<p>AIエージェントとは、ここでは、依頼に対してツールを使いながら作業を進める仕組みのことです。</p>
+<p>また、Codexは特定のモデル一つの名前として扱うより、モデルと実行環境を組み合わせて仕事を進めるシステムとして捉えた方が、今回の連携を理解しやすくなります。</p>
+<p>そのうえで、たとえば同じプロジェクトでも、「誤字を一つ直して」と「不具合の原因を調べ、関連する設計も見直して」では、求められる仕事が違います。</p>
+<p>前者にも後者にも、毎回同じモデル、同じ思考設定、同じ確認手順を使う。それで問題なく進むなら、わざわざ複雑にする必要はありません。</p>
+<p>一方、細かな依頼が大量に来るなら、難しい仕事だけに厚く処理を割り当てる余地があります。</p>
+<p>反対に、一見簡単な変更でも影響範囲が大きいなら、確認を増やした方がよいかもしれません。</p>
+<p>この振り分けを人間が毎回行う代わりに、別の判断層へ任せる。その具体例が、Jevを使ったルーターです。</p>
+<p>ルーターとは、依頼を見て、適切な処理先へ振り分ける仕組みを指します。</p>
+<p>ここで考えたいのは、AIにできることを減らすかどうかではありません。</p>
+<p>「その仕事ができる」と「毎回、そのAIに担当させるべき」は別だということです。</p>
+<p>優秀なモデルを使わないための工夫ではなく、必要な場面で使うための工夫。こう捉えると、Codexの能力を評価する話と、周囲の処理を設計する話を混同せずに済みます。</p>
+<p>JevはTypeSafe AIが2026年9月15日に発表した、判断に特化したモデルです。</p>
+<p>公式にはSystem One Modelと呼ばれ、自由な文章を生成するのではなく、与えられた情報に対して、形式の決まった判断を返します。</p>
+<p>基本となる質問形式には、候補から一つを選ぶChoice、段階的な評価を返すScore、ある条件が成立する確率を返すNoulがあります。</p>
+<p>順位付けなどは、こうした評価を組み合わせて構成します。</p>
+<p>たとえば、Codexへ「問い合わせ対応の仕組みを作って」と頼むとします。これは、入力項目や処理の流れを考え、必要なコードを作る仕事です。</p>
+<p>対して、出来上がった仕組みの中で「この問い合わせを、操作案内・不具合調査・契約確認・人への確認のどこへ送るか」を選ぶなら、返す候補を先に決めておけます。</p>
+<p>こちらがJevへ切り出す仕事の例です。</p>
+<p>前者では、まだ存在しない手順やコードを作ります。後者では、用意された選択肢と現在の情報を照らし合わせます。</p>
+<p>ただし、「選ぶだけだから、考えなくていい」と受け取るのは早計です。問い合わせの意味が曖昧だったり、複数の条件が絡んだりすれば、選択も難しくなります。</p>
+<p>記事でいう「考えなくていい仕事を切り離す」とは、判断から知性をなくすことではありません。自由な文章生成を必要としない判断を、別の処理として扱うという意味です。</p>
+<p>役割を整理すると、計画やコード生成はCodex側、限定された選択や評価はJev側。</p>
+<p>その結果に従って実行する処理や、必ず守る制限はコード側へ置き、必要な承認を人間へ戻す、という分け方になります。</p>
+<p>TypeSafeの設計資料も、処理の流れと実際の操作をコードで管理する方針です。</p>
+<p>また、返された確信度は、正解を保証する数字ではありません。</p>
+<p>公式文書ではChoiceとScoreのconfidenceを出力確率の分布から計算する指標として説明しており、Noulには同じconfidence項目を付けていません。</p>
+<p>もう一つ、判断する材料は使う側が用意します。</p>
+<p>たとえば「この問い合わせは緊急か」と聞くなら、問い合わせ文だけで足りるのか、停止しているサービスや影響人数も必要なのかを考えます。</p>
+<p>材料を増やせば済むわけでもありません。</p>
+<p>今回の判断と関係のない情報まで渡すより、何を根拠に選んでほしいのかを決め、その情報をそろえる方が、検証する対象をはっきりさせられます。</p>
+<p>「自信あり」と出たからそのまま実行するのではなく、どんな入力なら当たり、どんな入力なら間違えるかを確かめる。その前提は、判断専用のモデルになっても変わりません。</p>
+<p>具体的な実装として、gargpratyush氏の「jev-router」があります。</p>
+<p>CodexやClaude Codeのコマンドライン版、つまりターミナルから操作する版の手前に入り、新しいユーザー指示に応じて使用モデルを振り分ける仕組みです。</p>
+<p>公開README（導入方法や仕様を説明する文書）では、Fast・Balanced・Strong・Longという分類が用意されています。</p>
+<p>ただし、ツールを一回呼ぶたびにモデルを取り替えるわけではありません。新しい指示で判断し、その後の処理の継続中は選択を維持する設計です。</p>
+<p>ここを「JevがCodexの一挙手一投足を指揮する」と説明すると、実装以上の話になります。判断する場所は、新しい仕事を受け取るところに置かれています。</p>
+<p>この形なら、依頼した人が毎回「今回は軽いモデルで十分かな」と選び直す作業を、仕組みの側へ移せます。</p>
+<p>ただし、どの分類に何を割り当てるかは、ルーターを作る側の設計です。</p>
+<p>別の公開例「jev-codex-router」では、モデルだけでなく、思考の深さに関わるreasoning effortと、処理速度に関わるservice tierも選択対象にしています。</p>
+<p>こちらは0xNatoshi氏による第三者実装で、OpenAIの標準機能ではありません。</p>
+<p>同じモデルでも、どの設定で動かすかまで変える。単に「安いAIか、高いAIか」の二択ではなく、依頼に割り当てる処理の組み合わせを選んでいます。</p>
+<p>この作者は、7日分・237ターンの利用ログを使った再計算で、全ターンを最上位モデルへ送る想定に比べ、約60％のコスト削減を報告しました。</p>
+<p>ただし、これは実際にモデルを切り替えて全作業をやり直した結果ではなく、元の利用量を基にAPIの料金へ換算したバックテストです。</p>
+<p>APIは、ソフトから別のサービスの機能を呼び出す窓口です。バックテストでは、過去のデータへ別のルールを当てはめます。</p>
+<p>この報告では、AIが文章を処理する単位であるトークンの量を一定として扱っています。</p>
+<p>また、過去の入力を再利用するキャッシュが、モデル変更によって使えなくなる影響は計算に含めていません。</p>
+<p>切り替え後も同じ品質で完成することを確かめた検証でもありません。</p>
+<p>したがって、「Codexの月額料金が6割安くなる」「同じ成果を必ず6割安く出せる」とは書けません。</p>
+<p>読み取れるのは、この作者の仕事の配分と計算条件では、使用先の変更に大きな費用差が生じた、ということです。</p>
+<p>自分の作業で考えるなら、比較すべきなのは一回の応答料金だけではありません。安い処理へ振り分けた結果、修正依頼が増えたら、完成までの手間は別の数字になります。</p>
+<p>なお、このリポジトリは9月19日にアーカイブ化され、読み取り専用になっています。</p>
+<p>設計の参考にはなりますが、今から導入する第一候補として無条件に勧められる状態ではありません。</p>
+<p>判断役の応答が速くても、仕組み全体が同じだけ速くなるとは限りません。追加の通信や、間違った振り分けからのやり直しも含めて、依頼から完成までを測る必要があります。</p>
+<p>この章の面白さは「約60％」よりも、最上位モデルへ全部送る前に、仕事の振り分けを独立させていることにあります。</p>
+<p>次は、使う道具の選択です。ここでの「100個」は説明用の仮例で、特定のCodex実験の条件ではありません。</p>
+<p>仮に、情報を検索する、ファイルを読む、表を作る、画像を加工するなど、100種類のツールが使えるとします。</p>
+<p>全部の説明を毎回並べて選ばせる方法もありますが、先に候補を絞るという設計も考えられます。</p>
+<p>ただし、道具の名前を選んだら仕事が終わるわけではありません。たとえば検索を使うと決めても、何を調べ、どの条件を指定し、結果をどう解釈するかは残っています。</p>
+<p>そこで、候補の選択と、その道具を使って仕事を進める処理を分けます。前者をJevのような判断役へ渡し、後者は生成モデルへ残す、という分業です。</p>
+<p>近い具体例として、TypeSafeの公式サンプルに「Skill suggestion」があります。対象はCodexではなく、Hermesというエージェントの182種類のスキルです。</p>
+<p>スキルは、特定の作業の進め方をまとめた再利用可能な指示で、個々のツールとは区別されます。</p>
+<p>この例は、まず全候補を評価し、次に上位3件の詳しい説明を確認します。そのうえで一つを勧めるか、適切なものがないと判断します。</p>
+<p>元のスキル一覧は残し、エージェントへ追加の推薦を伝える形です。</p>
+<p>つまり、「182個を全部消して、Jevが選んだ一つだけを強制する」実装ではありません。選択を補助しながら、作業する側にも判断を残しています。</p>
+<p>この違いは、自分の仕組みを考えるときにも役立ちます。候補を絞る、順番を変える、おすすめを添える、選んだもの以外は使えなくする。</p>
+<p>この四つは、似ているようで制約の強さが違います。</p>
+<p>先ほどの問い合わせの例でも、「操作案内が有力です」と伝えるのと、「操作案内以外には送れません」と制限するのでは、誤分類したときの影響が変わります。</p>
+<p>初めて切り出すなら、いきなり選択を固定するより、推薦だけを返して元の判断と比較する方法が考えられます。</p>
+<p>正しく振り分けられたケースと、別の候補が必要だったケースを見れば、どこまで任せるかを決めやすくなります。</p>
+<p>そして、候補の中に正解がない場面を忘れないことです。</p>
+<p>「どれも合わない」を返せるだけでなく、その後に追加調査するのか、人へ戻すのかまで決めて、初めて選択の仕組みになります。</p>
+<p>性能の数字まで報告されている例が、SREGymの実験です。SREは、サービスを安定して動かし、障害から復旧させるための技術領域を指します。</p>
+<p>9月17日の報告では、Codexの実行枠組みと「gpt-5.6-luna」を使い、SREGym-Liteから選んだ10問題を比較しています。</p>
+<p>各問題を両条件で5回ずつ試し、Jevなしは20/50成功、Jevありは24/50成功でした。40％から48％への変化で、それぞれ50回、合計100回の試行です。</p>
+<p>Jevの役割は二つあります。エージェントが考えた複数の原因候補について、どの診断テストを行うかを順位付けすること。</p>
+<p>そして、診断や復旧結果を提出する前に、根拠を確認することです。実際の調査や修復は、エージェント側が担当しました。</p>
+<p>結果は、改善4件、悪化2件、変化なし4件でした。サービスの接続対象が誤って設定された問題では、成功数が3/5から1/5へ下がっています。</p>
+<p>測ったのは成功率であり、診断時間ではありません。「JevでCodexの開発が速くなった」という証拠に置き換えることはできません。</p>
+<p>ここから先は、この実験を設計の参考としてどう読むか、という話です。</p>
+<p>たとえば、サービスが止まった理由を調べる際に、「認証の問題」「接続先の間違い」「設定の不整合」という候補が出たとします。</p>
+<p>それぞれを確認する方法を作る役と、今の証拠からどれを先に試すかを評価する役は、分けられます。</p>
+<p>さらに、修正後に画面が一度表示されたとしても、それだけで原因を取り除けたと判断するかは別です。</p>
+<p>一時的に動いただけなのか、同じ条件でも再発しないのかを確認する必要があります。</p>
+<p>一度動いたことと、原因を解消したことを「テストが通ったから完了」とまとめず、実装と提出判断の間に確認を置く。記事で注目したいのは、その作り方です。</p>
+<p>一方で、候補を考える側が本当の原因を挙げていなければ、順位付けだけではそこへたどり着けません。</p>
+<p>レビュー担当が追加されても、渡された材料が欠けていれば、確認できる範囲には限界があります。</p>
+<p>だから、別のAIが賛成したこと自体を、検証が終わった証拠にしない。確認役の回答より、何を実行し、何が観測され、どこまで確かめられたかを見るべきです。</p>
+<p>作った人と確認する人を分ける、という発想は使えます。ただ、確認役を増やした数だけ正しさが増えるわけではありません。</p>
+<p>同じ分業は、安全確認にも使われています。</p>
+<p>leepokai氏の「jev-guard」は、ツールを使う前後の情報をJevへ渡し、危険な操作や、外部の文章に紛れた不正な指示などを評価する第三者プロジェクトです。</p>
+<p>後者はプロンプトインジェクションと呼ばれます。たとえば、読ませた資料の中に、利用者の依頼とは無関係な操作をAIへ行わせる指示が混ざっているようなケースです。</p>
+<p>ただ、この実装を見て「Codexの安全装置が完成した」と受け取ると、肝心な点を落とします。</p>
+<p>公開READMEでは、実際のAPIを通した一連の動作確認はClaude CodeとOpenCodeで行い、Codexなどは対応する入力形式の確認だと区別されています。</p>
+<p>また、このCodex向けアダプターでは、確認を求める「ask」が警告として扱われます。人間の承認まで必ず停止するという意味ではありません。</p>
+<p>さらに、APIのエラー時に処理を通すfail-openが初期設定です。</p>
+<p>fail-openとは、判定機能が使えない場合でも処理を続ける方式で、止める側へ倒す設定も別途用意されています。</p>
+<p>ここから分かるのは、「危険度を返すAI」と「実際に操作を制限する仕組み」を一緒に考えない方がよい、ということです。</p>
+<p>Jevが危険だと評価しても、受け取る側が警告を表示するだけなら、操作は止まりません。</p>
+<p>反対に、通信が失敗したというだけで毎回全作業を止めれば、業務を進めにくくなる場面もあるでしょう。</p>
+<p>どちらが正しいかは、対象の操作によります。読み取り専用の検索と、本番データの削除を、同じエラー処理にする必要はありません。</p>
+<p>私なら、外部送信や取り消しにくい変更は、AIの判定とは別に権限で制限します。そのうえでJevを、追加の注意信号を出す役として評価します。</p>
+<p>なお、TypeSafe自身のモデル特性資料にも、敵対的な指示を含む入力に影響される可能性が記載されています。</p>
+<p>「生成AIを監視する判断モデルだから、指示による誘導を受けない」とは扱えません。</p>
+<p>安全性を高めたいなら、判断モデルの追加だけでなく、入力をどこへ送るか、何を実行できるか、失敗時に止まるかをセットで確認する。</p>
+<p>ここは、実装の紹介記事でこそ省かない方がよい部分です。</p>
+<p>次はコンテキストです。コンテキストとは、AIがその時点で判断するために参照する、指示や会話、ツールの結果などの情報を指します。</p>
+<p>TypeSafeも、判断対象へ渡す情報をstateとして明示する構成を取っています。</p>
+<p>長い作業を想像してみてください。最初に読んだ設定、その後に変更した内容、失敗したテスト、修正後に成功したテスト。</p>
+<p>全部を同じ重みで残すより、今の判断に必要なものを見分けたい場面があります。</p>
+<p>この選別をJevへ任せる例が、tamaratran氏の「fast-jev-compaction」です。これはClaude Code向けの実装で、Codexの標準機能ではありません。</p>
+<p>公開READMEによると、ユーザーとアシスタントの文章は保持し、ツール呼び出しと結果の組を、残す・短くする・落とす対象として扱います。</p>
+<p>Jevによる評価を使い、文章全体を別の要約へ書き直す方法とは異なる選別を行います。</p>
+<p>この例から考えられるのは、記憶の整理にも複数の方法があるということです。短く言い換える方法と、原文を残す部分を選ぶ方法では、失う情報の種類が違います。</p>
+<p>ただし、「古い情報＝不要」ではありません。たとえば、現在は成功しているテストだけ残したら、前の失敗から分かった再発条件まで消えてしまう可能性があります。</p>
+<p>反対に、すでに無効になった設定を残し続ければ、今の状態と取り違えるかもしれません。どちらを残すかは、単に文章の長さだけでは決められません。</p>
+<p>私がこの仕組みを試すなら、まず、利用者が指定した禁止事項や、採用した設計の理由、再現手順を、消さない情報として扱います。</p>
+<p>そのうえで、途中の大量ログなどから選別を試します。</p>
+<p>また、作業中のコンテキストから外すことと、元の記録を消去することは分けます。</p>
+<p>後から必要になったときに読み直せるなら、取り返しのつかない情報損失を避けられるからです。</p>
+<p>選別役を置く価値は、残す量が減ったかだけでは測れません。必要な証拠を使って正しく仕事を続けられたかまで見て、初めて整理が成功したと言えます。</p>
+<p>ここまでの分業を、作業全体の監督へ広げた実験が「Foreman」です。</p>
+<p>thruwire氏の公開プロジェクトで、Codex側が実装を進め、その作業状況を別のJev評価ループが観察する構成です。</p>
+<p>見るのは、進捗があるか、要求から外れていないか、行き詰まっていないか、確認へ進めるか、といった状態です。</p>
+<p>ただし、Jevが自由に指示を生成して全体を動かすわけではありません。評価を受けて、続行・方向修正・停止・検証などを決めるのは、Pythonで書かれたルール側です。</p>
+<p>ここで使われるHarnessは、モデルに情報を渡し、ツールを実行し、状態や制限を管理する外側の仕組みのことです。</p>
+<p>モデルの性能そのものより、モデルをどう働かせるかの設計だと考えると分かりやすくなります。</p>
+<p>Foremanの資料は、実験の到達点も明確にしています。</p>
+<p>構成として動かせることを示すものであり、成功率、速度、費用、安全性が通常の構成より改善すると証明したものではありません。</p>
+<p>それでも、作業する役と監督する役の分け方は参考になります。</p>
+<p>たとえば、同じ修正を繰り返している兆候を評価し、決められた回数を超えたら止める、という設計なら、状態の解釈と停止条件を分けられます。</p>
+<p>「行き詰まって見えるか」は意味を読む判断です。一方、「試行回数の上限を超えたか」は、回数を記録すれば確認できます。</p>
+<p>後者まで毎回AIへ尋ねる必要はありません。</p>
+<p>TypeSafeの資料も、厳密な計算や数え上げなどをモデルの得意分野とはしていません。条件を明確に書ける処理はコードへ残す、という線引きが必要です。</p>
+<p>また、LangChainは9月17日にJevを組み込むHarnessの解説を公開し、モデルの振り分けや実行前の確認へ使う構成を紹介しています。</p>
+<p>個人の一つのデモだけではなく、エージェント開発の道具側にも組み込み方が出ているわけです。</p>
+<p>ただし、これを「海外では、もう全員がこの構成に変えた」と広げる根拠はありません。</p>
+<p>今回確認できたのは、複数の公開実装が、生成の周囲にある判断を別の処理として扱っていることです。</p>
+<p>分業自体が突然発明されたのでもありません。Jevという判断役を使って、どこまで切り分けると役立つのかを、公開された実装で検討できる。</p>
+<p>現時点では、そのくらいの捉え方が適切です。</p>
+<p>では、CodexとJevを組み合わせる仕組みを、個人でも作れるのか。</p>
+<p>公開された部品と公式の開発支援があるので、試作品を作るための入口はあります。</p>
+<p>ただし、「プロンプトを一つ貼れば、いつものCodexが自動で全判断をJevへ渡す」という公式機能を紹介しているわけではありません。</p>
+<p>まず触るなら、TypeSafeのQuick startで案内されているPlaygroundが候補です。ブラウザ上で判断材料と質問を用意し、どのような結果が返るかを確かめられます。</p>
+<p>開発へ進む場合は、TypeSafeが公開している公式のAgent Skillもあります。CodexなどにJevのAPIや設計パターンを参照させ、実装を支援するための指示です。</p>
+<p>公式文書には、次の導入コマンドが掲載されています。</p>
+<p>npx skills add typesafe-ai/skills —skill typesafe-ai</p>
+<p>これはJevを使うコードを書くための知識を渡すもので、導入した瞬間にAPI利用権が付いたり、すべての処理が自動で分業されたりするものではありません。</p>
+<p>インストール先や対象エージェントも確認したうえで扱います。</p>
+<p>接続用の別案には、itsmostafa氏の「typesafe-mcp」があります。MCPは、AIと外部のツールやデータをつなぐための共通方式です。</p>
+<p>この第三者実装は、状態と質問を渡してJevの評価を得るツールを、Codexなどから呼べるようにします。</p>
+<p>ここでも、「呼び出せるようにする」と「いつ必ず呼び出すかを決める」は別です。必要な時点で評価が行われるようにするには、仕事の流れへ組み込む設計が残っています。</p>
+<p>私なら、最初の試作はモデル切り替えでも危険操作の承認でもなく、作業の種類を分類して、結果を表示するだけの仕組みにします。</p>
+<p>たとえば、先ほどの問い合わせ対応を題材に、操作案内・不具合調査・契約確認・要確認という候補を作ります。</p>
+<p>Jevの選択を表示するだけにして、実際の返信や外部送信は行いません。</p>
+<p>Codexへ渡す指示も、最初は次の範囲に絞れます。これは公式のサンプルではなく、この記事で考えた試作用の依頼例です。</p>
+<p>TypeSafeの公式ドキュメントを参照して、問い合わせを4種類に分類する小さな試作を作ってください。</p>
+<p>分類先は「操作案内」「不具合調査」「契約確認」「要確認」です。Jevには分類だけを任せ、返された結果を表示してください。</p>
+<p>返信、ファイル変更、外部サービスの操作へつながる機能は付けません。</p>
+<p>APIキーはコードに書かず、送るのは試験用の架空データだけにしてください。判断が曖昧な場合や通信エラー時は、無理に分類せず要確認に戻してください。</p>
+<p>入力、期待した分類、実際の分類、所要時間を比較できるテストを用意してください。まず外部APIを呼ばない模擬テストを作り、実際に呼ぶ前に送信内容を示してください。</p>
+<p>ここまでなら、分類を間違えても、そのまま誰かへ誤った返信が送られる構成にはしていません。まず選択の癖を見て、使える範囲が分かってから、後ろの処理をつなげます。</p>
+<p>試すデータには、分かりやすい依頼だけでなく、「不具合なのか操作方法の問題なのか判断できない」「契約の相談と技術的な質問が混ざっている」といったケースも入れます。</p>
+<p>都合のよい例だけ通っても、日常の依頼を任せる判断材料にはなりません。</p>
+<p>利用条件も切り分けて確認が必要です。Jevは早期アクセスとして発表され、公式サイトにはウェイトリストの案内があります。</p>
+<p>APIキーの発行や利用条件を確認せず、日本から誰でも同じ手順ですぐ使えるとは断定できません。</p>
+<p>Codexを使える契約と、TypeSafeのAPIを使えることも別です。</p>
+<p>連携例では別途TypeSafeの認証情報を設定するため、Jev側の料金や利用上限を、ChatGPTの月額プランに含まれるものとして扱わないようにします。</p>
+<p>日本語で使うなら、もう一つ確認があります。TypeSafeのモデル資料は英語を主な学習言語としており、日本語などでも、英語と同じ精度を前提にしないよう説明しています。</p>
+<p>英語のデモがうまく動くことと、自分の日本語の依頼を正しく振り分けられることは別です。</p>
+<p>継続して使う段階では、質問文だけでなく、利用したモデルの版も記録します。</p>
+<p>公式資料では、jev-latestのような名前が新しい版を指すようになると、同じ呼び出し方でも回答が変わり得ると説明しています。</p>
+<p>比較に使った版を残せば、設定変更とモデル更新の影響を分けて調べられます。</p>
+<p>接続に成功するところまでなら、一つの通過点です。その先で、どの種類の誤りが減り、何が増えたかを比べて、残す価値のある分業かを判断します。</p>
+<p>ここまでの実装を見て、私が面白いと感じるのは、Codexに代わる主役を探しているわけではないことです。</p>
+<p>モデルを選ぶ。候補を勧める。</p>
+<p>根拠を確認する。残す情報を選ぶ。</p>
+<p>生成AIにまとめて任せられる処理をいったん分け、どの部分なら別の判断役を置けるかを試しています。</p>
+<p>とはいえ、仕事を細分化すればするほど優れた仕組みになる、という話ではありません。</p>
+<p>部品を増やすなら、その間で何を渡すか、判断が食い違ったらどうするか、故障したらどこへ戻すかも決める必要があります。</p>
+<p>一つのCodexで十分に仕事が進むなら、その単純さを捨てる理由はありません。</p>
+<p>反対に、同じ選択を大量に繰り返していたり、提出前の確認が弱かったりするなら、その部分だけを切り出して比べる価値があります。</p>
+<p>Codexが賢くなったからこそ、全部をCodexに考えさせる必要はない。</p>
+<p>これは、Jevを足せば必ず性能が上がるという結論ではありません。高性能な生成モデルを使うことと、すべての処理を一つに集めることを、分けて考えられるという話です。</p>
+<p>プロンプトを書く前に、依頼の中を見てみる。「新しく作ってほしい部分」「候補から選べる部分」「コードで確認できる条件」「人が決めるべき操作」を分けてみる。</p>
+<p>そのうち一か所を試作し、元のやり方と比べる。Codex × Jevを自分の仕事へつなげるなら、まずはそこからです。</p>
+<p>最初の一回を試したい方へ、オープンチャット「にくのAI爆速攻略」で、次の5点を無料配布しています。</p>
+<p>① Codex・Claude Code導入ガイド ② 初回コピペ3本 ③ 困ったときの早見表 ④ 作って遊べるミニアプリ50本 ⑤ GPT Image 2.5向け画像プロンプト50本</p>
+<p>👇５点セットの受け取りはこちら👇</p>
+<p><a href="https://x.gd/VtPmw" class="external">オープンチャット「にくのAI爆速攻略」に参加する<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<p>date: Sat Sep 19 22:00:06 +0000 2026</p>
+<p>url: <a href="https://x.com/29meat_ai/status/2101431162749264219" class="external">https://x.com/29meat_ai/status/2101431162749264219<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<p>likes: 245  retweets: 23  replies: 2</p>
+<hr/>
+<p><em>원문: <a href="https://x.com/29meat_ai/status/2101431162749264219?s=20" class="external">https://x.com/29meat_ai/status/2101431162749264219?s=20<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></em></p></article><hr/><div class="page-footer"><div class="backlinks"><h3>백링크</h3><ul id="list-1" class="overflow"><li><a href="../garden/20260926-ai-judge-needs-enforcement-boundary" class="internal">판단 AI를 추가해도 실행 경계가 없으면 안전장치가 되지 않는다</a></li><li><a href="../wiki/concepts/20260926-separate-generation-judgment-enforcement" class="internal">생성·판단·강제를 분리하는 에이전트 제어 구조</a></li><li><a href="../wiki/entities/20260926-jev-decision-model" class="internal">Jev — 제한된 판단을 반환하는 의사결정 모델</a></li><li class="overflow-end"></li></ul></div><div class="giscus" data-repo="dataofmen/quartz-wiki" data-repo-id="R_kgDOSOxrZA" data-category="General" data-category-id="DIC_kwDOSOxrZM4C-Edy" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-input-position="bottom" data-light-theme="light" data-dark-theme="dark" data-theme-url="https://dataofmen.github.io/static/giscus" data-lang="ko"></div></div></div><div class="right sidebar"><div class="graph desktop-only"><h3>그래프 뷰</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                  s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                  c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                  C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                  c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                  v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                  s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                  C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                  S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                  s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                  s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.5.2</a> © 2026</p><ul></ul></footer></div></div></body><script type="application/javascript" data-persist="true">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module" data-persist="true">function E(a,e){if(!a)return;function t(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function n(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}a?.addEventListener("click",t),window.addCleanup(()=>a?.removeEventListener("click",t)),document.addEventListener("keydown",n),window.addCleanup(()=>document.removeEventListener("keydown",n))}function f(a){for(;a.firstChild;)a.removeChild(a.firstChild)}var m=class{constructor(e,t){this.container=e;this.content=t;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),t=this.onMouseMove.bind(this),n=this.onMouseUp.bind(this),o=this.onTouchStart.bind(this),r=this.onTouchMove.bind(this),i=this.onTouchEnd.bind(this),s=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",t),document.addEventListener("mouseup",n),this.container.addEventListener("touchstart",o,{passive:!1}),document.addEventListener("touchmove",r,{passive:!1}),document.addEventListener("touchend",i),window.addEventListener("resize",s),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",t),()=>document.removeEventListener("mouseup",n),()=>this.container.removeEventListener("touchstart",o),()=>document.removeEventListener("touchmove",r),()=>document.removeEventListener("touchend",i),()=>window.removeEventListener("resize",s))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let t=this.createButton("+",()=>this.zoom(.1)),n=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(n),e.appendChild(o),e.appendChild(t),this.container.appendChild(e)}createButton(e,t){let n=document.createElement("button");return n.textContent=e,n.className="mermaid-control-button",n.addEventListener("click",t),window.addCleanup(()=>n.removeEventListener("click",t)),n}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}onTouchStart(e){if(e.touches.length!==1)return;this.isDragging=!0;let t=e.touches[0];this.startPan={x:t.clientX-this.currentPan.x,y:t.clientY-this.currentPan.y}}onTouchMove(e){if(!this.isDragging||e.touches.length!==1)return;e.preventDefault();let t=e.touches[0];this.currentPan={x:t.clientX-this.startPan.x,y:t.clientY-this.startPan.y},this.updateTransform()}onTouchEnd(){this.isDragging=!1}zoom(e){let t=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),n=this.content.getBoundingClientRect(),o=n.width/2,r=n.height/2,i=t-this.scale;this.currentPan.x-=o*i,this.currentPan.y-=r*i,this.scale=t,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){let t=this.content.querySelector("svg").getBoundingClientRect(),n=t.width/this.scale,o=t.height/this.scale;this.scale=1,this.currentPan={x:(this.container.clientWidth-n)/2,y:(this.container.clientHeight-o)/2},this.updateTransform()}},T=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],y;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;y||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let t=y.default,n=new WeakMap;for(let r of e)n.set(r,r.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let c=n.get(s);c&&(s.innerHTML=c)}let r=T.reduce((s,c)=>(s[c]=window.getComputedStyle(document.documentElement).getPropertyValue(c),s),{}),i=document.documentElement.getAttribute("saved-theme")==="dark";t.initialize({startOnLoad:!1,securityLevel:"loose",theme:i?"dark":"base",themeVariables:{fontFamily:r["--codeFont"],primaryColor:r["--light"],primaryTextColor:r["--darkgray"],primaryBorderColor:r["--tertiary"],lineColor:r["--darkgray"],secondaryColor:r["--secondary"],tertiaryColor:r["--tertiary"],clusterBkg:r["--light"],edgeLabelBackground:r["--highlight"]}}),await t.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let r=0;r<e.length;r++){let v=function(){let g=l.querySelector("#mermaid-space"),h=l.querySelector(".mermaid-content");if(!h)return;f(h);let w=i.querySelector("svg").cloneNode(!0);h.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new m(g,h)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},i=e[r],s=i.parentElement,c=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(c),L=c.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),E(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../postscript.js" type="module" data-persist="true"></script></html>
